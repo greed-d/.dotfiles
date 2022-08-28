@@ -36,6 +36,8 @@ require("packer").startup(function(use)
 	use("williamboman/nvim-lsp-installer")
 	use("windwp/nvim-autopairs")
 	use("arnamak/stay-centered.nvim")
+	use("voldikss/vim-floaterm")
+	use("airblade/vim-rooter")
 	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 end)
 
