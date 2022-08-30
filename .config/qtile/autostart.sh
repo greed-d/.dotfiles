@@ -6,3 +6,5 @@ cbatticon -u 5 &
 volumeicon &
 #nitrogen
 nitrogen --restore &
+#Discord
+discord & 
