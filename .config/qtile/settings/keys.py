@@ -45,12 +45,18 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "control"], "r", lazy.restart()),
 
     ([mod, "control"], "q", lazy.shutdown()),
+
+
     # ([mod], "r", lazy.spawncmd()),
 
     # ------------ App Configs ------------
 
     # Menu
     ([mod], "p", lazy.spawn("rofi -show drun")),
+
+    # BetterLockscreen
+    ([mod, "shift"], "l", lazy.spawn(
+        "betterlockscreen -l")),
 
     # Window Nav
     ([mod, "shift"], "p", lazy.spawn("rofi -show")),
