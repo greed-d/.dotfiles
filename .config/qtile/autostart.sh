@@ -1,6 +1,6 @@
 #!/bin/sh
 
-picom --experimental-backends &
+picom --experimental-backends --config ~/.config/picom/picom.conf.example &
 # systray battery icon
 cbatticon -u 5 &
 # systray volume
