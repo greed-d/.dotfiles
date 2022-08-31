@@ -1,5 +1,7 @@
 from libqtile.config import Key
 from libqtile.command import lazy
+from libqtile.core import manager
+from libqtile import qtile
 
 
 mod = "mod4"
@@ -74,8 +76,10 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Screenshot
     ([mod], "s", lazy.spawn("scrot")),
     ([mod, "shift"], "s", lazy.spawn("scrot -s")),
-    ([mod], "m", lazy.spawn(
-        "pamixer --source alsa_input.pci-0000_04_00.6.analog-stereo -t")),
+
+    # mute mic
+    ([mod], "m", lazy.spawn("/home/greed/.dotfiles/.config/qtile/toggle_mic.sh")),
+
 
     # ------------ Hardware Configs ------------
 
