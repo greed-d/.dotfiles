@@ -1,9 +1,3 @@
-# Antonio Sarosi
-# https://youtube.com/c/antoniosarosi
-# https://github.com/antoniosarosi/dotfiles
-
-# Theming for Qtile
-
 from os import path
 import subprocess
 import json
@@ -21,7 +15,6 @@ def load_theme():
     else:
         with open(config, "w") as f:
             f.write(f'{{"theme": "{theme}"}}\n')
-
 
     theme_file = path.join(qtile_path, "themes", f'{theme}.json')
     if not path.isfile(theme_file):
