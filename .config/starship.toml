@@ -18,8 +18,8 @@ min_time = 10
 
 [directory]
 truncation_length = 5
-format = "[$path]($style)[$lock_symbol]($lock_style) "
 read_only = " "
+format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [git_branch]
 format = " [$symbol$branch]($style) "
@@ -68,7 +68,11 @@ symbol = ""
 
 [username]
 style_user = "bold dimmed blue"
-show_always = false
+format = "[$user]($style) @ "
+show_always = true
+
+[time]
+disabled = false
 
 [aws]
 symbol = "  "
