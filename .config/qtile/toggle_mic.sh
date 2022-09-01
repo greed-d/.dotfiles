@@ -5,9 +5,9 @@ state=`amixer -D pulse sset Capture toggle | gawk 'match($0, /Front Left.*\[(.*)
 micStatus=""
 if [ $state = "off" ]; then
   micStatus="OFF"
-  icon="~/.dotfiles/icons/microphone-disabled-symbolic.svg"
+  icon="~/icons/microphone-disabled-symbolic.svg"
 else
   micStatus="ON"
-  icon="~/.dotfiles/icons/audio-input-microphone-symbolic.svg"
+  icon="~/icons/audio-input-microphone-symbolic.svg"
 fi
 notify-send --hint=int:transient:1 -t 800 -i $icon "MIC STATUS : $micStatus"
