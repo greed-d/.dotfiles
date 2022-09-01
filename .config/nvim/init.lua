@@ -38,6 +38,7 @@ require("packer").startup(function(use)
 	use("arnamak/stay-centered.nvim")
 	use("voldikss/vim-floaterm")
 	use("airblade/vim-rooter")
+	use("stevearc/stickybuf.nvim")
 	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 end)
 
