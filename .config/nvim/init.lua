@@ -39,6 +39,7 @@ require("packer").startup(function(use)
 	use("voldikss/vim-floaterm")
 	use("airblade/vim-rooter")
 	use("stevearc/stickybuf.nvim")
+	use("Mofiqul/dracula.nvim")
 	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 end)
 
@@ -125,7 +126,7 @@ require("presence"):setup({
 })
 
 vim.g.catppuccin_flavour = "mocha"
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme dracula")
 
 local db = require("dashboard")
 db.custom_header = {
