@@ -78,7 +78,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "s", lazy.spawn("scrot -s")),
 
     # mute mic
-    ([mod], "m", lazy.spawn("/home/greed/.dotfiles/.config/qtile/toggle_mic.sh")),
+    ([mod], "m", lazy.spawn("/home/greed/.dotfiles/.config/qtile/mic_toggle.sh")),
 
 
     # ------------ Hardware Configs ------------
