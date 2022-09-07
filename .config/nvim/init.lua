@@ -16,6 +16,7 @@ require("packer").startup(function(use)
 	use("andweeb/presence.nvim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("glepnir/dashboard-nvim")
+	use({ "ellisonleao/gruvbox.nvim" })
 	use("kdheepak/lazygit.nvim")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/nvim-cmp")
@@ -126,9 +127,22 @@ require("presence"):setup({
 	presence_reading_text = "Reading  « %s »",
 	presence_workspace_text = "Working on « %s »",
 })
-
-vim.g.catppuccin_flavour = "mocha"
-vim.cmd("colorscheme dracula")
+require("gruvbox").setup({
+	undercurl = true,
+	underline = true,
+	bold = true,
+	italic = true,
+	strikethrough = true,
+	invert_selection = false,
+	invert_signs = false,
+	invert_tabline = false,
+	invert_intend_guides = false,
+	inverse = true, -- invert background for search, diffs, statuslines and errors
+	contrast = "", -- can be "hard", "soft" or empty string
+	overrides = {},
+})
+vim.g.catppuccin_flavour = "macchiato"
+vim.cmd("colorscheme catppuccin")
 
 local db = require("dashboard")
 db.custom_header = {
