@@ -168,7 +168,7 @@ color_schemes:
 
 
 
-  macchiato: &frappe
+  macchiato: &macchiato
 
     # Default colors
     primary:
@@ -334,7 +334,7 @@ color_schemes:
 
 
 
-colors: *frappe
+    colors: *frappe
 
 font:
   normal:
