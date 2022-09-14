@@ -35,10 +35,11 @@ require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 	-- use "simrat39/rust-tools.nvim"
 	use("tpope/vim-commentary")
-	use("williamboman/nvim-lsp-installer")
 	use("windwp/nvim-autopairs")
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 	use("arnamak/stay-centered.nvim")
-	use("voldikss/vim-floaterm")
+	use("akinsho/toggleterm.nvim")
 	use("airblade/vim-rooter")
 	use("stevearc/stickybuf.nvim")
 	use("Mofiqul/dracula.nvim")
@@ -72,7 +73,6 @@ vim.keymap.set("n", "<Leader>/", ":nohlsearch<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>y", ":%y<CR>")
 vim.keymap.set("n", "k", 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
 vim.keymap.set("n", "j", 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
-vim.keymap.set("n", "<Leader>l", ":vsplit term://fish <CR>", { silent = true })
 vim.keymap.set("t", "<Leader><Esc>", "<C-\\><C-n>", { silent = true })
 vim.keymap.set("n", "<Leader>v", ":edit ~/.config/nvim/init.lua<CR>", { silent = true })
 
@@ -127,21 +127,7 @@ require("presence"):setup({
 	presence_reading_text = "Reading  « %s »",
 	presence_workspace_text = "Working on « %s »",
 })
-require("gruvbox").setup({
-	undercurl = true,
-	underline = true,
-	bold = true,
-	italic = true,
-	strikethrough = true,
-	invert_selection = false,
-	invert_signs = false,
-	invert_tabline = false,
-	invert_intend_guides = false,
-	inverse = true, -- invert background for search, diffs, statuslines and errors
-	contrast = "", -- can be "hard", "soft" or empty string
-	overrides = {},
-})
-vim.g.catppuccin_flavour = "macchiato"
+vim.g.catppuccin_flavour = "mocha"
 vim.cmd("colorscheme catppuccin")
 
 local db = require("dashboard")
@@ -222,57 +208,6 @@ cmp.setup({
 	sources = { { name = "nvim_lsp" }, { name = "luasnip" } },
 })
 
-local servers = {
-	"bashls",
-	"clangd",
-	"cssls",
-	--"gopls",
-	"html",
-	"pyright",
-	-- "rust_analyzer",
-	"sumneko_lua",
-	"tailwindcss",
-	"tsserver",
-}
-local has_formatter = { "html", "sumneko_lua", "tsserver", "pyright" }
-for _, name in pairs(servers) do
-	local found, server = require("nvim-lsp-installer").get_server(name)
-	if found and not server:is_installed() then
-		print("Installing " .. name)
-		server:install()
-	end
-end
-local setup_server = {
-	sumneko_lua = function(opts)
-		opts.settings = { Lua = { diagnostics = { globals = { "vim" } } } }
-	end,
-}
-require("nvim-lsp-installer").on_server_ready(function(server)
-	local opts = {
-		on_attach = function(client, bufnr)
-			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-			local opts = { buffer = bufnr }
-			vim.keymap.set("n", "<Leader>h", vim.lsp.buf.hover, opts)
-			vim.keymap.set("n", "<Leader>i", vim.lsp.buf.definition, opts)
-			vim.keymap.set("n", "<Leader>r", vim.lsp.buf.rename, opts)
-			local should_format = true
-			for _, value in pairs(has_formatter) do
-				if client.name == value then
-					should_format = false
-				end
-			end
-			if not should_format then
-				client.resolved_capabilities.document_formatting = false
-			end
-		end,
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-	}
-	if setup_server[server.name] then
-		setup_server[server.name](opts)
-	end
-	server:setup(opts)
-end)
-
 local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
@@ -295,6 +230,8 @@ require("gitsigns").setup({
 		changedelete = { text = "~" },
 	},
 })
+
+local lspconfig = require("lspconfig")
 
 local cp = require("catppuccin.palettes.init").get_palette()
 local custom_catppuccin = require("lualine.themes.catppuccin")
@@ -378,9 +315,69 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 })
 
+require("toggleterm").setup({
+	size = 13,
+	open_mapping = [[<Leader>l]],
+	shade_filetypes = {},
+	shade_terminals = true,
+	shading_factor = "1",
+	start_in_insert = true,
+	persist_size = true,
+	direction = "float",
+	float_opts = {
+		border = "curved",
+		winblend = 3,
+	},
+})
 -- require("rust-tools").setup {}
 
 vim.keymap.set({ "n", "v" }, "<Leader>c", ":Commentary<CR>", { silent = true })
+
+require("mason").setup({})
+
+local servers = {
+	"bashls",
+	"clangd",
+	"cssls",
+	"gopls",
+	"html",
+	"pyright",
+	-- "rust_analyzer",
+	"sumneko_lua",
+	"tailwindcss",
+	"tsserver",
+}
+
+local has_formatter = { "gopls", "html", "rust_analyzer", "sumneko_lua", "tsserver", "bashls" }
+require("mason-lspconfig").setup({
+	ensure_installed = servers,
+	automatic_installation = true,
+})
+local opts = {
+	on_attach = function(client, bufnr)
+		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+		local opts = { buffer = bufnr }
+		vim.keymap.set("n", "<Leader>h", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "<Leader>i", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "<Leader>r", vim.lsp.buf.rename, opts)
+		local should_format = true
+		for _, value in pairs(has_formatter) do
+			if client.name == value then
+				should_format = false
+			end
+		end
+		if not should_format then
+			client.resolved_capabilities.document_formatting = false
+		end
+	end,
+	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+}
+for _, server in pairs(servers) do
+	if server == "sumneko_lua" then
+		opts.settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+	end
+	lspconfig[server].setup(opts)
+end
 
 require("nvim-autopairs").setup({})
 
