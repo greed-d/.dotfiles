@@ -34,11 +34,16 @@ end
 #End of bang bang
 
 alias ls "exa -a --icons"
-alias ll "exa -lah --icons"
+alias ll "exa -lah --icons --group-directories-first"
 alias wl "nmcli device wifi list"
 alias cw "echo 'nmcli device wifi connect SSID password PW'"
 alias sw "nmcli device wifi show"
+alias .. "cd .."
 
 neofetch --config ~/dotfiles/neofetch/config2.conf
 
+function fish_greeting
+    echo Hello $USER!
+    echo You logged in to $hostname at (set_color yellow; date +%T; set_color normal)
+end
 starship init fish | source
