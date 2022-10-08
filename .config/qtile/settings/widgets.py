@@ -28,8 +28,8 @@ def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
         text="",  # Icon: nf-oct-triangle_left
-        fontsize=37,
-        padding=-2.5
+        fontsize=55,
+        padding=-9.5
     )
 
 
@@ -86,7 +86,7 @@ primary_widgets = [
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
-    widget.Net(**base(bg='color3'), interface='wlo1'),
+    widget.Net(**base(bg='color3'), interface='wlan0'),
 
     powerline('color2', 'color3'),
 
@@ -124,8 +124,8 @@ secondary_widgets = [
 ]
 
 widget_defaults = {
-    'font': 'UbuntuMono Nerd Font Bold',
-    'fontsize': 14,
+    'font': 'JetBrainsMono Nerd Font Mono',
+    'fontsize': 12.7,
     'padding': 1,
 }
 extension_defaults = widget_defaults.copy()
