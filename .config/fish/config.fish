@@ -33,7 +33,7 @@ function _plugin-bang-bang_uninstall --on-event plugin-bang-bang_uninstall
 end
 #End of bang bang
 
-alias ls "exa -a --icons"
+alias ls "exa -a --icons --group-directories-first"
 alias ll "exa -lah --icons --group-directories-first"
 alias wl "nmcli device wifi list"
 alias cw "echo 'nmcli device wifi connect SSID password PW'"
