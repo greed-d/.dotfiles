@@ -1,5 +1,3 @@
-import os
-
 from libqtile.config import Key
 from libqtile.command import lazy
 from libqtile.core import manager
@@ -50,7 +48,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ App Configs ------------
 
     # Menu
-    ([mod], "p", lazy.spawn("rofi -show drun")),
+    ([mod], "space", lazy.spawn("rofi -show drun")),
 
     # BetterLockscreen
     ([mod, "shift"], "l", lazy.spawn(
@@ -79,7 +77,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),
 
     # Screenshot
-    ([mod], "s", lazy.spawn(os.path.expanduser("~/.dotfiles/scripts/scrotshot.sh"))),
+    ([mod], "s", lazy.cmd("/home/greed/.dotfiles/scripts/scrot.sh")),
     ([mod, "shift"], "s", lazy.spawn("/home/greed/.dotfiles/scripts/scrot_select.sh")),
 
     # mute mic
