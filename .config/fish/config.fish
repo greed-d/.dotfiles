@@ -41,6 +41,7 @@ alias sw "nmcli device wifi show"
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
+alias lg "lazygit"
 
 neofetch --config ~/dotfiles/neofetch/config2.conf
 
