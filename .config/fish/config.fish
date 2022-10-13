@@ -39,6 +39,8 @@ alias wl "nmcli device wifi list"
 alias cw "echo 'nmcli device wifi connect SSID password PW'"
 alias sw "nmcli device wifi show"
 alias .. "cd .."
+alias ... "cd ../.."
+alias .... "cd ../../.."
 
 neofetch --config ~/dotfiles/neofetch/config2.conf
 
