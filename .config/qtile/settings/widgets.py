@@ -33,6 +33,15 @@ def powerline(fg="light", bg="dark"):
     )
 
 
+def powerline_right(fg="light", bg="dark"):
+    return widget.TextBox(
+        **base(fg, bg),
+        text="",  # Icon: nf-oct-triangle_left
+        fontsize=37,
+        padding=-2.5
+    )
+
+
 def workspaces():
     return [
         separator(),
@@ -98,7 +107,7 @@ primary_widgets = [
 
     icon(bg="color1", fontsize=17, text=' '),  # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
+    widget.Clock(**base(bg='color1'), format='[%d/%m/%Y] - [%H:%M] '),
 
     powerline('black', 'color1'),
 
@@ -113,7 +122,7 @@ primary_widgets = [
         scroll_interval=0.3,
     ),
 
-    powerline('grey', 'black'),
+    powerline_right('black', 'grey'),
 
     widget.Systray(background=colors['grey'], padding=5),
 
