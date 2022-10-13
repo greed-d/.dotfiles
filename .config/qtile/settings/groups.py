@@ -1,3 +1,9 @@
+# Antonio Sarosi
+# https://youtube.com/c/antoniosarosi
+# https://github.com/antoniosarosi/dotfiles
+
+# Qtile workspaces
+
 from libqtile.config import Key, Group
 from libqtile.command import lazy
 from .keys import mod, keys
@@ -15,7 +21,7 @@ from .keys import mod, keys
 # nf-mdi-layers
 
 groups = [Group(i) for i in [
-    "    ", "    ", "    ", "    ", "    ", "    ", "    ", "    ", "    ",
+    "  ", "  ", "  ", "  ", "  ", "  ", "  ", " 阮 ", " ﭮ ",
 ]]
 
 for i, group in enumerate(groups):

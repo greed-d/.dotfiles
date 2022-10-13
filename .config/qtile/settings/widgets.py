@@ -28,8 +28,8 @@ def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
         text="",  # Icon: nf-oct-triangle_left
-        fontsize=55,
-        padding=-9.5
+        fontsize=37,
+        padding=-2.5
     )
 
 
@@ -38,7 +38,7 @@ def workspaces():
         separator(),
         widget.GroupBox(
             **base(fg='light'),
-            font='Ubuntu Nerd Font',
+            font='UbuntuMono Nerd Font',
             fontsize=19,
             margin_y=3,
             margin_x=0,
@@ -98,11 +98,26 @@ primary_widgets = [
 
     icon(bg="color1", fontsize=17, text=' '),  # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - [%H:%M] '),
+    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
 
-    powerline('dark', 'color1'),
+    powerline('black', 'color1'),
 
-    widget.Systray(background=colors['dark'], padding=5),
+    widget.Mpris2(
+        foreground='ffffff',
+        # foreground='ffffff',
+        name="spotify",
+        pause_text="Paused : {track}",
+        stop_text="Paused",
+        display_metadata=["xesam:title", "xesam:artist"],
+        objname="org.mpris.MediaPlayer2.spotify",
+        scroll_interval=0.3,
+    ),
+
+    powerline('grey', 'black'),
+
+    widget.Systray(background=colors['grey'], padding=5),
+
+
 ]
 
 secondary_widgets = [
@@ -124,8 +139,8 @@ secondary_widgets = [
 ]
 
 widget_defaults = {
-    'font': 'JetBrainsMono Nerd Font Mono',
-    'fontsize': 12.7,
+    'font': 'UbuntuMono Nerd Font',
+    'fontsize': 14,
     'padding': 1,
 }
 extension_defaults = widget_defaults.copy()

@@ -12,4 +12,4 @@ discord &
 #freedownloadmanager
 fdm &
 #for Wifi
-sudo systemctl start iwd
+# sudo systemctl start iwd

@@ -1,3 +1,9 @@
+# Antonio Sarosi
+# https://youtube.com/c/antoniosarosi
+# https://github.com/antoniosarosi/dotfiles
+
+# Multimonitor support
+
 from libqtile.config import Screen
 from libqtile import bar
 from libqtile.log_utils import logger

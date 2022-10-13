@@ -42,6 +42,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     ([mod, "control"], "q", lazy.shutdown()),
 
+    ([mod, "shift"], "q", lazy.spawn("alacritty -e sudo shutdown now")),
+
 
     # ([mod], "r", lazy.spawncmd()),
 
@@ -51,7 +53,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "space", lazy.spawn("rofi -show drun")),
 
     # BetterLockscreen
-    ([mod, "shift"], "l", lazy.spawn(
+    ([mod, "control"], "l", lazy.spawn(
         "betterlockscreen -l")),
 
     # Window Nav
@@ -77,7 +79,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),
 
     # Screenshot
-    ([mod], "s", lazy.cmd("/home/greed/.dotfiles/scripts/scrot.sh")),
+    ([mod], "s", lazy.spawn("/home/greed/.dotfiles/scripts/scrotshot.sh", shell=True)),
     ([mod, "shift"], "s", lazy.spawn("/home/greed/.dotfiles/scripts/scrot_select.sh")),
 
     # mute mic
