@@ -113,10 +113,9 @@ primary_widgets = [
 
     widget.Mpris2(
         foreground='ffffff',
-        # foreground='ffffff',
         name="spotify",
-        pause_text="Paused : {track}",
-        stop_text="Paused",
+        pause_text=" : {track}",
+        stop_text="  ",
         display_metadata=["xesam:title", "xesam:artist"],
         objname="org.mpris.MediaPlayer2.spotify",
         scroll_interval=0.3,

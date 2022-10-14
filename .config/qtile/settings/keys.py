@@ -85,6 +85,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # mute mic
     ([mod], "m", lazy.spawn("/home/greed/.dotfiles/scripts/mic_toggle.sh")),
 
+    # Spotify
+    ([mod, "shift"], "m", lazy.spawn("spotify")),
+
 
     # ------------ Hardware Configs ------------
 
