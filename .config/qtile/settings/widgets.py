@@ -1,4 +1,5 @@
 from libqtile import widget
+from libqtile.command import lazy
 from .theme import colors
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
@@ -38,7 +39,7 @@ def powerline_right(fg="light", bg="dark"):
         **base(fg, bg),
         text="",  # Icon: nf-oct-triangle_right
         fontsize=37,
-        padding=-2.5
+        padding=-2.6
     )
 
 
@@ -95,7 +96,8 @@ primary_widgets = [
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
-    widget.Net(**base(bg='color3'), interface='wlan0'),
+    widget.Net(**base(bg='color3'), interface='wlan0',
+               mouse_callbacks={'Button1': lazy.spawn('iwgtk')}),
 
     powerline('color2', 'color3'),
 
