@@ -57,7 +57,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
         "betterlockscreen -l")),
 
     # Window Nav
-    ([mod, "shift"], "p", lazy.spawn("rofi -show")),
+    ([mod, "shift"], "space", lazy.spawn("rofi -show window")),
 
     # Browser
     ([mod], "b", lazy.spawn("firefox")),
