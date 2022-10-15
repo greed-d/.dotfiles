@@ -23,7 +23,7 @@ require("packer").startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("romainl/vim-cool")
 	use("kyazdani42/nvim-web-devicons")
-	-- use("L3MON4D3/LuaSnip")
+	use("L3MON4D3/LuaSnip")
 	use("lewis6991/gitsigns.nvim")
 	use("neovim/nvim-lspconfig")
 	use("nvim-lua/plenary.nvim")
@@ -40,11 +40,17 @@ require("packer").startup(function(use)
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("arnamak/stay-centered.nvim")
-	use("akinsho/toggleterm.nvim")
+	-- use("akinsho/toggleterm.nvim")
 	use("airblade/vim-rooter")
 	use("stevearc/stickybuf.nvim")
 	-- use("Mofiqul/dracula.nvim")
 	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+	use({
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
+	})
 end)
 
 vim.o.clipboard = "unnamedplus"
@@ -60,12 +66,15 @@ vim.o.termguicolors = true
 vim.o.updatetime = 100
 
 vim.g.mapleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<Leader>w", "<C-w>k")
 vim.keymap.set("n", "<Leader>a", "<C-w>h")
 vim.keymap.set("n", "<Leader>s", "<C-w>j")
 vim.keymap.set("n", "<Leader>g", ":LazyGit<CR>")
+vim.keymap.set("n", "<Leader>n", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<Leader>d", "<C-w>l")
 vim.keymap.set("n", "<Leader>j", ":bprevious<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>k", ":bnext<CR>", { silent = true })
@@ -75,6 +84,7 @@ vim.keymap.set("n", "<Leader>y", ":%y<CR>")
 vim.keymap.set("n", "k", 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
 vim.keymap.set("n", "j", 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
 vim.keymap.set("t", "<Leader><Esc>", "<C-\\><C-n>", { silent = true })
+vim.keymap.set("n", "<Leader>l", ":vsplit term://fish <CR>", { silent = true })
 vim.keymap.set("n", "<Leader>v", ":edit ~/.config/nvim/init.lua<CR>", { silent = true })
 
 local lang_maps = {
@@ -292,9 +302,7 @@ telescope.setup({
 	extensions = { file_browser = { hidden = true } },
 })
 telescope.load_extension("file_browser")
-vim.keymap.set("n", "<Leader>n", telescope.extensions.file_browser.file_browser)
-telescope.load_extension("file_browser")
-vim.keymap.set("n", "<Leader>n", telescope.extensions.file_browser.file_browser)
+-- vim.keymap.set("n", "<Leader>n", telescope.extensions.file_browser.file_browser)
 vim.keymap.set("n", "<Leader>f", require("telescope.builtin").find_files)
 vim.keymap.set("n", "<Leader>t", require("telescope.builtin").treesitter)
 
@@ -317,20 +325,6 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 })
 
-require("toggleterm").setup({
-	size = 13,
-	open_mapping = [[<Leader>l]],
-	shade_filetypes = {},
-	shade_terminals = true,
-	shading_factor = "1",
-	start_in_insert = true,
-	persist_size = true,
-	direction = "float",
-	float_opts = {
-		border = "curved",
-		winblend = 3,
-	},
-})
 -- require("rust-tools").setup {}
 
 vim.keymap.set({ "n", "v" }, "<Leader>c", ":Commentary<CR>", { silent = true })
@@ -372,7 +366,7 @@ local opts = {
 			client.server_capabilities.document_formatting = false
 		end
 	end,
-	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 }
 for _, server in pairs(servers) do
 	if server == "sumneko_lua" then
@@ -387,3 +381,94 @@ require("lsp_lines").setup({})
 vim.keymap.set("n", "<Leader>x", require("lsp_lines").toggle)
 
 require("stay-centered")
+
+require("nvim-tree").setup({
+	sort_by = "name",
+	open_on_setup = true,
+	auto_reload_on_write = true,
+	reload_on_bufenter = false,
+	disable_netrw = true,
+	hijack_netrw = true,
+	view = {
+		adaptive_size = true,
+		width = 25,
+		side = "right",
+		number = false,
+		relativenumber = false,
+		signcolumn = "yes",
+		hide_root_folder = false,
+		mappings = {
+			list = {
+				{ key = "u", action = "dir_up" },
+			},
+		},
+	},
+	renderer = {
+		add_trailing = false,
+		group_empty = false,
+		highlight_git = false,
+		highlight_opened_files = "none",
+		root_folder_modifier = ":~",
+		indent_markers = {
+			enable = true,
+			icons = {
+				corner = "└ ",
+				edge = "│ ",
+				none = "  ",
+			},
+		},
+		icons = {
+			webdev_colors = true,
+			git_placement = "before",
+			padding = " ",
+			symlink_arrow = " ➛ ",
+			show = {
+				file = true,
+				folder = true,
+				folder_arrow = true,
+				git = true,
+			},
+			glyphs = {
+				default = "",
+				symlink = "",
+				folder = {
+					arrow_closed = "",
+					arrow_open = "",
+					default = "",
+					open = "",
+					empty = "",
+					empty_open = "",
+					symlink = "",
+					symlink_open = "",
+				},
+				git = {
+					unstaged = "✗",
+					staged = "✓",
+					unmerged = "",
+					renamed = "➜",
+					untracked = "★",
+					deleted = "",
+					ignored = "◌",
+				},
+			},
+		},
+		special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md", "go.mod", "pubspec.yaml" },
+	},
+	filters = {
+		dotfiles = true,
+		custom = { "node_modules" },
+	},
+	actions = {
+		use_system_clipboard = true,
+	},
+	diagnostics = {
+		enable = false,
+		show_on_dirs = false,
+		icons = {
+			hint = "",
+			info = "",
+			warning = "",
+			error = "",
+		},
+	},
+})
