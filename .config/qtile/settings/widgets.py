@@ -127,7 +127,6 @@ primary_widgets = [
 
     widget.Systray(background=colors['grey'], padding=5),
 
-
 ]
 
 secondary_widgets = [
