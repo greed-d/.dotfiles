@@ -334,7 +334,7 @@ color_schemes:
 
 
 
-    colors: *frappe
+colors: *mocha
 
 font:
   normal:
