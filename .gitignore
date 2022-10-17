@@ -1,4 +1,4 @@
 .config/nvim/plugin
 
-.config/nvim/plugin/packer_compiled.lua
+nvim/.config/nvim/plugin/packer_compiled.lua
 .config/qtile/mic_toggle.sh
