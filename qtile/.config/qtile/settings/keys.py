@@ -79,11 +79,12 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),
 
     # Screenshot
-    ([mod], "s", lazy.spawn("/home/greed/.dotfiles/scripts/scrotshot.sh", shell=True)),
-    ([mod, "shift"], "s", lazy.spawn("/home/greed/.dotfiles/scripts/scrot_select.sh")),
+    ([mod], "s", lazy.spawn("/home/greed/.config/qtile/scripts/scrotshot.sh", shell=True)),
+    ([mod, "shift"], "s", lazy.spawn(
+        "/home/greed/.config/qtile/scripts/scrot_select.sh")),
 
     # mute mic
-    ([mod], "m", lazy.spawn("/home/greed/.dotfiles/scripts/mic_toggle.sh")),
+    ([mod], "m", lazy.spawn("/home/greed/.config/qtile/scripts/mic_toggle.sh")),
 
     # Spotify
     ([mod, "shift"], "m", lazy.spawn("spotify")),
