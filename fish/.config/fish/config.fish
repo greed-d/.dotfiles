@@ -34,7 +34,7 @@ end
 #End of bang bang
 
 alias ls "exa -a --icons --group-directories-first"
-alias ll "exa -lah --icons --group-directories-first"
+alias ll "exa -lah --color automatic --no-permissions --git --icons --group-directories-first --no-user" 
 alias wl "nmcli device wifi list"
 alias cw "echo 'nmcli device wifi connect SSID password PW'"
 alias sw "nmcli device wifi show"
@@ -43,6 +43,7 @@ alias ... "cd ../.."
 alias .... "cd ../../.."
 alias lg "lazygit"
 alias rm "trash --"
+
 
 neofetch --config ~/dotfiles/neofetch/config2.conf
 
