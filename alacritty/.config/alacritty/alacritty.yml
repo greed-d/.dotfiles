@@ -338,16 +338,16 @@ colors: *mocha
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: CaskaydiaCove 
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: CaskaydiaCove 
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font Mono
-    style: Italic
+    family: CaskaydiaCove Nerd Font
+    style: SemiBold
 
   bold_italic:
     family: JetBrainsMono Nerd Font Mono
@@ -359,3 +359,9 @@ window:
   padding:
     x: 4
     y: 3
+
+cursor:
+  style:
+    shape: Underline
+  vi_mode_style:
+    shape: Block
