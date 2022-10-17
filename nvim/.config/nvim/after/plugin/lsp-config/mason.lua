@@ -26,6 +26,8 @@ local opts = {
 		vim.keymap.set("n", "<Leader>h", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "<Leader>i", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "<Leader>r", vim.lsp.buf.rename, opts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		local should_format = true
 		for _, value in pairs(has_formatter) do
 			if client.name == value then
