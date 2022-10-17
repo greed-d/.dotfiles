@@ -10,9 +10,6 @@ vim.api.nvim_create_autocmd(
 	{ command = "source <afile> | PackerCompile", group = packer_group, pattern = "init.lua" }
 )
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
