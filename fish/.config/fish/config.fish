@@ -42,6 +42,7 @@ alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
 alias lg "lazygit"
+alias rm "trash --"
 
 neofetch --config ~/dotfiles/neofetch/config2.conf
 

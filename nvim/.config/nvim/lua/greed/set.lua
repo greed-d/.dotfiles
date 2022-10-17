@@ -10,6 +10,19 @@ vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.updatetime = 100
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 100,
+		})
+	end,
+})
+
 local lang_maps = {
 	cpp = { build = "g++ % -o %:r", exec = "./%:r" },
 	c = { build = "g++ % -o %:r", exec = "./%:r" },
