@@ -17,6 +17,10 @@ vim.keymap.set("n", "j", 'v:count == 0 ? "gj" : "j"', { expr = true, silent = tr
 vim.keymap.set("t", "<Leader><Esc>", "<C-\\><C-n>", { silent = true })
 vim.keymap.set("n", "<Leader>l", ":vsplit term://fish <CR>", { silent = true })
 vim.keymap.set("n", "<Leader>v", ":edit ~/.config/nvim/init.lua<CR>", { silent = true })
+vim.keymap.set("n", "<A-j>", "V:m '>+1<cr>gv=gv<esc>")
+vim.keymap.set("n", "<A-k>", "V:m '<-2<cr>gv=gv<esc>")
+vim.keymap.set({ "v", "x" }, "<A-j>", ":m '>+1<cr>gv=gv")
+vim.keymap.set({ "v", "x" }, "<A-k>", ":m '<-2<cr>gv=gv")
 
 --Dashboard keymap
 vim.keymap.set("n", "<Leader>o", ":DashboardNewFile<CR>", { silent = true })
