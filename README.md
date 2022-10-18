@@ -6,9 +6,9 @@ It's a collection of my dotfiles
 
 ![Qtile](../.screenshots/qtile.png)
 
-- Terminal Theme : [Catppuccin (Mocha Flavour)]()
-- Neovim Theme : [Catppuccin (Mocha Flavour)]()
-- Terminal Font : [Caskaydia Cove]()
+- Terminal Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty/)
+- Neovim Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
+- Terminal Font : [Caskaydia Cove](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip)
 
 ### Installation (Arch Based) :
 
@@ -60,7 +60,7 @@ sudo pacman -S rofi betterlockscreen firefox discord pcmanfm alacritty redshift 
 ```
 
 I also have some scripts for minor things like screenshot and toggling the mic.
-You can find them in ../qtile/scripts.
+You can find them in `../qtile/scripts.`
 
 ### Autostart
 
@@ -95,5 +95,3 @@ The themes are stored in `../qtile/themes/`. They are nothing but simple json fi
   "color4": ["#ffd47e", "#ffd47e"]
 }
 ```
-
-The theme above is material darker with [Catppuccin(Mocha Flavor)].
