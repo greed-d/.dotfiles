@@ -26,7 +26,13 @@ Install Stow :
 sudo pacman -S stow
 ```
 
-Clone this repo and use stow to implement all of my config :
+Clone this repo:
+
+```bash
+https://github.com/Greed058/.dotfiles
+```
+
+and use stow to implement all of my config :
 
 ```bash
 stow */
