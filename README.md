@@ -4,7 +4,7 @@ It's a collection of my dotfiles
 
 ## Qtile :
 
-![Qtile2](./.screenshots/Qtile2.png)j
+![Qtile2](./.screenshots/Qtile2.png)
 ![Qtile](./.screenshots/qtile.png)
 
 - Neovim Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
