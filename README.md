@@ -4,7 +4,7 @@ It's a collection of my dotfiles
 
 ## Qtile :
 
-![Qtile](../.screenshots/qtile.png)
+![Qtile](./.screenshots/qtile.png)
 
 - Terminal Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty/)
 - Neovim Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
