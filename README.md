@@ -6,6 +6,10 @@ It's a collection of my dotfiles
 
 ![Qtile](../.screenshots/qtile.png)
 
+- Terminal Theme : [Catppuccin (Mocha Flavour)]()
+- Neovim Theme : [Catppuccin (Mocha Flavour)]()
+- Terminal Font : [Caskaydia Cove]()
+
 ### Installation (Arch Based) :
 
 Install qtile and it's dependencies :
@@ -52,7 +56,7 @@ Remember all of the keybinding will not work unless if finds all the apps I use 
 To install all of the apps I use :
 
 ```bash
-sudo pacman -S rofi betterlockscreen firefox discord pcmanfm alacritty redshift scrot picom
+sudo pacman -S rofi betterlockscreen firefox discord pcmanfm alacritty redshift scrot
 ```
 
 I also have some scripts for minor things like screenshot and toggling the mic.
@@ -65,7 +69,7 @@ I have an autostart script that autostarts stuffs like the systray icons and com
 To get the systray icons :
 
 ```bash
-sudo pacman -S cbatticon pamixer
+sudo pacman -S cbatticon pamixer picom
 ```
 
 You can change if you don't like something starting up on `../qtile/autostart.sh`
