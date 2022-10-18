@@ -4,9 +4,9 @@ It's a collection of my dotfiles
 
 ## Qtile :
 
+![Qtile2](./.screenshots/Qtile2.png)j
 ![Qtile](./.screenshots/qtile.png)
 
-- Terminal Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty/)
 - Neovim Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
 - Terminal Font : [Caskaydia Cove](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip)
 
@@ -26,7 +26,13 @@ Install Stow :
 sudo pacman -S stow
 ```
 
-Clone this repo and use stow to implement all of my config :
+Clone this repo:
+
+```bash
+https://github.com/Greed058/.dotfiles
+```
+
+and use stow to implement all of my config :
 
 ```bash
 stow */
@@ -95,3 +101,13 @@ The themes are stored in `../qtile/themes/`. They are nothing but simple json fi
   "color4": ["#ffd47e", "#ffd47e"]
 }
 ```
+
+## Rofi
+
+Rofi is a window switcher, run dialog, ssh-launcher started as a clone of simpleswitcher.
+
+This is what my rofi looks like :
+
+![Rofi](/home/greed/.dotfiles/.screenshots/rofi.png)
+
+- Theme : One Dark
