@@ -108,6 +108,6 @@ Rofi is a window switcher, run dialog, ssh-launcher started as a clone of simple
 
 This is what my rofi looks like :
 
-![Rofi](/home/greed/.dotfiles/.screenshots/rofi.png)
+![Rofi](./.screenshots/rofi.png)
 
 - Theme : One Dark
