@@ -346,8 +346,8 @@ font:
     style: Bold
 
   italic:
-    family: CaskaydiaCove Nerd Font
-    style: SemiBold
+    family: CaskaydiaCove
+    style: Regular Italic
 
   bold_italic:
     family: JetBrainsMono Nerd Font Mono
