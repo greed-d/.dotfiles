@@ -18,10 +18,10 @@ min_time = 10
 [directory]
 truncation_length = 5
 read_only = " "
-format = "[$path]($style)[$lock_symbol]($lock_style) "
+format = "on [$path]($style)[$lock_symbol]($lock_style) "
 
 [git_branch]
-format = " [$symbol$branch]($style) "
+format = "➜ [$symbol$branch]($style) "
 symbol = " "
 style = "bold yellow"
 
@@ -50,7 +50,7 @@ format = "$all_status$ahead_behind"
 ssh_only = false
 format = "[$hostname]($style) "
 trim_at = "-"
-style = "bold purple"
+style = "bold cyan"
 disabled = false
 
 [memory_usage]
