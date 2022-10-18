@@ -346,12 +346,12 @@ font:
     style: Bold
 
   italic:
-    family: CaskaydiaCove
+    family: CaskaydiaCove Nerd Font Mono
     style: Regular Italic
 
   bold_italic:
-    family: JetBrainsMono Nerd Font Mono
-    style: Bold Italic
+    family: CaskaydiaCove Nerd Font Mono
+    style: SemiBold Italic
 
   size: 8
 
