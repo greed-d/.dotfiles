@@ -21,7 +21,7 @@ read_only = " "
 format = "on [$path]($style)[$lock_symbol]($lock_style) "
 
 [git_branch]
-format = "➜ [$symbol$branch]($style) "
+format = " [$symbol$branch]($style) "
 symbol = " "
 style = "bold yellow"
 
