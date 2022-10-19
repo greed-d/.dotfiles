@@ -96,6 +96,12 @@ primary_widgets = [
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
+    widget.Wlan(
+        **base(bg='color3'),
+        format="{essid} @ {percent:2.0%} on",
+        interface='wlan0'
+    ),
+
     widget.Net(**base(bg='color3'), interface='wlan0',
                mouse_callbacks={'Button1': lazy.spawn('iwgtk')}),
 
