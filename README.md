@@ -6,10 +6,15 @@ It's a collection of my dotfiles
 
 ![Qtile2](./.screenshots/Qtile2.png)
 ![Qtile](./.screenshots/qtile.png)
+![firefox](./.screenshots/firefox.png)
+![spotify](./.screenshots/spotify.png)
 
 - Terminal Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty)
 - Neovim Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
 - Terminal Font : [Caskaydia Cove](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip)
+- Firefox : [Tabliss](https://tabliss.io/)
+- Discord : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/discord)
+- Spotify : [Spicetify : Comfy theme](https://github.com/Comfy-Themes/Spicetify)
 
 ### Installation (Arch Based) :
 
