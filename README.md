@@ -12,7 +12,7 @@ It's a collection of my dotfiles
 - Terminal Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty)
 - Neovim Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
 - Terminal Font : [Caskaydia Cove](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip)
-- Firefox : [Tabliss](https://tabliss.io/)
+- Firefox : [Tabliss](https://tabliss.io/) + [Catppuccin (Mocha)](https://github.com/catppuccin/firefox)
 - Discord : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/discord)
 - Spotify : [Spicetify : Comfy theme](https://github.com/Comfy-Themes/Spicetify)
 
