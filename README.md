@@ -9,7 +9,7 @@ It's a collection of my dotfiles
 ![firefox](./.screenshots/firefox.png)
 ![spotify](./.screenshots/spotify.png)
 
-- Terminal Theme : [Catppuccin(Mocha Flavour)](https://github.com/catppuccin/alacritty)
+- Terminal Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty)
 - Neovim Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
 - Terminal Font : [Caskaydia Cove](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip)
 - Firefox : [Tabliss](https://tabliss.io/)
@@ -114,6 +114,6 @@ Rofi is a window switcher, run dialog, ssh-launcher started as a clone of simple
 
 This is what my rofi looks like :
 
-![Rofi](/home/greed/.dotfiles/.screenshots/rofi.png)
+![Rofi](./.screenshots/rofi.png)
 
 - Theme : One Dark
