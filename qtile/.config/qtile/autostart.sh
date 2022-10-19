@@ -10,6 +10,6 @@ nitrogen --restore &
 #Discord
 discord & 
 #freedownloadmanager
-fdm &
+# fdm &
 #for Wifi
 # sudo systemctl start iwd
