@@ -126,6 +126,7 @@ primary_widgets = [
         stop_text="  ",
         display_metadata=["xesam:title", "xesam:artist"],
         objname="org.mpris.MediaPlayer2.spotify",
+        max_chars=25,
         scroll_interval=0.3,
     ),
 
