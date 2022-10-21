@@ -8,7 +8,7 @@ volumeicon &
 #nitrogen
 nitrogen --restore &
 #Discord
-discord & 
+armcord & 
 #freedownloadmanager
 # fdm &
 #for Wifi
