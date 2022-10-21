@@ -1,34 +1,46 @@
-local cp = require("catppuccin.palettes").get_palette()
-local custom_catppuccin = require("lualine.themes.catppuccin")
-custom_catppuccin.normal.b.bg = cp.surface0
-custom_catppuccin.normal.c.bg = cp.base
-custom_catppuccin.insert.b.bg = cp.surface0
-custom_catppuccin.command.b.bg = cp.surface0
-custom_catppuccin.visual.b.bg = cp.surface0
-custom_catppuccin.replace.b.bg = cp.surface0
-custom_catppuccin.inactive.a.bg = cp.base
-custom_catppuccin.inactive.b.bg = cp.base
-custom_catppuccin.inactive.b.fg = cp.surface0
-custom_catppuccin.inactive.c.bg = cp.base
+local lspStatus = {
+	function()
+		local msg = "No Active Lsp"
+		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+		local clients = vim.lsp.get_active_clients()
+		if next(clients) == nil then
+			return msg
+		end
+		for _, client in ipairs(clients) do
+			local filetypes = client.config.filetypes
+			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+				return client.name
+			end
+		end
+		return msg
+	end,
+	icon = "",
+	color = { fg = "#d3d3d3" },
+}
+
 require("lualine").setup({
 	options = {
-		theme = custom_catppuccin,
-		component_separators = "|",
-		section_separators = { left = "", right = "" },
+		icons_enabled = true,
+		theme = "powerline_cyan",
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+		disabled_filetypes = {},
+		always_divide_middle = true,
+		globalstatus = true,
 	},
 	sections = {
-		lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-		lualine_b = { "filename", "branch", { "diff", colored = false } },
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = { "filetype", "progress" },
-		lualine_z = { { "location", separator = { right = "" }, left_padding = 2 } },
+		lualine_a = { "mode" },
+		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_c = { "filename" },
+		lualine_x = { lspStatus, "encoding", "fileformat", "filetype" },
+		lualine_y = { "progress" },
+		lualine_z = { "location" },
 	},
 	inactive_sections = {
-		lualine_a = { "filename" },
+		lualine_a = {},
 		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
+		lualine_c = { "filename" },
+		lualine_x = { "location" },
 		lualine_y = {},
 		lualine_z = {},
 	},
@@ -42,4 +54,5 @@ require("lualine").setup({
 			},
 		},
 	},
+	extensions = {},
 })
