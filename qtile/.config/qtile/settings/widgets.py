@@ -1,6 +1,7 @@
 from libqtile import widget
 from libqtile.command import lazy
 from .theme import colors
+from qtile_extras import widget
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
@@ -34,6 +35,15 @@ def powerline(fg="light", bg="dark"):
     )
 
 
+def powerline_rounded(fg="light", bg="dark"):
+    return widget.TextBox(
+        **base(fg, bg),
+        text="",  # Icon: nf-oct-triangle_left
+        fontsize=26,
+        padding=-0.5
+    )
+
+
 def powerline_right(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
@@ -49,16 +59,17 @@ def workspaces():
         widget.GroupBox(
             **base(fg='light'),
             font='UbuntuMono Nerd Font',
-            fontsize=19,
+            fontsize=17,
             margin_y=3,
             margin_x=0,
             padding_y=8,
-            padding_x=5,
-            borderwidth=1,
+            padding_x=3,
+            borderwidth=3.5,
             active=colors['active'],
             inactive=colors['inactive'],
             rounded=False,
-            highlight_method='block',
+            hide_unused='true',
+            highlight_method='line',
             urgent_alert_method='block',
             urgent_border=colors['urgent'],
             this_current_screen_border=colors['focus'],
@@ -78,7 +89,7 @@ primary_widgets = [
 
     separator(),
 
-    powerline('color4', 'dark'),
+    powerline_rounded('color4', 'dark'),
 
     icon(bg="color4", text=' '),  # Icon: nf-fa-download
 
@@ -94,16 +105,25 @@ primary_widgets = [
 
     powerline('color3', 'color4'),
 
-    icon(bg="color3", text=' '),  # Icon: nf-fa-feed
+    # icon(bg="color3", text=' '),  # Icon: nf-fa-feed
+
+    widget.WiFiIcon(
+        **base(bg='color3'),
+        padding_y=4,
+        active_colour=colors['light'],
+        expand_timeout=2,
+    ),
 
     widget.Wlan(
         **base(bg='color3'),
-        format="{essid} @ {percent:2.0%} on",
-        interface='wlan0'
+        format=" {essid} ({percent:2.0%}) ",
+        interface='wlan0',
+        mouse_callbacks={'Button1': lazy.spawn('iwgtk')},
+
     ),
 
-    widget.Net(**base(bg='color3'), interface='wlan0',
-               mouse_callbacks={'Button1': lazy.spawn('iwgtk')}),
+    # widget.Net(**base(bg='color3'), interface='wlan0',
+    #            mouse_callbacks={'Button1': lazy.spawn('iwgtk')}),
 
     powerline('color2', 'color3'),
 
@@ -115,18 +135,19 @@ primary_widgets = [
 
     icon(bg="color1", fontsize=17, text=' '),  # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='[%d/%m/%Y] - [%H:%M] '),
+    widget.Clock(**base(bg='color1'), format='[%a %d %b][%H:%M] '),
 
     powerline('black', 'color1'),
 
     widget.Mpris2(
         foreground='ffffff',
         name="spotify",
-        pause_text=" : {track}",
+        paused_text="  : {track}",
         stop_text="  ",
         display_metadata=["xesam:title", "xesam:artist"],
         objname="org.mpris.MediaPlayer2.spotify",
-        max_chars=25,
+        width=200,
+        # max_char=25,
         scroll_interval=0.3,
     ),
 
