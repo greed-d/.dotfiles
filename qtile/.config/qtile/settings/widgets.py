@@ -111,16 +111,17 @@ primary_widgets = [
         **base(bg='color3'),
         padding_y=4,
         active_colour=colors['light'],
-        expand_timeout=2,
+        # expand_timeout=2,
+        show_ssid=True,
     ),
 
-    widget.Wlan(
-        **base(bg='color3'),
-        format=" {essid} ({percent:2.0%}) ",
-        interface='wlan0',
-        mouse_callbacks={'Button1': lazy.spawn('iwgtk')},
+    # widget.Wlan(
+    #     **base(bg='color3'),
+    #     format=" {essid} ({percent:2.0%}) ",
+    #     interface='wlan0',
+    #     mouse_callbacks={'Button1': lazy.spawn('iwgtk')},
 
-    ),
+    # ),
 
     # widget.Net(**base(bg='color3'), interface='wlan0',
     #            mouse_callbacks={'Button1': lazy.spawn('iwgtk')}),
