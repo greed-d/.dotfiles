@@ -43,6 +43,7 @@ alias ... "cd ../.."
 alias .... "cd ../../.."
 alias lg "lazygit"
 alias rm "trash --"
+alias clr "clear && neofetch"
 
 neofetch
 
