@@ -1,7 +1,11 @@
 from libqtile import widget
 from libqtile.command import lazy
-from .theme import colors
+
 from qtile_extras import widget
+from qtile_extras.widget import decorations
+
+from .theme import colors
+
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
@@ -35,15 +39,6 @@ def powerline(fg="light", bg="dark"):
     )
 
 
-def powerline_rounded(fg="light", bg="dark"):
-    return widget.TextBox(
-        **base(fg, bg),
-        text="",  # Icon: nf-oct-triangle_left
-        fontsize=26,
-        padding=-0.5
-    )
-
-
 def powerline_right(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
@@ -51,6 +46,72 @@ def powerline_right(fg="light", bg="dark"):
         fontsize=37,
         padding=-2.6
     )
+
+
+powerline_imp = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="arrow_right",
+        )
+    ]
+}
+powerline_rl = {
+    "decoration": [
+        decorations.PowerLineDecoration(
+            path="rounded_right"
+        )
+    ]
+}
+
+decoration_updates = {
+    "decorations": [
+        decorations.RectDecoration(
+            use_widget_background=True,
+            filled=True,
+            group=True,
+            radius=[10, 0, 0, 10]
+
+        ),
+        decorations.PowerLineDecoration(
+            path="arrow_right",
+        )
+
+    ]
+}
+
+decoration_wifi = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="arrow_right"
+        )
+    ]
+}
+
+decoration_layout = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="arrow_right"
+        )
+    ]
+}
+
+
+decoration_clock = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="arrow_right"
+        )
+    ]
+}
+
+decoration_spotify = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="rounded_left"
+
+        )
+    ]
+}
 
 
 def workspaces():
@@ -89,11 +150,8 @@ primary_widgets = [
 
     separator(),
 
-    powerline_rounded('color4', 'dark'),
-
-    icon(bg="color4", text=' '),  # Icon: nf-fa-download
-
     widget.CheckUpdates(
+        **decoration_updates,
         background=colors['color4'],
         colour_have_updates=colors['text'],
         colour_no_updates=colors['text'],
@@ -101,11 +159,8 @@ primary_widgets = [
         display_format='{updates}',
         update_interval=1800,
         custom_command='checkupdates',
+        fmt='  {}'
     ),
-
-    powerline('color3', 'color4'),
-
-    # icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
     widget.WiFiIcon(
         **base(bg='color3'),
@@ -113,49 +168,36 @@ primary_widgets = [
         active_colour=colors['light'],
         # expand_timeout=2,
         show_ssid=True,
+        mouse_callbacks={'Button1': lazy.spawn(
+            'alacritty -e/home/greed/.config/qtile/scripts/connect_wifi.sh', shell=True)},
+        **decoration_wifi
     ),
-
-    # widget.Wlan(
-    #     **base(bg='color3'),
-    #     format=" {essid} ({percent:2.0%}) ",
-    #     interface='wlan0',
-    #     mouse_callbacks={'Button1': lazy.spawn('iwgtk')},
-
-    # ),
-
-    # widget.Net(**base(bg='color3'), interface='wlan0',
-    #            mouse_callbacks={'Button1': lazy.spawn('iwgtk')}),
-
-    powerline('color2', 'color3'),
 
     widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='color2'), padding=5),
+    widget.CurrentLayout(**base(bg='color2'), padding=5, **decoration_layout),
 
-    powerline('color1', 'color2'),
+    widget.Clock(**base(bg='color1'),
 
-    icon(bg="color1", fontsize=17, text=' '),  # Icon: nf-mdi-calendar_clock
+                 format='[%a %d %b]-[%H:%M]',
+                 **decoration_clock,
+                 fmt=' {}'
+                 ),
 
-    widget.Clock(**base(bg='color1'), format='[%a %d %b][%H:%M] '),
-
-    powerline('black', 'color1'),
 
     widget.Mpris2(
+        **decoration_spotify,
         foreground='ffffff',
         name="spotify",
-        paused_text="  : {track}",
+        paused_text=" : {track}",
         stop_text="  ",
         display_metadata=["xesam:title", "xesam:artist"],
         objname="org.mpris.MediaPlayer2.spotify",
-        width=200,
-        # max_char=25,
+        width=175,
         scroll_interval=0.3,
     ),
 
-    powerline_right('black', 'grey'),
-
     widget.Systray(background=colors['grey'], padding=5),
-
 ]
 
 secondary_widgets = [
