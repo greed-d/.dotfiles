@@ -14,7 +14,7 @@ vim.keymap.set("n", "<Leader>/", ":nohlsearch<CR>", { silent = true })
 vim.keymap.set("n", "<Leader>y", ":%y<CR>")
 vim.keymap.set("n", "k", 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
 vim.keymap.set("n", "j", 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
-vim.keymap.set("t", "<Leader><Esc>", "<C-\\><C-n>", { silent = true })
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n>", { silent = true })
 vim.keymap.set("n", "<Leader>l", ":vsplit term://fish <CR>", { silent = true })
 vim.keymap.set("n", "<Leader>v", ":edit ~/.config/nvim/init.lua<CR>", { silent = true })
 vim.keymap.set("n", "<A-j>", "V:m '>+1<cr>gv=gv<esc>")
@@ -22,15 +22,18 @@ vim.keymap.set("n", "<A-k>", "V:m '<-2<cr>gv=gv<esc>")
 vim.keymap.set({ "v", "x" }, "<A-j>", ":m '>+1<cr>gv=gv")
 vim.keymap.set({ "v", "x" }, "<A-k>", ":m '<-2<cr>gv=gv")
 
---Dashboard keymap
+--> Dashboard keymap
 vim.keymap.set("n", "<Leader>o", ":DashboardNewFile<CR>", { silent = true })
 
---Telescope Keymap
+--> Telescope Keymap
 vim.keymap.set("n", "<Leader>f", require("telescope.builtin").find_files)
 vim.keymap.set("n", "<Leader>t", require("telescope.builtin").treesitter)
 
---Commentary
+--> Commentary
 vim.keymap.set({ "n", "v" }, "<Leader>c", ":Commentary<CR>", { silent = true })
 
---Lsp-lines
+--> Lsp-lines
 vim.keymap.set("n", "<Leader>x", require("lsp_lines").toggle)
+
+--> Toggle term
+-- vim.keymap.set("n", "<C-l>", ":ToggleTerm<CR>", { silent = true })
