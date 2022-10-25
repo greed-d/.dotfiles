@@ -21,47 +21,11 @@ def separator():
     return widget.Sep(**base(), linewidth=0, padding=5)
 
 
-def icon(fg='text', bg='dark', fontsize=16, text="?"):
-    return widget.TextBox(
-        **base(fg, bg),
-        fontsize=fontsize,
-        text=text,
-        padding=3
-    )
-
-
 def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
-        text="",  # Icon: nf-oct-triangle_left
-        fontsize=37,
-        padding=-2.5
     )
 
-
-def powerline_right(fg="light", bg="dark"):
-    return widget.TextBox(
-        **base(fg, bg),
-        text="",  # Icon: nf-oct-triangle_right
-        fontsize=37,
-        padding=-2.6
-    )
-
-
-powerline_imp = {
-    "decorations": [
-        decorations.PowerLineDecoration(
-            path="arrow_right",
-        )
-    ]
-}
-powerline_rl = {
-    "decoration": [
-        decorations.PowerLineDecoration(
-            path="rounded_right"
-        )
-    ]
-}
 
 decoration_updates = {
     "decorations": [
@@ -205,15 +169,16 @@ secondary_widgets = [
 
     separator(),
 
-    powerline('color1', 'dark'),
+    # powerline('color1', 'dark'),
 
     widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='color1'), padding=5),
+    widget.CurrentLayout(**base(bg='color1'), padding=5, **decoration_layout),
 
-    powerline('color2', 'color1'),
+    # powerline('color2', 'color1'),
 
-    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
+    widget.Clock(**base(bg='color2'),
+                 format='%d/%m/%Y - %H:%M ', **decoration_clock),
 
     powerline('dark', 'color2'),
 ]
