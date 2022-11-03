@@ -123,7 +123,7 @@ primary_widgets = [
         display_format='{updates}',
         update_interval=1800,
         custom_command='checkupdates',
-        fmt='  {}'
+        fmt='   {}'
     ),
 
     widget.WiFiIcon(
@@ -133,7 +133,7 @@ primary_widgets = [
         # expand_timeout=2,
         show_ssid=True,
         mouse_callbacks={'Button1': lazy.spawn(
-            'alacritty -e/home/greed/.config/qtile/scripts/connect_wifi.sh', shell=True)},
+            'iwgtk')},
         **decoration_wifi
     ),
 

@@ -5,15 +5,11 @@ echo " "
 
 nmcli radio wifi on 
 echo " "
-connect_wifi()
-{
 	
-	nmcli device wifi list
+nmcli device wifi list
 
-	read -p "Enter you SSID : " ssid
-	read -sp "Enter your password : " pass 
+read -p "Enter you SSID : " ssid
+read -sp "Enter your password : " pass 
+nmcli device wifi connect $ssid password $pass
 
-	nmcli device wifi connect $ssid password $pass
-}
 
-connect_wifi
