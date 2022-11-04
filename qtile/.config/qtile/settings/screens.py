@@ -6,7 +6,7 @@ import subprocess
 
 
 def status_bar(widgets):
-    return bar.Bar(widgets, 24, opacity=0.92, margin=5)
+    return bar.Bar(widgets, 24, opacity=0.92, margin=5, border_width=1)
 
 
 screens = [Screen(top=status_bar(primary_widgets))]

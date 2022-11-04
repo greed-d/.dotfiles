@@ -41,8 +41,12 @@ alias sw "nmcli device wifi show"
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
+alias e "thunar ."
+alias x "exit"
 alias lg "lazygit"
-alias rm "trash --"
+alias rem "trash --"
+alias clr "clear && neofetch"
+alias cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qtile cmd-obj -o widget wifiicon -f eval -a 'self.check_connection()'"
 
 neofetch
 

@@ -59,19 +59,22 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Window Nav
     ([mod, "shift"], "space", lazy.spawn("rofi -show window")),
 
+    # Kdocker
+    (["control", "shift"], "k", lazy.spawn("kdocker")),
+
     # Browser
     ([mod], "b", lazy.spawn("firefox")),
 
     # Discord
-    ([mod], "d", lazy.spawn("discord")),
+    ([mod], "d", lazy.spawn("armcord")),
 
     # File Explorer
-    ([mod], "e", lazy.spawn("pcmanfm")),
+    ([mod], "e", lazy.spawn("thunar")),
 
     # Terminal
     ([mod], "Return", lazy.spawn("alacritty")),
 
-    # Terminal
+    # Nvim
     ([mod], "v", lazy.spawn("alacritty -e nvim")),
 
     # Redshift

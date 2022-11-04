@@ -1,6 +1,11 @@
 from libqtile import widget
 from libqtile.command import lazy
+
+from qtile_extras import widget
+from qtile_extras.widget import decorations
+
 from .theme import colors
+
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
@@ -16,31 +21,61 @@ def separator():
     return widget.Sep(**base(), linewidth=0, padding=5)
 
 
-def icon(fg='text', bg='dark', fontsize=16, text="?"):
-    return widget.TextBox(
-        **base(fg, bg),
-        fontsize=fontsize,
-        text=text,
-        padding=3
-    )
-
-
 def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
-        text="",  # Icon: nf-oct-triangle_left
-        fontsize=37,
-        padding=-2.5
     )
 
 
-def powerline_right(fg="light", bg="dark"):
-    return widget.TextBox(
-        **base(fg, bg),
-        text="",  # Icon: nf-oct-triangle_right
-        fontsize=37,
-        padding=-2.6
-    )
+decoration_updates = {
+    "decorations": [
+        decorations.RectDecoration(
+            use_widget_background=True,
+            filled=True,
+            group=True,
+            radius=[10, 0, 0, 10]
+
+        ),
+        decorations.PowerLineDecoration(
+            path="arrow_right",
+        )
+
+    ]
+}
+
+decoration_wifi = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="arrow_right"
+        )
+    ]
+}
+
+decoration_layout = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="arrow_right"
+        )
+    ]
+}
+
+
+decoration_clock = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="arrow_right"
+        )
+    ]
+}
+
+decoration_spotify = {
+    "decorations": [
+        decorations.PowerLineDecoration(
+            path="rounded_left"
+
+        )
+    ]
+}
 
 
 def workspaces():
@@ -49,16 +84,17 @@ def workspaces():
         widget.GroupBox(
             **base(fg='light'),
             font='UbuntuMono Nerd Font',
-            fontsize=19,
+            fontsize=17,
             margin_y=3,
             margin_x=0,
             padding_y=8,
-            padding_x=5,
-            borderwidth=1,
+            padding_x=3,
+            borderwidth=3.5,
             active=colors['active'],
             inactive=colors['inactive'],
             rounded=False,
-            highlight_method='block',
+            hide_unused='true',
+            highlight_method='line',
             urgent_alert_method='block',
             urgent_border=colors['urgent'],
             this_current_screen_border=colors['focus'],
@@ -78,11 +114,8 @@ primary_widgets = [
 
     separator(),
 
-    powerline('color4', 'dark'),
-
-    icon(bg="color4", text=' '),  # Icon: nf-fa-download
-
     widget.CheckUpdates(
+        **decoration_updates,
         background=colors['color4'],
         colour_have_updates=colors['text'],
         colour_no_updates=colors['text'],
@@ -90,49 +123,45 @@ primary_widgets = [
         display_format='{updates}',
         update_interval=1800,
         custom_command='checkupdates',
+        fmt='   {}'
     ),
 
-    powerline('color3', 'color4'),
-
-    icon(bg="color3", text=' '),  # Icon: nf-fa-feed
-
-    widget.Wlan(
+    widget.WiFiIcon(
         **base(bg='color3'),
-        format="{essid} @ {percent:2.0%} on",
-        interface='wlan0'
+        padding_y=4,
+        active_colour=colors['light'],
+        # expand_timeout=2,
+        show_ssid=True,
+        mouse_callbacks={'Button1': lazy.spawn(
+            'iwgtk')},
+        **decoration_wifi
     ),
-
-    widget.Net(**base(bg='color3'), interface='wlan0',
-               mouse_callbacks={'Button1': lazy.spawn('iwgtk')}),
-
-    powerline('color2', 'color3'),
 
     widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='color2'), padding=5),
+    widget.CurrentLayout(**base(bg='color2'), padding=5, **decoration_layout),
 
-    powerline('color1', 'color2'),
+    widget.Clock(**base(bg='color1'),
 
-    icon(bg="color1", fontsize=17, text=' '),  # Icon: nf-mdi-calendar_clock
+                 format='[%a %d %b]-[%H:%M]',
+                 **decoration_clock,
+                 fmt=' {}'
+                 ),
 
-    widget.Clock(**base(bg='color1'), format='[%d/%m/%Y] - [%H:%M] '),
-
-    powerline('black', 'color1'),
 
     widget.Mpris2(
+        **decoration_spotify,
         foreground='ffffff',
         name="spotify",
-        pause_text=" : {track}",
+        paused_text=" : {track}",
         stop_text="  ",
         display_metadata=["xesam:title", "xesam:artist"],
         objname="org.mpris.MediaPlayer2.spotify",
+        width=175,
         scroll_interval=0.3,
     ),
 
-    powerline_right('black', 'grey'),
-
     widget.Systray(background=colors['grey'], padding=5),
-
 ]
 
 secondary_widgets = [
@@ -140,15 +169,16 @@ secondary_widgets = [
 
     separator(),
 
-    powerline('color1', 'dark'),
+    # powerline('color1', 'dark'),
 
     widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='color1'), padding=5),
+    widget.CurrentLayout(**base(bg='color1'), padding=5, **decoration_layout),
 
-    powerline('color2', 'color1'),
+    # powerline('color2', 'color1'),
 
-    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
+    widget.Clock(**base(bg='color2'),
+                 format='%d/%m/%Y - %H:%M ', **decoration_clock),
 
     powerline('dark', 'color2'),
 ]
