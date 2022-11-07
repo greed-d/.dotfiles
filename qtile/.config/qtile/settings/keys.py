@@ -66,7 +66,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "b", lazy.spawn("firefox")),
 
     # Discord
-    ([mod], "d", lazy.spawn("armcord")),
+    ([mod], "d", lazy.spawn("discord")),
 
     # File Explorer
     ([mod], "e", lazy.spawn("thunar")),

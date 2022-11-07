@@ -1,5 +1,6 @@
 from libqtile import widget
 from libqtile.command import lazy
+from libqtile.bar import CALCULATED
 
 from qtile_extras import widget
 from qtile_extras.widget import decorations
@@ -37,33 +38,16 @@ decoration_updates = {
 
         ),
         decorations.PowerLineDecoration(
-            path="arrow_right",
+            path="forward_slash",
         )
 
     ]
 }
 
-decoration_wifi = {
+decoration_slash = {
     "decorations": [
         decorations.PowerLineDecoration(
-            path="arrow_right"
-        )
-    ]
-}
-
-decoration_layout = {
-    "decorations": [
-        decorations.PowerLineDecoration(
-            path="arrow_right"
-        )
-    ]
-}
-
-
-decoration_clock = {
-    "decorations": [
-        decorations.PowerLineDecoration(
-            path="arrow_right"
+            path="forward_slash"
         )
     ]
 }
@@ -74,6 +58,20 @@ decoration_spotify = {
             path="rounded_left"
 
         )
+    ]
+}
+
+decoration_systray = {
+
+    "decorations": [
+        decorations.RectDecoration(
+            use_widget_background=False,
+            filled=True,
+            group=True,
+            radius=[0, 10, 10, 0]
+
+        ),
+
     ]
 }
 
@@ -104,7 +102,12 @@ def workspaces():
             disable_drag=True
         ),
         separator(),
-        widget.WindowName(**base(fg='focus'), fontsize=14, padding=5),
+
+        widget.Spacer(**base(bg='dark')),
+        widget.WindowName(**base(fg='focus'), fontsize=16, padding=5,
+                          format='{name}', max_chars=60, width=CALCULATED),
+        widget.Spacer(**base(bg='dark')),
+
         separator(),
     ]
 
@@ -133,18 +136,18 @@ primary_widgets = [
         # expand_timeout=2,
         show_ssid=True,
         mouse_callbacks={'Button1': lazy.spawn(
-            'iwgtk')},
-        **decoration_wifi
+            'nm-applet')},
+        **decoration_slash
     ),
 
     widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='color2'), padding=5, **decoration_layout),
+    widget.CurrentLayout(**base(bg='color2'), padding=5, **decoration_slash),
 
     widget.Clock(**base(bg='color1'),
 
                  format='[%a %d %b]-[%H:%M]',
-                 **decoration_clock,
+                 **decoration_slash,
                  fmt=' {}'
                  ),
 
@@ -173,12 +176,12 @@ secondary_widgets = [
 
     widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='color1'), padding=5, **decoration_layout),
+    widget.CurrentLayout(**base(bg='color1'), padding=5, **decoration_slash),
 
     # powerline('color2', 'color1'),
 
     widget.Clock(**base(bg='color2'),
-                 format='%d/%m/%Y - %H:%M ', **decoration_clock),
+                 format='[%d/%m/%Y] - [%H:%M]', **decoration_slash),
 
     powerline('dark', 'color2'),
 ]
