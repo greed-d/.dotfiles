@@ -15,8 +15,6 @@ require("packer").startup(function(use)
 
 	--> Colour Schemes/lualine
 	use({ "catppuccin/nvim", as = "catppuccin" })
-	-- use({ "ellisonleao/gruvbox.nvim" })
-	-- use("Mofiqul/dracula.nvim")
 	use("edr3x/lualine.nvim")
 
 	--> LSP/CMP
@@ -36,26 +34,37 @@ require("packer").startup(function(use)
 	use("saadparwaiz1/cmp_luasnip")
 
 	--> MISC PLUGINS
-	-- use("andweeb/presence.nvim")
+	use("airblade/vim-rooter")
+	use("andweeb/presence.nvim")
+	use("arnamak/stay-centered.nvim")
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({})
+		end,
+	})
+	use({ "folke/lsp-colors.nvim" })
 	use("glepnir/dashboard-nvim")
-	use("romainl/vim-cool")
-	use("max397574/better-escape.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("L3MON4D3/LuaSnip")
+	use("max397574/better-escape.nvim")
+	use("ThePrimeagen/harpoon")
+	use("romainl/vim-cool")
 	use("ryanoasis/vim-devicons")
 	use("tpope/vim-commentary")
-	use("arnamak/stay-centered.nvim")
-	use("airblade/vim-rooter")
-	use("stevearc/stickybuf.nvim")
 	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
-	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = {
 			"nvim-tree/nvim-web-devicons", -- optional, for file icons
 		},
 	})
+	-- use({ "ellisonleao/gruvbox.nvim" })
+	-- use("Mofiqul/dracula.nvim")
 	-- use("akinsho/toggleterm.nvim")
 	-- use "simrat39/rust-tools.nvim"
 	-- use("kdheepak/lazygit.nvim")
+	-- use("stevearc/stickybuf.nvim")
+	-- use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 end)

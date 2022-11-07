@@ -1,53 +1,90 @@
+local map = vim.keymap.set
+local options = { noremap = true, silent = true }
 vim.g.mapleader = " "
 
-vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 --> Movement/Deleting/Navigating
-vim.keymap.set("n", "<Leader>w", "<C-w>k")
-vim.keymap.set("n", "<Leader>a", "<C-w>h")
-vim.keymap.set("n", "<Leader>s", "<C-w>j")
-vim.keymap.set("n", "<Leader>d", "<C-w>l")
-vim.keymap.set("n", "<Leader>j", ":bprevious<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>k", ":bnext<CR>", { silent = true })
-vim.keymap.set("n", "<Leader>q", ":bprevious<CR>:bdelete #<CR>", { silent = true })
-vim.keymap.set("n", "<A-j>", "V:m '>+1<cr>gv=gv<esc>")
-vim.keymap.set("n", "<A-k>", "V:m '<-2<cr>gv=gv<esc>")
-vim.keymap.set({ "v", "x" }, "<A-j>", ":m '>+1<cr>gv=gv")
-vim.keymap.set({ "v", "x" }, "<A-k>", ":m '<-2<cr>gv=gv")
+map("n", "<Leader>w", "<C-w>k")
+map("n", "<Leader>a", "<C-w>h")
+map("n", "<Leader>s", "<C-w>j")
+map("n", "<Leader>d", "<C-w>l")
+map("n", "<Leader>q", ":bprevious<CR>:bdelete #<CR>", { silent = true })
+map("n", "<A-j>", "V:m '>+1<cr>gv=gv<esc>")
+map("n", "<A-k>", "V:m '<-2<cr>gv=gv<esc>")
+map({ "v", "x" }, "<A-j>", ":m '>+1<cr>gv=gv")
+map({ "v", "x" }, "<A-k>", ":m '<-2<cr>gv=gv")
 
 --> Nvim tree
-vim.keymap.set("n", "<Leader>n", ":NvimTreeToggle<CR>")
+map("n", "<Leader>nt", ":NvimTreeToggle<CR>")
 
 --> Remove search Highlight
-vim.keymap.set("n", "<Leader>/", ":nohlsearch<CR>", { silent = true })
+map("n", "<Leader>/", ":nohlsearch<CR>", { silent = true })
 
 --> yank all lines
-vim.keymap.set("n", "<Leader>y", ":%y<CR>")
-
---> Count a single line as 2 if in two lines
-vim.keymap.set("n", "k", 'v:count == 0 ? "gk" : "k"', { expr = true, silent = true })
-vim.keymap.set("n", "j", 'v:count == 0 ? "gj" : "j"', { expr = true, silent = true })
+map("n", "<Leader>y", ":%y<CR>")
 
 --> Terminal
-vim.keymap.set("n", "<Leader>l", ":vsplit term://fish <CR>", { silent = true })
-vim.keymap.set("t", "<C-l>", "<C-\\><C-n>", { silent = true })
+map("n", "<Leader>l", ":vsplit term://fish <CR>", { silent = true })
 
---> Open init.lua
-vim.keymap.set("n", "<Leader>v", ":edit ~/.config/nvim/init.lua<CR>", { silent = true })
-
---> Dashboard keymap
-vim.keymap.set("n", "<Leader>o", ":DashboardNewFile<CR>", { silent = true })
+--> Escape terminal mode
+map("t", "<C-l>", "<C-\\><C-n>", { silent = true })
 
 --> Telescope Keymap
-vim.keymap.set("n", "<Leader>f", "<cmd>Telescope find_files hidden=True<CR>")
-vim.keymap.set("n", "<Leader>t", require("telescope.builtin").treesitter)
-vim.keymap.set("n", "<Leader>m", "<cmd>Telescope file_browser<CR>")
+map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=True<CR>")
+map("n", "<Leader>ft", require("telescope.builtin").treesitter)
+map("n", "<Leader>fm", "<cmd>Telescope file_browser<CR>")
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", options)
 
 --> Commentary
-vim.keymap.set({ "n", "v" }, "<Leader>c", ":Commentary<CR>", { silent = true })
+map({ "n", "v" }, "<Leader>c", ":Commentary<CR>", { silent = true })
 
 --> Lsp-lines
-vim.keymap.set("n", "<Leader>x", require("lsp_lines").toggle)
+map("n", "<leader>x", ":TroubleToggle<cr>", { silent = true, noremap = true })
+
+--> Harpoon
+map("n", "<leader>m", function()
+	require("harpoon.mark").add_file()
+end, options)
+
+map("n", "<leader>o", function()
+	require("harpoon.ui").toggle_quick_menu()
+end, options)
+map("n", "<leader>j", function()
+	require("harpoon.ui").nav_prev()
+end, options)
+map("n", "<leader>k", function()
+	require("harpoon.ui").nav_next()
+end, options)
+
+map("n", "<leader>1", function()
+	require("harpoon.ui").nav_file(1)
+end, options)
+map("n", "<leader>2", function()
+	require("harpoon.ui").nav_file(2)
+end, options)
+map("n", "<leader>3", function()
+	require("harpoon.ui").nav_file(3)
+end, options)
+map("n", "<leader>4", function()
+	require("harpoon.ui").nav_file(4)
+end, options)
+map("n", "<leader>5", function()
+	require("harpoon.ui").nav_file(5)
+end, options)
+
+-- map("n", "<Leader>jj", ":bprevious<CR>", { silent = true })
+-- map("n", "<Leader>kk", ":bnext<CR>", { silent = true })
+
+--> Count a single line as 2 if in two lines
+-->map("n", "k", 'v:count == 0 ? "gk" : "k"', options)
+-->map("n", "j", 'v:count == 0 ? "gj" : "j"', options)
+
+--> Open init.lua
+-- map("n", "<Leader>v", ":edit ~/.config/nvim/init.lua<CR>", { silent = true })
+
+--> Dashboard keymap
+-- map("n", "<Leader>o", ":DashboardNewFile<CR>", { silent = true })
 
 --> Toggle term
--- vim.keymap.set("n", "<C-l>", ":ToggleTerm<CR>", { silent = true })
+-- map("n", "<C-l>", ":ToggleTerm<CR>", { silent = true })

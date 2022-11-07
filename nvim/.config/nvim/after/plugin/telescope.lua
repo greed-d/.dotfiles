@@ -9,3 +9,4 @@ telescope.setup({
 	extensions = { file_browser = { hidden = true } },
 })
 telescope.load_extension("file_browser")
+telescope.load_extension("harpoon")

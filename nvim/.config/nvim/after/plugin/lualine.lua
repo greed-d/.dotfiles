@@ -44,15 +44,5 @@ require("lualine").setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	tabline = {
-		lualine_a = {
-			{
-				"buffers",
-				separator = { left = "", right = "" },
-				right_padding = 2,
-				symbols = { alternate_file = "" },
-			},
-		},
-	},
 	extensions = {},
 })

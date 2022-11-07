@@ -9,6 +9,7 @@ vim.o.splitright = true
 vim.o.tabstop = 2
 vim.o.termguicolors = true
 vim.o.updatetime = 100
+vim.o.hlsearch = false
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -58,9 +59,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_command("sign define DiagnosticSignError text=● texthl=DiagnosticSignError")
-vim.api.nvim_command("sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn")
-vim.api.nvim_command("sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo")
-vim.api.nvim_command("sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint")
+vim.api.nvim_command("sign define DiagnosticSignError text= texthl=DiagnosticSignError")
+vim.api.nvim_command("sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn")
+vim.api.nvim_command("sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo")
+vim.api.nvim_command("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
 
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({ virtual_text = true })
