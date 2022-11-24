@@ -6,11 +6,11 @@ import:
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 font:
   normal:
-    family: CaskaydiaCove NF Mono
-    style: Regular
+    family: Caskaydia Cove Nerd Font Mono
+    style: SemiLight
 
   bold:
-    family: CaskaydiaCove NF Mono
+    family: Caskaydia Cove Nerd Font Mono
     style: Bold
 
   italic:
@@ -33,3 +33,6 @@ cursor:
     shape: Underline
   vi_mode_style:
     shape: Block
+
+env:
+  TERM: xterm-256color

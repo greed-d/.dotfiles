@@ -1,3 +1,4 @@
+
 # Bang Bang command
 function __history_previous_command
   switch (commandline -t)
@@ -33,6 +34,7 @@ function _plugin-bang-bang_uninstall --on-event plugin-bang-bang_uninstall
 end
 #End of bang bang
 
+
 alias ls "exa -a --icons --group-directories-first"
 alias ll "exa -lah --color automatic --git --icons --group-directories-first --no-user" 
 alias wl "nmcli device wifi list"
@@ -44,11 +46,20 @@ alias .... "cd ../../.."
 alias e "thunar ."
 alias x "exit"
 alias lg "lazygit"
+alias tns "tmux new -s"
+alias tas "tmux attach -t"
+alias tls "tmux list-sessions"
+alias tds "tmux detach"
 alias rem "trash --"
-alias clr "clear && neofetch"
+alias clr "clear && neofetch --config ~/.config/neofetch/config.small.conf"
 alias cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qtile cmd-obj -o widget wifiicon -f eval -a 'self.check_connection()'"
+alias ttc "tty-clock -SsctC5"
 
-neofetch
+#bind \cm "finder"
+
+set PATH "$PATH":"$HOME/.local/share/scripts/"
+
+neofetch --config ~/.config/neofetch/config.small.conf
 
 function fish_greeting
     echo Hello $USER!
