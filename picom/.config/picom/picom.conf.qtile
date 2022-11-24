@@ -8,10 +8,10 @@ unredir-if-possible = true;
 animations = true;
 animation-clamping = true;
 animation-delta = 12;
-animation-dampening = 17.0;
-animation-stiffness = 400.0;
+animation-dampening = 30.0;
+animation-stiffness = 500.0;
 animation-window-mass = 1;
-animation-for-open-window = "zoom";
+# animation-for-open-window = "zoom"; 
 animation-for-unmap-window = "zoom"
 animation-for-transient-window = "none";
 animation-for-workspace-switch-in = "slide-up";
@@ -27,7 +27,7 @@ animation-for-workspace-switch-out = "slide-down";
 # unless explicitly requested using the wintypes option.
 #
 # shadow = false
-# shadow = true;
+shadow = true;
 
 # The blur radius for shadows, in pixels. (defaults to 12)
 # shadow-radius = 12
@@ -229,8 +229,8 @@ blur-background-exclude = [
 # Specify the backend to use: `xrender`, `glx`, or `xr_glx_hybrid`.
 # `xrender` is the default one.
 #
-backend = "glx"
-# backend = "xrender";
+# backend = "glx"
+backend = "xrender";
 
 # Enable/disable VSync.
 # vsync = false
