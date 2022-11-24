@@ -1,5 +1,5 @@
 require("presence"):setup({
-	log_level = "debug",
+	-- log_level = "debug",
 	neovim_image_text = "Neovim",
 	presence_log_level = "error",
 	presence_editing_text = "Editing « %s »",

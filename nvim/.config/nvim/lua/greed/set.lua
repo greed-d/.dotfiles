@@ -1,15 +1,18 @@
-vim.o.clipboard = "unnamedplus"
-vim.o.ignorecase = true
-vim.o.lazyredraw = true
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.shiftwidth = 2
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.tabstop = 2
-vim.o.termguicolors = true
-vim.o.updatetime = 100
-vim.o.hlsearch = false
+local opt = vim.o
+
+opt.clipboard = "unnamedplus"
+opt.ignorecase = true
+opt.lazyredraw = true
+opt.number = true
+opt.relativenumber = true
+opt.shiftwidth = 2
+opt.splitbelow = true
+opt.splitright = true
+opt.tabstop = 2
+opt.termguicolors = true
+opt.updatetime = 100
+opt.hlsearch = false
+opt.cursorline = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -38,7 +41,7 @@ for lang, data in pairs(lang_maps) do
 	end
 	vim.api.nvim_create_autocmd(
 		"FileType",
-		{ command = "nnoremap <Leader>e :split<CR>:terminal " .. data.exec .. "<CR>", pattern = lang }
+		{ command = "nnoremap <Leader>e :20split<CR>:terminal " .. data.exec .. "<CR>", pattern = lang }
 	)
 end
 vim.api.nvim_create_autocmd("BufWritePre", {

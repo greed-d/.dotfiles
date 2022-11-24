@@ -14,7 +14,8 @@ map("n", "<A-j>", "V:m '>+1<cr>gv=gv<esc>")
 map("n", "<A-k>", "V:m '<-2<cr>gv=gv<esc>")
 map({ "v", "x" }, "<A-j>", ":m '>+1<cr>gv=gv")
 map({ "v", "x" }, "<A-k>", ":m '<-2<cr>gv=gv")
-
+map({ 'n', 'x' }, '<S-h>', '^', options)
+map({ 'n', 'x' }, '<S-l>', '$', options)
 --> Nvim tree
 map("n", "<Leader>nt", ":NvimTreeToggle<CR>")
 
@@ -25,22 +26,23 @@ map("n", "<Leader>/", ":nohlsearch<CR>", { silent = true })
 map("n", "<Leader>y", ":%y<CR>")
 
 --> Terminal
-map("n", "<Leader>l", ":vsplit term://fish <CR>", { silent = true })
+map("n", "<Leader>l", ":85vsplit term://fish <CR>", { silent = true })
 
 --> Escape terminal mode
-map("t", "<C-l>", "<C-\\><C-n>", { silent = true })
+-- map("t", "<C-l>", "<C-\\><C-n>", { silent = true })
 
 --> Telescope Keymap
 map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=True<CR>")
 map("n", "<Leader>ft", require("telescope.builtin").treesitter)
 map("n", "<Leader>fm", "<cmd>Telescope file_browser<CR>")
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", options)
+map("n", "<leader>fg", "<cmd>Telescope live_grep hidden=True<cr>", options)
 
 --> Commentary
 map({ "n", "v" }, "<Leader>c", ":Commentary<CR>", { silent = true })
 
 --> Lsp-lines
-map("n", "<leader>x", ":TroubleToggle<cr>", { silent = true, noremap = true })
+map("n", "<leader>x", ":TroubleToggle<cr>", options)
 
 --> Harpoon
 map("n", "<leader>m", function()
