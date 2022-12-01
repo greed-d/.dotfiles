@@ -26,3 +26,4 @@ picom --config ~/.config/picom/picom.conf &
 cbatticon &
 nitrogen --restore &
 polybar bar &
+nm-applet &
