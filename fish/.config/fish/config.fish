@@ -51,7 +51,7 @@ alias tas "tmux attach -t"
 alias tls "tmux list-sessions"
 alias tds "tmux detach"
 alias rem "trash --"
-alias clr "clear && neofetch --config ~/.config/neofetch/config.small.conf"
+alias clr "clear && neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small"
 alias cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qtile cmd-obj -o widget wifiicon -f eval -a 'self.check_connection()'"
 alias ttc "tty-clock -SsctC5"
 
@@ -59,10 +59,13 @@ alias ttc "tty-clock -SsctC5"
 
 set PATH "$PATH":"$HOME/.local/share/scripts/"
 
-neofetch --config ~/.config/neofetch/config.small.conf
+neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small
 
 function fish_greeting
     echo Hello $USER!
     echo You logged in to $hostname at (set_color yellow; date +%T; set_color normal)
 end
+
 starship init fish | source
+
+jump shell fish | source
