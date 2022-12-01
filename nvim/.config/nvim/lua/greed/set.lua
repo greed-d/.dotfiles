@@ -18,10 +18,6 @@ opt.cursorline = true
 -- vim.opt.listchars:append "space:⋅"
 -- vim.opt.listchars:append "eol:↴"
 
-vim.cmd [[
- 	highlight Comment guifg=#858799
- ]]
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
