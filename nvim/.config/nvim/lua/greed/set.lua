@@ -1,11 +1,12 @@
-local opt = vim.o
-
+local opt = vim.opt
+-- 858799
 opt.clipboard = "unnamedplus"
 opt.ignorecase = true
 opt.lazyredraw = true
 opt.number = true
 opt.relativenumber = true
 opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 2
@@ -13,6 +14,13 @@ opt.termguicolors = true
 opt.updatetime = 100
 opt.hlsearch = false
 opt.cursorline = true
+-- vim.opt.list = true
+-- vim.opt.listchars:append "space:⋅"
+-- vim.opt.listchars:append "eol:↴"
+
+vim.cmd [[
+ 	highlight Comment guifg=#858799
+ ]]
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -41,7 +49,7 @@ for lang, data in pairs(lang_maps) do
 	end
 	vim.api.nvim_create_autocmd(
 		"FileType",
-		{ command = "nnoremap <Leader>e :20split<CR>:terminal " .. data.exec .. "<CR>", pattern = lang }
+		{ command = "nnoremap <Leader>e :90vsplit<CR>:terminal " .. data.exec .. "<CR>", pattern = lang }
 	)
 end
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -66,5 +74,7 @@ vim.api.nvim_command("sign define DiagnosticSignError text= texthl=Diagnostic
 vim.api.nvim_command("sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn")
 vim.api.nvim_command("sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo")
 vim.api.nvim_command("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
+
+-- vim.api.nvim_set_hl(0, 'Comment', { guifg = '#858799' })
 
 vim.diagnostic.config({ virtual_text = true })

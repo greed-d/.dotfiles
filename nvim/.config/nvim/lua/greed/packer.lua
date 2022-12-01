@@ -39,6 +39,7 @@ require("packer").startup(function(use)
 	use("christoomey/vim-tmux-navigator")
 	use("andweeb/presence.nvim")
 	use("NvChad/nvim-colorizer.lua")
+	use("lukas-reineke/indent-blankline.nvim")
 	use("arnamak/stay-centered.nvim")
 	use('DaikyXendo/nvim-material-icon')
 	use({
