@@ -1,48 +1,135 @@
-local lspStatus = {
-	function()
-		local msg = "No Active Lsp"
-		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-		local clients = vim.lsp.get_active_clients()
-		if next(clients) == nil then
-			return msg
-		end
-		for _, client in ipairs(clients) do
-			local filetypes = client.config.filetypes
-			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-				return client.name
-			end
-		end
-		return msg
-	end,
-	icon = "",
-	color = { fg = "#d3d3d3" },
+local present, lualine = pcall(require, "lualine")
+if not present then
+	return
+end
+
+local layout = {
+	lualine_a = {
+		{
+			function()
+				return ""
+			end,
+			separator = { left = "", right = "" },
+		},
+	},
+	lualine_b = {
+		{
+			"filetype",
+			icon_only = true,
+			colored = true,
+			color = { bg = "#121319", fg = "#ffffff" },
+		},
+		{
+			"filename",
+			color = { bg = "#121319", fg = "#ffffff" },
+			separator = { left = "", right = "" },
+		},
+		{
+			"branch",
+			icon = "",
+			color = { bg = "#212430", fg = "#c296eb" },
+			separator = { left = "", right = "" },
+		},
+		{
+			"diff",
+			colored = true,
+			symbols = {
+				added = "",
+				modified = "",
+				removed = "",
+			},
+			color = { bg = "#212430" },
+			separator = { left = "", right = "" },
+		},
+	},
+	lualine_c = {
+		{
+			function()
+				return ''
+			end,
+			color = { bg = '#8FCDA9', fg = '#121319' },
+			separator = { left = '', right = '' },
+		},
+		{
+			"diagnostics",
+			sources = { "nvim_lsp" },
+			sections = {
+				"info",
+				"error",
+				"warn",
+				"hint",
+			},
+			diagnostic_color = {
+				error = { fg = '#820e2d', bg = '#0f111a' },
+				warn = { fg = 'DiagnosticWarn', bg = '#0f111a' },
+				info = { fg = 'DiaganosticInfo', bg = '#0f111a' },
+				hint = { fg = '#92CDE7', bg = '#0f111a' },
+			},
+			colored = true,
+			update_in_insert = true,
+			always_visible = false,
+			symbols = {
+				error = " ",
+				warn = " ",
+				hint = " ",
+				info = " ",
+			},
+			separator = { left = "", right = "" },
+		},
+	},
+	lualine_x = {},
+	lualine_y = {},
+	lualine_z = {
+		{
+			"filesize",
+			color = "StatusLine",
+		},
+		{
+			function()
+				return ""
+			end,
+			separator = { left = "", right = "" },
+		},
+		{
+			"progress",
+			color = "StatusLine",
+		},
+		{
+			function()
+				return ""
+			end,
+			separator = { left = "", right = "" },
+		},
+		{
+			"location",
+			color = "StatusLine",
+		},
+		{
+			function()
+				return ""
+			end,
+			separator = { left = "", right = "" },
+		},
+	},
 }
 
-require("lualine").setup({
+local no_layout = {
+	lualine_a = {},
+	lualine_b = {},
+	lualine_c = {},
+	lualine_x = {},
+	lualine_y = {},
+	lualine_z = {},
+}
+
+lualine.setup({
+	sections = layout,
+	inactive_sections = no_layout,
 	options = {
 		icons_enabled = true,
-		theme = "powerline_cyan",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-		disabled_filetypes = {},
+		globalstatus = false,
+		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
-		globalstatus = true,
+		theme = "catppuccin",
 	},
-	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = { "filename" },
-		lualine_x = { lspStatus, "encoding", "fileformat", "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {},
-	},
-	extensions = {},
 })
