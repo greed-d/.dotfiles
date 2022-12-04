@@ -12,7 +12,7 @@ error_symbol = "[✖](bold red) "
 success_symbol = "[❯](bold green)" 
 
 [cmd_duration]
-format = " took [$duration]($style)"
+format = "took [$duration]($style)"
 min_time = 10
 
 [directory]
