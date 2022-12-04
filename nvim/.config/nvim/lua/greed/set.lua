@@ -71,6 +71,8 @@ vim.api.nvim_command("sign define DiagnosticSignWarn text= texthl=DiagnosticS
 vim.api.nvim_command("sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo")
 vim.api.nvim_command("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
 
+vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
+vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
 -- vim.api.nvim_set_hl(0, 'Comment', { guifg = '#858799' })
 
 vim.diagnostic.config({ virtual_text = true })

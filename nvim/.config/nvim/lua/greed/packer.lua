@@ -35,6 +35,7 @@ require("packer").startup(function(use)
 
 	--> MISC PLUGINS
 	use("airblade/vim-rooter")
+	use("ThePrimeagen/vim-be-good")
 	use('edluffy/specs.nvim')
 	use("christoomey/vim-tmux-navigator")
 	use("andweeb/presence.nvim")
@@ -58,7 +59,7 @@ require("packer").startup(function(use)
 	use("romainl/vim-cool")
 	use("ryanoasis/vim-devicons")
 	use("tpope/vim-commentary")
-	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
+	use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
 	-- use({
 	-- 	"nvim-tree/nvim-tree.lua",
 	-- 	requires = {
