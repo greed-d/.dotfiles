@@ -29,6 +29,7 @@ local lang_maps = {
 	python = { exec = "python %" },
 	java = { build = "javac %", exec = "java %:r" },
 	sh = { exec = "./%" },
+	prolog = { exec = "gplc %" }
 	-- go = { build = "go build", exec = "go run %" },
 	-- rust = { exec = "cargo run" },
 	-- arduino = {
