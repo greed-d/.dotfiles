@@ -12,11 +12,11 @@ error_symbol = "[✖](bold red) "
 success_symbol = "[❯](bold green)" 
 
 [cmd_duration]
-format = "took [$duration]($style)"
+format = ' \[[$duration]($style)\]'
 min_time = 10
 
 [directory]
-truncation_length = 5
+truncation_length = 3
 read_only = " "
 format = "on [$path]($style)[$lock_symbol]($lock_style) "
 
@@ -50,7 +50,7 @@ format = "$all_status$ahead_behind"
 ssh_only = false
 format = "[$hostname]($style) "
 trim_at = "-"
-style = "#c32dc4"
+style = "bold #9e6ce0"
 disabled = false
 
 [memory_usage]
@@ -74,60 +74,82 @@ disabled = false
 
 [aws]
 symbol = "  "
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
 [buf]
 symbol = " "
 
 [c]
 symbol = " "
+format = '\[[$symbol($version(-$name))]($style)\]'
 
 [conda]
 symbol = " "
+format = '\[[$symbol$environment]($style)\]'
 
 [dart]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 [docker_context]
 symbol = " "
+format = '\[[$symbol$context]($style)\]'
 
 [elixir]
 symbol = " "
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
 
 [elm]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 [golang]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 [haskell]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 [hg_branch]
 symbol = " "
+format = '\[[$symbol$branch]($style)\]'
 
 [java]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 [julia]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[lua]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 [nim]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 [nix_shell]
 symbol = " "
+format = '\[[$symbol$state( \($name\))]($style)\]'
 
 [nodejs]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 [python]
 symbol = " "
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 
 [spack]
 symbol = "🅢 "
+format = '\[[$symbol$environment]($style)\]'
 
 [rust]
 symbol = " "
+format = '\[[$symbol($version)]($style)\]'
 
 # [aws]
 # format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
