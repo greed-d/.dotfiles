@@ -6,6 +6,7 @@ local servers = {
 	"gopls",
 	"html",
 	"marksman",
+	-- "jedi_language_server",
 	"pyright",
 	-- "rust_analyzer",
 	"sumneko_lua",
