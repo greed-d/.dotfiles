@@ -5,15 +5,15 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 bspc monitor -d  	 		 				阮 ﭮ
 
 bspc config border_width        2
-bspc config window_gap					3          
+bspc config window_gap					3
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      false
 
-bspc rule -a firefox desktop='^1'
-bspc rule -a thunar desktop='^6'
-bspc rule -a spotify desktop='^8' 
+bspc rule -a firefox desktop='^1' follow = on
+bspc rule -a Thunar desktop='^6' follow = on
+bspc rule -a Spotify desktop='^8'
 bspc rule -a discord desktop='^9'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
@@ -21,6 +21,7 @@ bspc rule -a Screenkey manage=off
 
 wmname BSPWM
 volctl &
+spotify &
 discord &
 picom --config ~/.config/picom/picom.conf &
 cbatticon &
