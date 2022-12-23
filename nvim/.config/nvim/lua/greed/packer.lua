@@ -36,13 +36,13 @@ require("packer").startup(function(use)
 	--> MISC PLUGINS
 	use("airblade/vim-rooter")
 	use("ThePrimeagen/vim-be-good")
-	use('edluffy/specs.nvim')
+	use("edluffy/specs.nvim")
 	use("christoomey/vim-tmux-navigator")
 	use("andweeb/presence.nvim")
 	use("NvChad/nvim-colorizer.lua")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("arnamak/stay-centered.nvim")
-	use('DaikyXendo/nvim-material-icon')
+	use("DaikyXendo/nvim-material-icon")
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
@@ -59,28 +59,30 @@ require("packer").startup(function(use)
 	use("romainl/vim-cool")
 	use("ryanoasis/vim-devicons")
 	use("tpope/vim-commentary")
-	use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
+	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
 	-- use({
 	-- 	"nvim-tree/nvim-tree.lua",
 	-- 	requires = {
 	-- 		"nvim-tree/nvim-material-icon" -- optional, for file icons
 	-- 	},
 	-- })
-	use {
-		'DaikyXendo/nvim-tree.lua',
+	use({
+		"DaikyXendo/nvim-tree.lua",
 		requires = {
-			'DaikyXendo/nvim-material-icon',
+			"DaikyXendo/nvim-material-icon",
 		},
-	}
+	})
 	-- use { 'gen740/SmoothCursor.nvim',
 	-- 	config = function()
 	-- 		require('smoothcursor').setup()
 	-- 	end
 	-- }
-	use {
-		'declancm/cinnamon.nvim',
-		config = function() require('cinnamon').setup() end
-	}
+	use({
+		"declancm/cinnamon.nvim",
+		config = function()
+			require("cinnamon").setup()
+		end,
+	})
 	-- use({ "ellisonleao/gruvbox.nvim" })
 	-- use("Mofiqul/dracula.nvim")
 	-- use("akinsho/toggleterm.nvim")

@@ -14,9 +14,11 @@ opt.termguicolors = true
 opt.updatetime = 100
 opt.hlsearch = false
 opt.cursorline = true
--- vim.opt.list = true
--- vim.opt.listchars:append "space:⋅"
--- vim.opt.listchars:append "eol:↴"
+opt.list = true
+opt.listchars:append("space:⋅")
+-- opt.listchars:append("eol:↴")
+-- opt.list = true
+-- opt.listchars:append("space:⋅")
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -29,7 +31,7 @@ local lang_maps = {
 	python = { exec = "python %" },
 	java = { build = "javac %", exec = "java %:r" },
 	sh = { exec = "./%" },
-	prolog = { exec = "gplc %" }
+	prolog = { exec = "gplc %" },
 	-- go = { build = "go build", exec = "go run %" },
 	-- rust = { exec = "cargo run" },
 	-- arduino = {
@@ -72,8 +74,8 @@ vim.api.nvim_command("sign define DiagnosticSignWarn text= texthl=DiagnosticS
 vim.api.nvim_command("sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo")
 vim.api.nvim_command("sign define DiagnosticSignHint text= texthl=DiagnosticSignHint")
 
-vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
-vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
+vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 -- vim.api.nvim_set_hl(0, 'Comment', { guifg = '#858799' })
 
 vim.diagnostic.config({ virtual_text = true })

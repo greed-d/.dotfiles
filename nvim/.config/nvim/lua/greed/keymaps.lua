@@ -14,8 +14,8 @@ map("n", "<A-j>", "V:m '>+1<cr>gv=gv<esc>")
 map("n", "<A-k>", "V:m '<-2<cr>gv=gv<esc>")
 map({ "v", "x" }, "<A-j>", ":m '>+1<cr>gv=gv")
 map({ "v", "x" }, "<A-k>", ":m '<-2<cr>gv=gv")
-map({ 'n', 'x' }, '<S-h>', '^', options)
-map({ 'n', 'x' }, '<S-l>', '$', options)
+map({ "n", "x" }, "<S-h>", "^", options)
+map({ "n", "x" }, "<S-l>", "$", options)
 --> Nvim tree
 map("n", "<Leader>nt", ":NvimTreeToggle<CR>")
 
