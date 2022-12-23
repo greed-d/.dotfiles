@@ -28,7 +28,7 @@
     # width =500
 
     # The maximum height of a single notification, excluding the frame.
-    height = 100
+    height = 120
 
     # Position the notification in the top right corner
     origin = top-right
@@ -210,7 +210,7 @@
     min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 64
+    max_icon_size = 100
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
     icon_path = /usr/share/icons/Vimix-Black/24/status/:/usr/share/icons/Vimix-Black/24/devices/
@@ -453,4 +453,3 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
-
