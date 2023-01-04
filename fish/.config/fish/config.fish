@@ -58,6 +58,9 @@ alias ttc "tty-clock -SsctC5"
 #bind \cm "finder"
 
 set PATH "$PATH":"$HOME/.local/share/scripts/"
+set PATH "$PATH":"/opt/flutter/bin/flutter/"
+set -gx JAVA_HOME /usr/lib/jvm/java-8-openjdk
+set PATH "$JAVA_HOME/bin:$PATH"
 
 neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small
 
