@@ -35,12 +35,13 @@ require("packer").startup(function(use)
 
 	--> MISC PLUGINS
 	use("airblade/vim-rooter")
+	use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
 	use("ThePrimeagen/vim-be-good")
 	use("edluffy/specs.nvim")
 	use("christoomey/vim-tmux-navigator")
 	use("andweeb/presence.nvim")
 	use("NvChad/nvim-colorizer.lua")
-	use("lukas-reineke/indent-blankline.nvim")
+	-- use("lukas-reineke/indent-blankline.nvim")
 	use("arnamak/stay-centered.nvim")
 	use("DaikyXendo/nvim-material-icon")
 	use({

@@ -37,6 +37,7 @@ map("n", "<Leader>ft", require("telescope.builtin").treesitter)
 map("n", "<Leader>fm", "<cmd>Telescope file_browser<CR>")
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", options)
 map("n", "<leader>fg", "<cmd>Telescope live_grep hidden=True<cr>", options)
+map("n", "<leader>fl", "<cmd>Telescope flutter commands<CR>", options)
 
 --> Commentary
 map({ "n", "v" }, "<Leader>c", ":Commentary<CR>", { silent = true })
@@ -52,10 +53,10 @@ end, options)
 map("n", "<leader>o", function()
 	require("harpoon.ui").toggle_quick_menu()
 end, options)
-map("n", "<leader>j", function()
+map("n", "<leader>jj", function()
 	require("harpoon.ui").nav_prev()
 end, options)
-map("n", "<leader>k", function()
+map("n", "<leader>kk", function()
 	require("harpoon.ui").nav_next()
 end, options)
 
@@ -75,8 +76,8 @@ map("n", "<leader>5", function()
 	require("harpoon.ui").nav_file(5)
 end, options)
 
--- map("n", "<Leader>jj", ":bprevious<CR>", { silent = true })
--- map("n", "<Leader>kk", ":bnext<CR>", { silent = true })
+map("n", "<Leader>kj", ":bprevious<CR>", { silent = true })
+map("n", "<Leader>jk", ":bnext<CR>", { silent = true })
 
 --> Count a single line as 2 if in two lines
 -->map("n", "k", 'v:count == 0 ? "gk" : "k"', options)

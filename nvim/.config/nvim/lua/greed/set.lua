@@ -14,8 +14,8 @@ opt.termguicolors = true
 opt.updatetime = 100
 opt.hlsearch = false
 opt.cursorline = true
-opt.list = true
-opt.listchars:append("space:⋅")
+-- opt.list = true
+-- opt.listchars:append("space:⋅")
 -- opt.listchars:append("eol:↴")
 -- opt.list = true
 -- opt.listchars:append("space:⋅")

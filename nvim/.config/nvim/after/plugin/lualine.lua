@@ -3,6 +3,32 @@ if not present then
 	return
 end
 
+local cp = require("catppuccin.palettes").get_palette()
+local custom_catppuccin = require("lualine.themes.catppuccin")
+custom_catppuccin.normal.b.bg = cp.surface0
+custom_catppuccin.normal.c.bg = cp.base
+custom_catppuccin.insert.b.bg = cp.surface0
+custom_catppuccin.command.b.bg = cp.surface0
+custom_catppuccin.visual.b.bg = cp.surface0
+custom_catppuccin.replace.b.bg = cp.surface0
+custom_catppuccin.inactive.a.bg = cp.base
+custom_catppuccin.inactive.b.bg = cp.base
+custom_catppuccin.inactive.b.fg = cp.surface0
+custom_catppuccin.inactive.c.bg = cp.base
+
+-- local buffer = {
+-- 	"buffers",
+-- 	show_filename_only = true,
+-- 	hide_filename_extension = false,
+-- 	show_modified_status = true,
+-- 	mode = 0,
+-- 	separator = { left = "", right = "" },
+-- 	buffers_color = {
+-- 		active = { fg = "#d3d3d3" },
+-- 		inactive = { fg = "#414141" },
+-- 	},
+-- }
+
 local lspStatus = {
 	function()
 		local msg = "No Active Lsp"
@@ -96,6 +122,13 @@ local layout = {
 			},
 			separator = { left = "", right = "" },
 		},
+
+		{
+			"buffers",
+			separator = { left = "", right = "" },
+			right_padding = 2,
+			symbols = { alternate_file = "" },
+		},
 	},
 	lualine_x = { lspStatus },
 	lualine_y = {},
@@ -137,6 +170,7 @@ local no_layout = {
 	lualine_a = {},
 	lualine_b = {},
 	lualine_c = {},
+	lualine_d = {},
 	lualine_x = {},
 	lualine_y = {},
 	lualine_z = {},
