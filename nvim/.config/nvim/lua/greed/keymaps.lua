@@ -76,8 +76,8 @@ map("n", "<leader>5", function()
 	require("harpoon.ui").nav_file(5)
 end, options)
 
-map("n", "<Leader>kj", ":bprevious<CR>", { silent = true })
-map("n", "<Leader>jk", ":bnext<CR>", { silent = true })
+map("n", "<A-h>", ":bprevious<CR>", { silent = true })
+map("n", "<A-l>", ":bnext<CR>", { silent = true })
 
 --> Count a single line as 2 if in two lines
 -->map("n", "k", 'v:count == 0 ? "gk" : "k"', options)
