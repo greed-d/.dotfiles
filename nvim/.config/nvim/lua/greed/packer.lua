@@ -16,6 +16,7 @@ require("packer").startup(function(use)
 	--> Colour Schemes/lualine
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("edr3x/lualine.nvim")
+	use("folke/tokyonight.nvim")
 
 	--> LSP/CMP
 	use("hrsh7th/nvim-cmp")
@@ -25,25 +26,46 @@ require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
-	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-file-browser.nvim")
+	use("github/copilot.vim")
+	use("lukas-reineke/indent-blankline.nvim")
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-lua/plenary.nvim")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("onsails/lspkind-nvim")
 	use("saadparwaiz1/cmp_luasnip")
+	use("tpope/vim-commentary")
+
+	--> LANGUAGE SPECIFIC PLUGINS
+	use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
+
+	--> NAVIGATION PLUGINS
+	use("nvim-telescope/telescope-file-browser.nvim")
+	use("christoomey/vim-tmux-navigator")
+	use("nvim-telescope/telescope.nvim")
+	use("ThePrimeagen/harpoon")
+	use("airblade/vim-rooter")
+	use("arnamak/stay-centered.nvim")
+	use({
+		"DaikyXendo/nvim-tree.lua",
+		requires = {
+			"DaikyXendo/nvim-material-icon",
+		},
+	})
 
 	--> MISC PLUGINS
-	use("airblade/vim-rooter")
-	use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
 	use("ThePrimeagen/vim-be-good")
-	use("edluffy/specs.nvim")
-	use("christoomey/vim-tmux-navigator")
 	use("andweeb/presence.nvim")
 	use("NvChad/nvim-colorizer.lua")
-	-- use("lukas-reineke/indent-blankline.nvim")
-	use("arnamak/stay-centered.nvim")
 	use("DaikyXendo/nvim-material-icon")
+	use({ "folke/lsp-colors.nvim" })
+	use("glepnir/dashboard-nvim")
+	use("kyazdani42/nvim-web-devicons")
+	use("L3MON4D3/LuaSnip")
+	use("max397574/better-escape.nvim")
+	use("romainl/vim-cool")
+	use("ryanoasis/vim-devicons")
+
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
@@ -51,39 +73,25 @@ require("packer").startup(function(use)
 			require("trouble").setup({})
 		end,
 	})
-	use({ "folke/lsp-colors.nvim" })
-	use("glepnir/dashboard-nvim")
-	use("kyazdani42/nvim-web-devicons")
-	use("L3MON4D3/LuaSnip")
-	use("max397574/better-escape.nvim")
-	use("ThePrimeagen/harpoon")
-	use("romainl/vim-cool")
-	use("ryanoasis/vim-devicons")
-	use("tpope/vim-commentary")
-	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
+
+	use({
+		"kdheepak/tabline.nvim",
+		requires = { "hoob3rt/lualine.nvim", "kyazdani42/nvim-web-devicons" },
+	})
+
+	-- 	use({
+	-- 		"declancm/cinnamon.nvim",
+	-- 		config = function()
+	-- 			require("cinnamon").setup()
+	-- 		end,
+	-- 	})
+
 	-- use({
 	-- 	"nvim-tree/nvim-tree.lua",
 	-- 	requires = {
 	-- 		"nvim-tree/nvim-material-icon" -- optional, for file icons
 	-- 	},
 	-- })
-	use({
-		"DaikyXendo/nvim-tree.lua",
-		requires = {
-			"DaikyXendo/nvim-material-icon",
-		},
-	})
-	-- use { 'gen740/SmoothCursor.nvim',
-	-- 	config = function()
-	-- 		require('smoothcursor').setup()
-	-- 	end
-	-- }
-	use({
-		"declancm/cinnamon.nvim",
-		config = function()
-			require("cinnamon").setup()
-		end,
-	})
 	-- use({ "ellisonleao/gruvbox.nvim" })
 	-- use("Mofiqul/dracula.nvim")
 	-- use("akinsho/toggleterm.nvim")

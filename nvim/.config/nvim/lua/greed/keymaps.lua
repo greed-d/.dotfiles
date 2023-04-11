@@ -5,10 +5,11 @@ vim.g.mapleader = " "
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 --> Movement/Deleting/Navigating
-map("n", "<Leader>w", "<C-w>k")
-map("n", "<Leader>a", "<C-w>h")
-map("n", "<Leader>s", "<C-w>j")
-map("n", "<Leader>d", "<C-w>l")
+-- map("n", "<Leader>w", "<C-w>k")
+-- map("n", "<Leader>a", "<C-w>h")
+-- map("n", "<Leader>s", "<C-w>j")
+-- map("n", "<Leader>d", "<C-w>l")
+
 map("n", "<Leader>q", ":bprevious<CR>:bdelete #<CR>", { silent = true })
 map("n", "<A-j>", "V:m '>+1<cr>gv=gv<esc>")
 map("n", "<A-k>", "V:m '<-2<cr>gv=gv<esc>")
@@ -16,6 +17,7 @@ map({ "v", "x" }, "<A-j>", ":m '>+1<cr>gv=gv")
 map({ "v", "x" }, "<A-k>", ":m '<-2<cr>gv=gv")
 map({ "n", "x" }, "<S-h>", "^", options)
 map({ "n", "x" }, "<S-l>", "$", options)
+
 --> Nvim tree
 map("n", "<Leader>nt", ":NvimTreeToggle<CR>")
 
@@ -80,8 +82,8 @@ map("n", "<A-h>", ":bprevious<CR>", { silent = true })
 map("n", "<A-l>", ":bnext<CR>", { silent = true })
 
 --> Count a single line as 2 if in two lines
--->map("n", "k", 'v:count == 0 ? "gk" : "k"', options)
--->map("n", "j", 'v:count == 0 ? "gj" : "j"', options)
+-- map("n", "k", 'v:count == 0 ? "gk" : "k"', options)
+-- map("n", "j", 'v:count == 0 ? "gj" : "j"', options)
 
 --> Open init.lua
 -- map("n", "<Leader>v", ":edit ~/.config/nvim/init.lua<CR>", { silent = true })

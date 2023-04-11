@@ -13,10 +13,9 @@ if not e then
 	return
 end
 
-
 local check_backspace = function()
-	local col = vim.fn.col "." - 1
-	return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+	local col = vim.fn.col(".") - 1
+	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
 local kind_icons = {
@@ -47,7 +46,7 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
-cmp.setup {
+cmp.setup({
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -111,10 +110,10 @@ cmp.setup {
 		ghost_text = false,
 		native_menu = false,
 	},
-}
+})
 
 csnip.lazy_load({
-	paths = vim.fn.stdpath "config" .. "/snippets",
+	paths = vim.fn.stdpath("config") .. "/snippets",
 })
 
 -- local luasnip = require("luasnip")

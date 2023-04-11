@@ -1,19 +1,19 @@
-local opt = vim.opt
+local set = vim.opt
 -- 858799
-opt.clipboard = "unnamedplus"
-opt.ignorecase = true
-opt.lazyredraw = true
-opt.number = true
-opt.relativenumber = true
-opt.shiftwidth = 2
-opt.softtabstop = 2
-opt.splitbelow = true
-opt.splitright = true
-opt.tabstop = 2
-opt.termguicolors = true
-opt.updatetime = 100
-opt.hlsearch = false
-opt.cursorline = true
+set.clipboard = "unnamedplus"
+set.ignorecase = true
+set.lazyredraw = true
+set.number = true
+set.relativenumber = true
+set.shiftwidth = 2
+set.softtabstop = 2
+set.tabstop = 2
+set.splitbelow = true
+set.splitright = true
+set.termguicolors = true
+set.updatetime = 100
+set.hlsearch = true
+set.cursorline = true
 -- opt.list = true
 -- opt.listchars:append("space:⋅")
 -- opt.listchars:append("eol:↴")
@@ -53,7 +53,7 @@ for lang, data in pairs(lang_maps) do
 end
 vim.api.nvim_create_autocmd("BufWritePre", {
 	command = "lua vim.lsp.buf.format()",
-	pattern = "*.cpp,*.css,*.go,*.h,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.py,*.rs,*.ts,*.tsx,*.yaml,*.c",
+	pattern = "*.cpp,*.css,*.go,*.h,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.py,*.rs,*.ts,*.tsx,*.yaml,*.c,*.dart",
 })
 -- vim.api.nvim_create_autocmd("InsertEnter", { command = "set norelativenumber", pattern = "*" })
 vim.api.nvim_create_autocmd("InsertLeave", { command = "set relativenumber", pattern = "*" })
