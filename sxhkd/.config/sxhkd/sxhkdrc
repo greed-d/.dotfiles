@@ -41,7 +41,7 @@ control + shift + k
 
 # File manager
 super + e
-	thunar
+	nautilus
 
 #Lock
 control + shift + l
