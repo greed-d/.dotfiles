@@ -1,3 +1,8 @@
+local gwidth = vim.api.nvim_list_uis()[1].width
+local gheight = vim.api.nvim_list_uis()[1].height
+local width = 30
+local height = 30
+
 require("nvim-tree").setup({
 	sort_by = "name",
 	open_on_setup = true,
@@ -6,16 +11,14 @@ require("nvim-tree").setup({
 	disable_netrw = true,
 	hijack_netrw = true,
 	view = {
-		adaptive_size = true,
-		width = 25,
-		side = "right",
-		number = false,
-		relativenumber = false,
-		signcolumn = "yes",
-		hide_root_folder = false,
-		mappings = {
-			list = {
-				{ key = "u", action = "dir_up" },
+		float = {
+			enable = false,
+			open_win_config = {
+				relative = "editor",
+				width = width,
+				height = height,
+				row = (gheight - height) * 0.4,
+				col = (gwidth - width) * 0.5,
 			},
 		},
 	},

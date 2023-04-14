@@ -1,0 +1,300 @@
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+[character]
+error_symbol = "[✖](bold red) "
+success_symbol = "[❯](bold green)" 
+
+[cmd_duration]
+format = ' \[[$duration]($style)\]'
+min_time = 10
+
+[directory]
+truncation_length = 3
+read_only = " "
+format = "on [$path]($style)[$lock_symbol]($lock_style) "
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = " "
+style = "bold yellow"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "⇡×${count} "
+behind = "⇣×${count} "
+diverged = "⇕×${ahead_count}  ×${behind_count} "
+untracked = "×${count} "
+stashed = " 📦 "
+modified = "×${count} "
+staged = "×${count} "
+renamed = "×${count} "
+deleted = "✘×${count} "
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style) "
+trim_at = "-"
+style = "bold #9e6ce0"
+disabled = false
+
+[memory_usage]
+format = "$symbol[${ram}( | ${swap})]($style) "
+threshold = 50 
+style = "bold dimmed white"
+disabled = false
+symbol = " "
+
+[package]
+disabled = true
+symbol = ""
+
+[username]
+style_user = "bold green"
+format = "[$user]($style) @ "
+show_always = true
+
+[time]
+disabled = false
+
+[aws]
+symbol = "  "
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+format = '\[[$symbol($version(-$name))]($style)\]'
+
+[conda]
+symbol = " "
+format = '\[[$symbol$environment]($style)\]'
+
+[dart]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[docker_context]
+symbol = " "
+format = '\[[$symbol$context]($style)\]'
+
+[elixir]
+symbol = " "
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+
+[elm]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[golang]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[haskell]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[hg_branch]
+symbol = " "
+format = '\[[$symbol$branch]($style)\]'
+
+[java]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[julia]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[lua]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[nim]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[nix_shell]
+symbol = " "
+format = '\[[$symbol$state( \($name\))]($style)\]'
+
+[nodejs]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+[python]
+symbol = " "
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
+[spack]
+symbol = "🅢 "
+format = '\[[$symbol$environment]($style)\]'
+
+[rust]
+symbol = " "
+format = '\[[$symbol($version)]($style)\]'
+
+# [aws]
+# format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+
+# [bun]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [c]
+# format = '\[[$symbol($version(-$name))]($style)\]'
+
+# [cmake]
+# format = '\[[$symbol($version)]($style)\]'
+
+
+# [cobol]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [conda]
+# format = '\[[$symbol$environment]($style)\]'
+
+# [crystal]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [daml]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [dart]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [deno]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [docker_context]
+# format = '\[[$symbol$context]($style)\]'
+
+# [dotnet]
+# format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
+
+# [elixir]
+# format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+
+# [elm]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [erlang]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [gcloud]
+# format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+
+
+# [golang]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [haskell]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [helm]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [hg_branch]
+# format = '\[[$symbol$branch]($style)\]'
+
+# [java]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [julia]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [kotlin]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [kubernetes]
+# format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+# [lua]
+# format = '\[[$symbol($version)]($style)\]'
+
+
+# [meson]
+# format = '\[[$symbol$project]($style)\]'
+
+# [nim]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [nix_shell]
+# format = '\[[$symbol$state( \($name\))]($style)\]'
+
+# [nodejs]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [ocaml]
+# format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
+
+# [openstack]
+# format = '\[[$symbol$cloud(\($project\))]($style)\]'
+
+
+# [perl]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [php]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [pulumi]
+# format = '\[[$symbol$stack]($style)\]'
+
+# [purescript]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [python]
+# format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+
+# [raku]
+# format = '\[[$symbol($version-$vm_version)]($style)\]'
+
+# [red]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [ruby]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [rust]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [scala]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [spack]
+# format = '\[[$symbol$environment]($style)\]'
+
+# [sudo]
+# format = '\[[as $symbol]\]'
+
+# [swift]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [terraform]
+# format = '\[[$symbol$workspace]($style)\]'
+
+# [vagrant]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [vlang]
+# format = '\[[$symbol($version)]($style)\]'
+
+# [zig]
+# format = '\[[$symbol($version)]($style)\]'

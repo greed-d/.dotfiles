@@ -1,133 +1,90 @@
+## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
+## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
+## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
+
+# Setups
+# format="$directory$git_branch$character"
+right_format = """$git_status$memory_usage$cmd_duration"""
+
+
+# Other languages configurations:
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+python.disabled = true
+ruby.disabled = true
+rust.disabled = true
+perl.disabled = true
+package.disabled = true
+lua.disabled = true
+nodejs.disabled = true
+java.disabled = true
+golang.disabled = true
+
+[conda]
+format = ' [$symbol$environment](dimmed green) '
+
+# Prompt symbols 
+[character]
+success_symbol = "[ ❯](#a6e3a1 bold)"
+error_symbol = "[ ](#f38ba8)"
+vicmd_symbol = "[ ](#f9e2af)"
+
+[directory]
+format = "[ ]($style)[ ](bg:#161821 fg:#81A1C1)[$path](bg:#161821 fg:#BBC3DF bold)[ ]($style)"
+style = "bg:none fg:#161821"
+truncation_length = 3
+truncate_to_repo=false
+
+[git_branch]
+format = "[]($style)[[ ](bg:#161821 fg:#A2DD9D bold)$branch](bg:#161821 fg:#86AAEC)[ ]($style)"
+style = "bg:none fg:#161821"
+
+[git_status]
+# $all status$ahead_behind
+format = "[]($style)[$all_status$ahead_behind](bg:#161821 fg:#b4befe)[ ]($style)"
+style = "bg:none fg:#161821"
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
+
+[cmd_duration]
+min_time = 1
+# duration & style 
+format = "[]($style)[[神](bg:#161821 fg:#eba0ac bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+disabled = false
+style = "bg:none fg:#161821"
+
+#battery
 [battery]
-full_symbol = "🔋"
-charging_symbol = "🔌"
-discharging_symbol = "⚡"
+full_symbol = " 󰂄"
+charging_symbol = " "
+discharging_symbol = " ⚡"
 
 [[battery.display]]
 threshold = 30
-style = "bold red"
-
-[character]
-error_symbol = "[✖](bold red) "
-success_symbol = "[❯](bold green)" 
-
-[cmd_duration]
-format = " took [$duration]($style)"
-min_time = 10
-
-[directory]
-truncation_length = 5
-read_only = " "
-format = "on [$path]($style)[$lock_symbol]($lock_style) "
-
-[git_branch]
-format = " [$symbol$branch]($style) "
-symbol = " "
-style = "bold yellow"
-
-[git_commit]
-commit_hash_length = 8
-style = "bold white"
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-
-[git_status]
-conflicted = "⚔️ "
-ahead = "⇡×${count} "
-behind = "⇣×${count} "
-diverged = "⇕×${ahead_count}  ×${behind_count} "
-untracked = "×${count} "
-stashed = " 📦 "
-modified = "×${count} "
-staged = "×${count} "
-renamed = "×${count} "
-deleted = "✘×${count} "
-style = "bright-white"
-format = "$all_status$ahead_behind"
-
-[hostname]
-ssh_only = false
-format = "[$hostname]($style) "
-trim_at = "-"
-style = "bold cyan"
-disabled = false
+# style = "bold red"
+# format = "[]($style)[$battery](bg:#161821 fg:#b4befe)[ ]($style)"
+# style = "bg:none fg:#161821"
 
 [memory_usage]
-format = "$symbol[${ram}( | ${swap})]($style) "
-threshold = 50 
-style = "bold dimmed white"
+# format = "$symbol[${ram}( | ${swap})]($style) "
+format = "[]($style)[$symbol[${ram}( | ${swap})](bg:#161821 fg:#BBC3DF bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+threshold = 70 
+# style = "bold dimmed white"
 disabled = false
 symbol = " "
-
-[package]
-disabled = true
-symbol = ""
-
-
-[username]
-style_user = "bold green"
-format = "[$user]($style) @ "
-show_always = true
-
-[time]
-disabled = false
-
-[aws]
-symbol = "  "
-
-[buf]
-symbol = " "
-
-[c]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[golang]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-
-[nim]
-symbol = " "
-
-[nix_shell]
-symbol = " "
-
-[nodejs]
-symbol = " "
-
-[python]
-symbol = " "
-
-[spack]
-symbol = "🅢 "
-
-[rust]
-symbol = " "
-
+style = "bg:none fg:#161821"
+#
+# [time]
+# disabled = false
+# format =  "[]($style)[(at $time)(bg:#161821 fg:#eba0ac bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+# style = "bg:none fg:#161821"

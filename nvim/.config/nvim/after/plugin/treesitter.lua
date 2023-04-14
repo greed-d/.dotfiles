@@ -1,18 +1,4 @@
 require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"bash",
-		"cpp",
-		"c",
-		"css",
-		-- "go",
-		"html",
-		"lua",
-		"make",
-		"python",
-		-- "rust",
-		"tsx",
-		"typescript",
-		-- "yaml",
-	},
+	ensure_installed = "all",
 	highlight = { enable = true },
 })

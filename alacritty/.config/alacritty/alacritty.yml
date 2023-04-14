@@ -6,30 +6,35 @@ import:
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 font:
   normal:
-    family: CaskaydiaCove 
+    family: JetBrainsMono Nerd Font Mono
     style: Regular
 
   bold:
-    family: CaskaydiaCove 
+    family: JetBrainsMono Nerd Font Mono
     style: Bold
 
   italic:
-    family: CaskaydiaCove Nerd Font Mono
-    style: Regular Italic
+    family: JetBrainsMono Nerd Font Mono
+    style: Italic
 
   bold_italic:
-    family: CaskaydiaCove Nerd Font Mono
+    family: JetBrainsMono Nerd Font Mono
     style: SemiBold Italic
 
-  size: 8
+  size: 10
 
 window:
   padding:
-    x: 4
-    y: 3
-
+    x: 2
+    y: 1
+  # opacity : 0.9
+#
 cursor:
   style:
     shape: Underline
   vi_mode_style:
     shape: Block
+
+env:
+  TERM: xterm-256color
+  WINIT_X11_SCALE_FACTOR: "1.2" 
