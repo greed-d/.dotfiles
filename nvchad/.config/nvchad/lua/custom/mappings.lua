@@ -3,119 +3,91 @@ local M = {}
 
 M.general = {
   n = {
-    -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
-
-    -- Moving lines up and down
-    ["<A-j>"] = { "V:m '>+1<cr>gv=gv<esc>", "move line down with alt and movement key" },
-    ["<A-k>"] = { "V:m '<-2<cr>gv=gv<esc>", "move line up with alt and movement key" },
-
-    -- Moving between beginning and end_ of line made easier
-    ["<S-h>"] = { "^", "Move to beginning of the line" },
-    ["<S-l>"] = { "$", "Move to end of the line" },
+    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["<A-j>"] = { "V:m '>+1<cr>gv=gv<esc>", "Move up with Alt-j" },
+    ["<A-k>"] = { "V:m '<-2<cr>gv=gv<esc>", "Move up with Alt-k" },
+    ["<S-h>"] = { "^", "Move up with Alt-k" },
+    ["<S-l>"] = { "$", "Move up with Alt-l" },
   },
-
   v = {
-    ["<A-j>"] = { "V:m '>+1<cr>gv=gv<esc>", "move line down with alt and movement key" },
-    ["<A-k>"] = { "V:m '<-2<cr>gv=gv<esc>", "move line up with alt and movement key" },
-    --
-    -- Moving between beginning and end_ of line made easier
-    ["<S-h>"] = { "^", "Move to beginning of the line" },
-    ["<S-l>"] = { "$", "Move to end of the line" },
-  },
-
-  x = {
-    ["<"] = { "<gv", "move indent left" },
-    [">"] = { ">gv", "move indent right" },
-  },
-}
-
-M.trouble = {
-  n = {
-    ["<leader>tt"] = { "<cmd>TroubleToggle<cr>", "Toggle Trouble" },
-    ["<leader>tw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Toggle Trouble for given workspace" },
-    ["<leader>tc"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "Toggle Trouble for given buffer" },
-  },
+    ["<A-j>"] = { "V:m '>+1<cr>gv=gv<esc>", "Move up with Alt-j" },
+    ["<A-k>"] = { "V:m '<-2<cr>gv=gv<esc>", "Move up with Alt-k" },
+    ["<S-h>"] = { "^", "Move up with Alt-k" },
+    ["<S-l>"] = { "$", "Move up with Alt-l" },
+  }
 }
 
 M.harpoon = {
   n = {
-    --Harpoon
     ["<leader>hm"] = {
       function()
         require("harpoon.mark").add_file()
       end,
-      "Mark using harpoon",
+      "Mark file with harpoon",
     },
+
     ["<leader>ho"] = {
       function()
         require("harpoon.ui").toggle_quick_menu()
       end,
-      "Open Harpoon quick menu",
-    },
-    ["<leader>hn"] = {
-      function()
-        require("harpoon.ui").nav_next()
-      end,
-      "Navigate to next mark in harpoon",
+      "Mark file with harpoon",
     },
     ["<leader>hp"] = {
       function()
         require("harpoon.ui").nav_prev()
       end,
-      "Navigate to prev mark in harpoon",
+      "Mark file with harpoon",
     },
-    ["<leader>1"] = {
+    ["<leader>hn"] = {
+      function()
+        require("harpoon.ui").nav_next()
+      end,
+      "Mark file with harpoon",
+    },
+     ["<leader>1"] = {
       function()
         require("harpoon.ui").nav_file(1)
       end,
-      "Navigate to 1st mark in harpoon",
+      "Go to file 1 in harpoon",
     },
     ["<leader>2"] = {
       function()
         require("harpoon.ui").nav_file(2)
       end,
-      "Navigate to 2nd mark in harpoon",
+      "Go to file 2 in harpoon",
     },
     ["<leader>3"] = {
       function()
         require("harpoon.ui").nav_file(3)
       end,
-      "Navigate to 3rd mark in harpoon",
+      "Go to file 3 in harpoon",
     },
-    ["<leader>4"] = {
+     ["<leader>4"] = {
       function()
-        require("harpoon.ui").nav_file(4)
+        require("harpoon.ui").nav_file(3)
       end,
-      "Navigate to 4th mark in harpoon",
-    },
-    ["<leader>5"] = {
-      function()
-        require("harpoon.ui").nav_file(5)
-      end,
-      "Navigate to 5th mark in harpoon",
+      "Go to file 4 in harpoon",
     },
   },
 }
 
-M.tmuxNavigation = {
+M.trouble = {
   n = {
-    ["<C-h>"] = { "<cmd>NvimTmuxNavigateLeft<CR>", "Nvim/TMUX navigate Left" },
-    ["<C-j>"] = { "<cmd>NvimTmuxNavigateDown<CR>", "Nvim/TMUX navigate Down" },
-    ["<C-k>"] = { "<cmd>NvimTmuxNavigateUp<CR>", "Nvim/TMUX navigate Up" },
-    ["<C-l>"] = { "<cmd>NvimTmuxNavigateRight<CR>", "Nvim/TMUX navigate Left" },
-  },
+    ["<leader>xx"] = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
+    ["<leader>xw"] = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Trouble Workspace Diagonstics" },
+    ["<leader>xd"] = { "<cmd>TroubleToggle document_diagnostics<CR>", "Trouble Workspace Diagonstics" },
+  }
 }
 
-M.telescope = {
+M.nvterm = {
   n = {
-    ["<leader>fl"] = { "<cmd>Telescope flutter tools<CR>", "Open flutter tools" },
-  },
-}
-
-M.MiniMap = {
-  n = {
-    ["<leader>mt"] = { "<cmd>lua MiniMap.toggle()<cr>", "Toggle MiniMap for given buffer" },
-  },
+  ["<leader>ht"] = {
+    function()
+      require("nvterm.terminal").new "horizontal"
+    end,
+    "new horizontal term",
+    }
+  }
 }
 -- more keybinds!
 

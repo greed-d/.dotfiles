@@ -12,9 +12,7 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
-    "python",
   },
-
   indent = {
     enable = true,
     -- disable = {
@@ -35,39 +33,13 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
-    "emmet-ls",
-    "json-lsp",
-
-    --JS
-    "eslint-lsp",
-
-    -- shell
-    "shfmt",
-    "shellcheck",
-    "codespell",
-
-    -- Bash
-    "bash-language-server",
-
-    -- python
-    "flake8",
-    "python-lsp-server",
-    "autopep8",
-
-    -- pretty
-    "prettier",
-    "prettierd",
 
     -- c/cpp stuff
     "clangd",
     "clang-format",
-  },
-}
 
-M.telescope = {
-  opts = {
-    extensions_list = { "flutter", "harpoon" },
-    file_ignore_patterns = { ".git" },
+    -- python
+    "python-lsp-server",
   },
 }
 
@@ -87,4 +59,11 @@ M.nvimtree = {
   },
 }
 
+M.telescope = {
+  opts = {
+    default = {
+      file_ignore_pattern = { ".git" },
+    },
+  },
+}
 return M
