@@ -1,300 +1,90 @@
+## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
+## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
+## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
+
+# Setups
+# format="$directory$git_branch$character"
+right_format = """$git_status$memory_usage$cmd_duration"""
+
+
+# Other languages configurations:
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+python.disabled = true
+ruby.disabled = true
+rust.disabled = true
+perl.disabled = true
+package.disabled = true
+lua.disabled = true
+nodejs.disabled = true
+java.disabled = true
+golang.disabled = true
+
+[conda]
+format = ' [$symbol$environment](dimmed green) '
+
+# Prompt symbols 
+[character]
+success_symbol = "[ ❯](#a6e3a1 bold)"
+error_symbol = "[ ](#f38ba8)"
+vicmd_symbol = "[ ](#f9e2af)"
+
+[directory]
+format = "[ ]($style)[ ](bg:#161821 fg:#81A1C1)[$path](bg:#161821 fg:#BBC3DF bold)[ ]($style)"
+style = "bg:none fg:#161821"
+truncation_length = 3
+truncate_to_repo=false
+
+[git_branch]
+format = "[]($style)[[ ](bg:#161821 fg:#A2DD9D bold)$branch](bg:#161821 fg:#86AAEC)[ ]($style)"
+style = "bg:none fg:#161821"
+
+[git_status]
+# $all status$ahead_behind
+format = "[]($style)[$all_status$ahead_behind](bg:#161821 fg:#b4befe)[ ]($style)"
+style = "bg:none fg:#161821"
+conflicted = "="
+ahead =	"⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = ""
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "${count}"
+
+[cmd_duration]
+min_time = 1
+# duration & style 
+format = "[]($style)[[神](bg:#161821 fg:#eba0ac bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+disabled = false
+style = "bg:none fg:#161821"
+
+#battery
 [battery]
-full_symbol = "🔋"
-charging_symbol = "🔌"
-discharging_symbol = "⚡"
+full_symbol = " 󰂄"
+charging_symbol = " "
+discharging_symbol = " ⚡"
 
 [[battery.display]]
 threshold = 30
-style = "bold red"
-
-[character]
-error_symbol = "[✖](bold red) "
-success_symbol = "[❯](bold green)" 
-
-[cmd_duration]
-format = ' \[[$duration]($style)\]'
-min_time = 10
-
-[directory]
-truncation_length = 3
-read_only = " "
-format = "on [$path]($style)[$lock_symbol]($lock_style) "
-
-[git_branch]
-format = " [$symbol$branch]($style) "
-symbol = " "
-style = "bold yellow"
-
-[git_commit]
-commit_hash_length = 8
-style = "bold white"
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-
-[git_status]
-conflicted = "⚔️ "
-ahead = "⇡×${count} "
-behind = "⇣×${count} "
-diverged = "⇕×${ahead_count}  ×${behind_count} "
-untracked = "×${count} "
-stashed = " 📦 "
-modified = "×${count} "
-staged = "×${count} "
-renamed = "×${count} "
-deleted = "✘×${count} "
-style = "bright-white"
-format = "$all_status$ahead_behind"
-
-[hostname]
-ssh_only = false
-format = "[$hostname]($style) "
-trim_at = "-"
-style = "bold #9e6ce0"
-disabled = false
+# style = "bold red"
+# format = "[]($style)[$battery](bg:#161821 fg:#b4befe)[ ]($style)"
+# style = "bg:none fg:#161821"
 
 [memory_usage]
-format = "$symbol[${ram}( | ${swap})]($style) "
-threshold = 50 
-style = "bold dimmed white"
+# format = "$symbol[${ram}( | ${swap})]($style) "
+format = "[]($style)[$symbol[${ram}( | ${swap})](bg:#161821 fg:#BBC3DF bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+threshold = 70 
+# style = "bold dimmed white"
 disabled = false
 symbol = " "
-
-[package]
-disabled = true
-symbol = ""
-
-[username]
-style_user = "bold green"
-format = "[$user]($style) @ "
-show_always = true
-
-[time]
-disabled = false
-
-[aws]
-symbol = "  "
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-
-[buf]
-symbol = " "
-
-[c]
-symbol = " "
-format = '\[[$symbol($version(-$name))]($style)\]'
-
-[conda]
-symbol = " "
-format = '\[[$symbol$environment]($style)\]'
-
-[dart]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[docker_context]
-symbol = " "
-format = '\[[$symbol$context]($style)\]'
-
-[elixir]
-symbol = " "
-format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
-
-[elm]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[golang]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[haskell]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[hg_branch]
-symbol = " "
-format = '\[[$symbol$branch]($style)\]'
-
-[java]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[julia]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[lua]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[nim]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[nix_shell]
-symbol = " "
-format = '\[[$symbol$state( \($name\))]($style)\]'
-
-[nodejs]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-[python]
-symbol = " "
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-
-[spack]
-symbol = "🅢 "
-format = '\[[$symbol$environment]($style)\]'
-
-[rust]
-symbol = " "
-format = '\[[$symbol($version)]($style)\]'
-
-# [aws]
-# format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-
-# [bun]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [c]
-# format = '\[[$symbol($version(-$name))]($style)\]'
-
-# [cmake]
-# format = '\[[$symbol($version)]($style)\]'
-
-
-# [cobol]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [conda]
-# format = '\[[$symbol$environment]($style)\]'
-
-# [crystal]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [daml]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [dart]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [deno]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [docker_context]
-# format = '\[[$symbol$context]($style)\]'
-
-# [dotnet]
-# format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-# [elixir]
-# format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
-
-# [elm]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [erlang]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [gcloud]
-# format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
-
-
-# [golang]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [haskell]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [helm]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [hg_branch]
-# format = '\[[$symbol$branch]($style)\]'
-
-# [java]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [julia]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [kotlin]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [kubernetes]
-# format = '\[[$symbol$context( \($namespace\))]($style)\]'
-
-# [lua]
-# format = '\[[$symbol($version)]($style)\]'
-
-
-# [meson]
-# format = '\[[$symbol$project]($style)\]'
-
-# [nim]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [nix_shell]
-# format = '\[[$symbol$state( \($name\))]($style)\]'
-
-# [nodejs]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [ocaml]
-# format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
-
-# [openstack]
-# format = '\[[$symbol$cloud(\($project\))]($style)\]'
-
-
-# [perl]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [php]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [pulumi]
-# format = '\[[$symbol$stack]($style)\]'
-
-# [purescript]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [python]
-# format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-
-# [raku]
-# format = '\[[$symbol($version-$vm_version)]($style)\]'
-
-# [red]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [ruby]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [rust]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [scala]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [spack]
-# format = '\[[$symbol$environment]($style)\]'
-
-# [sudo]
-# format = '\[[as $symbol]\]'
-
-# [swift]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [terraform]
-# format = '\[[$symbol$workspace]($style)\]'
-
-# [vagrant]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [vlang]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [zig]
-# format = '\[[$symbol($version)]($style)\]'
+style = "bg:none fg:#161821"
+#
+# [time]
+# disabled = false
+# format =  "[]($style)[(at $time)(bg:#161821 fg:#eba0ac bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+# style = "bg:none fg:#161821"
