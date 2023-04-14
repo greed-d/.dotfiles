@@ -1,0 +1,135 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 50,
+    "modules-left": ["wlr/workspaces","hyprland/window"],
+    "modules-center": ["custom/spotify"],
+    "modules-right": ["custom/pacman","network", "battery","clock","backlight","pulseaudio","pulseaudio#microphone", "tray"],
+    "hyprland/window": {
+        "format": "{}"
+    },
+
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "format": "{icon}",
+        "format-icons": {"1":"", "2" : "", "3": "", "4": "","5": "", "6": "", "7": "","8": "阮","9":"ﭮ"},
+        // "format-icons": {"", "", "", "", "", "", "","阮","ﭮ"},
+        "all-outputs": true,
+        "on-click": "activate",
+        // "persistent_workspaces": {
+        //     "1": "",
+        //     "2": [],
+        //     "3": [],
+        //     "4": [],
+        //     "5": [],
+        //     "6": [],
+        //     "7": [],
+        //     "8": [],
+        //     "9": [],
+        //     "10": []
+        // }
+    },
+    
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "clock": {
+        "format": "{: %I:%M %p }",
+        "format-alt":"{: %a, %b %e}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", ""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
+    },
+
+    "bluetooth": {
+	    "format": " {status}",
+	    "format-disabled": "", // an empty format will hide the module
+	    "format-connected": " {num_connections}",
+	    "tooltip-format": "{device_alias}",
+	    "tooltip-format-connected": " {device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}"
+    },
+    
+    "custom/spotify": {
+      "exec": "/usr/bin/python3 ~/.config/hypr/mediaplayer.py --player spotify",
+      "format": " {}",
+      "return-type": "json",
+      "on-click": "spotifyctl -q playpause",
+      "on-scroll-up": "spotifyctl -q next",
+      "on-scroll-down": "spotifyctl -q previous"
+     },
+     
+    "custom/pacman": {
+      "format": " {}",
+      "interval" : 2000,
+      "exec" : "checkupdates | wc -l",
+      "exec-if" : "exit 0",
+      "on-click": "alacritty -e paru"
+    }
+
+}
