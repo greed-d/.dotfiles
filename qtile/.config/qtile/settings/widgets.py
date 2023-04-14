@@ -35,6 +35,7 @@ decoration_updates = {
         ),
     ]
 }
+kj
 
 decoration_slash = {
     "decorations": [decorations.PowerLineDecoration(path="forward_slash")]
@@ -93,47 +94,47 @@ def workspaces():
     ]
 
 
-primary_widgets = [
-    *workspaces(),
-    separator(),
-    widget.CheckUpdates(
-        **decoration_updates,
-        background=colors["color4"],
-        colour_have_updates=colors["text"],
-        colour_no_updates=colors["text"],
-        no_update_string="0",
-        display_format="{updates}",
-        update_interval=1800,
-        custom_command="checkupdates",
-        fmt="   {}",
-    ),
-    widget.WiFiIcon(
-        **base(bg="color3"),
-        padding_y=4,
-        active_colour=colors["light"],
-        # expand_timeout=2,
-        show_ssid=True,
-        mouse_callbacks={"Button1": lazy.spawn("nm-applet")},
-        **decoration_slash,
-    ),
-    widget.CurrentLayoutIcon(**base(bg="color2"), scale=0.65),
-    widget.CurrentLayout(**base(bg="color2"), padding=5, **decoration_slash),
-    widget.Clock(
-        **base(bg="color1"), format="[%a %d %b]-[%H:%M]", **decoration_slash, fmt=" {}"
-    ),
-    widget.Mpris2(
-        **decoration_spotify,
-        foreground="ffffff",
-        name="spotify",
-        paused_text=" : {track}",
-        stop_text="  ",
-        display_metadata=["xesam:title", "xesam:artist"],
-        objname="org.mpris.MediaPlayer2.spotify",
-        width=175,
-        scroll_interval=0.3,
-    ),
-    widget.Systray(background=colors["grey"], padding=5),
-]
+# primary_widgets = [
+#     *workspaces(),
+#     separator(),
+#     widget.CheckUpdates(
+#         **decoration_updates,
+#         background=colors["color4"],
+#         colour_have_updates=colors["text"],
+#         colour_no_updates=colors["text"],
+#         no_update_string="0",
+#         display_format="{updates}",
+#         update_interval=1800,
+#         custom_command="checkupdates",
+#         fmt="   {}",
+#     ),
+#     widget.WiFiIcon(
+#         **base(bg="color3"),
+#         padding_y=4,
+#         active_colour=colors["light"],
+#         # expand_timeout=2,
+#         show_ssid=True,
+#         mouse_callbacks={"Button1": lazy.spawn("nm-applet")},
+#         **decoration_slash,
+#     ),
+#     widget.CurrentLayoutIcon(**base(bg="color2"), scale=0.65),
+#     widget.CurrentLayout(**base(bg="color2"), padding=5, **decoration_slash),
+#     widget.Clock(
+#         **base(bg="color1"), format="[%a %d %b]-[%H:%M]", **decoration_slash, fmt=" {}"
+#     ),
+#     widget.Mpris2(
+#         **decoration_spotify,
+#         foreground="ffffff",
+#         name="spotify",
+#         paused_text=" : {track}",
+#         stop_text="  ",
+#         display_metadata=["xesam:title", "xesam:artist"],
+#         objname="org.mpris.MediaPlayer2.spotify",
+#         width=175,
+#         scroll_interval=0.3,
+#     ),
+#     widget.Systray(background=colors["grey"], padding=5),
+# ]
 
 secondary_widgets = [
     *workspaces(),
