@@ -39,10 +39,7 @@ function fish_greeting
     echo You logged in to $hostname at (set_color yellow; date +%T; set_color normal)
 end
 
-function nvdef
-    env NVIM_APPNAME=nvim.bak nvim
-end
-
+# Vim config switcher
 function astronvim
     env NVIM_APPNAME=astronvim nvim
 end
@@ -51,22 +48,23 @@ function nvchad
     env NVIM_APPNAME=nvchad nvim
 end
 
-function nvims
-    set items nvdef astronvim nvchad
-    set config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
-    if [ -z $config ]
-        echo "Nothing selected"
-        return 0
-    else if [ $config = "default" ]
-        set config ""
-    end
-    env NVIM_APPNAME=$config nvim $argv
-end
+ function nvims
+     set items astronvim nvchad
+     set config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+     if [ -z $config ]
+         echo "Nothing selected"
+         return 0
+     else if [ $config = "default" ]
+         set config ""
+     end
+     env NVIM_APPNAME=$config nvim $argv
+ end
 
-bind \ca 'nvims\n'```
+bind \ca 'nvims'
 
 alias ls "exa -a --icons --group-directories-first"
-alias ll "exa -lah --color automatic -T --git --icons --group-directories-first --no-user" 
+alias ll "exa -lah --color automatic --git --icons --group-directories-first --no-user" 
+alias lt "exa -lah --color automatic -T -L 3 --git --icons --group-directories-first --no-user" 
 alias wl "nmcli device wifi list"
 #alias cw "echo 'nmcli device wifi connect SSID password PW'"
 alias sw "nmcli device wifi show"
@@ -86,14 +84,17 @@ alias cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qti
 alias ttc "tty-clock -SsctC5"
 alias dot "tmux-sessionizer ~/.dotfiles"
 alias vi "NVIM_APPNAME=nvchad nvim"
+alias scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
 
-bind \cb "tmux-sessionizer"
+bind \cf "tmux-sessionizer"
 
 set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"/opt/flutter/bin"
 neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small
+# macchina
 
 
 starship init fish | source
 
 jump shell fish | source
+fish_add_path /home/greed/.spicetify
