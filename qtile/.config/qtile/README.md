@@ -4,15 +4,17 @@ It's a collection of my dotfiles
 
 ## Qtile :
 
-![Qtile2](./.screenshots/Qtile2.png)
-![Qtile](./.screenshots/qtile.png)
-![firefox](./.screenshots/firefox.png)
-![spotify](./.screenshots/spotify.png)
+![Qtile2](./.screenshots/Qtile2.png) ![Qtile](./.screenshots/qtile.png)
+![firefox](./.screenshots/firefox.png) ![spotify](./.screenshots/spotify.png)
 
-- Terminal Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty)
-- Neovim Theme : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
-- Terminal Font : [Caskaydia Cove](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip)
-- Firefox : [Tabliss](https://tabliss.io/) + [Catppuccin (Mocha)](https://github.com/catppuccin/firefox)
+- Terminal Theme :
+  [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty)
+- Neovim Theme :
+  [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/nvim)
+- Terminal Font :
+  [Caskaydia Cove](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip)
+- Firefox : [Tabliss](https://tabliss.io/) +
+  [Catppuccin (Mocha)](https://github.com/catppuccin/firefox)
 - Discord : [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/discord)
 - Spotify : [Spicetify : Comfy theme](https://github.com/Comfy-Themes/Spicetify)
 
@@ -50,7 +52,8 @@ If you want a specific config folder(say neovim):
 stow nvim
 ```
 
-In case the network widget is not working use `ip address` to find your wireless modem, then :
+In case the network widget is not working use `ip address` to find your wireless
+modem, then :
 
 ```python
 #Open the file ../qtile/settings/widget.py :
@@ -64,8 +67,8 @@ In case the network widget is not working use `ip address` to find your wireless
 #Change the interface argument to your modem name, in my case 'wlan0'
 ```
 
-Remember all of the keybinding will not work unless if finds all the apps I use :
-To install all of the apps I use :
+Remember all of the keybinding will not work unless if finds all the apps I use
+: To install all of the apps I use :
 
 ```bash
 sudo pacman -S rofi betterlockscreen firefox discord pcmanfm alacritty redshift scrot
@@ -76,7 +79,8 @@ You can find them in `../qtile/scripts.`
 
 ### Autostart
 
-I have an autostart script that autostarts stuffs like the systray icons and compositor
+I have an autostart script that autostarts stuffs like the systray icons and
+compositor
 
 To get the systray icons :
 
@@ -84,11 +88,13 @@ To get the systray icons :
 sudo pacman -S cbatticon pamixer picom
 ```
 
-You can change if you don't like something starting up on `../qtile/autostart.sh`
+You can change if you don't like something starting up on
+`../qtile/autostart.sh`
 
 ### Themes:
 
-The themes are stored in `../qtile/themes/`. They are nothing but simple json file :
+The themes are stored in `../qtile/themes/`. They are nothing but simple json
+file :
 
 ```json
 {
@@ -110,7 +116,8 @@ The themes are stored in `../qtile/themes/`. They are nothing but simple json fi
 
 ## Rofi
 
-Rofi is a window switcher, run dialog, ssh-launcher started as a clone of simpleswitcher.
+Rofi is a window switcher, run dialog, ssh-launcher started as a clone of
+simpleswitcher.
 
 This is what my rofi looks like :
 
