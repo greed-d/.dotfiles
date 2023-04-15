@@ -63,8 +63,8 @@ end
 bind \ca 'nvims'
 
 alias ls "exa -a --icons --group-directories-first"
-alias ll "exa -lah --color automatic --git --icons --group-directories-first --no-user" 
-alias lt "exa -lah --color automatic -T -L 3 --git --icons --group-directories-first --no-user" 
+alias lt "exa -lah --icons --color automatic --no-user --git -T -L 4 --ignore-glob=".git" --group-directories-first" 
+alias lt "exa -lah --color automatic -T -L 2 --git --icons --group-directories-first --no-user" 
 alias wl "nmcli device wifi list"
 #alias cw "echo 'nmcli device wifi connect SSID password PW'"
 alias sw "nmcli device wifi show"
@@ -98,3 +98,4 @@ starship init fish | source
 
 jump shell fish | source
 fish_add_path /home/greed/.spicetify
+
