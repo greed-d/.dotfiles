@@ -35,6 +35,7 @@ local plugins = {
 		"nvim-tree/nvim-tree.lua",
 		opts = overrides.nvimtree,
 	},
+
 	{
 		"nvim-telescope/telescope.nvim",
 		opts = overrides.telescope,
@@ -78,7 +79,7 @@ local plugins = {
 	},
 	{
 		"toppair/peek.nvim",
-		event = "BufReadPre",
+		event = "VeryLazy",
 		config = function()
 			require("peek").setup()
 		end,
@@ -92,6 +93,41 @@ local plugins = {
 		event = "BufReadPre",
 	},
 
+	{
+		"echasnovski/mini.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("custom.configs.extras.minimap")
+		end,
+	},
+	{
+		"utilyre/barbecue.nvim",
+		name = "barbecue",
+		version = "*",
+		event = "BufReadPre",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		opts = {
+			-- configurations go here
+		},
+	},
+	{
+		"akinsho/flutter-tools.nvim",
+		lazy = true,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"stevearc/dressing.nvim", -- optional for vim.ui.select
+		},
+	},
+	{
+		"alexghergh/nvim-tmux-navigation",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-tmux-navigation").setup({ disable_when_zoomed = true }) -- defaults to false
+		end,
+	},
 	-- To make a plugin not be loaded
 	-- {
 	--   "NvChad/nvim-colorizer.lua",

@@ -6,30 +6,33 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-  Normal = {
-    bg = "NONE",
-  },
-  BufferLineTab = {
-    bg="NONE",
-  },
-  TbLineBufOn={
-    bg="NONE",
-  },
-  Comment = {
-    italic = true,
-  },
-  CursorLine = {
-    bg="black2",
-  },
-  StatusLine = {
-    bg = "NONE",
-  }
+	Normal = {
+		bg = "NONE",
+	},
+	BufferLineTab = {
+		bg = "NONE",
+	},
+	TbLineBufOn = {
+		bg = "NONE",
+	},
+	MiniMapNormal = {
+		bg = "NONE",
+	},
 
+	Comment = {
+		italic = true,
+	},
+	CursorLine = {
+		bg = "black2",
+	},
+	StatusLine = {
+		bg = "NONE",
+	},
 }
 
 ---@type HLTable
 M.add = {
-  NvimTreeOpenedFolderName = { fg = "green", bold = true },
+	NvimTreeOpenedFolderName = { fg = "green", bold = true },
 }
 
 return M
