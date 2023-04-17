@@ -31,6 +31,7 @@ for lang, cmd in pairs(lang_maps) do
 end
 
 -------------------------------------- highlight on yanked ------------------------------------------
+
 autocmd("TextYankPost", {
 	pattern = "*",
 	callback = function()
@@ -52,3 +53,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 --vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 --vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
 --vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
+--vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+--vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})

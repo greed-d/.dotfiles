@@ -80,6 +80,7 @@ local plugins = {
 	{
 		"toppair/peek.nvim",
 		event = "VeryLazy",
+		run = "deno task --quiet build:fast",
 		config = function()
 			require("peek").setup()
 		end,
@@ -127,6 +128,10 @@ local plugins = {
 		config = function()
 			require("nvim-tmux-navigation").setup({ disable_when_zoomed = true }) -- defaults to false
 		end,
+	},
+	{
+		"mbbill/undotree",
+		event = "BufReadPre",
 	},
 	-- To make a plugin not be loaded
 	-- {

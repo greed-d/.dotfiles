@@ -12,6 +12,7 @@ M.treesitter = {
 		"c",
 		"markdown",
 		"markdown_inline",
+		"bash",
 	},
 	indent = {
 		enable = true,
@@ -33,9 +34,9 @@ M.mason = {
 		"typescript-language-server",
 		"deno",
 		"prettier",
-		"emmet-ls",
-		"json-lsp",
-
+		-- "emmet-ls",
+		-- "json-lsp",
+		--
 		--JS
 		"eslint-lsp",
 
@@ -43,8 +44,6 @@ M.mason = {
 		"shfmt",
 		"shellcheck",
 		"codespell",
-
-		-- Bash
 		"bash-language-server",
 
 		-- python
@@ -80,7 +79,7 @@ M.nvimtree = {
 M.telescope = {
 	opts = {
 		default = {
-			file_ignore_pattern = { ".git" },
+			file_ignore_pattern = { ".git", "wallpapers", "wally", "Wallpapers" },
 		},
 	},
 }

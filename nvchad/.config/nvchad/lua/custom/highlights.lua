@@ -6,9 +6,9 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-	Normal = {
-		bg = "NONE",
-	},
+	-- Normal = {
+	-- 	bg = "NONE",
+	-- },
 	BufferLineTab = {
 		bg = "NONE",
 	},

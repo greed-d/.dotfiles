@@ -1,19 +1,20 @@
 ---@type MappingsTable
 local M = {}
 
+-- local opt = {}
 M.general = {
 	n = {
 		[";"] = { ":", "enter command mode", opts = { nowait = true } },
-		["<A-j>"] = { "m '>+1<CR>gv=gv", "Move up with Alt-j" },
-		["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move up with Alt-k" },
+		["<A-j>"] = { "V:m '>+1<cr>gv=gv<esc>", "Move up with Alt-j", opts = { silent = true } },
+		["<A-k>"] = { "V:m '<-2<cr>gv=gv<esc>", "Move up with Alt-k", opts = { silent = true } },
 		["<S-h>"] = { "^", "Move up with Alt-k" },
 		["<S-l>"] = { "$", "Move up with Alt-l" },
-		[">"] = { ">gv", "Move Indent Right" },
 		["<"] = { "<gv", "Move Indent Left" },
+		[">"] = { ">gv", "Move Indent Right" },
 	},
 	v = {
-		["<A-j>"] = { ":m '>+1<cr>gv=gv", "Move up with Alt-j" },
-		["<A-k>"] = { ":m '<-2<cr>gv=gv", "Move up with Alt-k" },
+		["<A-j>"] = { ":m '>+1<CR>gv=gv", "Move up with Alt-j", opts = { silent = true } },
+		["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move up with Alt-k", opts = { silent = true } },
 		["<S-h>"] = { "^", "Move up with Alt-k" },
 		["<S-l>"] = { "$", "Move up with Alt-l" },
 		["<"] = { "<gv", "Move Indent Left" },
@@ -21,9 +22,9 @@ M.general = {
 	},
 	x = {
 		["<S-h>"] = { "^", "Move up with Alt-k" },
-		["<A-j>"] = { ":m '>+1<CR>gv=gv", "Move up with Alt-j" },
-		["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move up with Alt-k" },
 		["<S-l>"] = { "$", "Move up with Alt-l" },
+		["<A-j>"] = { ":m '>+1<CR>gv=gv", "Move up with Alt-j", opts = { silent = true } },
+		["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move up with Alt-k", opts = { silent = true } },
 		["<"] = { "<gv", "Move Indent Left" },
 		[">"] = { ">gv", "Move Indent Right" },
 	},
@@ -125,6 +126,13 @@ M.telescope = {
 M.MiniMap = {
 	n = {
 		["<leader>mt"] = { "<cmd>lua MiniMap.toggle()<cr>", "Toggle MiniMap for given buffer" },
+	},
+}
+
+M.UndoTree = {
+	n = {
+		["<leader>ut"] = { "<cmd>UndotreeToggle<CR>", "Toggle Trouble" },
+		["<leader>ue"] = { "<cmd>UndotreeFocus<CR>", "Toggle Trouble" },
 	},
 }
 -- more keybinds!
