@@ -2,18 +2,18 @@
   border: none;
   border-radius: 0;
   font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
+  font-weight: 600;
   font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  background: rgba(21, 18, 27, 0);
+  background: rgba(18, 18, 30, 0);
   color: #cdd6f4;
 }
 
 tooltip {
-  background: #1e1e2e;
+  background: #12121e;
   border-radius: 20px;
   border-width: 2px;
   border-style: solid;

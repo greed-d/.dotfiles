@@ -19,7 +19,7 @@
         "format-icons": {"1":"", "2" : "", "3": "", "4": "","5": "", "6": "", "7": "","8": "阮","9":"ﭮ"},
         // "format-icons": {"", "", "", "", "", "", "","阮","ﭮ"},
         "all-outputs": true,
-        "on-click": "activate",
+        "on-click": "disable"
         // "persistent_workspaces": {
         //     "1": "",
         //     "2": [],
