@@ -24,17 +24,10 @@ local sources = {
 	b.formatting.codespell,
 
 	--python
-	b.formatting.autopep8,
+	b.formatting.black,
 }
 
 null_ls.setup({
 	debug = true,
 	sources = sources,
 })
---      autopep8
---      clang-format
---      prettier
---      prettierd
---      shfmt
---      stylua
---

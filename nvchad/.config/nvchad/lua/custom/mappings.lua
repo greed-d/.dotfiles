@@ -11,7 +11,9 @@ M.general = {
 		["<S-l>"] = { "$", "Move up with Alt-l" },
 		["<"] = { "<gv", "Move Indent Left" },
 		[">"] = { ">gv", "Move Indent Right" },
+		["<leader>bf"] = { "<cmd> new <CR>", "new buffer" },
 	},
+
 	v = {
 		["<A-j>"] = { ":m '>+1<CR>gv=gv", "Move up with Alt-j", opts = { silent = true } },
 		["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move up with Alt-k", opts = { silent = true } },

@@ -12,7 +12,6 @@ local servers = {
 	-- "lua_ls",
 	"bashls",
 	"emmet_ls",
-	"json_lsp",
 	"pyright",
 	-- "python-lsp-server",
 	"eslint",

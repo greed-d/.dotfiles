@@ -50,6 +50,7 @@ M.mason = {
 		"flake8",
 		"python-lsp-server",
 		"autopep8",
+		"black",
 
 		-- pretty
 		"prettier",
@@ -83,4 +84,15 @@ M.telescope = {
 		},
 	},
 }
+
+M.gitsigns = {
+	signs = {
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
+	},
+}
+
 return M

@@ -40,6 +40,10 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		opts = overrides.telescope,
 	},
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = overrides.gitsigns,
+	},
 
 	-- Install a plugin
 	{
@@ -80,9 +84,10 @@ local plugins = {
 	{
 		"toppair/peek.nvim",
 		event = "VeryLazy",
-		run = "deno task --quiet build:fast",
+		-- run = "deno task --quiet build:fast",
 		config = function()
 			require("peek").setup()
+			require("peek").open()
 		end,
 	},
 	{
@@ -132,6 +137,26 @@ local plugins = {
 	{
 		"mbbill/undotree",
 		event = "BufReadPre",
+	},
+	{
+		"mfussenegger/nvim-dap-python",
+		event = "BufReadPre",
+	},
+	-- Lua
+	{
+		"folke/zen-mode.nvim",
+		cmd = "ZenMode",
+		config = function()
+			require("zen-mode").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	},
+	{
+		"tpope/vim-surround",
+		event = "VeryLazy",
 	},
 	-- To make a plugin not be loaded
 	-- {

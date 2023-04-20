@@ -20,9 +20,10 @@ local lang_maps = {
 	sh = { exec = "./%" },
 	prolog = { exec = "gplc %" },
 }
+
 for lang, cmd in pairs(lang_maps) do
 	if cmd.build ~= nil then
-		autocmd("FileType", { command = "nnoremap <Leader>b :!" .. cmd.build .. "<CR>", pattern = lang })
+		autocmd("FileType", { command = "nnoremap <Leader>bu :!" .. cmd.build .. "<CR>", pattern = lang })
 	end
 	autocmd(
 		"FileType",
@@ -49,9 +50,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.cpp,*.css,*.go,*.h,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.py,*.rs,*.ts,*.tsx,*.yaml,*.c,*.dart",
 })
 
---vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
---vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
 --vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
 --vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
---vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
---vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
