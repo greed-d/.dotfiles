@@ -3,15 +3,14 @@
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
 
 # Setups
-# format="$directory$git_branch$character"
-right_format = """$git_status$memory_usage$cmd_duration"""
-
+format="$battery$directory$git_branch$character"
+right_format = """$python$git_status$memory_usage$cmd_duration"""
 
 # Other languages configurations:
 c.disabled = true
 cmake.disabled = true
 haskell.disabled = true
-python.disabled = true
+# python.disabled = true
 ruby.disabled = true
 rust.disabled = true
 perl.disabled = true
@@ -88,3 +87,7 @@ style = "bg:none fg:#161821"
 # disabled = false
 # format =  "[]($style)[(at $time)(bg:#161821 fg:#eba0ac bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
 # style = "bg:none fg:#161821"
+[python]
+symbol = " "
+format = '[]($style)[(\($virtualenv\))](bg:#161821 fg:#BBC3DF)[ ]($style)'
+style = "bg:none fg:#161821"
