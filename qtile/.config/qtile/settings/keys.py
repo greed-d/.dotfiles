@@ -62,15 +62,15 @@ keys = [
         (
             [],
             "Print",
-            lazy.spawn("/home/greed/.config/qtile/scripts/scrotshot.sh", shell=True),
+            lazy.spawn("/home/greed/.local/scripts/scrotshot", shell=True),
         ),
         (
             [mod, "shift"],
             "s",
-            lazy.spawn("/home/greed/.config/qtile/scripts/scrot_select.sh"),
+            lazy.spawn("/home/greed/.local/scripts/scrot_select"),
         ),
         # mute mic
-        ([mod], "m", lazy.spawn("/home/greed/.config/qtile/scripts/mic_toggle.sh")),
+        ([mod], "m", lazy.spawn("/home/greed/.local/scripts/mic_toggle")),
         # Spotify
         ([mod, "shift"], "m", lazy.spawn("spotify")),
         # ------------ Hardware Configs ------------
