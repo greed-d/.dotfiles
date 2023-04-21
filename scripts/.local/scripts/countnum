@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+function count_lines {
+    local file="$1"
+    local lines=$(wc -l < "$file")
+    echo "$lines"
+}
+
+function count_lines_recursive {
+    local dir="$1"
+    local count=0
+    for file in "$dir"/*; do
+        if [[ -d "$file" ]]; then
+            count=$((count + $(count_lines_recursive "$file")))
+        elif [[ -f "$file" ]]; then
+            count=$((count + $(count_lines "$file")))
+        fi
+    done
+    echo "$count"
+}
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $0 <directory>"
+    exit 1
+fi
+
+dir="$1"
+if [[ ! -d "$dir" ]]; then
+    echo "Error: $dir is not a directory"
+    exit 1
+fi
+
+count=$(count_lines_recursive "$dir")
+echo "Total number of lines in $dir: $count"
