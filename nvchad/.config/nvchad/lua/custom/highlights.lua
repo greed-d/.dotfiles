@@ -25,9 +25,9 @@ M.override = {
 	CursorLine = {
 		bg = "black2",
 	},
-	StatusLine = {
-		bg = "NONE",
-	},
+	-- StatusLine = {
+	-- 	bg = "line",
+	-- },
 }
 
 ---@type HLTable

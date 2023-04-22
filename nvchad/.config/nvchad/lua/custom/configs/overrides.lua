@@ -59,6 +59,9 @@ M.mason = {
 		-- c/cpp stuff
 		"clangd",
 		"clang-format",
+
+		--markdown
+		"marksman",
 	},
 }
 -- git support in nvimtree

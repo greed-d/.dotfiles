@@ -83,11 +83,9 @@ local plugins = {
 	},
 	{
 		"toppair/peek.nvim",
-		event = "VeryLazy",
-		-- run = "deno task --quiet build:fast",
+		build = "deno task --quiet build:fast",
 		config = function()
 			require("peek").setup()
-			require("peek").open()
 		end,
 	},
 	{

@@ -31,7 +31,7 @@ M.ui = {
 		separator_style = "default",
 	},
 
-	telescope = { style = "borderless" }, -- borderless / bordered
+	telescope = { style = "bordered" }, -- borderless / bordered
 
 	nvdash = {
 		load_on_startup = true,

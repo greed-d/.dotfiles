@@ -13,6 +13,7 @@ local servers = {
 	"bashls",
 	"emmet_ls",
 	"pyright",
+	"marksman",
 	-- "python-lsp-server",
 	"eslint",
 }
