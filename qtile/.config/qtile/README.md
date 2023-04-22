@@ -1,4 +1,4 @@
-# dotfile
+# Dotfile
 
 It's a collection of my dotfiles
 
