@@ -11,7 +11,7 @@
 
 ### :arrow_down: Installation (Arch Based) :
 
-Install qtile and it's dependencies :
+Install bspwm and it's dependencies :
 
 ```bash
 sudo pacman -S bspwm sxhkd
