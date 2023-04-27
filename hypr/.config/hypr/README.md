@@ -1,6 +1,4 @@
-## BSPWM :
-
-![Qtile2](./.screenshots/bspdesktop.png) ![Qtile](./.screenshots/bspwf.png)
+## Hyprland :
 
 ![hypr1](./.screenshots/hyprwp.png) ![hypr2](./.screenshots/hyprofi.png)
 ![hypr2](./.screenshots/hypterm.png)
@@ -12,9 +10,9 @@
 - Terminal Font :
   [Jet Brains Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip)
 
-### Installation (Arch Based) :
+### :arrow_down: Installation (Arch Based) :
 
-Install qtile and it's dependencies :
+Install hyprland and it's dependencies :
 
 ```bash
 sudo pacman -S hyprland
