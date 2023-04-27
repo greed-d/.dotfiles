@@ -90,7 +90,8 @@ alias scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
 bind \cf "tmux-sessionizer"
 
 set PATH "$PATH":"$HOME/.local/scripts/"
-set PATH "$PATH":"/opt/flutter/bin"
+set PATH "$PATH":"$HOME/.flutter_install/flutter/bin"
+set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
 neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small
 # macchina
 
