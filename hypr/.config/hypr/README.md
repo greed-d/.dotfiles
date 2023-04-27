@@ -3,6 +3,10 @@
 ![hypr1](./.screenshots/hyprwp.png) ![hypr2](./.screenshots/hyprofi.png)
 ![hypr2](./.screenshots/hypterm.png)
 
+
+https://user-images.githubusercontent.com/58597122/234779108-75106998-dc35-40c9-a18c-e3bba723b43e.mp4
+
+
 - Terminal Theme :
   [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty)
 - Neovim Theme :
