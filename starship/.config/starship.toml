@@ -64,9 +64,9 @@ style = "bg:none fg:#161821"
 
 #battery
 [battery]
-full_symbol = "󰂄"
+full_symbol = " 󰂄"
 charging_symbol = " "
-discharging_symbol = "󰂅"
+discharging_symbol = " 󰂅"
 
 [[battery.display]]
 threshold = 50
