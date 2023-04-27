@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 echo "Normal"
 echo -e "\033[1mBold\033[22m"
