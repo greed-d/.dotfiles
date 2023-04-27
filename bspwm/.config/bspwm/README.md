@@ -9,7 +9,7 @@
 - Terminal Font :
   [Caskaydia Cove](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/CascadiaCode.zip)
 
-### Installation (Arch Based) :
+### :arrow_down: Installation (Arch Based) :
 
 Install qtile and it's dependencies :
 
