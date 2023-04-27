@@ -40,12 +40,14 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		opts = overrides.telescope,
 	},
+
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = overrides.gitsigns,
 	},
 
 	-- Install a plugin
+
 	{
 		"max397574/better-escape.nvim",
 		event = "InsertEnter",
@@ -53,6 +55,7 @@ local plugins = {
 			require("better_escape").setup()
 		end,
 	},
+
 	{
 		"andweeb/presence.nvim",
 		event = "BufReadPre",
@@ -60,6 +63,7 @@ local plugins = {
 			require("presence").setup()
 		end,
 	},
+
 	{
 		"folke/trouble.nvim",
 		event = "BufReadPre",
@@ -67,6 +71,7 @@ local plugins = {
 			require("trouble").setup()
 		end,
 	},
+
 	{
 		"ThePrimeagen/harpoon",
 		event = "BufReadPre",
@@ -74,6 +79,7 @@ local plugins = {
 			require("harpoon").setup()
 		end,
 	},
+
 	{
 		"arnamak/stay-centered.nvim",
 		event = "BufReadPre",
@@ -81,6 +87,7 @@ local plugins = {
 			require("stay-centered")
 		end,
 	},
+
 	{
 		"toppair/peek.nvim",
 		build = "deno task --quiet build:fast",
@@ -88,10 +95,12 @@ local plugins = {
 			require("peek").setup()
 		end,
 	},
+
 	{
 		"romainl/vim-cool",
 		event = "BufReadPre",
 	},
+
 	{
 		"airblade/vim-rooter",
 		event = "BufReadPre",
@@ -104,6 +113,7 @@ local plugins = {
 			require("custom.configs.extras.minimap")
 		end,
 	},
+
 	{
 		"utilyre/barbecue.nvim",
 		name = "barbecue",
@@ -117,6 +127,7 @@ local plugins = {
 			-- configurations go here
 		},
 	},
+
 	{
 		"akinsho/flutter-tools.nvim",
 		lazy = true,
@@ -125,6 +136,7 @@ local plugins = {
 			"stevearc/dressing.nvim", -- optional for vim.ui.select
 		},
 	},
+
 	{
 		"alexghergh/nvim-tmux-navigation",
 		event = "VeryLazy",
@@ -132,15 +144,19 @@ local plugins = {
 			require("nvim-tmux-navigation").setup({ disable_when_zoomed = true }) -- defaults to false
 		end,
 	},
+
 	{
 		"mbbill/undotree",
 		event = "BufReadPre",
 	},
+
 	{
 		"mfussenegger/nvim-dap-python",
 		event = "BufReadPre",
 	},
+
 	-- Lua
+
 	{
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
@@ -152,10 +168,12 @@ local plugins = {
 			})
 		end,
 	},
+
 	{
 		"tpope/vim-surround",
 		event = "VeryLazy",
 	},
+
 	-- To make a plugin not be loaded
 	-- {
 	--   "NvChad/nvim-colorizer.lua",
