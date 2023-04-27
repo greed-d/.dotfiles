@@ -30,10 +30,10 @@ Print
 	scrot ~/Pictures/Screenshots/%b-%d_%H:%M:%S.png
 
 control + shift + s
-	scrot -q 50 -s '/home/greed/Pictures/Screenshots/Scrot_%m %d %T.png'
+	scrot -q 50 -s '~/.local/scripts/scrot_select'
 
 control + shift + m
-	~/.config/qtile/scripts/mic_toggle.sh
+  ~/.local/scripts/mic_toggle
 
 # Systray Docking for different apps
 control + shift + k
