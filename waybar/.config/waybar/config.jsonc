@@ -5,7 +5,7 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 50,
+    "height": 45,
     "modules-left": ["wlr/workspaces","hyprland/window"],
     "modules-center": ["custom/spotify"],
     "modules-right": ["custom/pacman","network", "battery","clock","backlight","pulseaudio","pulseaudio#microphone", "tray"],
