@@ -174,6 +174,22 @@ local plugins = {
 		event = "VeryLazy",
 	},
 
+	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+		config = function()
+			require("notify").setup({
+				stages = "fade_in_slide_out",
+				background_colour = "FloatShadow",
+				timeout = 1000,
+			})
+			vim.notify = require("notify")
+		end,
+	},
+	{
+		"elkowar/yuck.vim",
+		ft = "yuck",
+	},
 	-- To make a plugin not be loaded
 	-- {
 	--   "NvChad/nvim-colorizer.lua",
