@@ -13,6 +13,7 @@ M.treesitter = {
 		"markdown",
 		"markdown_inline",
 		"bash",
+		"fish",
 	},
 	indent = {
 		enable = true,
@@ -34,10 +35,6 @@ M.mason = {
 		"typescript-language-server",
 		"deno",
 		"prettier",
-		-- "emmet-ls",
-		-- "json-lsp",
-		--
-		--JS
 		"eslint-lsp",
 
 		-- shell
@@ -85,16 +82,18 @@ M.telescope = {
 		default = {
 			file_ignore_pattern = { ".git", "wallpapers", "wally", "Wallpapers" },
 		},
+		extension_list = { "notify", "flutter" },
 	},
 }
 
 M.gitsigns = {
 	signs = {
-		add = { text = "+" },
-		change = { text = "~" },
-		delete = { text = "_" },
-		topdelete = { text = "‾" },
-		changedelete = { text = "~" },
+		add = { hl = "DiffAdd", text = "", numhl = "GitSignsAddNr" },
+		change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+		delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+		topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+		changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+		untracked = { hl = "GitSignsAdd", text = "┆", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
 	},
 }
 
