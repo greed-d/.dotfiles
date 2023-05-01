@@ -85,6 +85,7 @@ alias ttc "tty-clock -SsctC5"
 alias dot "tmux-sessionizer ~/.dotfiles"
 alias vi "NVIM_APPNAME=nvchad nvim"
 alias scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
+alias man "batman"
 # alias discfix "bash -c '$(curl https://raw.githubusercontent.com/fuwwy/Discord-Screenshare-Linux/main/scripts/install.sh -sSfL)'"
 
 bind \cf "tmux-sessionizer"
