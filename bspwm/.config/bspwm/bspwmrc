@@ -3,8 +3,10 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d                 阮 ﭮ 
+
 bspc config border_width        2
-bspc config window_gap					3
+bspc config window_gap					9
+bspc config top_padding         0
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
