@@ -7,21 +7,22 @@ local highlights = require("custom.highlights")
 M.ui = {
 
 	theme = "tokyodark",
-	theme_toggle = { "tokyodark", "one_light" },
+	theme_toggle = { "tokyodark", "catppuccin" },
 
 	hl_override = highlights.override,
 	hl_add = highlights.add,
 
+	-- cmp themeing
 	cmp = {
 		icons = true,
 		lspkind_text = true,
-		style = "flat_light", -- default/flat_light/flat_dark/atom/atom_colored
+		style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
 		border_color = "grey_fg", -- only applicable for "default" style, use color names from base30 variables
 		selected_item_bg = "colored", -- colored / simple
 	},
 
 	tabufline = {
-		show_numbers = false,
+		show_numbers = true,
 		enabled = true,
 		lazyload = true,
 	},
