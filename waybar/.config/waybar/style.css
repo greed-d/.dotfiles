@@ -10,12 +10,12 @@
 window#waybar {
   background: rgba(18, 18, 30, 0);
   color: #cdd6f4;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 tooltip {
   background: #12121e;
-  border-radius: 20px;
+  border-radius: 10px;
   border-width: 2px;
   border-style: solid;
   border-color: #11111b;
@@ -36,19 +36,19 @@ tooltip {
 #workspaces button.focused {
   color: #707880;
   background: #eba0ac;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #workspaces button.urgent {
   color: #11111b;
   background: #f28fad;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #workspaces button:hover {
   background: #11111b;
   color: #cdd6f4;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 /* #custom-power_profile, */
@@ -75,17 +75,17 @@ tooltip {
 }
 
 #backlight {
-  border-radius: 20px 0px 0px 20px;
+  border-radius: 10px 0px 0px 10px;
 }
 
 #tray {
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
 }
 
 #workspaces {
   background: #1e1e2e;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-left: 10px;
   padding-right: 0px;
   padding-left: 5px;
@@ -98,14 +98,14 @@ tooltip {
 /* } */
 
 #window {
-  border-radius: 20px;
+  border-radius: 10px;
   margin-left: 10px;
   margin-right: 60px;
 }
 
 #clock {
   color: #fab387;
-  border-radius: 20px;
+  border-radius: 10px;
   /* margin-left: 10px; */
   margin-right: 10px;
   border-right: 0px;
@@ -113,7 +113,7 @@ tooltip {
 
 #network {
   color: #f9e2af;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
   border-left: 0px;
   border-right: 0px;
@@ -121,7 +121,7 @@ tooltip {
 
 #bluetooth {
   color: #89b4fa;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
 }
 
@@ -135,26 +135,26 @@ tooltip {
   color: #cba6f7;
   border-left: 0px;
   border-right: 0px;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0px 10px 10px 0px;
   margin-right: 10px;
 }
 
 #battery {
   color: #a6e3a1;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
   border-left: 0px;
 }
 
 #custom-spotify {
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
   border-right: 0px;
 }
 
 #custom-pacman {
   color: #ff7a91;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-right: 10px;
 }
 

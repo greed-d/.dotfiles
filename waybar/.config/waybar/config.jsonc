@@ -1,5 +1,5 @@
 {
-    "layer": "top",
+    "layer": "top",   
     "position": "top",
     "mod": "dock",
     "exclusive": true,
@@ -17,21 +17,8 @@
         "disable-scroll": true,
         "format": "{icon}",
         "format-icons": {"1":"", "2" : "", "3": "", "4": "","5": "", "6": "", "7": "","8": "阮","9":"ﭮ"},
-        // "format-icons": {"", "", "", "", "", "", "","阮","ﭮ"},
         "all-outputs": true,
         "on-click": "disable"
-        // "persistent_workspaces": {
-        //     "1": "",
-        //     "2": [],
-        //     "3": [],
-        //     "4": [],
-        //     "5": [],
-        //     "6": [],
-        //     "7": [],
-        //     "8": [],
-        //     "9": [],
-        //     "10": []
-        // }
     },
     
     "tray": {
@@ -125,7 +112,7 @@
      },
      
     "custom/pacman": {
-      "format": " {}",
+      "format": " {} updates",
       "interval" : 2000,
       "exec" : "checkupdates | wc -l",
       "exec-if" : "exit 0",
