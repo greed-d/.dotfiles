@@ -1,3 +1,4 @@
 #!/bin/bash
 
-scrot -q 50 -s '/home/greed/Pictures/Screenshots/Scrot_%m %d %T.png'
+scrot -q 50 -s ~/Pictures/Screenshots/selected_%m_%d_%T.png
+notify-send "Area Selected"
