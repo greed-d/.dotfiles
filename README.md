@@ -1,5 +1,7 @@
 # Dotfiles
 
+### Wallpapers moved to `wallpapers` repository
+
 Place where my dotfiles reside :
 
 You can check for respective WM with the given links below
