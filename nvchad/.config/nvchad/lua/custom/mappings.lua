@@ -2,6 +2,13 @@
 local M = {}
 
 -- local opt = {}
+M.disabled = {
+	n = {
+		["<leader>h"] = "",
+		["<leader>x"] = "",
+	},
+}
+
 M.general = {
 	n = {
 		[";"] = { ":", "enter command mode", opts = { nowait = true } },
@@ -29,6 +36,20 @@ M.general = {
 		["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move up with Alt-k", opts = { silent = true } },
 		["<"] = { "<gv", "Move Indent Left" },
 		[">"] = { ">gv", "Move Indent Right" },
+	},
+}
+
+M.tabufline = {
+	plugin = true,
+
+	n = {
+		-- close buffer + hide terminal buffer
+		["<leader>k"] = {
+			function()
+				require("nvchad_ui.tabufline").close_buffer()
+			end,
+			"close buffer",
+		},
 	},
 }
 

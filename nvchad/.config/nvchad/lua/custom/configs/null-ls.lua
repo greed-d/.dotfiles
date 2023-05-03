@@ -15,7 +15,8 @@ local sources = {
 
 	-- Lua
 	b.formatting.stylua,
-
+	b.formatting.stylua,
+	b.diagnostics.selene,
 	-- cpp
 	b.formatting.clang_format,
 
