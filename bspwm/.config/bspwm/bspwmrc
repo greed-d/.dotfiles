@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d                 阮 ﭮ 
+bspc monitor -d               󰓇  󰙯
 
 bspc config border_width        2
 bspc config window_gap					9
@@ -13,7 +13,8 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      false
 
 bspc rule -a firefox desktop='^1' follow = on
-bspc rule -a Nautilus desktop='^6' follow = on
+bspc rule -a org.gnome.Nautilus desktop='^6' follow = on
+bspc rule -a evince desktop='^7'
 bspc rule -a Spotify desktop='^8'
 bspc rule -a discord desktop='^9'
 bspc rule -a mplayer2 state=floating
@@ -29,3 +30,4 @@ cbatticon &
 nitrogen --restore &
 polybar bar &
 nm-applet &
+xpad &
