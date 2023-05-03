@@ -16,6 +16,7 @@ super + shift + @space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+  notify-send "Keybinds Reloaded"
 
 #discord
 super + d
