@@ -2,16 +2,26 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
+    -- vim/neovim
     "vim",
     "lua",
+
+    --web dev
     "html",
     "css",
     "javascript",
     "typescript",
     "tsx",
+
+    -- c/cpp
     "c",
+    "cpp",
+
+    --markdown
     "markdown",
     "markdown_inline",
+
+    --fish/bash
     "bash",
     "fish",
   },
@@ -47,7 +57,6 @@ M.mason = {
     -- python
     "flake8",
     "python-lsp-server",
-    "autopep8",
     "black",
 
     -- pretty
@@ -57,6 +66,7 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+    "cspell",
 
     --markdown
     "marksman",

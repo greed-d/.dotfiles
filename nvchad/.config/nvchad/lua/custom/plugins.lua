@@ -120,20 +120,6 @@ local plugins = {
   },
 
   {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    event = "BufReadPre",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
-    },
-    opts = {
-      -- configurations go here
-    },
-  },
-
-  {
     "akinsho/flutter-tools.nvim",
     lazy = true,
     dependencies = {
@@ -194,19 +180,6 @@ local plugins = {
   {
     "elkowar/yuck.vim",
     ft = "yuck",
-  },
-
-  {
-    "stevearc/aerial.nvim",
-    event = "BufReadPre",
-    -- Optional dependencies
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("custom.configs.extras.aerial")
-    end,
   },
 
   -- To make a plugin not be loaded
