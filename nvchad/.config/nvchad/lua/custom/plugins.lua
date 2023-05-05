@@ -3,198 +3,217 @@ local overrides = require("custom.configs.overrides")
 ---@type NvPluginSpec[]
 local plugins = {
 
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- format & linting
-			{
-				"jose-elias-alvarez/null-ls.nvim",
-				config = function()
-					require("custom.configs.null-ls")
-				end,
-			},
-		},
-		config = function()
-			require("plugins.configs.lspconfig")
-			require("custom.configs.lspconfig")
-		end, -- Override to setup mason-lspconfig
-	},
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      -- format & linting
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require("custom.configs.null-ls")
+        end,
+      },
+    },
+    config = function()
+      require("plugins.configs.lspconfig")
+      require("custom.configs.lspconfig")
+    end, -- Override to setup mason-lspconfig
+  },
 
-	-- override plugin configs
-	{
-		"williamboman/mason.nvim",
-		opts = overrides.mason,
-	},
+  -- override plugin configs
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+  },
 
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = overrides.treesitter,
-	},
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
 
-	{
-		"nvim-tree/nvim-tree.lua",
-		opts = overrides.nvimtree,
-	},
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
+  },
 
-	{
-		"nvim-telescope/telescope.nvim",
-		opts = overrides.telescope,
-	},
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
+  },
 
-	{
-		"lewis6991/gitsigns.nvim",
-		opts = overrides.gitsigns,
-	},
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = overrides.gitsigns,
+  },
 
-	-- Install a plugin
+  {
+    "NvChad/nvterm",
+    opts = overrides.nvterm,
+  },
 
-	{
-		"max397574/better-escape.nvim",
-		event = "InsertEnter",
-		config = function()
-			require("better_escape").setup()
-		end,
-	},
+  -- Install a plugin
 
-	{
-		"andweeb/presence.nvim",
-		event = "BufReadPre",
-		config = function()
-			require("presence").setup()
-		end,
-	},
+  {
+    "max397574/better-escape.nvim",
+    event = "InsertEnter",
+    config = function()
+      require("better_escape").setup()
+    end,
+  },
 
-	{
-		"folke/trouble.nvim",
-		event = "BufReadPre",
-		config = function()
-			require("trouble").setup()
-		end,
-	},
+  {
+    "andweeb/presence.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("presence").setup()
+    end,
+  },
 
-	{
-		"ThePrimeagen/harpoon",
-		event = "BufReadPre",
-		config = function()
-			require("harpoon").setup()
-		end,
-	},
+  {
+    "folke/trouble.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("trouble").setup()
+    end,
+  },
 
-	{
-		"arnamak/stay-centered.nvim",
-		event = "BufReadPre",
-		config = function()
-			require("stay-centered")
-		end,
-	},
+  {
+    "ThePrimeagen/harpoon",
+    event = "BufReadPre",
+    config = function()
+      require("harpoon").setup()
+    end,
+  },
 
-	{
-		"toppair/peek.nvim",
-		build = "deno task --quiet build:fast",
-		config = function()
-			require("peek").setup()
-		end,
-	},
+  {
+    "arnamak/stay-centered.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("stay-centered")
+    end,
+  },
 
-	{
-		"romainl/vim-cool",
-		event = "BufReadPre",
-	},
+  {
+    "toppair/peek.nvim",
+    build = "deno task --quiet build:fast",
+    config = function()
+      require("peek").setup()
+    end,
+  },
 
-	{
-		"airblade/vim-rooter",
-		event = "BufReadPre",
-	},
+  {
+    "romainl/vim-cool",
+    event = "BufReadPre",
+  },
 
-	{
-		"echasnovski/mini.nvim",
-		event = "BufReadPre",
-		config = function()
-			require("custom.configs.extras.minimap")
-		end,
-	},
+  {
+    "airblade/vim-rooter",
+    event = "BufReadPre",
+  },
 
-	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		event = "BufReadPre",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
-		},
-		opts = {
-			-- configurations go here
-		},
-	},
+  {
+    "echasnovski/mini.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("custom.configs.extras.minimap")
+    end,
+  },
 
-	{
-		"akinsho/flutter-tools.nvim",
-		lazy = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim", -- optional for vim.ui.select
-		},
-	},
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    event = "BufReadPre",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
+  },
 
-	{
-		"alexghergh/nvim-tmux-navigation",
-		event = "VeryLazy",
-		config = function()
-			require("nvim-tmux-navigation").setup({ disable_when_zoomed = true }) -- defaults to false
-		end,
-	},
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim", -- optional for vim.ui.select
+      config = function()
+        require("flutter-tools").setup({})
+      end,
+    },
+  },
 
-	{
-		"mbbill/undotree",
-		event = "BufReadPre",
-	},
+  {
+    "alexghergh/nvim-tmux-navigation",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-tmux-navigation").setup({ disable_when_zoomed = true }) -- defaults to false
+    end,
+  },
 
-	{
-		"mfussenegger/nvim-dap-python",
-		event = "BufReadPre",
-	},
+  {
+    "mbbill/undotree",
+    event = "BufReadPre",
+  },
 
-	-- Lua
+  {
+    "mfussenegger/nvim-dap-python",
+    event = "BufReadPre",
+  },
 
-	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		config = function()
-			require("zen-mode").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	},
+  -- Lua
 
-	{
-		"tpope/vim-surround",
-		event = "VeryLazy",
-	},
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    config = function()
+      require("zen-mode").setup({})
+    end,
+  },
 
-	{
-		"rcarriga/nvim-notify",
-		event = "VeryLazy",
-		config = function()
-			require("notify").setup({
-				stages = "fade_in_slide_out",
-				background_colour = "FloatShadow",
-				timeout = 1000,
-			})
-			vim.notify = require("notify")
-		end,
-	},
-	{
-		"elkowar/yuck.vim",
-		ft = "yuck",
-	},
-	-- To make a plugin not be loaded
-	-- {
-	--   "NvChad/nvim-colorizer.lua",
-	--   enabled = false
-	-- },
+  {
+    "tpope/vim-surround",
+    event = "VeryLazy",
+  },
+
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    config = function()
+      require("notify").setup({
+        stages = "fade_in_slide_out",
+        background_colour = "FloatShadow",
+        timeout = 1000,
+      })
+      vim.notify = require("notify")
+    end,
+  },
+
+  {
+    "elkowar/yuck.vim",
+    ft = "yuck",
+  },
+
+  {
+    "stevearc/aerial.nvim",
+    event = "BufReadPre",
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("custom.configs.extras.aerial")
+    end,
+  },
+
+  -- To make a plugin not be loaded
+  -- {
+  --   "NvChad/nvim-colorizer.lua",
+  --   enabled = false
+  -- },
 }
 
 return plugins
