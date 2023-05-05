@@ -138,7 +138,7 @@ alias sw "nmcli device wifi show"
 alias clr "echo -en '\x1b[2J\x1b[1;1H' ; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo"
 alias cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qtile cmd-obj -o widget wifiicon -f eval -a 'self.check_connection()'"
 alias ttc "tty-clock -SsctC5"
-alias scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
+abbr scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
 alias rr "curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 alias discfix "curl https://raw.githubusercontent.com/fuwwy/Discord-Screenshare-Linux/main/scripts/install.sh -sSfL | bash -c" #Wayland fix for screensharing on discord using pipewire
 
