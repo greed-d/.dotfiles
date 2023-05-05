@@ -9,12 +9,13 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run,filebrowser";
+	modi:                       "drun,run,filebrowser,ssh,window";
     show-icons:                 false;
-    display-drun:               "";
-    display-run:                "";
-    display-filebrowser:        "";
-    display-window:             "";
+    display-drun:               " Apps";
+    display-run:                " Run";
+    display-filebrowser:        " Files";
+    display-window:             " Windows";
+	display-ssh:                " SSH";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }
@@ -25,7 +26,7 @@ configuration {
 
 * {
     border-colour:               var(selected);
-    handle-colour:               var(foreground);
+    handle-colour:               var(selected);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
     alternate-background:        var(background-alt);
@@ -53,12 +54,11 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    west;
-    anchor:                      west;
+    location:                    center;
+    anchor:                      center;
     fullscreen:                  false;
-    width:                       550px;
-    height:                      85%;
-    x-offset:                    15px;
+    width:                       800px;
+    x-offset:                    0px;
     y-offset:                    0px;
 
     /* properties for all widgets */
@@ -66,7 +66,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               10px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
@@ -84,14 +84,23 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     20px;
+    spacing:                     10px;
     margin:                      0px;
-    padding:                     40px;
+    padding:                     20px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
     background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+    children:                    [ "inputbar", "message", "custombox" ];
+}
+
+/*****----- A Custom Box -----*****/
+custombox {
+    spacing:                     10px;
+    background-color:            @background-colour;
+    text-color:                  @foreground-colour;
+    orientation:                 horizontal;
+    children:                    [ "mode-switcher", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
@@ -99,13 +108,13 @@ inputbar {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     8px;
+    padding:                     8px 12px;
     border:                      0px solid;
-    border-radius:               4px;
+    border-radius:               8px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
-    children:                    [ "prompt", "entry" ];
+    children:                    [ "textbox-prompt-colon", "entry" ];
 }
 
 prompt {
@@ -115,17 +124,19 @@ prompt {
 }
 textbox-prompt-colon {
     enabled:                     true;
+    padding:                     5px 0px;
     expand:                      false;
-    str:                         "::";
+    str:                         "";
     background-color:            inherit;
     text-color:                  inherit;
 }
 entry {
     enabled:                     true;
+    padding:                     5px 0px;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "search...";
+    placeholder:                 "Search...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {
@@ -157,10 +168,10 @@ case-indicator {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       10;
+    lines:                       8;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   false;
+    scrollbar:                   true;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
@@ -179,18 +190,18 @@ listview {
 scrollbar {
     handle-width:                5px ;
     handle-color:                @handle-colour;
-    border-radius:               8px;
+    border-radius:               10px;
     background-color:            @alternate-background;
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     8px;
+    spacing:                     10px;
     margin:                      0px;
-    padding:                     8px;
+    padding:                     10px;
     border:                      0px solid;
-    border-radius:               4px;
+    border-radius:               8px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
@@ -209,8 +220,8 @@ element normal.active {
     text-color:                  var(active-foreground);
 }
 element selected.normal {
-    background-color:            var(normal-foreground);
-    text-color:                  var(normal-background);
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
 }
 element selected.urgent {
     background-color:            var(selected-urgent-background);
@@ -250,27 +261,31 @@ element-text {
 /*****----- Mode Switcher -----*****/
 mode-switcher{
     enabled:                     true;
+    expand:                      false;
+    orientation:                 vertical;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     0px;
+    padding:                     0px 0px;
     border:                      0px solid;
-    border-radius:               4px;
+    border-radius:               0px;
     border-color:                @border-colour;
-    background-color:            @alternate-background;
+    background-color:            transparent;
     text-color:                  @foreground-colour;
 }
 button {
-    padding:                     8px;
+    padding:                     0px 20px 0px 20px;
     border:                      0px solid;
-    border-radius:               4px;
+    border-radius:               8px;
     border-color:                @border-colour;
-    background-color:            transparent;
+    background-color:            @alternate-background;
     text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
     cursor:                      pointer;
 }
 button selected {
-    background-color:            var(normal-foreground);
-    text-color:                  var(normal-background);
+    background-color:            var(selected-normal-background);
+    text-color:                  var(selected-normal-foreground);
 }
 
 /*****----- Message -----*****/
@@ -285,9 +300,9 @@ message {
     text-color:                  @foreground-colour;
 }
 textbox {
-    padding:                     8px;
+    padding:                     12px;
     border:                      0px solid;
-    border-radius:               4px;
+    border-radius:               8px;
     border-color:                @border-colour;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
@@ -300,8 +315,8 @@ textbox {
 }
 error-message {
     padding:                     10px;
-    border:                      0px solid;
-    border-radius:               0px;
+    border:                      2px solid;
+    border-radius:               8px;
     border-color:                @border-colour;
     background-color:            @background-colour;
     text-color:                  @foreground-colour;
