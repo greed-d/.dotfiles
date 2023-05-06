@@ -19,10 +19,12 @@ M.general = {
     ["<S-l>"] = { "$", "Move up with Alt-l" },
     ["<"] = { "<gv", "Move Indent Left" },
     [">"] = { ">gv", "Move Indent Right" },
-    ["<leader>bf"] = { "<cmd> new <CR>", "new buffer" },
-    ["<leader>to"] = { "<cmd> tabnew <CR> ", "create new tab" },
-    ["<leader>tn"] = { "<cmd> tabn <CR> ", "go to next tab" },
-    ["<leader>tp"] = { "<cmd> tabprev <CR> ", "go to previous tab" },
+    ["<leader>bf"] = { "<cmd> new <CR>", "new buffer", opts = { silent = true } },
+    ["<leader>to"] = { "<cmd> tabnew <CR> ", "create new tab", opts = { silent = true } },
+    ["<leader>tn"] = { "<cmd> tabn <CR> ", "go to next tab", opts = { silent = true } },
+    ["<leader>tp"] = { "<cmd> tabprev <CR> ", "go to previous tab", opts = { silent = true } },
+    ["<leader>lg"] = { "<cmd> LazyGit <CR>", "Open LazyGit", opts = { silent = true } },
+    -- ["<A-,>" = {}]
   },
 
   v = {
@@ -133,7 +135,7 @@ M.nvterm = {
       "new horizontal term",
     },
 
-    ["<leader>e"] = {
+    ["<leader>bu"] = {
       function()
         local file = vim.fn.expand("%")
         local sfile = vim.fn.expand("%:r")

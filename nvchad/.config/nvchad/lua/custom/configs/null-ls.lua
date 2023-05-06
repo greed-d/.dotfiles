@@ -19,6 +19,7 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+  b.diagnostics.cpplint,
   -- b.diagnostics.cspell,
 
   -- shell
