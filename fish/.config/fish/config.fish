@@ -157,6 +157,7 @@ bind \cf "tmux-sessionizer"
 set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.flutter_install/flutter/bin"
 set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
+set -Ux JAVA_HOME /usr/lib/jvm/java-11-openjdk/
 
 #--------------------------------------> Load neofetch <--------------------------------------
 

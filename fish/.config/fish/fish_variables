@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export ANDROID_HOME:/opt/android\x2dsdk
 SETUVAR --export ANDROID_SDK_ROOT:/opt/android\x2dsdk
-SETUVAR --export JAVA_HOME:/usr/lib/jvm/java\x2d8\x2dopenjdk/jre/
+SETUVAR --export JAVA_HOME:/usr/lib/jvm/java\x2d11\x2dopenjdk/
 SETUVAR --export JAVA_OPTS:\x2dXX\x3a\x2bIgnoreUnrecognizedVMOptions\x20\x2d\x2dadd\x2dmodules\x20java\x2ese\x2eee
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
