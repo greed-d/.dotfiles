@@ -138,11 +138,19 @@ M.nvterm = {
         local file = vim.fn.expand("%")
         local sfile = vim.fn.expand("%:r")
         local ft_cmds = {
+          sh = "bash " .. file,
+          rust = "cargo " .. file,
+          prolog = "glpc " .. file,
+          python = "python3 " .. file,
+          go = "go build && go run " .. file,
           c = "g++ " .. file .. " -o " .. sfile .. " && ./" .. sfile,
           cpp = "g++ " .. file .. " -o " .. sfile .. " && ./" .. sfile,
-          sh = "bash" .. file,
-          python = "python3 " .. file,
-          prolog = "glpc " .. file,
+          javascript = "deno compile " .. file .. " && deno run " .. file,
+          typescript = "deno compile " .. file .. " && deno run " .. file,
+          arduino = "arduino-cli complile --fqbn arduino:avr:uno "
+              .. sfile
+              .. " && arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno "
+              .. sfile,
         }
 
         require("nvterm.terminal").send(ft_cmds[vim.bo.filetype], "float")
