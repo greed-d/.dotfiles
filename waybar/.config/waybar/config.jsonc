@@ -112,11 +112,14 @@
      },
      
     "custom/pacman": {
-      "format": " {} updates",
+      "format": " {}",
       "interval" : 2000,
-      "exec" : "checkupdates | wc -l",
+      "exec" : "~/.local/scripts/checkupdate",
       "exec-if" : "exit 0",
-      "on-click": "alacritty -e paru"
+      "on-click": "alacritty -e paru",
+      "interval": 50,
+      "tooltip": "paru -Qu"
+      
     }
 
 }
