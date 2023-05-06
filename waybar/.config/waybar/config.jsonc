@@ -8,7 +8,7 @@
     "height": 45,
     "modules-left": ["wlr/workspaces","hyprland/window"],
     "modules-center": ["custom/spotify"],
-    "modules-right": ["custom/pacman","network", "battery","clock","backlight","pulseaudio","pulseaudio#microphone", "tray"],
+    "modules-right": ["custom/pacman","network", "battery","clock","backlight","pulseaudio","pulseaudio#microphone","tray"],
     "hyprland/window": {
         "format": "{}"
     },
@@ -16,7 +16,7 @@
     "wlr/workspaces": {
         "disable-scroll": true,
         "format": "{icon}",
-        "format-icons": {"1":"", "2" : "", "3": "", "4": "","5": "", "6": "", "7": "","8": "阮","9":"ﭮ"},
+        "format-icons": {"1":"", "2" : "", "3": "", "4": "","5": "", "6": "", "7": "","8": "阮","9":"ﭮ"},
         "all-outputs": true,
         "on-click": "disable"
     },
