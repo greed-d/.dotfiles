@@ -26,13 +26,26 @@ require("lazy").setup({
     end,
   },
   { "hrsh7th/nvim-cmp" },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.1",
+    -- or                              , branch = '0.1.1',
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    requires = {
+      "nvim-tree/nvim-material-icon", -- optional, for file icons
+    },
+  },
+  { "glepnir/dashboard-nvim" },
   { "jose-elias-alvarez/null-ls.nvim" },
   { "lewis6991/gitsigns.nvim" },
   { "neovim/nvim-lspconfig" },
   { "windwp/nvim-autopairs" },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
-  { "github/copilot.vim" },
   { "lukas-reineke/indent-blankline.nvim" },
   { "nvim-treesitter/nvim-treesitter" },
   { "nvim-lua/plenary.nvim" },
@@ -40,6 +53,13 @@ require("lazy").setup({
   { "onsails/lspkind-nvim" },
   { "saadparwaiz1/cmp_luasnip" },
   { "tpope/vim-commentary" },
+  { "nvim-telescope/telescope-file-browser.nvim" },
+  { "NvChad/nvim-colorizer.lua" },
+  { "folke/lsp-colors.nvim" },
+  {
+    "kdheepak/tabline.nvim",
+    dependencies = { "hoob3rt/lualine.nvim", "nvim-tree/nvim-web-devicons" },
+  },
 
   {
     "max397574/better-escape.nvim",
