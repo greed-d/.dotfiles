@@ -1,0 +1,11 @@
+#!/bin/bash
+
+upnum=$(paru -Qu | wc -l)
+
+if [ $upnum -eq 0 ]; then
+  echo "Fully Updated"
+elif [ $upnum -eq 1 ]; then
+  echo "$(upnum) update"
+else 
+  echo "$(upnum) updates"
+fi
