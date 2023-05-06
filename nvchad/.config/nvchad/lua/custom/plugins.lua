@@ -181,8 +181,12 @@ local plugins = {
     "elkowar/yuck.vim",
     ft = "yuck",
   },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = "LazyGit",
+  },
 
-  -- To make a plugin not be loaded
+  --  To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
   --   enabled = false
