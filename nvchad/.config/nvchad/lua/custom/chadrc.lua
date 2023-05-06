@@ -1,7 +1,5 @@
 ---@type ChadrcConfig
 local M = {}
-
--- Path to overriding theme and highlights files
 local highlights = require("custom.highlights")
 
 M.ui = {
@@ -21,7 +19,7 @@ M.ui = {
   },
 
   tabufline = {
-    show_numbers = true,
+    show_numbers = false,
     enabled = true,
     lazyload = true,
   },
