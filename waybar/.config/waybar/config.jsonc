@@ -8,7 +8,7 @@
     "height": 45,
     "modules-left": ["wlr/workspaces","hyprland/window"],
     "modules-center": ["custom/spotify"],
-    "modules-right": ["custom/pacman","network", "battery","clock","backlight","pulseaudio","pulseaudio#microphone","tray"],
+    "modules-right": ["custom/pacman","network", "battery","clock", "cpu", "memory", "backlight","pulseaudio","pulseaudio#microphone", "tray"],
     "hyprland/window": {
         "format": "{}"
     },
@@ -24,6 +24,14 @@
     "tray": {
         "icon-size": 18,
         "spacing": 10
+    },
+    "cpu" : {
+      "interval": 1,
+      "format": "  {}%"
+    },
+    "memory": {
+      "interval": 1,
+      "format": "  {}%"
     },
 
     "clock": {
@@ -87,7 +95,7 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "  {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{essid} - {ifname}  ",
+        "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
@@ -112,14 +120,11 @@
      },
      
     "custom/pacman": {
-      "format": " {}",
+      "format": " {} updates",
       "interval" : 2000,
-      "exec" : "~/.local/scripts/checkupdate",
+      "exec" : "checkupdates | wc -l",
       "exec-if" : "exit 0",
-      "on-click": "alacritty -e paru",
-      "interval": 50,
-      "tooltip": "paru -Qu"
-      
+      "on-click": "alacritty -e paru"
     }
 
 }
