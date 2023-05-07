@@ -1,6 +1,6 @@
 #!/bin/bash
 
-upnum=$(paru -Qu | wc -l)
+upnum=$( checkupdates | wc -l)
 
 if [ $upnum -eq 0 ]; then
   echo "Fully Updated"
