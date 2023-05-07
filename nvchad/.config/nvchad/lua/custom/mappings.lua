@@ -24,7 +24,8 @@ M.general = {
     ["<leader>tn"] = { "<cmd> tabn <CR> ", "go to next tab", opts = { silent = true } },
     ["<leader>tp"] = { "<cmd> tabprev <CR> ", "go to previous tab", opts = { silent = true } },
     ["<leader>lg"] = { "<cmd> LazyGit <CR>", "Open LazyGit", opts = { silent = true } },
-    -- ["<A-,>" = {}]
+    ["<A-,>"] = { "<C-w><", "Resize window " },
+    ["<A-.>"] = { "<C-w>>", "Test" },
   },
 
   v = {

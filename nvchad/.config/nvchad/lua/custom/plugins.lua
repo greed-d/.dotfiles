@@ -68,6 +68,13 @@ local plugins = {
       require("presence").setup()
     end,
   },
+  -- {
+  --   "Cyuria/discord.nvim",
+  --   event = "BufReadPre",
+  --   config = function()
+  --     require("discord").setup()
+  --   end,
+  -- },
 
   {
     "folke/trouble.nvim",
@@ -140,6 +147,20 @@ local plugins = {
   },
 
   {
+    "utilyre/barbecue.nvim",
+    event = "BufReadPre",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
+  },
+
+  {
     "mbbill/undotree",
     event = "BufReadPre",
   },
@@ -186,6 +207,32 @@ local plugins = {
     cmd = "LazyGit",
   },
 
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("noice").setup({})
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+  {
+    "ggandor/flit.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("flit").setup({
+        keys = { f = "f", F = "F", t = "t", T = "T" },
+        -- A string like "nv", "nvo", "o", etc.
+        labeled_modes = "v",
+        multiline = true,
+        -- Like `leap`s similar argument (call-specific overrides).
+        -- E.g.: opts = { equivalence_classes = {} }
+        opts = {},
+      })
+    end,
+  },
   --  To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
