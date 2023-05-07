@@ -68,13 +68,6 @@ local plugins = {
       require("presence").setup()
     end,
   },
-  -- {
-  --   "Cyuria/discord.nvim",
-  --   event = "BufReadPre",
-  --   config = function()
-  --     require("discord").setup()
-  --   end,
-  -- },
 
   {
     "folke/trouble.nvim",
@@ -188,10 +181,13 @@ local plugins = {
   {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
+
     config = function()
       require("notify").setup({
-        stages = "fade_in_slide_out",
+        stages = "slide",
         background_colour = "FloatShadow",
+        render = "compact",
+        top_down = false,
         timeout = 1000,
       })
       vim.notify = require("notify")
@@ -221,6 +217,7 @@ local plugins = {
   {
     "ggandor/flit.nvim",
     event = "BufReadPre",
+    dependencies = { "ggandor/leap.nvim" },
     config = function()
       require("flit").setup({
         keys = { f = "f", F = "F", t = "t", T = "T" },
