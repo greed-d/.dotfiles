@@ -1,0 +1,62 @@
+mpd_music_dir = "/home/greed/Music"
+# lyrics_directory = ~/.local/share/ncmpcpp/lyrics
+mpd_host = localhost
+mpd_port = 6600
+mouse_list_scroll_whole_page = "yes"
+lines_scrolled = "1"
+
+message_delay_time = "3"
+playlist_shorten_total_times = "yes"
+playlist_display_mode = "classic"
+autocenter_mode = "yes"
+centered_cursor = "yes"
+user_interface = "alternative"
+# follow_now_playing_lyrics = "yes"
+#locked_screen_width_part = "60"
+display_bitrate = "yes"
+external_editor = "nvim"
+
+progressbar_elapsed_color = "blue"
+progressbar_color = "black"
+
+#progressbar_look = "▃▃▃"
+progressbar_look = "─⊙ "
+
+mouse_support = "yes"
+header_visibility = "no"
+statusbar_visibility = "no"
+
+statusbar_color = "white"
+visualizer_color = "blue"
+titles_visibility = "no"
+enable_window_title = "yes"
+
+#now_playing_prefix = "$b"
+#now_playing_suffix = "$8$/b"
+now_playing_prefix = "$b"
+now_playing_suffix = "$/b"
+
+
+song_columns_list_format = "(6)[]{} (23)[red]{a} (26)[yellow]{t|f} (40)[green]{b} (4)[blue]{l}"
+
+color1 = "white"
+color2 = "black"
+
+#song_list_format = " $7%l  $2%t $R$5%a "
+song_list_format = "$5{%a $2»$8 %t}$0"
+
+#song_status_format = "$b$7♫ $2%a $4⟫$3⟫ $8%t $4⟫$3⟫ $5%b "
+song_window_title_format = " {%a} - {%t}"
+
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "fifo Visualizer"
+visualizer_in_stereo = "yes"
+visualizer_type = "ellipse"
+visualizer_look = "●●"
+
+# fetch_lyrics_for_current_song_in_background = yes
+screen_switcher_mode = browser, media_library, visualizer
+startup_screen = playlist
+startup_slave_screen = "visualizer"
+startup_slave_screen_focus = no
+locked_screen_width_part = 50
