@@ -48,7 +48,7 @@ tooltip {
 #workspaces button:hover {
   background: #11111b;
   color: #cdd6f4;
-  border-radius: 7px;
+  border-radius: 17px;
 }
 
 /* #custom-power_profile, */
@@ -57,6 +57,7 @@ tooltip {
 #window,
 #clock,
 #battery,
+#mpris,
 #pulseaudio,
 #custom-pacman,
 #network,
@@ -64,16 +65,17 @@ tooltip {
 #temperature,
 #workspaces,
 #tray,
+#mpd,
 #cpu,
 #memory,
 #custom-spotify,
 #backlight {
   background: #1e1e2e;
   opacity: 0.9;
-  padding: 0px 10px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #181825;
+  padding: 0px 7px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  /* border: 1px solid #b5b0a7; */
 }
 
 #backlight {
@@ -102,7 +104,7 @@ tooltip {
 
 #memory {
   color: #94e2d5;
-  border-radius: 0 7 7 0px;
+  border-radius: 0px 7px 7px 0px;
   margin-right: 5px;
 }
 
@@ -136,6 +138,7 @@ tooltip {
   border-radius: 7px;
   /* margin-left: 10px; */
   margin-right: 5px;
+  padding-right: 0px;
   border-right: 0px;
 }
 
@@ -161,6 +164,18 @@ tooltip {
 }
 
 #custom-spotify {
+  border-radius: 7px;
+  margin-right: 5px;
+  border-right: 0px;
+}
+
+#mpris {
+  border-radius: 7px;
+  margin-right: 5px;
+  border-right: 0px;
+}
+
+#mpd {
   border-radius: 7px;
   margin-right: 5px;
   border-right: 0px;
