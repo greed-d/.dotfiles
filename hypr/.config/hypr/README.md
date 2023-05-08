@@ -2,7 +2,7 @@
 
 ## Tokyo Dark:
 
-<!-- ![hypr1](./.screenshots/td-desktop.png) ![hypr2](./.screenshots/td-fetch_vi.png) -->
+![hypr1](./.screenshots/td-desktop.png) ![hypr2](./.screenshots/td-fetch_vi.png)
 
 ![hypr3](./.screenshots/td-ncmp_cava.png)
 ![hypr4](./.screenshots/td-spotf_disc.png)
