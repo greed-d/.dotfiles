@@ -180,15 +180,14 @@ local plugins = {
 
   {
     "rcarriga/nvim-notify",
-    event = "VeryLazy",
-
+    lazy = false,
     config = function()
       require("notify").setup({
         stages = "slide",
         background_colour = "FloatShadow",
         render = "compact",
         top_down = false,
-        timeout = 1000,
+        timeout = 2000,
       })
       vim.notify = require("notify")
     end,
@@ -207,12 +206,42 @@ local plugins = {
     "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
-      require("noice").setup({})
+      require("noice").setup({
+        presets = {
+          command_palette = false,
+        },
+        routes = {
+          {
+            view = "notify",
+            filter = { event = "msg_showmode" },
+          },
+        },
+        lsp = {
+          progress = {
+            enabled = false,
+          },
+          hover = {
+            enabled = false,
+          },
+          signature = {
+            enabled = false,
+          },
+          override = {
+            -- override the default lsp markdown formatter with Noice
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+            -- override the lsp markdown formatter with Noice
+            ["vim.lsp.util.stylize_markdown"] = false,
+            -- override cmp documentation with Noice (needs the other options to work)
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+      })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
+    -- enabled = false,
   },
   {
     "ggandor/flit.nvim",
