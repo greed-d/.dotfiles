@@ -71,6 +71,7 @@ M.mason = {
     --markdown
     "marksman",
   },
+  log_level = vim.log.levels.INFO,
 }
 -- git support in nvimtree
 M.nvimtree = {

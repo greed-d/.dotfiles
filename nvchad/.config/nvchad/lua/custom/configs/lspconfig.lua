@@ -24,3 +24,11 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   })
 end
+
+require("lspconfig").jsonls.setup({
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  filetypes = { "json", "jsonc" },
+  flags = {
+    debounce_text_changes = 150,
+  },
+})
