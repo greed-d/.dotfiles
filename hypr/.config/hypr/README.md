@@ -1,15 +1,18 @@
-## Hyprland :
+# Hyprland :
 
-![hypr1](./.screenshots/hyprwp.png) ![hypr2](./.screenshots/hyprofi.png)
-![hypr2](./.screenshots/hypterm.png)
+## Tokyo Dark:
 
-https://user-images.githubusercontent.com/58597122/234779108-75106998-dc35-40c9-a18c-e3bba723b43e.mp4
+![hypr1](./.screenshots/td-desktop.png) ![hypr2](./.screenshots/td-fetch_vi.png)
+![hypr3](./.screenshots/td-ncmp_cava.png)
+![hypr4](./.screenshots/td-spotf_disc.png)
+![hypr5](./.screenshots/td-ff_rngr.png)
 
 - Terminal Theme :
   [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty)
 - Neovim Distro : [NvChad](https://nvchad.com)
 - Terminal Font :
   [Jet Brains Mono](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip)
+- Spotify Theme : [Spicetify](https://spicetify.app/)
 
 ### :arrow_down: Installation (Arch Based) :
 
@@ -17,7 +20,7 @@ Install hyprland and it's dependencies :
 
 ```bash
 sudo pacman -S hyprland
-paru -S ttf-jetbrains-mono-nerd
+paru -S ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd
 ```
 
 Install Stow :
