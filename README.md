@@ -22,8 +22,8 @@ My qtile config
 
 ## [Hyprland](https://github.com/greeid/.dotfiles/tree/main/hypr/.config/hypr)
 
-![hypr1](./hypr/.config/hypr/.screenshots/td-desktop.png)
-![hypr2](./hypr/.config/hypr/.screenshots/td-fetch_vi.png)
+<!-- ![hypr1](./hypr/.config/hypr/.screenshots/td-desktop.png) -->
+<!-- ![hypr2](./hypr/.config/hypr/.screenshots/td-fetch_vi.png) -->
 
 ## [Rofi](./rofi/.config/rofi/)
 
