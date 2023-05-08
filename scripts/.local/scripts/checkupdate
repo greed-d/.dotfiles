@@ -1,11 +1,23 @@
 #!/bin/bash
 
-upnum=$( checkupdates | wc -l)
+# Check for updates and count them
+wget -q --spider https://www.archlinux.org
+ 
+# Check if there was an error fetching updates
+if [ $? -ne 0 ]; then
+    echo "ERROR!"
+# Otherwise, count the number of updates
+else
+    updates=$(checkupdates |  wc -l)
 
-if [ $upnum -eq 0 ]; then
-  echo "Fully Updated"
-elif [ $upnum -eq 1 ]; then
-  echo "$upnum update"
-else 
-  echo "$upnum updates"
+    # Check if there are no updates
+    if [[ $updates -eq 0 ]]; then
+      echo "Fully Updated"
+    # Check if there is one update
+    elif [[ $updates -eq 1 ]]; then
+      echo "1 Update"
+    # Otherwise, display the number of updates
+    else
+      echo "$updates updates"
+    fi
 fi
