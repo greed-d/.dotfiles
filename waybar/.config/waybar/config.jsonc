@@ -110,17 +110,22 @@
 	    "tooltip-format-enumerate-connected": "{device_alias}"
     },
      
-    "mpris": { "format": "{player_icon} {artist} : {title} - [{length}]",
+    "mpris": {
+      "title-len": 40,
+      "dynamic-len": 35,
+      "max-len": 55,
+      "format": "{player_icon} {artist} : {title} - [{length}]",
       "format-paused": "{status_icon} {artist} : {title} - [{length}]",
       "player-icons": {
         "default": "▶",
         "mpv": "🎵",
-        "spotify": ""
+        "spotify": "",
+        "firefox": ""
       },
       "status-icons": {
         "paused": ""
       },
-      "ignored-players": ["firefox", "vlc"]
+      "ignored-players": ["vlc"]
     },
      
 "mpd": {
