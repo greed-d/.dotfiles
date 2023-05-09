@@ -5,8 +5,8 @@
 ![hypr1](./.screenshots/td-desktop.png) ![hypr2](./.screenshots/td-fetch_vi.png)
 
 ![hypr3](./.screenshots/td-ncmp_cava.png)
-![hypr4](./.screenshots/td-spotf_disc.png)
-![hypr5](./.screenshots/td-ff_rngr.png)
+![hypr6](./.screenshots/td-btm_rngr.png)
+![hypr4](./.screenshots/td-spotf_disc.png) ![hypr5](./.screenshots/td-ff.png)
 
 - Terminal Theme :
   [Catppuccin (Mocha Flavour)](https://github.com/catppuccin/alacritty)
