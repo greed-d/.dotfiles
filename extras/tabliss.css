@@ -1,0 +1,80 @@
+
+:root {
+   --accent: #B5B0A7;
+   --bkg: #12121e;
+   --bkg2: #363a4f;
+   --fg: #cad3f5;
+   --fg-hover: var(--bkg);
+}
+
+.Links a, .Links {
+  transition: all 200ms ease-in;
+}
+.Links a {
+  background-color:var(--bkg2);
+  padding: 15px;
+  border-radius: 5px;
+}
+.Links a i svg {
+  position: relative;
+  top: 3px;
+  right: 2px;
+}
+.Links a:hover {
+  background-color: var(--accent);
+  color: #12121e;
+  transform: scale(1.2, 1.2);
+  text-decoration: none;
+
+}
+
+.Widgets div .Search input {
+  border-bottom: 5px solid var(--accent);
+  border-radius: 5px;
+  color: var(--fg);
+}
+
+.Overlay{
+  background-color: var(--bkg2);
+  color: var(--fg);
+}
+.Overlay i,
+.Overlay a:link {
+  color: var(--accent);
+}
+
+.Settings .plane {
+  background-color: var(--bkg);
+  color: var(--fg); 
+  transition: all 300ms ease;
+}
+.Settings .plane .Widget {
+  background-color: var(--bkg2);
+}
+
+.Settings .plane .Widget .settings textarea {
+  background-color: var(--bkg);
+  width: 100%;
+  height: 500px;
+  overflow: scroll;
+  border: none;
+}
+
+.Settings div select,
+.Settings div .primary {
+  background-color: var(--bkg2);
+  border: none;
+}
+.Settings div h2,
+.Settings .plane div h4{
+  color: var(--fg);
+}
+
+@media (max-width: 1000px) {
+  .Links {
+    display: flex;
+    flex-flow: row wrap;
+    flex-basis: 200px
+    width: 200px;
+  }
+}
