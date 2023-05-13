@@ -36,8 +36,8 @@ function astronvim
     env NVIM_APPNAME=astronvim nvim
 end
 
-function nvchad
-    env NVIM_APPNAME=nvchad nvim
+function vanvim
+    env NVIM_APPNAME=vanvim nvim
 end
 
  function nvims
@@ -69,8 +69,10 @@ alias e "nautilus ."
 alias x "exit"
 alias lg "lazygit"
 alias man "batman"
-alias rt "trash"
-alias vi "NVIM_APPNAME=nvchad nvim"
+alias rm "trash"
+alias rt "rm"
+alias vi "NVIM_APPNAME=vanvim nvim"
+alias pomd "i3-gnome-pomodoro"
 
 #--------------------------------------> nmcli options <--------------------------------------
 
@@ -81,12 +83,13 @@ alias sw "nmcli device wifi show"
 #--------------------------------------> misc aliases <--------------------------------------
 
 # alias clr "clear && neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small"
-alias clr "echo -en '\x1b[2J\x1b[1;1H' ; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo"
+alias clr "clear && neofetch"
+# alias clr "echo -en '\x1b[2J\x1b[1;1H' ; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo"
 alias cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qtile cmd-obj -o widget wifiicon -f eval -a 'self.check_connection()'"
 alias ttc "tty-clock -SsctC5"
 abbr scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
 alias rr "curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
-alias discfix "curl https://raw.githubusercontent.com/fuwwy/Discord-Screenshare-Linux/main/scripts/install.sh -sSfL | bash -c" #Wayland fix for screensharing on discord using pipewire
+abbr discfix "curl https://raw.githubusercontent.com/fuwwy/Discord-Screenshare-Linux/main/scripts/install.sh -sSfL | bash -c" #Wayland fix for screensharing on discord using pipewire
 
 #--------------------------------------> tmux options <--------------------------------------
 
