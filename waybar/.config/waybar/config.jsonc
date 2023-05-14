@@ -5,9 +5,9 @@
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
-    "height": 45,
+    "height": 44,
     "modules-left": ["wlr/workspaces","hyprland/window"],
-    "modules-center": ["mpris"],
+    "modules-center": ["custom/pomodoro","mpris"],
     "modules-right": ["custom/pacman","network", "battery","clock", "cpu", "memory", "backlight","pulseaudio","pulseaudio#microphone", "tray"],
     "hyprland/window": {
         "format": "{}"
@@ -41,12 +41,12 @@
     },
 
     "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", ""],
-        "on-scroll-up": "brightnessctl set 1%+",
-        "on-scroll-down": "brightnessctl set 1%-",
-        "min-length": 6
+      "device": "intel_backlight",
+      "format": "{icon} {percent}%",
+      "format-icons": ["", "", ""],
+      "on-scroll-up": "brightnessctl set 1%+",
+      "on-scroll-down": "brightnessctl set 1%-",
+      "min-length": 6
     },
 
     "battery": {
@@ -67,6 +67,7 @@
         "tooltip": false,
         "format-muted": " Muted",
         "on-click": "pamixer -t",
+        "on-right-click": "exec pavucontrol",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
         "scroll-step": 5,
@@ -112,10 +113,11 @@
      
     "mpris": {
       "title-len": 40,
-      "dynamic-len": 35,
-      "max-len": 55,
-      "format": "{player_icon} {artist} : {title} - [{length}]",
-      "format-paused": "{status_icon} {artist} : {title} - [{length}]",
+      "interval":1,
+      "album-len":0,
+      "max-len": 60,
+      "format": "{player_icon} {dynamic}",
+      "format-paused": "{player_icon} {dynamic}",
       "player-icons": {
         "default": "▶",
         "mpv": "🎵",
@@ -125,40 +127,49 @@
       "status-icons": {
         "paused": ""
       },
-      "ignored-players": ["vlc"]
+      "ignored-players": ["vlc", "firefox"]
     },
      
-"mpd": {
-	"format": "{stateIcon} {artist} -  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
-	"format-disconnected": "Disconnected ",
-	"format-stopped": "{stateIcon} {artist} -  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
-	"interval": 2,
-	"consume-icons": {
-		"on": " " // Icon shows only when "consume" is on
-	},
-	"repeat-icons": {
-		"on": " "
-	},
-	"single-icons": {
-		"on": "1 "
-	},
-	"state-icons": {
-		"paused": "",
-		"playing": ""
-	},
-	"tooltip-format": "MPD (connected)",
-	"tooltip-format-disconnected": "MPD (disconnected)"
-},
+    "mpd": {
+      "format": "{stateIcon} {artist} -  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+      "format-disconnected": "Disconnected ",
+      "format-stopped": "{stateIcon} {artist} -  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+      "interval": 2,
+      "consume-icons": {
+        "on": " " // Icon shows only when "consume" is on
+      },
+      "repeat-icons": {
+        "on": " "
+      },
+      "single-icons": {
+        "on": "1 "
+      },
+      "state-icons": {
+        "paused": "",
+        "playing": ""
+      },
+      "tooltip-format": "MPD (connected)",
+      "tooltip-format-disconnected": "MPD (disconnected)"
+    },
 
-    
     "custom/pacman": {
       "format": " {}",
       "interval" : 100,
       "exec" : "~/.local/scripts/checkupdate",
       "exec-if" : "exit 0",
       "on-click": "alacritty -e paru"
+    },
+    
+   "custom/pomodoro": {
+      "exec": "i3-gnome-pomodoro status --format=waybar --show-seconds | awk '{gsub(/Pomodoro /,\"\")}1'",
+       "return-type": "json",
+       "interval": 1,
+       "format": " {}",
+       "on-click": "i3-gnome-pomodoro toggle",
+       "on-middle-click": "i3-gnome-pomodoro stop",
+       "on-right-click": "i3-gnome-pomodoro start-stop"
     }
-
+    
 }
 
 
@@ -184,3 +195,18 @@
     //   "on-scroll-down": "spotifyctl -q previous"
     //  },
     //  
+    // 
+    // "custom/pomo": {
+    //   "format": " {}",
+    //   "interval" : 100,
+    //   "exec" : "pomo status",
+    //   "exec-if" : "exit 0"
+    // },
+    // 
+    // "custom/pomo": {
+    //   "format": " {}",
+    //   "interval" : 100,
+    //   "exec" : "pomo status",
+    //   "exec-if" : "exit 0"
+    // },
+    // 
