@@ -1,0 +1,246 @@
+#!/bin/bash
+log_file=~/install_progress_log.txt
+
+echo "THIS IS A SCRIPT JUST MADE FOR ME. I suggest using this script as reference." 
+echo "In case you're using this script change your preferred AUR Wrapper"
+
+install_paru(){
+  sudo pacman -S --needed base-devel
+  git clone https://aur.archlinux.org/paru.git ~
+  cd ~/paru
+  makepkg -si
+  rm -rf ~/paru
+}
+
+essential(){
+  paru -S ttf-ubuntu-nerd ttf-jetbrains-mono-nerd
+  sudo pacman -S fish kitty rofi dunst starship pamixer brightnessctl playerctl lxappearance stow
+
+  if type -p fish > /dev/null; then
+    echo "fish INSTALLED" >> "$log_file"
+  else
+    echo "fish FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+
+  if type -p kitty > /dev/null; then
+    echo "kitty INSTALLED" >> "$log_file"
+  else
+    echo "kitty FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p rofi > /dev/null; then
+    echo "rofi INSTALLED" >> "$log_file"
+  else
+    echo "rofi FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p dunst > /dev/null; then
+    echo "dunst INSTALLED" >> "$log_file"
+  else
+    echo "dunst FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p pamixer > /dev/null; then
+    echo "pamixer INSTALLED" >> "$log_file"
+  else
+    echo "pamixer FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p brightnessctl > /dev/null; then
+    echo "brightnessctl INSTALLED" >> "$log_file"
+  else
+    echo "brightnessctl FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p playerctl > /dev/null; then
+    echo "playerctl INSTALLED" >> "$log_file"
+  else
+    echo "playerctl FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p lxappearance > /dev/null; then
+    echo "lxappearance INSTALLED" >> "$log_file"
+  else
+    echo "lxappearance FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  paru -Q | grep -q "starship"
+  if [ $? -eq 0 ]; then
+    echo "starship INSTALLED" >> $log_file
+  else
+    echo "starship FAILED TO INSTALL" >> $log_file
+  fi
+
+}
+
+hyprland() {
+  sudo pacman -S swaybg wlroots
+  paru -S waybar-hyprland-git hyprland-git grimblast-git xdg-desktop-portal-hyprland-git networkmanager_dmenu
+
+  if type -p hyprland > /dev/null; then
+    echo "hyprland INSTALLED" >> "$log_file"
+  else
+    echo "hyprland FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p waybar > /dev/null; then
+    echo "waybar INSTALLED" >> "$log_file"
+  else
+    echo "waybar FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p swaybg > /dev/null; then
+    echo "swaybg INSTALLED" >> "$log_file"
+  else
+    echo "swaybg FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p wlroots > /dev/null; then
+    echo "wl-roots INSTALLED" >> "$log_file"
+  else
+    echo "wl-roots FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p grimblast > /dev/null; then
+    echo "grimblast INSTALLED" >> "$log_file"
+  else
+    echo "grimblast FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  paru -Q | grep -q "xdg-desktop-portal-hyprland-git"
+  if [ $? -eq 0 ]; then
+    echo "portal-hyprland INSTALLED" >> $log_file
+  else
+    echo "portal-hyprland FAILED TO INSTALL" >> $log_file
+  fi
+  
+  if type -p networkmanager_dmenu > /dev/null; then
+    echo "networkmanager_dmenu INSTALLED" >> "$log_file"
+  else
+    echo "networkmanager_dmenu FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+}
+
+qtile() {
+  pip3 install psutil
+  sudo pacman -S pacman-contrib 
+  paru qtile-git
+  
+  if type -p qtile > /dev/null; then
+    echo "qtile INSTALLED" >> "$log_file"
+  else
+    echo "qtile FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  paru -Q | grep -q "psutl"
+  if [ $? -eq 0 ]; then
+    echo "psutil INSTALLED" >> $log_file
+  else
+    echo "psutil FAILED TO INSTALL" >> $log_file
+  fi
+  
+  paru -Q | grep -q "pacman-contrib"
+  if [ $? -eq 0 ]; then
+    echo "pacman-contrib INSTALLED" >> $log_file
+  else 
+    echo "pacman-contrib FAILED TO INSTALL" >> $log_file
+  fi
+}
+
+install_bsp() {
+  sudo pacman -S bspwm sxhkd scrot 
+  paru -S betterlockscreen
+  
+  if type -p bspwm > /dev/null; then
+    echo "bspwm INSTALLED" >> "$log_file"
+  else
+    echo "bspwm FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p sxhkd > /dev/null; then
+    echo "sxhkd INSTALLED" >> "$log_file"
+  else
+    echo "sxhkd FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p scrot > /dev/null; then
+    echo "scrot INSTALLED" >> "$log_file"
+  else
+    echo "scrot FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
+  if type -p betterlockscreen > /dev/null; then
+    echo "betterlockscreen INSTALLED" >> "$log_file"
+  else
+    echo "betterlockscreen FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+}
+
+create_backup(){
+  mv ~/.config/bspwm ~/.config/bspwm.bak
+  mv ~/.config/dunst ~/.config/dunst.bak
+  mv ~/.config/fish ~/.config/fish.bak
+  mv ~/.config/hypr ~/.config/hypr.bak
+  mv ~/.config/mpd ~/.config/mpd.bak
+  mv ~/.config/ncmpcpp ~/.config/ncmpcpp.bak
+  mv ~/.config/neofetch ~/.config/neofetch.bak
+  mv ~/.config/picom ~/.config/picom.bak
+  mv ~/.config/polybar ~/.config/polybar.bak
+  mv ~/.config/qtile ~/.config/qtile.bak
+  mv ~/.config/rofi ~/.config/rofi.bak
+  mv ~/.config/starship.toml ~/.config/starship.toml.bak
+  mv ~/.config/sxhkd ~/.config/sxhkd.bak
+  mv ~/.config/waybar ~/.config/waybar.bak
+  
+  git clone https://github.com/greeid/.dotfiles/tree/main ~
+  cd ~/.dotfiles
+  
+}
+
+create_symlink_hypr(){
+  stow hypr/ fish/ waybar/ dunst/ rofi/ mpd/ ncmpcpp/ neofetch/
+}
+
+create_symlink_qtile(){
+  stow qtile/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/
+}
+
+create_symlink_bsp(){
+  stow bspwm/ sxhkd/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/
+}
+
+echo "Enter what you want to install. Pressing any other key cancels the installation"
+echo "(q) Qtile   (h) Hyprland (b) BSPWM"
+read -r choice
+
+if [[ "$choice" == "q" ]]; then
+  install_paru
+  essential
+  qtile
+  # create_backup
+  # create_symlink_qtile
+  echo " "
+  cat "$log_file"
+  rm "$log_file"
+elif [[ "$choice" == "h" ]]; then
+  install_paru
+  essential
+  hyprland
+  # create_backup
+  # create_symlink_hypr
+  echo " "
+  cat "$log_file"
+  rm "$log_file"
+elif [[ "$choice" == "b" ]]; then
+  install_paru
+  essential
+  install_bsp
+  # create_backup
+  # create_symlink_bsp
+  echo " "
+  cat "$log_file"
+  rm "$log_file"
+else
+  echo "Cancelling..."
+fi
+
