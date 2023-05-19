@@ -252,6 +252,15 @@ install_nvchad(){
   fi
 }
 
+logs(){
+  echo 
+  echo -e "\n====== Summary ======\n"
+  cat $log_file
+  echo
+  echo "Enjoy ;) -greed "
+  rm $log_file
+}
+
 echo "Enter what you want to install. Pressing any other key cancels the installation"
 echo "(q) Qtile   (h) Hyprland (b) BSPWM"
 read -r choice
@@ -263,9 +272,7 @@ if [[ "$choice" == "q" ]]; then
   create_backup
   create_symlink_qtile
   install_nvchad
-  echo " "
-  cat "$log_file"
-  rm "$log_file"
+  logs
 elif [[ "$choice" == "h" ]]; then
   install_paru
   essential
@@ -273,9 +280,7 @@ elif [[ "$choice" == "h" ]]; then
   create_backup
   create_symlink_hypr
   install_nvchad
-  echo " "
-  cat "$log_file"
-  rm "$log_file"
+  logs
 elif [[ "$choice" == "b" ]]; then
   install_paru
   essential
@@ -283,9 +288,7 @@ elif [[ "$choice" == "b" ]]; then
   create_backup
   create_symlink_bsp
   install_nvchad
-  echo " "
-  cat "$log_file"
-  rm "$log_file"
+  logs
 else
   echo "Cancelling..."
 fi
