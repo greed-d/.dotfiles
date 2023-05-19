@@ -24,7 +24,7 @@ Install qtile and it's dependencies :
 
 ```bash
 sudo pacman -S qtile pacman-contrib
-paru -S nerd-font-mono-ubuntu
+paru -S ttf-ubuntu-nerd
 pip3 install psutil
 ```
 
