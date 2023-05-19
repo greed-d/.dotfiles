@@ -42,7 +42,7 @@ control + shift + k
 
 # File manager
 super + e
-	nautilus
+	pcmanfm
 
 #Lock
 control + shift + l
