@@ -1,8 +1,8 @@
 local colors = {
 	red = "#cdd6f4",
-	grey = "#181825",
-	black = "#1e1e2e",
-	white = "#313244",
+	grey = "#7f849c",
+	black = "#181825",
+	white = "#9399b2",
 	light_green = "#6c7086",
 	orange = "#fab387",
 	green = "#a6e3a1",
@@ -12,7 +12,7 @@ local colors = {
 local theme = {
 	normal = {
 		a = { fg = colors.black, bg = colors.blue },
-		b = { fg = colors.blue, bg = colors.white },
+		b = { fg = colors.white, bg = colors.black },
 		c = { fg = colors.white, bg = colors.black },
 		z = { fg = colors.white, bg = colors.black },
 	},
@@ -22,11 +22,11 @@ local theme = {
 }
 
 local vim_icons = {
+	separator = { left = " ", right = " " },
+	color = { bg = "#313244", fg = "#80A7EA" },
 	function()
 		return ""
 	end,
-	separator = { left = "", right = "" },
-	color = { bg = "#313244", fg = "#80A7EA" },
 }
 
 local space = {
@@ -36,18 +36,25 @@ local space = {
 	color = { bg = colors.black, fg = "#80A7EA" },
 }
 
+local pipe = {
+	function()
+		return "|"
+	end,
+	color = { bg = colors.black, fg = "#80A7EA" },
+}
+
 local filename = {
 	"filename",
-	color = { bg = "#80A7EA", fg = "#242735" },
-	separator = { left = "", right = "" },
+	color = { bg = colors.black, fg = colors.white },
+	separator = { left = "", right = "" },
 }
 
 local filetype = {
 	"filetype",
 	icon_only = true,
 	colored = true,
-	color = { bg = "#313244" },
-	separator = { left = "", right = "" },
+	color = { bg = colors.black, fg = colors.white },
+	separator = { left = "", right = "" },
 }
 
 local filetype_tab = {
@@ -59,47 +66,43 @@ local filetype_tab = {
 
 local tabs = {
 	require("tabline").tabline_tabs,
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local buffer = {
 	require("tabline").tabline_buffers,
-	separator = { left = "", right = "" },
-	right_padding = 2,
+	separator = { left = "", right = " " },
+	-- right_padding = 2,
 	symbols = { alternate_file = "" },
 }
 
 local fileformat = {
 	"fileformat",
-	color = { bg = "#b4befe", fg = "#313244" },
-	separator = { left = "", right = "" },
+	-- color = { bg = "#b4befe", fg = "#313244" },
+	separator = { left = "", right = "" },
 }
 
 local encoding = {
 	"encoding",
-	color = { bg = "#313244", fg = "#80A7EA" },
-	separator = { left = "", right = "" },
+	color = { bg = colors.black, fg = "#80A7EA" },
+	separator = { left = " ", right = " " },
 }
 
-local branch = {
-	"branch",
-	color = { bg = "#a6e3a1", fg = "#313244" },
-	separator = { left = "", right = "" },
-}
+local branch = { "branch", color = { bg = colors.black, fg = colors.white }, separator = { left = " ", right = " " } }
 
 local diff = {
 	"diff",
-	color = { bg = "#313244", fg = "#313244" },
-	separator = { left = "", right = "" },
+	color = { bg = colors.black, fg = colors.white },
+	separator = { left = "", right = "" },
 }
 
 local modes = {
 	"mode",
 	fmt = function(str)
-		return str:sub(1, 1)
+		return str
 	end,
-	color = { bg = "#fab387		", fg = "#1e1e2e" },
-	separator = { left = "", right = "" },
+	color = { bg = "#313244", fg = colors.white },
+	separator = { left = " ", right = " " },
 }
 
 local function getLspName()
@@ -120,26 +123,25 @@ end
 
 local dia = {
 	"diagnostics",
-	color = { bg = "#313244", fg = "#80A7EA" },
-	separator = { left = "", right = "" },
+	color = { bg = colors.black, fg = colors.white },
+	separator = { left = " | ", right = " " },
 }
 
 local location = {
 	"location",
-	color = { bg = "#313244", fg = "#80A7EA" },
-	separator = { left = "", right = "" },
+	color = { fg = "#313244", bg = "#80A7EA" },
+	separator = { left = "", right = "" },
 }
 
 local lsp = {
 	function()
 		return getLspName()
 	end,
-	separator = { left = "", right = "" },
-	color = { bg = "#f38ba8", fg = "#1e1e2e" },
+	separator = { left = "", right = "" },
+	color = { fg = colors.green, bg = colors.black },
 }
 
 require("lualine").setup({
-
 	options = {
 		icons_enabled = true,
 		theme = theme,
@@ -162,35 +164,34 @@ require("lualine").setup({
 	sections = {
 		lualine_a = {
 			--{ 'mode', fmt = function(str) return str:gsub(str, "  ") end },
-			modes,
 			vim_icons,
+			modes,
 			--{ 'mode', fmt = function(str) return str:sub(1, 1) end },
 		},
 		lualine_b = {
-			space,
+			-- space,
 		},
 		lualine_c = {
 
-			filename,
+			-- space,
 			filetype,
-			space,
+			filename,
+			-- space,
 			branch,
-			diff,
-			space,
-			buffer,
+			dia,
+			-- space,
+			-- tabs,
 		},
 		lualine_x = {
-			space,
+			diff,
+			pipe,
 		},
 		lualine_y = {
-			encoding,
 			fileformat,
-			space,
+			encoding,
 		},
 		lualine_z = {
-			dia,
 			lsp,
-			space,
 			location,
 		},
 	},

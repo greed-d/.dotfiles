@@ -2,7 +2,7 @@ local telescope = require("telescope")
 telescope.setup({
 	defaults = {
 		mappings = { n = { ["o"] = require("telescope.actions").select_default } },
-		initial_mode = "normal",
+		initial_mode = "insert",
 		file_ignore_patterns = { ".git/", "node_modules/", "target/" },
 	},
 	pickers = {
