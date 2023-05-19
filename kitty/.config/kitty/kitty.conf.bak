@@ -1,0 +1,15 @@
+
+
+
+font_family      JetbrainsMono Nerd Font 
+
+font_size        10.0
+text_composition_strategy legacy
+
+confirm_os_window_close 0
+tab_bar_edge                bottom
+tab_bar_style               powerline
+tab_powerline_style         round
+tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}
+
+include current-theme.conf
