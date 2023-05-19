@@ -9,17 +9,16 @@ echo " "
 
 install_paru(){
   sudo pacman -S --needed base-devel 
-  git clone https://aur.archlinux.org/paru.git "$HOME/.dotfiles" 
-  cd ~/.dotfiles/paru 
+  git clone https://aur.archlinux.org/paru.git 
+  cd paru 
   makepkg -si 
-  
-  rm -rf ~/paru
   
   if type -p paru > /dev/null; then
     echo "paru INSTALLED" >> "$log_file"
   else
     echo "paru FAILED TO INSTALL!!!" >> "$log_file"
   fi
+  
   echo ""
   cat $log_file
   
