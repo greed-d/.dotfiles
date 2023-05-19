@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d               󰓇  󰙯
+bspc monitor -d                󰓇  󰙯
 
 bspc config border_width        2
 bspc config window_gap					9
@@ -22,12 +22,11 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 wmname BSPWM
-volctl &
 spotify &
 discord &
 picom --config ~/.config/picom/picom.conf &
 cbatticon &
 nitrogen --restore &
-polybar bar &
+# polybar bar &
 nm-applet &
 xpad &

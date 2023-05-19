@@ -72,6 +72,8 @@ alias man "batman"
 alias rm "trash"
 alias rt "rm"
 alias vi "NVIM_APPNAME=vanvim nvim"
+alias nvd "neovide --multigrid"
+alias hvd "env -u WAYLAND_DISPLAY neovide --multigrid"
 alias pomd "i3-gnome-pomodoro"
 
 #--------------------------------------> nmcli options <--------------------------------------
@@ -106,7 +108,7 @@ bind \cf "tmux-sessionizer"
 set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.flutter_install/flutter/bin"
 set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
-set -Ux JAVA_HOME /usr/lib/jvm/java-11-openjdk/
+# export -Ux JAVA_HOME "/usr/bin/java"
 
 #--------------------------------------> Load neofetch <--------------------------------------
 
