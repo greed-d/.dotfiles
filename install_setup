@@ -18,10 +18,6 @@ install_paru(){
   else
     echo "paru FAILED TO INSTALL!!!" >> "$log_file"
   fi
-  
-  echo ""
-  cat $log_file
-  
 }
 
 essential(){
@@ -202,6 +198,7 @@ create_symlink_hypr(){
   rm $HOME/.config/starship.toml 
   
   stow hypr/ fish/ waybar/ dunst/ rofi/ mpd/ ncmpcpp/ neofetch/ starship/ kitty/ scripts/
+  echo "Created symlink to 'hypr', 'fish', 'waybar', 'dunst', 'rofi', 'mpd', 'ncmpcpp', 'neofetch', 'starship', 'kitty' and 'scripts' " >> "$log_file"
 }
 
 create_symlink_qtile(){
@@ -218,7 +215,7 @@ create_symlink_qtile(){
   rm $HOME/.config/starship.toml 
   
   stow qtile/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ picom/ starship/ kitty/ scripts/
-  
+  echo "Created symlink to 'qtile', 'fish', 'dunst', 'rofi', 'mpd', 'ncmpcpp', 'neofetch', 'starship', 'kitty' and 'scripts' " >> "$log_file"
 }
 
 create_symlink_bsp(){
@@ -236,6 +233,7 @@ create_symlink_bsp(){
   rm $HOME/.config/starship.toml 
   
   stow bspwm/ sxhkd/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ polybar/ picom/ starship/ scripts/
+  echo "Created symlink to 'bspwm', 'sxhkd', 'fish', 'dunst', 'rofi', 'mpd', 'ncmpcpp', 'neofetch', 'starship', 'kitty' and 'scripts' " >> "$log_file"
 }
 
 install_nvchad(){
@@ -269,27 +267,20 @@ if [[ "$choice" == "q" ]]; then
   install_paru
   essential
   qtile
-  create_backup
   create_symlink_qtile
-  install_nvchad
   logs
 elif [[ "$choice" == "h" ]]; then
   install_paru
   essential
   hyprland
-  create_backup
   create_symlink_hypr
-  install_nvchad
   logs
 elif [[ "$choice" == "b" ]]; then
-  install_paru
+  # install_paru
   essential
   install_bsp
   create_backup
-  create_symlink_bsp
-  install_nvchad
   logs
 else
   echo "Cancelling..."
 fi
-
