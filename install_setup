@@ -8,10 +8,8 @@ echo "In case you're using this script change your preferred AUR Wrapper"
 echo " "
 
 install_paru(){
-  sudo pacman -S --needed base-devel
-  git clone https://aur.archlinux.org/paru.git ~
-  cd ~/paru
-  makepkg -si
+  sudo pacman -S --needed base-devel ;  git clone https://aur.archlinux.org/paru.git "$HOME" ;  cd ~/paru ;  makepkg -si 
+  rm -rf ~/paru
   
   if type -p paru > /dev/null; then
     echo "paru INSTALLED" >> "$log_file"
@@ -19,7 +17,6 @@ install_paru(){
     echo "paru FAILED TO INSTALL!!!" >> "$log_file"
   fi
   
-  rm -rf ~/paru
 }
 
 essential(){
@@ -186,37 +183,50 @@ install_bsp() {
   fi
 }
 
-create_backup(){
-  mv ~/.config/bspwm ~/.config/bspwm.bak
-  mv ~/.config/dunst ~/.config/dunst.bak
-  mv ~/.config/fish ~/.config/fish.bak
-  mv ~/.config/hypr ~/.config/hypr.bak
-  mv ~/.config/mpd ~/.config/mpd.bak
-  mv ~/.config/ncmpcpp ~/.config/ncmpcpp.bak
-  mv ~/.config/neofetch ~/.config/neofetch.bak
-  mv ~/.config/picom ~/.config/picom.bak
-  mv ~/.config/polybar ~/.config/polybar.bak
-  mv ~/.config/qtile ~/.config/qtile.bak
-  mv ~/.config/rofi ~/.config/rofi.bak
-  mv ~/.config/starship.toml ~/.config/starship.toml.bak
-  mv ~/.config/sxhkd ~/.config/sxhkd.bak
-  mv ~/.config/waybar ~/.config/waybar.bak
-  
-  git clone https://github.com/greeid/.dotfiles/tree/main ~
-  cd ~/.dotfiles
-  
-}
-
 create_symlink_hypr(){
-  stow hypr/ fish/ waybar/ dunst/ rofi/ mpd/ ncmpcpp/ neofetch/
+  
+  rm $HOME/.config/hypr 
+  rm $HOME/.config/fish 
+  rm $HOME/.config/waybar 
+  rm $HOME/.config/dunst 
+  rm $HOME/.config/rofi 
+  rm $HOME/.config/mpd 
+  rm $HOME/.config/ncmpcpp 
+  rm $HOME/.config/neofetch 
+  rm $HOME/.config/starship.toml 
+  
+  stow hypr/ fish/ waybar/ dunst/ rofi/ mpd/ ncmpcpp/ neofetch/ starship/
 }
 
 create_symlink_qtile(){
-  stow qtile/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/
+  
+  rm $HOME/.config/qtile 
+  rm $HOME/.config/dunst 
+  rm $HOME/.config/fish 
+  rm $HOME/.config/mpd 
+  rm $HOME/.config/rofi 
+  rm $HOME/.config/ncmpcpp 
+  rm $HOME/.config/neofetch 
+  rm $HOME/.config/picom 
+  rm $HOME/.config/starship.toml 
+  
+  stow qtile/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ picom/ starship/
+  
 }
 
 create_symlink_bsp(){
-  stow bspwm/ sxhkd/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/
+  rm $HOME/.config/bspwm 
+  rm $HOME/.config/sxhkd 
+  rm $HOME/.config/dunst 
+  rm $HOME/.config/fish 
+  rm $HOME/.config/rofi 
+  rm $HOME/.config/mpd 
+  rm $HOME/.config/ncmpcpp 
+  rm $HOME/.config/neofetch 
+  rm $HOME/.config/polybar 
+  rm $HOME/.config/starship.toml 
+  
+  stow bspwm/ sxhkd/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ polybar/ picom/ starship/
 }
 
 echo "Enter what you want to install. Pressing any other key cancels the installation"
