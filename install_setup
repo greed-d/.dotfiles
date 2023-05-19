@@ -185,6 +185,7 @@ install_bsp() {
 
 create_symlink_hypr(){
   
+  rm $HOME/.config/kitty
   rm $HOME/.config/hypr 
   rm $HOME/.config/fish 
   rm $HOME/.config/waybar 
@@ -195,11 +196,13 @@ create_symlink_hypr(){
   rm $HOME/.config/neofetch 
   rm $HOME/.config/starship.toml 
   
-  stow hypr/ fish/ waybar/ dunst/ rofi/ mpd/ ncmpcpp/ neofetch/ starship/
+  mkdir $HOME/.local
+  stow hypr/ fish/ waybar/ dunst/ rofi/ mpd/ ncmpcpp/ neofetch/ starship/ kitty/
 }
 
 create_symlink_qtile(){
   
+  rm $HOME/.config/kitty 
   rm $HOME/.config/qtile 
   rm $HOME/.config/dunst 
   rm $HOME/.config/fish 
@@ -210,11 +213,13 @@ create_symlink_qtile(){
   rm $HOME/.config/picom 
   rm $HOME/.config/starship.toml 
   
-  stow qtile/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ picom/ starship/
+  stow qtile/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ picom/ starship/ kitty/
   
 }
 
 create_symlink_bsp(){
+
+  rm $HOME/.config/kitty
   rm $HOME/.config/bspwm 
   rm $HOME/.config/sxhkd 
   rm $HOME/.config/dunst 
@@ -229,6 +234,19 @@ create_symlink_bsp(){
   stow bspwm/ sxhkd/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ polybar/ picom/ starship/
 }
 
+install_nvchad(){
+  echo "Do you want to install NvChad? (y) YES    (n) NO "
+  if [[ "$choice" == "y" ]]; then
+    sudo pacman -S neovim
+    rm -rf $HOME/.config/nvim
+    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 
+    cd $HOME/.dotfiles
+    stow nvim/
+    echo "Open 'nvim' after opening a window Manager"
+  else
+    echo "You denied installing NvChad"
+}
+
 echo "Enter what you want to install. Pressing any other key cancels the installation"
 echo "(q) Qtile   (h) Hyprland (b) BSPWM"
 read -r choice
@@ -239,6 +257,7 @@ if [[ "$choice" == "q" ]]; then
   qtile
   create_backup
   create_symlink_qtile
+  install_nvchad
   echo " "
   cat "$log_file"
   rm "$log_file"
@@ -248,6 +267,7 @@ elif [[ "$choice" == "h" ]]; then
   hyprland
   create_backup
   create_symlink_hypr
+  install_nvchad
   echo " "
   cat "$log_file"
   rm "$log_file"
@@ -257,6 +277,7 @@ elif [[ "$choice" == "b" ]]; then
   install_bsp
   create_backup
   create_symlink_bsp
+  install_nvchad
   echo " "
   cat "$log_file"
   rm "$log_file"
