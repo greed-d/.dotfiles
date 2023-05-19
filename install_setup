@@ -202,8 +202,7 @@ create_symlink_hypr(){
   rm $HOME/.config/neofetch 
   rm $HOME/.config/starship.toml 
   
-  mkdir $HOME/.local
-  stow hypr/ fish/ waybar/ dunst/ rofi/ mpd/ ncmpcpp/ neofetch/ starship/ kitty/
+  stow hypr/ fish/ waybar/ dunst/ rofi/ mpd/ ncmpcpp/ neofetch/ starship/ kitty/ scripts/
 }
 
 create_symlink_qtile(){
@@ -219,7 +218,7 @@ create_symlink_qtile(){
   rm $HOME/.config/picom 
   rm $HOME/.config/starship.toml 
   
-  stow qtile/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ picom/ starship/ kitty/
+  stow qtile/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ picom/ starship/ kitty/ scripts/
   
 }
 
@@ -237,7 +236,7 @@ create_symlink_bsp(){
   rm $HOME/.config/polybar 
   rm $HOME/.config/starship.toml 
   
-  stow bspwm/ sxhkd/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ polybar/ picom/ starship/
+  stow bspwm/ sxhkd/ dunst/ fish/ rofi/ mpd/ ncmpcpp/ neofetch/ polybar/ picom/ starship/ scripts/
 }
 
 install_nvchad(){
