@@ -8,7 +8,11 @@ echo "In case you're using this script change your preferred AUR Wrapper"
 echo " "
 
 install_paru(){
-  sudo pacman -S --needed base-devel ;  git clone https://aur.archlinux.org/paru.git "$HOME" ;  cd ~/paru ;  makepkg -si 
+  sudo pacman -S --needed base-devel 
+  git clone https://aur.archlinux.org/paru.git "$HOME/.dotfiles" 
+  cd ~/.dotfiles/paru 
+  makepkg -si 
+  
   rm -rf ~/paru
   
   if type -p paru > /dev/null; then
@@ -16,6 +20,8 @@ install_paru(){
   else
     echo "paru FAILED TO INSTALL!!!" >> "$log_file"
   fi
+  echo ""
+  cat $log_file
   
 }
 
@@ -245,6 +251,7 @@ install_nvchad(){
     echo "Open 'nvim' after opening a window Manager"
   else
     echo "You denied installing NvChad"
+  fi
 }
 
 echo "Enter what you want to install. Pressing any other key cancels the installation"
