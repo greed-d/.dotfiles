@@ -1,14 +1,24 @@
 #!/bin/bash
 log_file=~/install_progress_log.txt
 
+echo " "
 echo "THIS IS A SCRIPT JUST MADE FOR ME. I suggest using this script as reference." 
+echo "This was strictly made for arch"
 echo "In case you're using this script change your preferred AUR Wrapper"
+echo " "
 
 install_paru(){
   sudo pacman -S --needed base-devel
   git clone https://aur.archlinux.org/paru.git ~
   cd ~/paru
   makepkg -si
+  
+  if type -p paru > /dev/null; then
+    echo "paru INSTALLED" >> "$log_file"
+  else
+    echo "paru FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
   rm -rf ~/paru
 }
 
@@ -123,7 +133,7 @@ hyprland() {
 
 qtile() {
   pip3 install psutil
-  sudo pacman -S pacman-contrib 
+  sudo pacman -S pacman-contrib xorg-server xorg-fonts-encodings xorg-setxkbmap xorg-xprop xorg-xset
   paru qtile-git
   
   if type -p qtile > /dev/null; then
@@ -132,7 +142,7 @@ qtile() {
     echo "qtile FAILED TO INSTALL!!!" >> "$log_file"
   fi
   
-  paru -Q | grep -q "psutl"
+  paru -Q | grep -q "python-psutil"
   if [ $? -eq 0 ]; then
     echo "psutil INSTALLED" >> $log_file
   else
@@ -148,7 +158,7 @@ qtile() {
 }
 
 install_bsp() {
-  sudo pacman -S bspwm sxhkd scrot 
+  sudo pacman -S bspwm sxhkd scrot xorg-server xorg-fonts-encodings xorg-setxkbmap xorg-xprop xorg-xset
   paru -S betterlockscreen
   
   if type -p bspwm > /dev/null; then
@@ -217,8 +227,8 @@ if [[ "$choice" == "q" ]]; then
   install_paru
   essential
   qtile
-  # create_backup
-  # create_symlink_qtile
+  create_backup
+  create_symlink_qtile
   echo " "
   cat "$log_file"
   rm "$log_file"
@@ -226,8 +236,8 @@ elif [[ "$choice" == "h" ]]; then
   install_paru
   essential
   hyprland
-  # create_backup
-  # create_symlink_hypr
+  create_backup
+  create_symlink_hypr
   echo " "
   cat "$log_file"
   rm "$log_file"
@@ -235,8 +245,8 @@ elif [[ "$choice" == "b" ]]; then
   install_paru
   essential
   install_bsp
-  # create_backup
-  # create_symlink_bsp
+  create_backup
+  create_symlink_bsp
   echo " "
   cat "$log_file"
   rm "$log_file"
