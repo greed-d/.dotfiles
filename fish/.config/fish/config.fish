@@ -69,8 +69,7 @@ alias e "nautilus ."
 alias x "exit"
 alias lg "lazygit"
 alias man "batman"
-alias rm "trash"
-alias rt "rm"
+abbr rt "trash"
 alias vi "NVIM_APPNAME=vanvim nvim"
 alias nvd "neovide --multigrid"
 alias hvd "env -u WAYLAND_DISPLAY neovide --multigrid"
@@ -87,10 +86,10 @@ alias sw "nmcli device wifi show"
 # alias clr "clear && neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small"
 alias clr "clear && neofetch"
 # alias clr "echo -en '\x1b[2J\x1b[1;1H' ; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo"
-alias cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qtile cmd-obj -o widget wifiicon -f eval -a 'self.check_connection()'"
 alias ttc "tty-clock -SsctC5"
-abbr scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
 alias rr "curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+abbr cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qtile cmd-obj -o widget wifiicon -f eval -a 'self.check_connection()'"
+abbr scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
 abbr discfix "curl https://raw.githubusercontent.com/fuwwy/Discord-Screenshare-Linux/main/scripts/install.sh -sSfL | bash -c" #Wayland fix for screensharing on discord using pipewire
 
 #--------------------------------------> tmux options <--------------------------------------
@@ -106,10 +105,14 @@ bind \cf "tmux-sessionizer"
 #--------------------------------------> PATH <--------------------------------------
 
 set PATH "$PATH":"$HOME/.local/scripts/"
-set PATH "$PATH":"$HOME/.flutter_install/flutter/bin"
+set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
 set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
+## java 11 jdk
+set --export JAVA_HOME (dirname (dirname (readlink -f (which java))))
 
+set -e JAVA_OPTS
+set -gx PATH $JAVA_HOME $PATH
 #--------------------------------------> Load neofetch <--------------------------------------
 
 # echo -en '\x1b[2J\x1b[1;1H' ; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo
