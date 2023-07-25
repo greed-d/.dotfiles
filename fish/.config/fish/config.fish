@@ -91,6 +91,7 @@ alias rr "curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 abbr cc "qtile cmd-obj -o widget wifiicon -f eval -a 'self.is_connected' && qtile cmd-obj -o widget wifiicon -f eval -a 'self.check_connection()'"
 abbr scrkey "screenkey -s small --opacity 0.6 -p fixed -g 30%x7%+69%-2%"
 abbr discfix "curl https://raw.githubusercontent.com/fuwwy/Discord-Screenshare-Linux/main/scripts/install.sh -sSfL | bash -c" #Wayland fix for screensharing on discord using pipewire
+abbr sdwm "startx ~/.config/chadwm/scripts/run.sh"
 
 #--------------------------------------> tmux options <--------------------------------------
 
