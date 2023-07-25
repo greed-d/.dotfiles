@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+
+echo "Entering CHADWM folder......"
+echo " "
+cd ~/.config/chadwm/chadwm/
+echo "Removing 'config.h'"
+echo " "
+rm -rf ~/.config/chadwm/chadwm/config.h
+echo "Recompiling"
+echo " "
+doas make install
