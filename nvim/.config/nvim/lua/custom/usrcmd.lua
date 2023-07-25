@@ -28,3 +28,4 @@ end)
 vim.keymap.set("n", "<C-->", function()
 	change_scale_factor(1 / 1.111111)
 end)
+

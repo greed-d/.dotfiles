@@ -24,7 +24,6 @@ local plugins = {
 		"williamboman/mason.nvim",
 		opts = overrides.mason,
 	},
-
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = overrides.treesitter,
@@ -50,21 +49,21 @@ local plugins = {
 		opts = overrides.nvterm,
 	},
 	{
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-    },
-    opts = {
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
-        { name = "nvim_lsp_signature_help" },
-      },
-    },
-  },
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+		},
+		opts = {
+			sources = {
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+				{ name = "buffer" },
+				{ name = "nvim_lua" },
+				{ name = "path" },
+				{ name = "nvim_lsp_signature_help" },
+			},
+		},
+	},
 
 	-- Install a plugin
 
@@ -78,9 +77,14 @@ local plugins = {
 
 	{
 		"andweeb/presence.nvim",
-		event = "BufReadPre",
+		event = "VeryLazy",
 		config = function()
-			require("presence").setup()
+			require("presence").setup({
+				-- log_level = "debug",
+				neovim_image_text = "NEOVIM go BRRRRR",
+				main_image = "file",
+				-- enable_line_number = true,
+			})
 		end,
 	},
 
@@ -106,7 +110,7 @@ local plugins = {
 		config = function()
 			require("stay-centered")
 		end,
-		enabled = false,
+		-- enabled = false,
 	},
 
 	{
@@ -332,6 +336,26 @@ local plugins = {
 		config = function()
 			require("custom.configs.extras.dressing")
 		end,
+	},
+	{
+		"barrett-ruth/live-server.nvim",
+		cmd = "LiveServerStart",
+		build = "yarn global add live-server",
+		config = function()
+			require("live-server").setup()
+		end,
+	},
+	-- Lua
+	{
+		"folke/persistence.nvim",
+		event = "BufReadPre", -- this will only start session saving when an actual file was opened
+		opts = {
+			-- add any custom options here
+		},
+	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = "BufReadPre",
 	},
 }
 

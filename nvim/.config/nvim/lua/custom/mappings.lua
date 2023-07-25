@@ -150,7 +150,7 @@ M.nvterm = {
 					go = "go build && go run " .. file,
 					c = "g++ " .. file .. " -o " .. sfile .. " && ./" .. sfile,
 					cpp = "g++ " .. file .. " -o " .. sfile .. " && ./" .. sfile,
-					javascript = "deno compile " .. file .. " && deno run " .. file,
+					javascript = "node " .. file,
 					typescript = "deno compile " .. file .. " && deno run " .. file,
 					arduino = "arduino-cli complile --fqbn arduino:avr:uno "
 						.. sfile
@@ -205,6 +205,16 @@ M.TODO = {
 M.SymbolOutline = {
 	n = {
 		["<leader>ot"] = { "<cmd>SymbolsOutline<CR>", "toggle symbol outline" },
+	},
+}
+
+M.Persistence = {
+	n = {
+		["<leader>qs"] = { "<cmd>lua require('persistence').load()<CR>", "Restore session for current directory" },
+		["<leader>ql"] = {
+			"<cmd>lua require('persistence').load({last = true})<CR>",
+			"Restore last session",
+		},
 	},
 }
 -- more keybinds!
