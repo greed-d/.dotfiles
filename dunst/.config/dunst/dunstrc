@@ -23,15 +23,15 @@
     ### Geometry ###
 
     # dynamic width from 0 to 300
-    width = (0, 400)
+    width = (0, 500)
     # constant width of 300
     # width =500
 
     # The maximum height of a single notification, excluding the frame.
-    height = 120
+    height = 140
 
     # Position the notification in the top right corner
-    origin = top-right
+    origin = bottom-right
 
     # Offset from the origin
     offset = 10x10
@@ -204,7 +204,7 @@
     # icon_theme = "Adwaita, breeze"
 
     # Align icons left/right/top/off
-    icon_position = left
+    icon_position = right
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
@@ -229,7 +229,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/rofi -p dunst:
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
@@ -311,14 +311,14 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#12121E"
+    background = "#0D1017"
     foreground = "#AAAEB5"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#12121E"
+    background = "#0D1017"
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
