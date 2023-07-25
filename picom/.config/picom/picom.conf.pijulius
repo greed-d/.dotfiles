@@ -1,3 +1,22 @@
+unredir-if-possible = true;
+
+#################################
+#  Animations - pijulius' fork  #
+#################################
+
+# Animations (requires pijulius)
+animations = true;
+animation-clamping = true;
+animation-delta = 12;
+animation-dampening = 17.0;
+animation-stiffness = 400.0;
+animation-window-mass = 1;
+animation-for-open-window = "zoom";
+animation-for-unmap-window = "zoom"
+animation-for-transient-window = "none";
+animation-for-workspace-switch-in = "slide-up";
+animation-for-workspace-switch-out = "slide-down";
+
 #################################
 #             Shadows           #
 #################################
@@ -8,7 +27,7 @@
 # unless explicitly requested using the wintypes option.
 #
 # shadow = false
-shadow = true;
+# shadow = true;
 
 # The blur radius for shadows, in pixels. (defaults to 12)
 # shadow-radius = 12
@@ -77,11 +96,11 @@ fading = true;
 
 # Opacity change between steps while fading in. (0.01 - 1.0, defaults to 0.028)
 # fade-in-step = 0.028
-fade-in-step = 0.08;
+fade-in-step = 0.03;
 
 # Opacity change between steps while fading out. (0.01 - 1.0, defaults to 0.03)
 # fade-out-step = 0.03
-fade-out-step = 0.08;
+fade-out-step = 0.03;
 
 # The time between steps in fade step, in milliseconds. (> 0, defaults to 10)
 # fade-delta = 10
@@ -103,19 +122,19 @@ fade-out-step = 0.08;
 
 # Opacity of inactive windows. (0.1 - 1.0, defaults to 1.0)
 # inactive-opacity = 1
-inactive-opacity = 0.95;
+inactive-opacity = 0.8;
 
 # Opacity of window titlebars and borders. (0.1 - 1.0, disabled by default)
 # frame-opacity = 1.0
-frame-opacity = 0.9;
+frame-opacity = 0.7;
 
-# Let inactive opacity set by -i override the '_NET_WM_WINDOW_OPACITY' values of windows.
+# Let inactive opacity set by -i override the '_NET_WM_OPACITY' values of windows.
 # inactive-opacity-override = true
 inactive-opacity-override = false;
 
 # Default opacity for active windows. (0.0 - 1.0, defaults to 1.0)
-# active-opacity = 0.85
-#
+# active-opacity = 1.0
+
 # Dim inactive windows. (0.0 - 1.0, defaults to 0.0)
 # inactive-dim = 0.0
 
@@ -133,9 +152,10 @@ focus-exclude = [ "class_g = 'Cairo-clock'" ];
 # example:
 #    opacity-rule = [ "80:class_g = 'URxvt'" ];
 #
+# opacity-rule = []
 opacity-rule = [
-	"89:class_g = 'kitty' && focused",
-	# "95:class_g = 'kitty' && !focused",
+	# "97:class_g = 'Alacritty' && focused",
+	"70:class_g = 'Alacritty' && !focused",
 	"90:class_g = 'Rofi'",
 	"83:class_g = 'thunar' && focused",
 	"70:class_g = 'thunar' && !focused",
@@ -143,10 +163,9 @@ opacity-rule = [
 	"70:class_g = 'Free Download Manager' && !focused",
 # 	"93:class_g = 'firefox'&& focused",
 # 	"50:class_g = 'firefox' && !focused",
-	"89:class_g = 'discord' && focused",
+	# "93:class_g = 'discord' && focused",
 	# "70:class_g ='ArmCord' && !focused" 
 ]
-
 
 #################################
 #           Corners             #
@@ -159,6 +178,7 @@ corner-radius = 10
 
 # Exclude conditions for rounded corners.
 rounded-corners-exclude = [
+	"class_g = 'jetbrains-studio'",
   "window_type = 'dock'",
   "window_type = 'desktop'"
 ];
@@ -167,20 +187,15 @@ rounded-corners-exclude = [
 #################################
 #     Background-Blurring       #
 #################################
-# blur:
-#     {
-#          method = "gaussian";
-#          size = 10;
-#          deviation = 5.0;
-#        };
+
 
 # Parameters for background blurring, see the *BLUR* section for more information.
-blur-method = "dual_kawase";
-blur-size = 10
+# blur-method = "dual_kawase"
+# blur-size = 12
 #
 # blur-deviation = false
 #
-blur-strength = 12
+# blur-strength = 5
 
 # Blur background of semi-transparent / ARGB windows.
 # Bad in performance, with driver-dependent behavior.
@@ -212,6 +227,7 @@ blur-kern = "3x3box";
 # blur-background-exclude = []
 blur-background-exclude = [
   "window_type = 'dock'",
+	"class_g = 'jetbrains-studio'",
   "window_type = 'desktop'",
   "_GTK_FRAME_EXTENTS@:c"
 ];
@@ -219,9 +235,6 @@ blur-background-exclude = [
 #################################
 #       General Settings        #
 #################################
-
-# Enable remote control via D-Bus. See the man page for more details.
-# dbus = true
 
 # Daemonize process. Fork to background after initialization. Causes issues with certain (badly-written) drivers.
 # daemon = false
@@ -255,11 +268,17 @@ mark-ovredir-focused = true;
 # detect-rounded-corners = false
 detect-rounded-corners = true;
 
-# Detect '_NET_WM_WINDOW_OPACITY' on client windows, useful for window managers
-# not passing '_NET_WM_WINDOW_OPACITY' of client windows to frame windows.
+# Detect '_NET_WM_OPACITY' on client windows, useful for window managers
+# not passing '_NET_WM_OPACITY' of client windows to frame windows.
 #
 # detect-client-opacity = false
 detect-client-opacity = true;
+
+# Specify refresh rate of the screen. If not specified or 0, picom will
+# try detecting this with X RandR extension.
+#
+# refresh-rate = 60
+refresh-rate = 0;
 
 # Use EWMH '_NET_ACTIVE_WINDOW' to determine currently focused window,
 # rather than listening to 'FocusIn'/'FocusOut' event. Might have more accuracy,
@@ -286,11 +305,11 @@ detect-client-opacity = true;
 detect-transient = true;
 
 # Use 'WM_CLIENT_LEADER' to group windows, and consider windows in the same
-# group focused at the same time. This usually means windows from the same application
-# will be considered focused or unfocused at the same time.
-# 'WM_TRANSIENT_FOR' has higher priority if detect-transient is enabled, too.
+# group focused at the same time. 'WM_TRANSIENT_FOR' has higher priority if
+# detect-transient is enabled, too.
 #
 # detect-client-leader = false
+detect-client-leader = true;
 
 # Resize damaged region by a specific number of pixels.
 # A positive value enlarges it while a negative one shrinks it.
@@ -315,7 +334,7 @@ detect-transient = true;
 # practically happened) and may not work with blur-background.
 # My tests show a 15% performance boost. Recommended.
 #
-glx-no-stencil = true;
+# glx-no-stencil = false
 
 # GLX backend: Avoid rebinding pixmap on window damage.
 # Probably could improve performance on rapid window content changes,
@@ -325,7 +344,7 @@ glx-no-stencil = true;
 # glx-no-rebind-pixmap = false
 
 # Disable the use of damage information.
-# This cause the whole screen to be redrawn every time, instead of the part of the screen
+# This cause the whole screen to be redrawn everytime, instead of the part of the screen
 # has actually changed. Potentially degrades the performance, but might fix some artifacts.
 # The opposing option is use-damage
 #
@@ -338,17 +357,11 @@ use-damage = true;
 #
 # xrender-sync-fence = false
 
-# GLX backend: Use specified GLSL fragment shader for rendering window
-# contents. Read the man page for a detailed explanation of the interface.
+# GLX backend: Use specified GLSL fragment shader for rendering window contents.
+# See `compton-default-fshader-win.glsl` and `compton-fake-transparency-fshader-win.glsl`
+# in the source tree for examples.
 #
-# window-shader-fg = "default"
-
-# Use rules to set per-window shaders. Syntax is SHADER_PATH:PATTERN, similar
-# to opacity-rule. SHADER_PATH can be "default". This overrides window-shader-fg.
-#
-# window-shader-fg-rule = [
-#   "my_shader.frag:window_type != 'dock'"
-# ]
+# glx-fshader-win = ""
 
 # Force all windows to be painted with blending. Useful if you
 # have a glx-fshader-win that could turn opaque pixels transparent.
@@ -371,12 +384,6 @@ use-damage = true;
 # instead of blending on top of them.
 #
 # transparent-clipping = false
-
-# Specify a list of conditions of windows that should never have transparent
-# clipping applied. Useful for screenshot tools, where you need to be able to
-# see through transparent parts of the window.
-#
-# transparent-clipping-exclude = []
 
 # Set the log level. Possible values are:
 #  "trace", "debug", "info", "warn", "error"
@@ -426,7 +433,7 @@ log-level = "warn";
 #     transparent, and you want shadows in those areas.
 #
 #   clip-shadow-above:::
-#     Controls whether shadows that would have been drawn above the window should
+#     Controls wether shadows that would have been drawn above the window should
 #     be clipped. Useful for dock windows that should have no shadow painted on top.
 #
 #   redir-ignore:::
@@ -443,3 +450,4 @@ wintypes:
   popup_menu = { opacity = 0.8; }
   dropdown_menu = { opacity = 0.8; }
 };
+
