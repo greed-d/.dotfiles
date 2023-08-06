@@ -16,6 +16,7 @@ local servers = {
 	"marksman",
 	-- "python-lsp-server",
 	"eslint",
+	"lemminx",
 }
 
 for _, lsp in ipairs(servers) do
