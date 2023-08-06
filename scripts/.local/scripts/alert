@@ -1,0 +1,3 @@
+#!/bin/bash
+
+paplay ~/.local/share/sounds/water_droplet.ogg
