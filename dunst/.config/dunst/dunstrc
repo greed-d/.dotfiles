@@ -332,6 +332,9 @@
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon
 
+[play_sound]
+    summary = "*"
+    script = "/home/greed/.local/scripts/alert"
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #
