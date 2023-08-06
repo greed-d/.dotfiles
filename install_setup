@@ -48,6 +48,12 @@ essential(){
     echo "dunst FAILED TO INSTALL!!!" >> "$log_file"
   fi
   
+  if type -p exa > /dev/null; then
+    echo "exa INSTALLED" >> "$log_file"
+  else
+    echo "exa FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+  
   if type -p pamixer > /dev/null; then
     echo "pamixer INSTALLED" >> "$log_file"
   else
@@ -268,18 +274,21 @@ if [[ "$choice" == "q" ]]; then
   essential
   qtile
   create_symlink_qtile
+  sudo chsh -s /bin/fish
   logs
 elif [[ "$choice" == "h" ]]; then
   install_paru
   essential
   hyprland
   create_symlink_hypr
+  sudo chsh -s /bin/fish
   logs
 elif [[ "$choice" == "b" ]]; then
-  # install_paru
+  install_paru
   essential
   install_bsp
   create_backup
+  sudo chsh -s /bin/fish
   logs
 else
   echo "Cancelling..."
