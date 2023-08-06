@@ -52,10 +52,10 @@ XF86AudioMute
 	pactl set-sink-volume @DEFAULT_SINK@ toggle
 
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%
+	~/.local/scripts/incr_vol_progress
 
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%
+	~/.local/scripts/decr_vol_progress
 
 XF86MonBrightnessUp
 	brightnessctl set +10%
