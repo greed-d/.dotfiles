@@ -1,4 +1,4 @@
 #!/bin/bash
 pamixer -i 5
 get_vol=$(pamixer --get-volume)
-dunstify -h int:value:"${get_vol}" "Volume : $get_vol"
+dunstify -h int:value:"${get_vol}" "Volume "
