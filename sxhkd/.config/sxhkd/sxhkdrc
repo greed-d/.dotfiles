@@ -7,8 +7,9 @@ super + Return
 	kitty
 
 # program launcher
-super + @space
-	rofi -show drun
+# super + @space
+# 	rofi -show drun
+
 	
 super + shift + @space
 		rofi -show window
@@ -22,6 +23,12 @@ super + Escape
 super + d
 	discord
 
+super + period
+  rofi -modi emoji -show emoji
+
+super + p
+	clipmenu
+  
 #firefox
 super + b
 	firefox
@@ -42,7 +49,7 @@ control + shift + k
 
 # File manager
 super + e
-	pcmanfm
+	thunar
 
 #Lock
 control + shift + l
@@ -52,16 +59,16 @@ XF86AudioMute
 	pactl set-sink-volume @DEFAULT_SINK@ toggle
 
 XF86AudioRaiseVolume
-	~/.local/scripts/incr_vol_progress
-
+    pamixer -i 5
+#
 XF86AudioLowerVolume
-	~/.local/scripts/decr_vol_progress
+    pamixer -d 5
 
-XF86MonBrightnessUp
-	brightnessctl set +10%
-	
-XF86MonBrightnessDown
-	brightnessctl set 10%-
+# XF86MonBrightnessUp
+# 	brightnessctl set +10%
+# 	
+# XF86MonBrightnessDown
+# 	brightnessctl set 10%-
 # bspwm hotkeys
 #
 
@@ -110,8 +117,8 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+super + {p,b,comma}
+	bspc node -f @{parent,brother,first}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
