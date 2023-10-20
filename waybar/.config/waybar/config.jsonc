@@ -1,212 +1,232 @@
 {
-    "layer": "top",   
-    "position": "top",
-    "mod": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "height": 44,
-    "modules-left": ["wlr/workspaces","hyprland/window"],
-    "modules-center": ["custom/pomodoro","mpris"],
-    "modules-right": ["custom/pacman","network", "battery","clock", "cpu", "memory", "backlight","pulseaudio","pulseaudio#microphone", "tray"],
-    "hyprland/window": {
-        "format": "{}"
-    },
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 44,
+  "modules-left": ["wlr/workspaces", "hyprland/window"],
+  "modules-center": ["custom/pomodoro", "mpris"],
+  "modules-right": [
+    "custom/pacman",
+    "network",
+    "battery",
+    "clock",
+    "cpu",
+    "memory",
+    "backlight",
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "tray"
+  ],
+  "hyprland/window": {
+    "format": "{}"
+  },
 
-    "wlr/workspaces": {
-        "disable-scroll": true,
-        "format": "{icon}",
-        "format-icons": {"1":"", "2" : "", "3": "", "4": "","5": "", "6": "", "7": "","8": "阮","9":"ﭮ"},
-        "all-outputs": true,
-        "on-click": "activate"
+  "wlr/workspaces": {
+    "disable-scroll": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "阮",
+      "9": "ﭮ"
     },
-    
-    "tray": {
-        "icon-size": 18,
-        "spacing": 10
-    },
-    "cpu" : {
-      "interval": 1,
-      "format": "  {}%"
-    },
-    "memory": {
-      "interval": 1,
-      "format": "  {}%"
-    },
+    "all-outputs": true,
+    "on-click": "activate"
+  },
 
-    "clock": {
-        "format": "{: %I:%M %p }",
-        "format-alt":"{: %a, %b %e}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "  {}%"
+  },
+  "memory": {
+    "interval": 1,
+    "format": "  {}%"
+  },
 
-    "backlight": {
-      "device": "intel_backlight",
-      "format": "{icon} {percent}%",
-      "format-icons": ["", "", ""],
-      "on-scroll-up": "brightnessctl set 1%+",
-      "on-scroll-down": "brightnessctl set 1%-",
-      "min-length": 6
-    },
+  "clock": {
+    "format": "{: %I:%M %p }",
+    "format-alt": "{: %a, %b %e}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
 
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
-    },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", ""],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6
+  },
 
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "tooltip": false,
-        "format-muted": " Muted",
-        "on-click": "pamixer -t",
-        "on-right-click": "exec pavucontrol",
-        "on-scroll-up": "pamixer -i 5",
-        "on-scroll-down": "pamixer -d 5",
-        "scroll-step": 5,
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        }
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
     },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+  },
 
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " Muted",
-        "on-click": "pamixer --default-source -t",
-        "on-scroll-up": "pamixer --default-source -i 5",
-        "on-scroll-down": "pamixer --default-source -d 5",
-        "scroll-step": 5
-    },
-    
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "  {signalStrength}%",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
-    },
-
-    "bluetooth": {
-	    "format": " {status}",
-	    "format-disabled": "", // an empty format will hide the module
-	    "format-connected": " {num_connections}",
-	    "tooltip-format": "{device_alias}",
-	    "tooltip-format-connected": " {device_enumerate}",
-	    "tooltip-format-enumerate-connected": "{device_alias}"
-    },
-     
-    "mpris": {
-      "title-len": 40,
-      "interval":1,
-      "album-len":0,
-      "max-len": 60,
-      "format": "{player_icon} {dynamic}",
-      "format-paused": "{player_icon} {dynamic}",
-      "player-icons": {
-        "default": "▶",
-        "mpv": "🎵",
-        "spotify": "",
-        "firefox": ""
-      },
-      "status-icons": {
-        "paused": ""
-      },
-      "ignored-players": ["vlc", "firefox"]
-    },
-     
-    "mpd": {
-      "format": "{stateIcon} {artist} -  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
-      "format-disconnected": "Disconnected ",
-      "format-stopped": "{stateIcon} {artist} -  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
-      "interval": 2,
-      "consume-icons": {
-        "on": " " // Icon shows only when "consume" is on
-      },
-      "repeat-icons": {
-        "on": " "
-      },
-      "single-icons": {
-        "on": "1 "
-      },
-      "state-icons": {
-        "paused": "",
-        "playing": ""
-      },
-      "tooltip-format": "MPD (connected)",
-      "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-
-    "custom/pacman": {
-      "format": " {}",
-      "interval" : 100,
-      "exec" : "~/.local/scripts/checkupdate",
-      "exec-if" : "exit 0",
-      "on-click": "alacritty -e paru"
-    },
-    
-   "custom/pomodoro": {
-      "exec": "i3-gnome-pomodoro status --format=waybar --show-seconds | awk '{gsub(/Pomodoro /,\"\")}1'",
-       "return-type": "json",
-       "interval": 1,
-       "format": " {}",
-       "on-click": "i3-gnome-pomodoro toggle",
-       "on-middle-click": "i3-gnome-pomodoro stop",
-       "on-right-click": "i3-gnome-pomodoro start-stop"
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "tooltip": false,
+    "format-muted": " Muted",
+    "on-click": "pamixer -t",
+    "on-right-click": "exec pavucontrol",
+    "on-scroll-up": "pamixer -i 5",
+    "on-scroll-down": "pamixer -d 5",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
     }
-    
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " Muted",
+    "on-click": "pamixer --default-source -t",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "scroll-step": 5
+  },
+
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{device_alias}",
+    "tooltip-format-connected": " {device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}"
+  },
+
+  "mpris": {
+    "title-len": 40,
+    "interval": 1,
+    "album-len": 0,
+    "max-len": 60,
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{player_icon} {dynamic}",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵",
+      "spotify": "",
+      "firefox": ""
+    },
+    "status-icons": {
+      "paused": ""
+    },
+    "ignored-players": ["vlc", "firefox"]
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {artist} -  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{stateIcon} {artist} -  {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    "interval": 2,
+    "consume-icons": {
+      "on": " " // Icon shows only when "consume" is on
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+
+  "custom/pacman": {
+    "format": " {}",
+    "interval": 100,
+    "exec": "~/.local/scripts/checkupdate",
+    "exec-if": "exit 0",
+    "on-click": "alacritty -e paru",
+    "tooltip": "checkupdates"
+  },
+
+  "custom/pomodoro": {
+    "exec": "i3-gnome-pomodoro status --format=waybar --show-seconds | awk '{gsub(/Pomodoro /,\"\")}1'",
+    "return-type": "json",
+    "interval": 1,
+    "format": " {}",
+    "on-click": "i3-gnome-pomodoro toggle",
+    "on-middle-click": "i3-gnome-pomodoro stop",
+    "on-right-click": "i3-gnome-pomodoro start-stop"
+  }
 }
 
+// "mpris": {
+//    "format": "DEFAULT: {player_icon} {artist} : {title} - [{length}]",
+//    "format-paused": "DEFAULT: {status_icon} {artist} : {title} - [{length}]",
+//    "player-icons": {
+//      "default": "▶",
+//      "mpv": "🎵"
+//    },
+//    "status-icons": {
+//      "paused": "⏸"
+//    },
+//    "ignored-players": ["firefox"]
+//  },
 
-   // "mpris": {
-   //    "format": "DEFAULT: {player_icon} {artist} : {title} - [{length}]",
-   //    "format-paused": "DEFAULT: {status_icon} {artist} : {title} - [{length}]",
-   //    "player-icons": {
-   //      "default": "▶",
-   //      "mpv": "🎵"
-   //    },
-   //    "status-icons": {
-   //      "paused": "⏸"
-   //    },
-   //    "ignored-players": ["firefox"]
-   //  },
-    
-    // "custom/spotify": {
-    //   "exec": "/usr/bin/python3 ~/.config/hypr/mediaplayer.py --player spotify",
-    //   "format": " {}",
-    //   "return-type": "json",
-    //   "on-click": "spotifyctl -q playpause",
-    //   "on-scroll-up": "spotifyctl -q next",
-    //   "on-scroll-down": "spotifyctl -q previous"
-    //  },
-    //  
-    // 
-    // "custom/pomo": {
-    //   "format": " {}",
-    //   "interval" : 100,
-    //   "exec" : "pomo status",
-    //   "exec-if" : "exit 0"
-    // },
-    // 
-    // "custom/pomo": {
-    //   "format": " {}",
-    //   "interval" : 100,
-    //   "exec" : "pomo status",
-    //   "exec-if" : "exit 0"
-    // },
-    // 
+// "custom/spotify": {
+//   "exec": "/usr/bin/python3 ~/.config/hypr/mediaplayer.py --player spotify",
+//   "format": " {}",
+//   "return-type": "json",
+//   "on-click": "spotifyctl -q playpause",
+//   "on-scroll-up": "spotifyctl -q next",
+//   "on-scroll-down": "spotifyctl -q previous"
+//  },
+//
+//
+// "custom/pomo": {
+//   "format": " {}",
+//   "interval" : 100,
+//   "exec" : "pomo status",
+//   "exec-if" : "exit 0"
+// },
+//
+// "custom/pomo": {
+//   "format": " {}",
+//   "interval" : 100,
+//   "exec" : "pomo status",
+//   "exec-if" : "exit 0"
+// },
+//
