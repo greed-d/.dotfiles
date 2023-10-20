@@ -25,9 +25,9 @@ animation-window-mass = 1;
 animation-dampening = 20;
 animation-clamping = true;
 
-animation-for-open-window = "zoom";
+animation-for-open-window = "squeeze";
 animation-for-unmap-window = "zoom";
-animation-for-transient-window = "zoom";
+animation-for-transient-window = "fly-in";
 
 animation-for-prev-tag = "none";
 enable-fading-prev-tag = true;
@@ -42,6 +42,7 @@ corner-radius = 10.0;
 rounded-corners-exclude = [
     #"window_type = 'normal'",
     # "class_g = 'Xfce4-panel' && window_type = 'dock'",
+    "class_g = 'Polybar'",
     "window_type = 'tooltip'",
 ];
 
@@ -79,12 +80,24 @@ inactive-opacity-override = false;
 active-opacity = 1.0;
 inactive-dim = 0.1
 
+blur-method = "dual_kawase";
+opacity-rule = [
+	"89:class_g = 'kitty' && focused",
+	"90:class_g = 'Rofi'",
+	"83:class_g = 'thunar' && focused",
+	"70:class_g = 'thunar' && !focused",
+	"73:class_g = 'Free Download Manager' && focused",
+	"70:class_g = 'Free Download Manager' && !focused",
+# 	"93:class_g = 'firefox'&& focused",
+# 	"50:class_g = 'firefox' && !focused",
+	"89:class_g = 'discord' && focused",
+	# "70:class_g ='ArmCord' && !focused" 
+]
 focus-exclude = [
     "class_g = 'Cairo-clock'",
     "class_g = 'gcolor3'",
     "class_g = 'Bar'",                    # lemonbar
-    "class_g = 'slop'",                 # maim
-    # "class_g" = 'findex'"
+    "class_g = 'slop'"                    # maim
 ];
 
 #################################
