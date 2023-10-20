@@ -111,6 +111,7 @@ set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
 ## java 11 jdk
 set --export JAVA_HOME (dirname (dirname (readlink -f (which java))))
+# set --export CM_LAUNCHER (/usr/bin/rofi)
 
 set -e JAVA_OPTS
 set -gx PATH $JAVA_HOME $PATH
