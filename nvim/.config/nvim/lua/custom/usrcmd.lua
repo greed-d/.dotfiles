@@ -16,16 +16,15 @@ end, {})
 
 ---------------------------------------> Neovide Options <----------------------------------
 
-vim.g.neovide_scale_factor = 0.625
-
+-- vim.g.neovide_scale_factor = 0.825
+--
 local change_scale_factor = function(delta)
 	vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
 end
 
 vim.keymap.set("n", "<C-=>", function()
-	change_scale_factor(1.1)
+	change_scale_factor(1.0)
 end)
 vim.keymap.set("n", "<C-->", function()
 	change_scale_factor(1 / 1.111111)
 end)
-
