@@ -6,20 +6,20 @@ import:
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 font:
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: CaskaydiaCove NF
     style: Regular
 
-  bold:
-    family: JetBrainsMono Nerd Font Mono
-    style: Bold
-
-  italic:
-    family: JetBrainsMono Nerd Font Mono
-    style: Italic
-
-  bold_italic:
-    family: JetBrainsMono Nerd Font Mono
-    style: SemiBold Italic
+  # bold:
+  #   family: JetBrainsMono Nerd Font Mono
+  #   style: Bold
+  #
+  # italic:
+  #   family: JetBrainsMono Nerd Font Mono
+  #   style: Italic
+  #
+  # bold_italic:
+  #   family: JetBrainsMono Nerd Font Mono
+  #   style: SemiBold Italic
 
   size: 10
 
