@@ -2,11 +2,8 @@
 
 hyprctl keyword windowrule "workspace 7 silent,Electron" && hyprctl dispatch exec "discord"
 hyprctl keyword windowrule "workspace special silent,alacritty" 
-mpd &
-spotify-launcher &
-kdeconnect-app &
-kdeconnect-indicator &
 sleep 15
 
 hyprctl keyword windowrule "unset,alacritty"
+cbatticon --icon-type notification &
 #hyprctl reload
