@@ -1,4 +1,4 @@
-#
+
 # wm independent hotkeys
 #
 
@@ -94,7 +94,6 @@ super + y
 
 # swap the current node and the biggest window
 super + g
-
 
 #
 # state/flags
