@@ -22,7 +22,6 @@ autocmd("BufWritePre", {
 
 -------------------------------------> Send Focus to temrinal <------------------------------------
 -- TODO: Send focus to terminal after executing `bu`
---
 -- autocmd("BufNewFile", {
 --   callback = function ()
 --

@@ -55,9 +55,9 @@ M.tabufline = {
 		-- close buffer + hide terminal buffer
 		["<leader>k"] = {
 			function()
-				require("nvchad_ui.tabufline").close_buffer()
+				require("nvchad.tabufline").close_buffer()
 			end,
-			"close buffer",
+			"Close buffer",
 		},
 	},
 }
@@ -125,7 +125,7 @@ M.trouble = {
 	n = {
 		["<leader>xx"] = { "<cmd>TroubleToggle<CR>", "Toggle Trouble" },
 		["<leader>xw"] = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Trouble Workspace Diagonstics" },
-		["<leader>xd"] = { "<cmd>TroubleToggle document_diagnostics<CR>", "Trouble Workspace Diagonstics" },
+		["<leader>xd"] = { "<cmd>TroubleToggle document_diagnostics<CR>", "Trouble Document Diagonstics" },
 	},
 }
 

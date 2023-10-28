@@ -334,7 +334,7 @@ local plugins = {
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("custom.configs.extras.dressing")
+			require("dressing").setup({})
 		end,
 	},
 	{

@@ -35,7 +35,7 @@ M.ui = {
 	--> statusline
 	statusline = {
 		theme = "vscode_colored",
-		separator_style = "default",
+		separator_style = "arrow",
 	},
 
 	telescope = { style = "borderless" }, -- borderless / bordered
