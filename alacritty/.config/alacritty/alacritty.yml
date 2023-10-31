@@ -19,13 +19,13 @@ font:
   #   family: JetBrainsMono Nerd Font Mono
   #   style: Bold
   #
-  # italic:
-  #   family: JetBrainsMono Nerd Font Mono
-  #   style: Italic
-  #
-  # bold_italic:
-  #   family: JetBrainsMono Nerd Font Mono
-  #   style: SemiBold Italic
+  italic:
+    family: Caskaydia Cove
+    style: Italic
+
+  bold_italic:
+    family: Caskaydia Cove
+    style: SemiBold Italic
 
   size: 14
 

@@ -1,0 +1,79 @@
+
+colors:
+    primary:
+        background: "#12121e" # base
+        foreground: "#C0CAF5" # text
+        # Bright and dim foreground colors
+        dim_foreground: "#C0CAF5" # text
+        bright_foreground: "#C0CAF5" # text
+
+    # Cursor colors
+    cursor:
+        text: "#12121e" # base
+        cursor: "#F5E0DC" # rosewater
+    vi_mode_cursor:
+        text: "#12121e" # base
+        cursor: "#B4BEFE" # lavender
+
+    # Search colors
+    search:
+        matches:
+            foreground: "#12121e" # base
+            background: "#A6ADC8" # subtext0
+        focused_match:
+            foreground: "#12121e" # base
+            background: "#F5E0DC" # green
+        footer_bar:
+            foreground: "#12121e" # base
+            background: "#A6ADC8" # subtext0
+
+    # Keyboard regex hints
+    hints:
+        start:
+            foreground: "#12121e" # base
+            background: "#F9E2AF" # yellow
+        end:
+            foreground: "#12121e" # base
+            background: "#A6ADC8" # subtext0
+
+    # Selection colors
+    selection:
+        text: "#12121e" # base
+        background: "#F5E0DC" # rosewater
+
+    # Normal colors
+    normal:
+        black: "#15161E" # surface1
+        red: "#F7768E" # red
+        green: "#9ECE6A" # green
+        yellow: "#E0AF68" # yellow
+        blue: "#7AA2F7" # blue
+        magenta: "#F5C2E7" # pink
+        cyan: "#7DCFFF" # teal
+        white: "#A9B1D6" # subtext1
+
+    # Bright colors
+    bright:
+        black: "#585B70" # surface2
+        red: "#F7768E" # red
+        green: "#F5E0DC" # green
+        yellow: "#F9E2AF" # yellow
+        blue: "#89B4FA" # blue
+        magenta: "#F5C2E7" # pink
+        cyan: "#94E2D5" # teal
+        white: "#A6ADC8" # subtext0
+
+    # Dim colors
+    dim:
+        black: "#313244" # surface1
+        red: "#F7768E" # red
+        green: "#F5E0DC" # green
+        yellow: "#F9E2AF" # yellow
+        blue: "#89B4FA" # blue
+        magenta: "#F5C2E7" # pink
+        cyan: "#94E2D5" # teal
+        white: "#BAC2DE" # subtext1
+
+    indexed_colors:
+        - { index: 16, color: "#FAB387" }
+        - { index: 17, color: "#F5E0DC" }
