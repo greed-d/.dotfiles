@@ -1,5 +1,4 @@
 local autocmd = vim.api.nvim_create_autocmd
--- TODO : Create a autocommand to send focus to <NvTerm> after doing <leader>+bu
 
 -------------------------------------- highlight on yanked ------------------------------------------
 
@@ -21,7 +20,9 @@ autocmd("BufWritePre", {
 })
 
 -------------------------------------> Send Focus to temrinal <------------------------------------
+
 -- TODO: Send focus to terminal after executing `bu`
+
 -- autocmd("BufNewFile", {
 --   callback = function ()
 --
