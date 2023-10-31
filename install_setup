@@ -71,7 +71,7 @@ essential(){
   else
     echo "playerctl FAILED TO INSTALL!!!" >> "$log_file"
   fi
-  
+   
   if type -p lxappearance > /dev/null; then
     echo "lxappearance INSTALLED" >> "$log_file"
   else
@@ -89,7 +89,7 @@ essential(){
 
 hyprland() {
   sudo pacman -S swaybg wlroots
-  paru -S waybar-hyprland-git hyprland-git grimblast-git xdg-desktop-portal-hyprland-git networkmanager_dmenu
+  paru -S waybar-hyprland-git hyprland-git grimblast-git xdg-desktop-portal-hyprland-git networkmanager_dmenu nwg-look
 
   if type -p hyprland > /dev/null; then
     echo "hyprland INSTALLED" >> "$log_file"
