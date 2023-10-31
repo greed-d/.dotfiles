@@ -5,7 +5,7 @@ disable-caps-lock-text
 # Appearance
 clock
 indicator
-image=$HOME/Pictures/Wallpapers/lockscreen.jpg
+image=$HOME/Pictures/Wallpapers/tokyo-night34.png
 
 scaling=fill
 
@@ -13,9 +13,9 @@ timestr=%I:%M %p
 datestr=%A, %d %B
 
 # Text
-font=FreeSerif
-font-size=150
-text-color=402826
+font=Agave Nerd Font
+font-size=90
+text-color=c0caf5
 text-ver-color=00000000
 text-wrong-color=00000000
 text-clear-color=00000000
@@ -40,5 +40,5 @@ caps-lock-bs-hl-color=00000000
 caps-lock-key-hl-color=00000000
 separator-color=00000000
 indicator-x-position=400
-indicator-y-position=175
-indicator-radius=350
+indicator-y-position=1000
+indicator-radius=100
