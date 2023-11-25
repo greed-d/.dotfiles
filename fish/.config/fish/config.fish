@@ -106,6 +106,7 @@ bind \cf "tmux-sessionizer"
 #--------------------------------------> PATH <--------------------------------------
 
 set PATH "$PATH":"$HOME/.local/scripts/"
+set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
 set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
