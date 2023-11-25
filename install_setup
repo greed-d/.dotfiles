@@ -7,22 +7,19 @@ echo "This was strictly made for arch"
 echo "In case you're using this script change your preferred AUR Wrapper"
 echo " "
 
-install_paru(){
-  sudo pacman -S --needed base-devel 
-  git clone https://aur.archlinux.org/paru.git 
-  cd paru 
-  makepkg -si 
   
   if type -p paru > /dev/null; then
     echo "paru INSTALLED" >> "$log_file"
   else
-    echo "paru FAILED TO INSTALL!!!" >> "$log_file"
+  	sudo pacman -S --needed base-devel 
+  	git clone https://aur.archlinux.org/paru.git 
+  	cd paru 
+  	makepkg -shi 
   fi
-}
 
 essential(){
   paru -S ttf-ubuntu-nerd ttf-jetbrains-mono-nerd
-  sudo pacman -S fish kitty rofi dunst starship pamixer brightnessctl playerctl lxappearance stow
+  sudo pacman -S firefox fish kitty rofi dunst starship pamixer brightnessctl playerctl lxappearance stow
 
   if type -p fish > /dev/null; then
     echo "fish INSTALLED" >> "$log_file"

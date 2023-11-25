@@ -1,215 +1,121 @@
+@import url("/home/greed/.config/waybar/custom-colors.css");
 * {
   /* border: none; */
   border-radius: 0px;
   font-family: "CaskaydiaCove NF";
   font-weight: 500;
-  font-size: 14px;
-  min-height: 20px;
+  font-size: 15px;
+  min-height: 8px;
 }
 
 window#waybar {
-  background: rgba(18, 18, 30, 0.6);
-  color: #cdd6f4;
+  background: rgba(18, 18, 30, 0);
+  color: @white;
+  border-radius: 8px;
   opacity: 1;
 }
 
 tooltip {
-  background: #12121e;
+  background: @module-bg;
   border-radius: 7px;
   border-width: 2px;
   border-style: solid;
   border-color: #11111b;
 }
 
-#workspaces button {
-  padding: 5px;
-  color: #313244;
-  margin-right: 5px;
-  /* margin-left: 10px; */
-}
-
-#workspaces button.active {
-  color: #63f26f;
-  background: #1e1e2e;
-}
-
-#workspaces button.focused {
-  color: #707880;
-  background: #eba0ac;
-  border-radius: 7px;
-}
-
-#workspaces button.urgent {
-  color: #11111b;
-  background: #f28fad;
-  border-radius: 7px;
-}
-
-#workspaces button:hover {
-  background: #11111b;
-  color: #cdd6f4;
-  border-radius: 17px;
-}
-
-/* #custom-power_profile, */
-/* #custom-weather, */
-
 #window,
-#clock,
-#battery,
 #mpris,
-#pulseaudio,
-#custom-pacman,
-#network,
-#bluetooth,
-#temperature,
-#workspaces,
-#tray,
-#mpd,
-#custom-pomodoro,
-#cpu,
-#memory,
 #custom-spotify,
-
-#modbackground {
-  background: #1e1e2e;
-  opacity: 1;
-  padding: 0px 7px;
-  margin-top: 5px;
-  margin-bottom: 6px;
-  /* border: 1px solid #b5b0a7; */
-}
-
-#backlight {
-  border-radius: 7px 0px 0px 7px;
-  background: #1e1e2e;
-  opacity: 1;
-  padding: 0px 7px;
-  margin-top: 5px;
-  margin-bottom: 6px;
-}
-
-#pulseaudio {
-  color: #89b4fa;
-  border-radius: 0px;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#pulseaudio.microphone {
-  color: #cba6f7;
-  border-left: 0px;
-  border-right: 0px;
-  border-radius: 0px 7px 7px 0px;
-  margin-right: 5px;
-}
-
-#cpu {
-  color: #89dceb;
-  border-radius: 7px 0px 0px 7px;
-}
-
-#memory {
-  color: #94e2d5;
-  border-radius: 0px 7px 7px 0px;
-  margin-right: 5px;
-}
-
+#custom-updater,
+#memory,
+#network,
+#workspaces,
+#battery,
+#backlight,
+#pulseaudio,
+#clock,
+#custom-notification,
 #tray {
-  border-radius: 7px;
-  margin-right: 5px;
-}
-
-#workspaces {
-  background: #1e1e2e;
-  border-radius: 7px;
-  margin-left: 10px;
-  padding-right: 0px;
-  padding-left: 5px;
-}
-
-/* #custom-power_profile { */
-/*   color: #a6e3a1; */
-/*   border-left: 0px; */
-/*   border-right: 0px; */
-/* } */
-
-#window {
-  border-radius: 7px;
-  margin-left: 10px;
-  margin-right: 60px;
-}
-
-#clock {
-  color: #fab387;
-  border-radius: 7px;
-  /* margin-left: 10px; */
-  margin-right: 5px;
-  padding-right: 0px;
-  border-right: 0px;
-}
-
-#network {
-  color: #f9e2af;
-  border-radius: 7px;
-  margin-right: 5px;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#bluetooth {
-  color: #89b4fa;
-  border-radius: 7px;
-  margin-right: 5px;
-}
-
-#battery {
-  color: #a6e3a1;
-  border-radius: 7px;
-  margin-right: 5px;
-  border-left: 0px;
-}
-
-#custom-spotify {
-  border-radius: 7px;
-  margin-right: 5px;
-  border-right: 0px;
+  background-color: @module-bg;
+  padding: 0px 10px 0px 10px;
+  margin: 2px;
+  border-radius: 8px;
 }
 
 #mpris {
-  border-radius: 7px;
-  margin-right: 5px;
-  border-right: 0px;
+  color: @white;
 }
 
-#mpris.paused {
-  border-bottom: 2px solid @yellow;
-}
-
-#mpd {
-  border-radius: 7px;
-  margin-right: 5px;
-  border-right: 0px;
-}
-
-#custom-pacman {
-  color: #ff7a91;
-  border-radius: 7px;
-  margin-right: 5px;
-}
-
-#custom-pomodoro {
-  color: #cdd6e1;
-  border-radius: 7px;
-  margin-right: 5px;
-}
-
-#custom-pomodoro.paused {
-  border-bottom: 2px solid @yellow;
-}
-/**/
-/* #custom-weather { */
-/*   border-radius: 0px 10px 10px 0px; */
-/*   border-right: 0px; */
-/*   margin-left: 0px; */
+/* #mpris.paused { */
+/*   border-bottom: 2px solid @white; */
 /* } */
+
+#network {
+  color: @blue;
+}
+
+#memory {
+  color: @sun;
+}
+
+#workspaces button {
+  color: @white;
+  background-color: @module-bg;
+}
+
+#workspaces button.active {
+  color: @module-bg;
+  background-color: @white;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px;
+}
+
+#workspaces button.urgent {
+  color: @module-bg;
+  background: @red;
+  border-radius: 7px;
+}
+
+#workspaces button.active:hover {
+  color: @module-bg;
+  background-color: @white;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px;
+}
+
+#workspaces button:hover {
+  color: @module-bg;
+  background: @green;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;
+}
+
+#custom-updater {
+  color: @red;
+}
+
+#battery {
+  color: @vibrant-green;
+}
+
+#backlight {
+  color: @sun;
+}
+
+#pulseaudio {
+  color: @purple;
+}
+
+#clock {
+  color: @cyan;
+}
+
+#custom-notification {
+  color: @white;
+}

@@ -1,0 +1,38 @@
+{
+
+"include": "~/.config/waybar/modules",
+"layer": "top",
+//"mode": "dock",
+"exclusive": true,
+"passthrough": false,
+"position": "top",
+"spacing": 3,
+"fixed-center": true,
+"ipc": true,
+"margin-top": 6,
+"margin-left": 8,
+"margin-right": 8,
+
+"modules-left": [
+  "custom/spotify",
+ // "mpris",
+  "hyprland/window",
+  "custom/updater",
+	],
+"modules-center": [
+  "hyprland/workspaces",
+	],
+"modules-right": [
+  "network", 
+  "memory",
+  "battery",
+  "backlight",
+  "pulseaudio", 
+  "pulseaudio#microphone", 
+  "clock",
+  "tray",
+  "custom/notification",
+	],
+
+
+}

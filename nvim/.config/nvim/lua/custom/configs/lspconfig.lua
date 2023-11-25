@@ -9,6 +9,7 @@ local servers = {
 	"cssls",
 	"tsserver",
 	"clangd",
+	"kotlin_ls",
 	-- "lua_ls",
 	"bashls",
 	"emmet_ls",
@@ -17,6 +18,7 @@ local servers = {
 	-- "python-lsp-server",
 	"eslint",
 	"lemminx",
+	"jsonls",
 }
 
 for _, lsp in ipairs(servers) do

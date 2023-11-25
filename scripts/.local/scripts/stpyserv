@@ -1,0 +1,6 @@
+#!/bin/bash
+ip addr | rg wlan0 | awk '{print $2}'  
+echo " "
+echo "Starting python server"
+echo " "
+python -m http.server

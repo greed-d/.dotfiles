@@ -15,8 +15,8 @@ vim.api.nvim_create_user_command("NotifLog", function()
 end, {})
 
 ---------------------------------------> Neovide Options <----------------------------------
-
-vim.g.neovide_scale_factor = 0.625
+--
+vim.g.neovide_scale_factor = 1.28
 --
 local change_scale_factor = function(delta)
 	vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta

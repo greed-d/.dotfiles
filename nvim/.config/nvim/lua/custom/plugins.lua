@@ -357,6 +357,13 @@ local plugins = {
 		"HiPhish/rainbow-delimiters.nvim",
 		event = "BufReadPre",
 	},
+	{
+		"nacro90/numb.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("numb").setup()
+		end,
+	},
 }
 
 return plugins
