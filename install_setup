@@ -19,7 +19,7 @@ echo " "
 
 essential(){
   paru -S ttf-ubuntu-nerd ttf-jetbrains-mono-nerd
-  sudo pacman -S firefox fish kitty rofi dunst starship pamixer brightnessctl playerctl lxappearance stow
+  sudo pacman -S firefox fish kitty rofistarship pamixer brightnessctl playerctl lxappearance stow
 
   if type -p fish > /dev/null; then
     echo "fish INSTALLED" >> "$log_file"
@@ -86,7 +86,7 @@ essential(){
 
 hyprland() {
   sudo pacman -S swaybg wlroots
-  paru -S waybar-hyprland-git hyprland-git grimblast-git xdg-desktop-portal-hyprland-git networkmanager_dmenu nwg-look
+  paru -S waybar-hyprland-git hyprland-git grimblast-git xdg-desktop-portal-hyprland-git networkmanager_dmenu nwg-look swaync swaylock
 
   if type -p hyprland > /dev/null; then
     echo "hyprland INSTALLED" >> "$log_file"
@@ -129,6 +129,20 @@ hyprland() {
     echo "networkmanager_dmenu INSTALLED" >> "$log_file"
   else
     echo "networkmanager_dmenu FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+
+  
+  if type -p swaylock > /dev/null; then
+    echo "swaylock INSTALLED" >> "$log_file"
+  else
+    echo "swaylock FAILED TO INSTALL!!!" >> "$log_file"
+  fi
+
+  
+  if type -p swaync > /dev/null; then
+    echo "swaync INSTALLED" >> "$log_file"
+  else
+    echo "swaync FAILED TO INSTALL!!!" >> "$log_file"
   fi
 }
 
