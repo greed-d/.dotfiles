@@ -7,12 +7,12 @@ import:
   # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
   # - ~/.config/alacritty/tokyonight/tokyonight-day.yml
   # - ~/.config/alacritty/tokyonight/tokyonight-moon.yml
-  - ~/.config/alacritty/tokyonight/tokyonight-night.yml
+    - ~/.config/alacritty/tokyonight/tokyonight-night.yml
   # - ~/.config/alacritty/tokyonight/tokyonight-storm.yml
   
 font:
   normal:
-    family: CaskaydiaCove Nerd Font
+    family: CaskaydiaCove NF
     style: Regular
 
   # bold:
@@ -20,11 +20,11 @@ font:
   #   style: Bold
   #
   italic:
-    family: Caskaydia Cove
+    family: CaskaydiaCove Nerd Font Mono 
     style: Italic
 
   bold_italic:
-    family: Caskaydia Cove
+    family: CaskaydiaCove Nerd Font Mono
     style: SemiBold Italic
 
   size: 14
