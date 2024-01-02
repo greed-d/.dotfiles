@@ -5,7 +5,7 @@
   font-family: "CaskaydiaCove NF";
   font-weight: 500;
   font-size: 15px;
-  min-height: 8px;
+  min-height: 9px;
 }
 
 window#waybar {
@@ -69,13 +69,16 @@ tooltip {
   border-radius: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  margin: 5px;
+  margin: 6px;
 }
 
 #workspaces button.urgent {
   color: @module-bg;
   background: @red;
-  border-radius: 7px;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px;
 }
 
 #workspaces button.active:hover {
