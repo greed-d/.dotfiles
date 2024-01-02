@@ -1,0 +1,4 @@
+#!/bin/bash
+type=type-1
+
+cliphist list | "$HOME/.config/rofi/launchers/$type/launcher.sh" -dmenu | cliphist decode | wl-copy
