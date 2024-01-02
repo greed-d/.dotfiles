@@ -57,8 +57,8 @@ bind \ca 'nvims'
 #--------------------------------------> Alias for direcotry <--------------------------------------
 
 alias ls "exa -a --icons --git --group-directories-first"
-alias lt "exa -lah --icons --color automatic --no-user --git -T -L 4 --ignore-glob=".git" --group-directories-first" 
-alias lt "exa -lah --color automatic -T -L 2 --git --icons --group-directories-first --no-user" 
+alias lt "exa -lah --icons --color  --no-user --git -T -L 3 --ignore-glob=".git" --group-directories-first" 
+#alias lt "exa -lah --color automatic -T -L 2 --git --icons --group-directories-first --no-user" 
 
 #--------------------------------------> userful alias <--------------------------------------
 
@@ -109,9 +109,13 @@ set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
 set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
+set PATH "$PATH":"$HOME/.cargo/bin/"
+set PATH "$PATH":"$ANDROID_HOME/tools/"
+set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
 ## java 11 jdk
-set --export JAVA_HOME (dirname (dirname (readlink -f (which java))))
+# set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
+set --export JAVA_HOME /usr/lib/jvm/java-17-openjdk 
 # set --export CM_LAUNCHER (/usr/bin/rofi)
 
 set -e JAVA_OPTS
