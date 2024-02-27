@@ -12,20 +12,9 @@ import:
   
 font:
   normal:
-    family: CaskaydiaCove NF
+    family: Hurmit Nerd Font
     style: Regular
 
-  # bold:
-  #   family: JetBrainsMono Nerd Font Mono
-  #   style: Bold
-  #
-  italic:
-    family: CaskaydiaCove Nerd Font Mono 
-    style: Italic
-
-  bold_italic:
-    family: CaskaydiaCove Nerd Font Mono
-    style: SemiBold Italic
 
   size: 14
 
