@@ -115,7 +115,8 @@ set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
 ## java 11 jdk
 # set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
-set --export JAVA_HOME /usr/lib/jvm/java-17-openjdk 
+# set --export JAVA_HOME /usr/lib/jvm/java-17-openjdk 
+set --export JAVA_HOME /usr/lib/jvm/java-11-openjdk 
 # set --export CM_LAUNCHER (/usr/bin/rofi)
 
 set -e JAVA_OPTS
@@ -132,7 +133,7 @@ starship init fish | source
 
 #--------------------------------------> jump shell <--------------------------------------
 
-jump shell fish | source
+zoxide init fish | source
 
 #--------------------------------------> spicetify <--------------------------------------
 

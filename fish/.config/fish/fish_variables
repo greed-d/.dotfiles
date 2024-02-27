@@ -5,7 +5,7 @@ SETUVAR --export ANDROID_SDK_ROOT:/opt/android\x2dsdk
 SETUVAR --export CM_DEBUG:1
 SETUVAR --export CM_DIR:/home/greed/\x2elocal/clipboard
 SETUVAR --export CM_LAUNCHER:rofi
-SETUVAR --export JAVA_HOME:/usr/lib/jvm/java\x2d17\x2dopenjdk
+SETUVAR --export JAVA_HOME:/usr/lib/jvm/java\x2d11\x2dopenjdk
 SETUVAR --export RSPOTIFY_CLIENT_SECRET:68f9eef1327046849bef3809e586331c
 SETUVAR --export TERM:tmux\x2d256color
 SETUVAR __fish_initialized:3400
