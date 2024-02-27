@@ -21,13 +21,13 @@ M.ui = {
 		icons = true,
 		lspkind_text = true,
 		style = "default", -- default/flat_light/flat_dark/atom/atom_colored
-		border_color = "grey_fg2", -- only applicable for "default" style, use color names from base30 variables
-		selected_item_bg = "simple", -- colored / simple
+		border_color = "teal", -- only applicable for "default" style, use color names from base30 variables
+		selected_item_bg = "colored", -- colored / simple
 	},
 
 	--> tabline
 	tabufline = {
-		show_numbers = false,
+		show_numbers = true,
 		enabled = true,
 		lazyload = true,
 	},
@@ -35,10 +35,10 @@ M.ui = {
 	--> statusline
 	statusline = {
 		theme = "vscode_colored",
-		separator_style = "arrow",
+		separator_style = "round",
 	},
 
-	telescope = { style = "borderless" }, -- borderless / bordered
+	telescope = { style = "bordered" }, -- borderless / bordered
 
 	nvdash = {
 		load_on_startup = true,

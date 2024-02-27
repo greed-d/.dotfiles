@@ -1,3 +1,4 @@
+--WARN: Don't modify first 20 lines of code
 local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
@@ -206,12 +207,13 @@ local plugins = {
 				stages = "slide",
 				background_colour = "FloatShadow",
 				render = "simple",
-				top_down = false,
+				top_down = true,
 				timeout = 2000,
+				max_width = 100,
 			})
 			vim.notify = require("notify")
 		end,
-		enabled = false,
+		enabled = true,
 	},
 
 	{
@@ -234,7 +236,7 @@ local plugins = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
-		enabled = false,
+		enabled = true,
 	},
 
 	{
