@@ -241,7 +241,7 @@ local plugins = {
 
 	{
 		"ggandor/flit.nvim",
-		event = "BufReadPre",
+		event = "VeryLazy",
 		dependencies = { "ggandor/leap.nvim" },
 		config = function()
 			require("flit").setup({
