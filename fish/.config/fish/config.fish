@@ -68,7 +68,6 @@ alias .... "cd ../../.."
 alias e "nautilus ."
 alias x "exit"
 alias lg "lazygit"
-alias man "batman"
 abbr rt "trash"
 alias vi "NVIM_APPNAME=vanvim nvim"
 alias nvd "neovide --multigrid"
@@ -107,6 +106,7 @@ bind \cf "tmux-sessionizer"
 
 set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.local/bin/"
+set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
 set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
 set PATH "$PATH":"$HOME/.cargo/bin/"
@@ -114,6 +114,7 @@ set PATH "$PATH":"$ANDROID_HOME/tools/"
 set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
 ## java 11 jdk
+
 # set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
 # set --export JAVA_HOME /usr/lib/jvm/java-17-openjdk 
 set --export JAVA_HOME /usr/lib/jvm/java-11-openjdk 
@@ -125,7 +126,7 @@ set -gx PATH $JAVA_HOME $PATH
 
 # echo -en '\x1b[2J\x1b[1;1H' ; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo
 # neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small
-neofetch
+# neofetch
 
 #--------------------------------------> starship <--------------------------------------
 
