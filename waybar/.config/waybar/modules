@@ -11,8 +11,8 @@
   "on-click-middle": "brightnessctl set 0%",
   "on-click-right": "brightnessctl set 50%",
   "on-update": "",
-  "on-scroll-up": "~/.config/hypr/scripts/Brightness.sh --inc",
-  "on-scroll-down": "~/.config/hypr/scripts/Brightness.sh --dec",
+  "on-scroll-up": "brightnessctl set +5%",
+  "on-scroll-down": "brightnessctl set 5-%",
   "smooth-scrolling-threshold": 1,
 },
 
