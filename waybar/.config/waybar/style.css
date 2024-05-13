@@ -2,9 +2,9 @@
 * {
   /* border: none; */
   border-radius: 0px;
-  font-family: "CaskaydiaCove NF";
+  font-family: "JetBrainsMono Nerd Font";
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   min-height: 9px;
 }
 
@@ -12,7 +12,7 @@ window#waybar {
   background: rgba(18, 18, 30, 0);
   color: @white;
   border-radius: 8px;
-  opacity: 1;
+  /* opacity: 1; */
 }
 
 tooltip {
@@ -37,9 +37,15 @@ tooltip {
 #custom-notification,
 #tray {
   background-color: @module-bg;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 8px 0px 8px;
   margin: 2px;
   border-radius: 8px;
+  margin: 5px 0px 5px 0px;
+  border-color: @white;
+}
+
+#window {
+  margin-left: 5px;
 }
 
 #mpris {
@@ -66,10 +72,10 @@ tooltip {
 #workspaces button.active {
   color: @module-bg;
   background-color: @white;
-  border-radius: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 6px;
+  border-radius: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 4px;
 }
 
 #workspaces button.urgent {
@@ -78,16 +84,16 @@ tooltip {
   border-radius: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  margin: 5px;
+  margin: 4px;
 }
 
 #workspaces button.active:hover {
   color: @module-bg;
   background-color: @white;
   border-radius: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 4px;
 }
 
 #workspaces button:hover {
@@ -96,7 +102,7 @@ tooltip {
   border-radius: 20px;
   padding-left: 10px;
   padding-right: 10px;
-  margin: 5px;
+  margin: 4px;
 }
 
 #custom-updater {
@@ -121,4 +127,5 @@ tooltip {
 
 #custom-notification {
   color: @white;
+  margin-right: 5px;
 }
