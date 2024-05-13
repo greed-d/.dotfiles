@@ -25,10 +25,10 @@ bind '$' __history_previous_command_arguments
 
 #--------------------------------------> Greeting <--------------------------------------
 
-function fish_greeting
-    echo Hello $USER!
-    echo You logged in to $hostname at (set_color yellow; date +%T; set_color normal)
-end
+# function fish_greeting
+#     echo Hello $USER!
+#     echo You logged in to $hostname at (set_color yellow; date +%T; set_color normal)
+# end
 
 #-------------------------------------->  Vim config switcher <--------------------------------------
 
@@ -70,7 +70,7 @@ alias x "exit"
 alias lg "lazygit"
 abbr rt "trash"
 alias vi "NVIM_APPNAME=vanvim nvim"
-alias nvd "neovide --multigrid"
+alias nvd "neovide"
 alias hvd "env -u WAYLAND_DISPLAY neovide --multigrid"
 alias pomd "i3-gnome-pomodoro"
 
@@ -107,17 +107,19 @@ bind \cf "tmux-sessionizer"
 set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"/usr/local/bin"
-set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
-set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
 set PATH "$PATH":"$HOME/.cargo/bin/"
-set PATH "$PATH":"$ANDROID_HOME/tools/"
-set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
+set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
+fish_add_path -g -p $HOME/flutter/bin
+
+# set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
+# set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
+# set PATH "$PATH":"$ANDROID_HOME/tools/"
+# set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
 ## java 11 jdk
 
-# set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
 # set --export JAVA_HOME /usr/lib/jvm/java-17-openjdk 
-set --export JAVA_HOME /usr/lib/jvm/java-11-openjdk 
+# set --export JAVA_HOME /usr/lib/jvm/java-11-openjdk 
 # set --export CM_LAUNCHER (/usr/bin/rofi)
 
 set -e JAVA_OPTS
@@ -195,3 +197,21 @@ fish_add_path /home/greed/.spicetify
 #     '
 # end
 ### END OF SPARK ###
+
+#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
+set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
+
+#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
+set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
+
+#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
+set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
+
+#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
+set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
+
+#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
+set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
+
+#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
+set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
