@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/Videos/
+wf-recorder --file=$1.mp4

@@ -1,0 +1,93 @@
+#!/bin/bash
+
+clear
+echo 
+echo 
+echo 
+echo 
+echo 
+echo "         ---------- INCASE YOU DON'T HAVE PLATFORM TOOLS, RUN dwsdk.sh SCRIPT IN THIS ZIP TO INSTALL PLATFORM TOOLS ----------"
+echo  
+echo  
+echo "                     ---------- POCO F3/Redmi K40/Mi 11X (Alioth Varients) Temporary Recovery ----------"
+echo  
+echo  
+echo "              ---------- Connect your phone to a PC in FASTBOOT(BOOTLOADER) mode to use this program ---------- "
+echo 
+echo 
+echo "                                    I would like to say a BIG Thank You to DarthJabba9 "
+echo
+echo
+echo "                ------------------- Created by @johnr64 and Ported to Linux by @greed_111 ------------------- "
+echo  " Select Option: " 
+echo  " ============== "
+echo
+
+PS3="Choose the option you want : "
+options=("Install TWRP 3.7.1_12-v8.6_A14-alioth-skkk (Supports Android 12, 13, and 14 decryption)" "Install OrangeFox Temporary Recovery R11.1_5_1 (Supports Android 12, 13, and 14 decryption)" "Fastboot Devices" "Reboot Recovery" "Reboot" "ADB Command line:" "Recovery reboots to a BLACK Display(Vendor-boot)Fix" "Factory Reset: Installs Stock MIUI Recovery (English) (Select Format Data)" "Exit")
+
+select opt in "${options[@]}"; do
+  case $opt in 
+    "Install TWRP 3.7.1_12-v8.6_A14-alioth-skkk (Supports Android 12, 13, and 14 decryption)")
+      fastboot boot twrp-3.7.1_12-v8.6_A14-alioth-skkk.img
+      echo " "
+      echo "Process Complete"
+      echo " "
+      echo "Wait for Recovery to start, then you can disconnect the phone from the PC."
+      echo 
+      echo "To permanently flash TWRP, reflash the TWRP from Advanced option in TWRP"
+      echo " "
+      ;;
+      
+    "Install OrangeFox Temporary Recovery R11.1_5_1 (Supports Android 12, 13, and 14 decryption)") 
+      fastboot boot OrangeFox-alioth-stable-R11.1_5_1.img
+      echo "Process Complete"
+      echo 
+      echo "Wait for Recovery to start, then you can disconnect the phone from the PC."
+      echo 
+      ;;
+
+    "Fastboot Devices")
+      fastboot devices
+      echo 
+      ;;
+
+    "Reboot to Recovery")
+      fastboot reboot-recovery
+      echo
+      ;;
+
+    "Reboot")
+      fastboot reboot
+      echo
+      ;;
+    "ADB Command line:")
+      adb shell
+      echo
+      ;;
+    "Recovery reboots to a BLACK Display(Vendor-boot)Fix")
+      fastboot flash vendor_boot vendor_boot.img
+      fastboot reboot-recovery
+      echo
+      ;;
+
+    "Factory Reset: Installs Stock MIUI Recovery (English) (Select Format Data)" )
+      echo "Are you sure? [y/n] (characters are case sensitive)"
+      read -r response
+      if [ "$response" = "y" ]; then
+        fastboot flash boot boot.img
+        fastboot flash dtbo dtbo.img
+        fastboot flash vendor_boot vendor_boot.img
+        fastboot reboot-recovery
+        echo
+      else
+        :
+      fi
+      ;;
+      
+    "Exit")
+      break
+      ;;
+
+  esac
+done
