@@ -157,7 +157,6 @@ M.nvterm = {
 						.. " && arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno "
 						.. sfile,
 				}
-
 				require("nvterm.terminal").send(ft_cmds[vim.bo.filetype], "float")
 			end,
 
