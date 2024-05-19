@@ -47,3 +47,17 @@ If you want a specific config folder(say neovim):
 ```bash
 stow nvim
 ```
+
+## Keybindings :keyboard:
+
+| Bindings      | Actions |
+| ----------- | ----------- |
+| Mod + Enter      | Open Ternimal (Alacritty)       |
+| Mod + w   | Exit window        |
+| Mod + Space      | Open rofi       |
+| Mod + t      | Toggle notification center |
+| Mod + s   |  Toggle floating window        |
+| Mod + i   | Change Tiling Layout |
+| Mod + v      | Show clipboard history |
+| Mod + Shift + q   |  Shutdown       |
+| Mod + Ctrl + q   | Log Out |
