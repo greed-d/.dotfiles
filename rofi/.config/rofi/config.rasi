@@ -1,21 +1,18 @@
-configuration {
-	show-icons: true;
-	drun-display-format: "{name}";
-  font: "UbuntuMono Nerd Font 14";
-	window-format: "{w} · {c} · {t}";
-	display-window: " Windows";
-	display-run: " Run";
-	display-ssh: " SSH";
-	display-drun: " Apps";
-	display-filebrowser: " Files";
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
+configuration{
+    modi: "run,drun,window";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: " 﩯  Window";
+    display-Network: " 󰤨  Network";
+    sidebar-mode: true;
 }
 
-@theme "catppuccin"
+@theme "catppuccin-mocha"
+
