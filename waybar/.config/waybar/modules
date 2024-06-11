@@ -18,12 +18,9 @@
 
 
 "custom/updater":{
-  "format": "  {}",
+  "format": "  {}",
   "exec": "~/.dotfiles/scripts/.local/scripts/checkforupdates",
-  "exec-if": "[[ $(checkupdates | wc -l) ]]",
-  "interval": 15,
-  "on-click": "alacritty -T update paru -Syu || yay -Syu && notify-send 'The system has been updated'",
-  "on-click-right": "~/.config/hypr/scripts/WallpaperSwitch.sh",
+  "exec-if": "[[ $(checkupdates | wc -l) ]]", "interval": 15, "on-click": "alacritty -T update paru -Syu || yay -Syu && notify-send 'The system has been updated'", "on-click-right": "~/.config/hypr/scripts/WallpaperSwitch.sh",
 },
   
 "custom/weather": {
@@ -114,31 +111,31 @@
 },
 
 
-"hyprland/workspaces": {
-  "format": "{name}",
-  //"format": "{name}: {icon}",
-  "format": "{icon}",
-  "show-special": false,
-  "on-click": "activate",
-  "all-outputs": true,
-  "sort-by-number": true,
-  "format-icons": {
-    "1": "  ",
-    "2": "  ",
-    "3": "  ",
-    "4": "  ",
-    "5": "  ",
-    "6": "  ",
-    "7": "  ",
-    "8": " 󰓇 ",
-    "9": " 󰙯 ",
-    "10": "",
-    "focused": "",
-    "default": "",
-  },
-  "on-scroll-up": "hyprctl dispatch workspace e+1",
-  "on-scroll-down": "hyprctl dispatch workspace e-1",
-},
+//"hyprland/workspaces": {
+//  "format": "{name}",
+//  //"format": "{name}: {icon}",
+//  "format": "{icon}",
+//  "show-special": false,
+//  "on-click": "activate",
+//  "all-outputs": true,
+//  "sort-by-number": true,
+//  "format-icons": {
+//    "1": " ",
+//    "2": "  ",
+//    "3": "  ",
+//    "4": "  ",
+//    "5": "  ",
+//    "6": "  ",
+//    "7": "  ",
+//    "8": " 󰓇 ",
+//    "9": " 󰙯 ",
+//    "10": "",
+//    "focused": "",
+//    "default": "",
+//  },
+//  "on-scroll-up": "hyprctl dispatch workspace e+1",
+//  "on-scroll-down": "hyprctl dispatch workspace e-1",
+//},
 
 
 "network": {
@@ -208,10 +205,10 @@
   "ignored-sinks": ["Easy Effects Sink"],
   },
   "scroll-step": 5.0,
-  "on-click": "pamixer -t",
+  "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
   "on-click-right": "pavucontrol -t 3",
-  "on-scroll-up": "pamixer -i 5",
-  "on-scroll-down": "pamixer -d 5",
+  "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+  "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
   "smooth-scrolling-threshold": 1,
 },
 
@@ -220,7 +217,7 @@
   "format": "{format_source}",
   "format-source": " {volume} %",
   "format-source-muted": "",
-  "on-click": "pamixer --default-source -t",
+  "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
   "on-click-right": "pavucontrol -t 4",
   "on-scroll-up": "pamixer --default-source -i 5",
   "on-scroll-down": "pamixer --default-source -d 5",
@@ -260,5 +257,36 @@
   "icon-size": 20,
   "spacing": 9,
 },
-
+// CIRCLES Style
+"hyprland/workspaces": {
+	"active-only": false,
+	"all-outputs": true,
+	"format": "{icon}",
+	"show-special": false,
+	"on-click": "activate",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+  
+  "format": "{icon}",
+//	"format-icons": {
+//    
+//    "1": " ",
+//    "6": " ",
+//    "7": " ",
+//    "8": "󰓇 ",
+//    "9": "󰙯 ",
+//    "10": "",
+//    "active": "",
+//    "default": "",
+//    "urgent": "",
+//	},
+  	"format-icons": {
+    "active": "",
+    "default": "",
+    "urgent": "",
+	},
+  "persistent-workspaces": {
+       "*": 10
+  }
+},
 }

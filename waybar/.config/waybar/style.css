@@ -1,11 +1,13 @@
 @import url("/home/greed/.config/waybar/custom-colors.css");
 * {
+  padding: 0px;
+  margin: 0px;
   /* border: none; */
   border-radius: 0px;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: 500;
   font-size: 14px;
-  min-height: 9px;
+  min-height: 3px;
 }
 
 window#waybar {
@@ -29,7 +31,6 @@ tooltip {
 #custom-updater,
 #memory,
 #network,
-#workspaces,
 #battery,
 #backlight,
 #pulseaudio,
@@ -37,11 +38,21 @@ tooltip {
 #custom-notification,
 #tray {
   background-color: @module-bg;
-  padding: 0px 8px 0px 8px;
-  margin: 2px;
-  border-radius: 8px;
-  margin: 5px 0px 5px 0px;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
   border-color: @white;
+  
+}
+
+
+#workspaces {
+  margin: 0px;
+  
+  background-color: @module-bg;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+  border-color: @white;
+  
 }
 
 #window {
@@ -67,42 +78,38 @@ tooltip {
 #workspaces button {
   color: @white;
   background-color: @module-bg;
+  padding: 4px;
 }
 
 #workspaces button.active {
-  color: @module-bg;
-  background-color: @white;
-  border-radius: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 4px;
+  color: @green;
+}
+
+#workspaces button.persistent {
+  background-color: @module-bg;
+  color: @blue;
+}
+
+#workspaces button.empty {
+  color: @white;
 }
 
 #workspaces button.urgent {
-  color: @module-bg;
-  background: @red;
-  border-radius: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 4px;
+  color: @red;
 }
 
-#workspaces button.active:hover {
-  color: @module-bg;
-  background-color: @white;
-  border-radius: 20px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 4px;
-}
-
+/* #workspaces button.active:hover { */
+/*   color: @module-bg; */
+/*   background-color: @white; */
+/*   border-radius: 20px; */
+/*   padding-left: 10px; */
+/*   padding-right: 10px; */
+/*   padding-top: 2px; */
+/*   padding-bottom: 2px; */
+/* } */
+/**/
 #workspaces button:hover {
-  color: @module-bg;
-  background: @green;
-  border-radius: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 4px;
+  color: @green;
 }
 
 #custom-updater {
