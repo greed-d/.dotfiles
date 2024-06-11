@@ -10,10 +10,12 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 13
+size = 10
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
+
+
 
 [window.padding]
 x = 2
