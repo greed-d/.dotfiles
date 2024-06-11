@@ -19,7 +19,6 @@ function __history_previous_command_arguments
 end
 bind ! __history_previous_command
 bind '$' __history_previous_command_arguments
-
 #--------------------------------------> End of bang bang <--------------------------------------
 
 
@@ -108,13 +107,13 @@ set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
-set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
+#set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
 fish_add_path -g -p $HOME/flutter/bin
 
 # set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
 # set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
-# set PATH "$PATH":"$ANDROID_HOME/tools/"
-# set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
+set PATH "$PATH":"$ANDROID_HOME/tools/"
+set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
 ## java 11 jdk
 
@@ -197,21 +196,6 @@ fish_add_path /home/greed/.spicetify
 #     '
 # end
 ### END OF SPARK ###
-
-#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
-set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
-
-#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
-set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
-
-#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
-set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
-
-#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
-set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
-
-#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
-set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
 
 #THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
 set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"

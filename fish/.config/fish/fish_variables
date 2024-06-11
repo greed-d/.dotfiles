@@ -5,7 +5,7 @@ SETUVAR --export ANDROID_SDK_ROOT:/opt/android\x2dsdk
 SETUVAR --export CM_DEBUG:1
 SETUVAR --export CM_DIR:/home/greed/\x2elocal/clipboard
 SETUVAR --export CM_LAUNCHER:rofi
-SETUVAR --export JAVA_HOME:/usr/lib/jvm/java\x2d22\x2dopenjdk
+SETUVAR --export JAVA_HOME:\x1d
 SETUVAR --export TERM:tmux\x2d256color
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_edouard_2D_lopez_2F_ayu_2D_theme_2E_fish_files:\x7e/\x2econfig/fish/conf\x2ed/ayu\x2ddark\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2dlight\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2dmirage\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2efish
