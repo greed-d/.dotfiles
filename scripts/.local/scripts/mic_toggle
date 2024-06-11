@@ -5,10 +5,10 @@ state=`pacmd list-sources | awk '/muted/ { print $2 }' | tail -1`
 micStatus="no"
 if [ $state = "yes" ]; then
     micStatus="on"
-    icon="/usr/share/icons/Vimix-Black/24/panel/audio-input-microphone-high.svg"
+    icon="~/.config/hypr/icons/microphone.png"
 else
     micStatus="off"
-    icon="/usr/share/icons/Vimix-Black/24/panel/audio-input-microphone-muted.svg"
+    icon="~/.config/hypr/icons/microphone-mute.png"
 fi
 pactl set-source-mute 1 toggle
 notify-send --hint=int:transient:1 -t 1200 -i $icon "Mic switched: $state"

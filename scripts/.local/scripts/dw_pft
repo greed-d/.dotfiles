@@ -1,0 +1,86 @@
+#!/bin/bash
+
+ptools_bashrc="$HOME/.bashrc"
+ptools_zshrc="$HOME/.zshrc"
+ptools_fish_config="$HOME/.config/fish/config.fish"
+
+bash_path_snippet=$( cat << EOF
+#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
+PATH=\$PATH:"\$HOME/Android_Stuff/SDK/platform-tools/"
+EOF
+)
+
+fish_path_snippet=$( cat << EOF
+#THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
+set PATH "\$PATH":"\$HOME/Android_Stuff/SDK/platform-tools"
+EOF
+)
+echo "Looking for unzip..."
+
+if [ -z $(command -v unzip) ]; then
+  echo "Not found."
+  echo ""
+  echo "======================================================================================================"
+  echo " Please install unzip on your system using your favourite package manager."
+  echo ""
+  echo " Restart after installing unzip."
+  echo "======================================================================================================"
+  echo ""
+fi
+
+echo "Looking for curl"
+#Looking for curl
+if [ -z $(command -v curl) ]; then
+  echo "Not found."
+  echo ""
+  echo "======================================================================================================"
+  echo " Please install curl on your system using your favourite package manager."
+  echo ""
+  echo " Restart after installing curl."
+  echo "======================================================================================================"
+  echo ""
+  exit 1
+fi
+# URL of the platform tools download page
+echo "Downloading Platform tools...."
+mkdir $HOME/temp
+cd $HOME/temp
+curl -o platform-tools.zip "https://dl.google.com/android/repository/platform-tools-latest-linux.zip" 
+
+#Extract the zip 
+echo " "
+echo "unzipping platform-tools.zip"
+unzip platform-tools.zip
+
+#Move platform-tools to home
+pwd
+
+echo "Creating directory for platform tools..."
+mkdir -p $HOME/Android_Stuff/SDK/
+echo
+echo "Moving platform tools to $HOME/Android_Stuff/SDK directory.."
+mv platform-tools $HOME/Android_Stuff/SDK
+echo
+echo "Going Home.."
+cd $HOME
+echo 
+
+if [ "$SHELL" = "/bin/bash" ] || [ "$SHELL" = "/usr/bin/bash" ]; then
+  echo "Editing bashrc"
+  echo -e "\n$bash_path_snippet" >> "$ptools_bashrc"
+elif [ "$SHELL" = "/bin/zsh" ] || [ "$SHELL" = "/usr/bin/" ]; then
+
+  echo "Editing zshrc"
+  echo -e "\n$bash_path_snippet" >> "$ptools_zshrc"
+  
+elif [ "$SHELL" = "/bin/fish" ] || [ "$SHELL" = "/usr/bin/fish" ]; then
+  echo "Editing fish.config" 
+  echo -e "\n$fish_path_snippet" >> "$ptools_fish_config"
+  
+fi
+
+echo "Removing temporary folder..... "
+
+echo "Please source the shell config or open new terminal to proceed"
+rm -rf $HOME/temp
+
