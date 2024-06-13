@@ -1,4 +1,4 @@
 #!/bin/bash
-wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 get_vol=$(pamixer --get-volume)
 dunstify -h int:value:"${get_vol}" "Volume "
