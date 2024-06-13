@@ -55,7 +55,8 @@ bind \ca 'nvims'
 
 #--------------------------------------> Alias for direcotry <--------------------------------------
 
-alias ls "exa -a --icons --git --group-directories-first"
+alias ls "exa --icons --git --group-directories-first"
+alias la "exa -a --icons --git --group-directories-first"
 alias lt "exa -lah --icons --color  --no-user --git -T -L 3 --ignore-glob=".git" --group-directories-first" 
 #alias lt "exa -lah --color automatic -T -L 2 --git --icons --group-directories-first --no-user" 
 
