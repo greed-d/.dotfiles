@@ -1,3 +1,0 @@
-#! /bin/sh
-cbatticon --icon-type notification &
-#hyprctl reload

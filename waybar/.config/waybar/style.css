@@ -31,6 +31,7 @@ tooltip {
 #custom-updater,
 #memory,
 #network,
+#workspaces,
 #battery,
 #backlight,
 #pulseaudio,
@@ -44,10 +45,7 @@ tooltip {
   
 }
 
-
-#workspaces {
-  margin: 0px;
-  
+#tray {
   background-color: @module-bg;
   padding: 2px 10px 2px 10px;
   border-radius: 10px;
