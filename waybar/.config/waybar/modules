@@ -207,7 +207,7 @@
   "scroll-step": 5.0,
   "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
   "on-click-right": "pavucontrol -t 3",
-  "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+  "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
   "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
   "smooth-scrolling-threshold": 1,
 },
