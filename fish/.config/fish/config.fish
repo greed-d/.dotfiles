@@ -132,7 +132,7 @@ set -gx PATH $JAVA_HOME $PATH
 
 #--------------------------------------> starship <--------------------------------------
 
-starship init fish | source
+#starship init fish | source
 
 #--------------------------------------> jump shell <--------------------------------------
 
