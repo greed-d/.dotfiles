@@ -1,4 +1,4 @@
-{
+[{
 
 "include": "~/.config/waybar/modules",
 "layer": "top",
@@ -35,4 +35,37 @@
 	],
 
 
-}
+//}, 
+//{
+//
+//"include": "~/.config/waybar/modules",
+//"layer": "top",
+//"mode": "dock",
+//"exclusive": true,
+//"passthrough": false,
+//"position": "bottom",
+//"spacing": 3,
+//"fixed-center": true,
+//"ipc": true,
+//"margin-top": 6,
+//"margin-left": 8,
+//"margin-right": 8,
+//
+//"modules-center": [
+//  "wlr/taskbar",
+//	],
+//"modules-left": [
+//  "custom/spotify",
+// // "mpris",
+//  "custom/updater",
+//	],
+//"modules-right": [
+//  "network", 
+//  "memory",
+//  "battery",
+//  "clock",
+//  "tray",
+//	],
+//
+//
+}]

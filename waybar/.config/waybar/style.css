@@ -7,7 +7,7 @@
   font-family: "JetBrainsMono Nerd Font";
   font-weight: 500;
   font-size: 14px;
-  min-height: 3px;
+  min-height: 20px;
 }
 
 window#waybar {
@@ -15,6 +15,7 @@ window#waybar {
   color: @white;
   border-radius: 8px;
   /* opacity: 1; */
+  margin: 2px;
 }
 
 tooltip {

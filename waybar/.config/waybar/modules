@@ -145,10 +145,10 @@
   "format-disconnected": "", //An empty format will hide the module.
   "tooltip-format": " {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes} ",
   "format-linked": "󰈁 {ifname} (No IP)",
-  "tooltip-format-wifi": " {essid} ({signalStrength}%)   ",
+  "tooltip-format-wifi": " {essid} ({signalStrength}%)   -  {bandwidthDownBytes}  {bandwidthUpBytes}",
   "tooltip-format-ethernet": " {ifname} 󰈁 ",
   "tooltip-format-disconnected": " 󰈂 Disconnected ",
-  "max-length": 16,
+  "max-length": 36,
 },
 
 
