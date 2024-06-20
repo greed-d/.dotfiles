@@ -10,10 +10,10 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 10
+size = 13
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "GeistMono Nerd Font"
 
 
 
