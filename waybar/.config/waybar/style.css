@@ -1,115 +1,41 @@
 @import url("/home/greed/.config/waybar/custom-colors.css");
+
 * {
   padding: 0px;
   margin: 0px;
-  /* border: none; */
   border-radius: 0px;
   font-family: "GeistMono Nerd Font";
-  font-weight: 500;
   font-size: 14px;
-  min-height: 20px;
+  font-weight: 800;
 }
 
 window#waybar {
-  background: rgba(18, 18, 30, 0);
+  background: rgba(17, 18, 29, 1);
   color: @white;
-  border-radius: 8px;
-  /* opacity: 1; */
-  margin: 2px;
 }
 
-tooltip {
-  background: @module-bg;
-  border-radius: 7px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #11111b;
-}
 
+#disk,
 #window,
 #mpris,
 #custom-spotify,
 #custom-updater,
 #memory,
 #network,
-#workspaces,
 #battery,
 #backlight,
 #pulseaudio,
 #clock,
 #custom-notification,
-#tray {
-  background-color: @module-bg;
-  padding: 2px 10px 2px 10px;
-  border-radius: 10px;
-  border-color: @white;
-  
+#tray,
+#workspaces {
+  background: @module-bg;
+  margin: 1px;
+  padding: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
-#tray {
-  background-color: @module-bg;
-  padding: 2px 10px 2px 10px;
-  border-radius: 10px;
-  border-color: @white;
-  
-}
-
-#window {
-  margin-left: 5px;
-}
-
-#mpris {
-  color: @white;
-}
-
-/* #mpris.paused { */
-/*   border-bottom: 2px solid @white; */
-/* } */
-
-#network {
-  color: @blue;
-}
-
-#memory {
-  color: @sun;
-}
-
-#workspaces button {
-  color: @white;
-  background-color: @module-bg;
-  padding: 4px;
-}
-
-#workspaces button.active {
-  color: @green;
-}
-
-#workspaces button.persistent {
-  background-color: @module-bg;
-  color: @blue;
-}
-
-#workspaces button.empty {
-  color: @white;
-}
-
-#workspaces button.urgent {
-  color: @red;
-}
-
-/* #workspaces button.active:hover { */
-/*   color: @module-bg; */
-/*   background-color: @white; */
-/*   border-radius: 20px; */
-/*   padding-left: 10px; */
-/*   padding-right: 10px; */
-/*   padding-top: 2px; */
-/*   padding-bottom: 2px; */
-/* } */
-/**/
-#workspaces button:hover {
-  color: @green;
-}
 
 #custom-updater {
   color: @red;
@@ -120,18 +46,186 @@ tooltip {
 }
 
 #backlight {
-  color: @sun;
+  color: @red;
 }
 
+
+#network {
+  color: @module-bg;
+  background-color: @python;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 #pulseaudio {
-  color: @purple;
+  /* padding-right: 0px; */
+  color: @dark-purple;
+}
+
+#pulseaudio.microphone {
+  /* padding-left: 0px; */
+  color: @dark-purple;
+}
+
+#memory {
+  color: @sun;
+  /* background-color: @sun; */
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+}
+
+#bluetooth {
+  color: @python;
 }
 
 #clock {
+  color: @module-bg;
+  background-color: @vibrant-green;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#disk {
   color: @cyan;
 }
 
-#custom-notification {
-  color: @white;
-  margin-right: 5px;
+/* #window { */
+/*   color: @module-bg; */
+/*   background-color: @white; */
+/*   margin-top: 10px; */
+/*   margin-bottom: 10px; */
+/* } */
+
+#workspaces button {
+  padding: 1px;
+}
+
+#workspaces button:nth-child(1) {
+  color: @firefox;
+}
+
+#workspaces button:hover:nth-child(1) {
+  color: @firefox;
+}
+
+#workspaces button.empty:nth-child(1) {
+  color: @firefox;
+}
+
+#workspaces button.active:nth-child(1) {
+  color: @firefox;
+
+}
+
+#workspaces button:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button:hover:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button.empty:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button.active:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button:nth-child(3) {
+  color: @dark-purple;
+}
+
+#workspaces button:hover:nth-child(3) {
+  color: @dark-purple;
+}
+
+#workspaces button.empty:nth-child(3) {
+  color: @dark-purple;
+}
+
+#workspaces button.active:nth-child(3) {
+  color: @dark-purple;
+}
+
+#workspaces button:nth-child(4) {
+  color: @green;
+}
+
+#workspaces button:hover:nth-child(4) {
+  color: @green;
+}
+
+#workspaces button.empty:nth-child(4) {
+  color: @green;
+}
+
+#workspaces button.active:nth-child(4) {
+  color: @green;
+}
+
+#workspaces button:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button:hover:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button.empty:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button.active:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button:hover:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button.empty:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button.active:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button:nth-child(7) {
+  color: @baby-pink;
+}
+
+#workspaces button:hover:nth-child(7) {
+  color: @baby-pink;
+}
+
+#workspaces button.empty:nth-child(7) {
+  color: @baby-pink;
+}
+
+#workspaces button.active:nth-child(7) {
+  color: @baby-pink;
+}
+
+#workspaces button:nth-child(8) {
+  color: @sun;
+}
+
+#workspaces button:hover:nth-child(8) {
+  color: @sun;
+}
+
+#workspaces button.empty:nth-child(8) {
+  color: @sun;
+}
+
+#workspaces button.active:nth-child(8) {
+  color: @sun;
 }

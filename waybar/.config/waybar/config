@@ -14,24 +14,24 @@
 "margin-right": 8,
 
 "modules-left": [
-  "custom/spotify",
  // "mpris",
+"hyprland/workspaces",
   "hyprland/window",
-  "custom/updater",
 	],
 "modules-center": [
-  "hyprland/workspaces",
+  "custom/spotify",
 	],
 "modules-right": [
-  "network", 
-  "memory",
+  "custom/updater",
   "battery",
-  "backlight",
+  "network", 
   "pulseaudio", 
   "pulseaudio#microphone", 
+  "backlight",
+  "disk",
+  "memory",
   "clock",
   "tray",
-  "custom/notification",
 	],
 
 
