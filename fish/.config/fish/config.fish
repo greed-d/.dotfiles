@@ -58,6 +58,7 @@ bind \ca 'nvims'
 alias ls "exa --icons --git --group-directories-first"
 alias la "exa -a --icons --git --group-directories-first"
 alias lt "exa -lah --icons --color  --no-user --git -T -L 3 --ignore-glob=".git" --group-directories-first" 
+alias lf "yazi"
 #alias lt "exa -lah --color automatic -T -L 2 --git --icons --group-directories-first --no-user" 
 
 #--------------------------------------> userful alias <--------------------------------------
@@ -65,6 +66,7 @@ alias lt "exa -lah --icons --color  --no-user --git -T -L 3 --ignore-glob=".git"
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
+alias ..... "cd ../../../.."
 alias e "thunar"
 alias x "exit"
 alias lg "lazygit"
@@ -72,7 +74,6 @@ abbr rt "trash"
 alias vi "NVIM_APPNAME=vanvim nvim"
 alias nvd "neovide"
 alias hvd "env -u WAYLAND_DISPLAY neovide --multigrid"
-alias pomd "i3-gnome-pomodoro"
 
 #--------------------------------------> nmcli options <--------------------------------------
 
@@ -108,8 +109,8 @@ set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
-#set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
 fish_add_path -g -p $HOME/flutter/bin
+#set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
 
 # set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
 # set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
@@ -200,3 +201,10 @@ fish_add_path /home/greed/.spicetify
 
 #THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
 set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
+
+# pnpm
+set -gx PNPM_HOME "/home/greed/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
