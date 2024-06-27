@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ~/Dev/hobby_projects/arRPC/
+node src/
