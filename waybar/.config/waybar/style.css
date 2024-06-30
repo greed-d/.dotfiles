@@ -12,6 +12,7 @@
 window#waybar {
   background: rgba(17, 18, 29, 1);
   color: @white;
+  border-radius: 15px;
 }
 
 
@@ -36,6 +37,22 @@ window#waybar {
   padding-right: 4px;
 }
 
+#workspaces {
+  margin-left: 9px;
+  background-color: @catp;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 10px;
+}
+
+#window {
+  background-color: @catp;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 10px;
+  padding: 0px 10px 0px 10px;
+}
+
 
 #custom-updater {
   color: @red;
@@ -43,33 +60,55 @@ window#waybar {
 
 #battery {
   color: @vibrant-green;
+
+  /* background-color: @catp; */
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  /* border-radius: 10px; */
 }
 
 #backlight {
   color: @red;
+  /* background-color: @catp; */
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  /* border-radius: 10px; */
 }
 
 
 #network {
+
   color: @module-bg;
   background-color: @python;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-radius: 7px
 }
 
 
 #pulseaudio {
   /* padding-right: 0px; */
+  /* background-color: @catp; */
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  /* border-radius: 10px 0px 0px 10px; */
   color: @dark-purple;
 }
 
 #pulseaudio.microphone {
   /* padding-left: 0px; */
+
+  /* background-color: @catp; */
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  /* padding-left: 0px; */
+  /* border-radius: 0px 10px 10px 0px; */
   color: @dark-purple;
 }
 
 #memory {
   color: @sun;
+
   /* background-color: @sun; */
   /* margin-top: 10px; */
   /* margin-bottom: 10px; */
@@ -84,10 +123,16 @@ window#waybar {
   background-color: @vibrant-green;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 5px;
+  border-radius: 7px;
 }
 
 #disk {
   color: @cyan;
+}
+
+#tray {
+  margin-right: 10px;
 }
 
 /* #window { */
@@ -219,13 +264,13 @@ window#waybar {
 }
 
 #workspaces button:hover:nth-child(8) {
-  color: @sun;
+  color: @baby-pink;
 }
 
 #workspaces button.empty:nth-child(8) {
-  color: @sun;
+  color: @baby-pink;
 }
 
 #workspaces button.active:nth-child(8) {
-  color: @sun;
+  color: @baby-pink;
 }
