@@ -51,11 +51,12 @@ sudo pacman -S stow
 
 Clone the repo : 
 ```bash
-git clone https://github.com/greeid/.dotfiles
+git clone https://github.com/greeid/.dotfiles ~/.dotfiles/
 ```
 Stow the repo
 
 ```bash
+cd ~/.dotfiles/
 stow hypr/ alacritty/ fish/ scripts/ rofi/
 ```
  > [!NOTE]  
