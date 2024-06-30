@@ -22,9 +22,10 @@ My qtile config
 
 ## [Hyprland](https://github.com/greeid/.dotfiles/tree/main/hypr/.config/hypr)
 
-![hypr1](./hypr/.config/hypr/.screenshots/td-desktop.png)
-![hypr2](./hypr/.config/hypr/.screenshots/td-fetch_vi.png)
+![hypr1](./hypr/.config/hypr/.screenshots/desktop.png)
+![hypr2](./hypr/.config/hypr/.screenshots/fetch.png)
+![hypr3](./hypr/.config/hypr/.screenshots/nvim.png)
 
 ## [Rofi](./rofi/.config/rofi/)
 
-- Taken from : [@adi1090x](https://github.com/adi1090x/rofi)
+- Catppuccin Mocha
