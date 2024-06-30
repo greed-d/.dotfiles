@@ -1,0 +1,4 @@
+#!/bin/bash
+
+hyprctl hyprpaper preload ~/wallpapers/Wallpapers/Pictures/Wallpapers/$1
+hyprctl hyprpaper wallpaper "eDP-1,~/wallpapers/Wallpapers/Pictures/Wallpapers/$1"
