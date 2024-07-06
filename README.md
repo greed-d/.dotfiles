@@ -1,6 +1,7 @@
 # Dotfiles
 
-### Wallpapers moved to `wallpapers` repository
+> [!NOTE]  
+> `wallpapers` moved to [wallpapers](https://www.github.com/greeid/wallpapers) repository
 
 Place where my dotfiles reside :
 
