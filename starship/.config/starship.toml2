@@ -1,0 +1,94 @@
+## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
+## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
+## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
+
+# Setups
+format="$battery$directory$git_branch$character"
+right_format = """$python$git_status$cmd_duration"""
+
+# Other languages configurations:
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+# python.disabled = true
+ruby.disabled = true
+rust.disabled = true
+perl.disabled = true
+package.disabled = true
+lua.disabled = true
+nodejs.disabled = true
+java.disabled = true
+golang.disabled = true
+
+[conda]
+format = ' [$symbol$environment](dimmed green) '
+
+# Prompt symbols 
+[character]
+success_symbol = "[ ❯](#a6e3a1 bold)"
+error_symbol = "[ ](#f38ba8)"
+vicmd_symbol = "[ ](#f9e2af)"
+
+[directory]
+format = "[]($style)[󰊠 ](bg:#161821 fg:#81A1C1)[$path](bg:#161821 fg:#BBC3DF bold)[]($style)"
+style = "bg:none fg:#161821"
+truncation_length = 3
+truncate_to_repo=false
+
+[git_branch]
+format = "[]($style)[[ ](bg:#161821 fg:#A2DD9D bold)$branch](bg:#161821 fg:#86AAEC)[]($style)"
+style = "bg:none fg:#161821"
+
+[git_status]
+# $all status$ahead_behind
+format = "[]($style)[$all_status$ahead_behind](bg:#161821 fg:#b4befe)[ ]($style)"
+style = "bg:none fg:#161821"
+conflicted = "="
+ahead =	" ⇡${count}"
+behind = " ⇣${count}"
+diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = " "
+untracked = " ?${count}"
+modified = " !${count}"
+staged = " +${count}"
+deleted = " ${count}"
+stashed = " "
+renamed = " »${count}"
+
+[cmd_duration]
+min_time = 1
+# duration & style 
+format = "[]($style)[[󰔚 ](bg:#161821 fg:#eba0ac bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+disabled = false
+style = "bg:none fg:#161821"
+
+#battery
+[battery]
+full_symbol = " 󰂄"
+charging_symbol = " "
+discharging_symbol = " 󰂅 "
+
+[[battery.display]]
+threshold = 50
+# style = "bold red"
+# format = "[]($style)[$battery](bg:#161821 fg:#b4befe)[ ]($style)"
+# style = "bg:none fg:#161821"
+
+[memory_usage]
+# format = "$symbol[${ram}( | ${swap})]($style) "
+format = "[]($style)[$symbol[${ram}( | ${swap})](bg:#161821 fg:#BBC3DF bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+threshold = 10 
+# style = "bold dimmed white"
+disabled = false
+symbol = " "
+style = "bg:none fg:#161821"
+#
+# [time]
+# disabled = false
+# format =  "[]($style)[(at $time)(bg:#161821 fg:#eba0ac bold)$duration](bg:#161821 fg:#BBC3DF)[ ]($style)"
+# style = "bg:none fg:#161821"
+
+[python]
+symbol = " "
+format = '[]($style)[(\($virtualenv\))](bg:#161821 fg:#BBC3DF)[ ]($style)'
+style = "bg:none fg:#161821"
