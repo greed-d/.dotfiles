@@ -41,14 +41,14 @@ def on_metadata(player, metadata, manager):
     ):
         track_info = "AD PLAYING"
     elif player.get_artist() != "" and player.get_title() != "":
-        track_info = "{artist:.15} : {title:.20}".format(
+        track_info = "{artist:.15} | {title:.20}".format(
             artist=player.get_artist(), title=player.get_title()
         )
     else:
         track_info = player.get_title()
 
     if player.props.status != "Playing" and track_info:
-        track_info = track_info + " -  "
+        track_info = track_info + "  "
     write_output(track_info, player)
 
 
