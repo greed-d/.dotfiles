@@ -1,18 +1,19 @@
 # Hyprland Dots
 
-## These dots are highly optimized for my daily usease, if you're trying to use it, it'd need more tweaking from your side
+## These dots are highly optimized for my daily usecase, if you're trying to use it, it'd need more tweaking from your side
 
 ### Stuffs used :
 
 | Stuffs used   | Links | 
 |:----------:   | :---: | 
+| AUR Helper    | [paru](https://github.com/Morganamilo/paru)            |
+| Browser       | [floorp](https://floorp.app/en)            |
 | Fetch         | [pfetch](https://github.com/dylanaraps/pfetch) | 
+| File Explorer | thunar            |
 | Terminal      | [alacritty](https://github.com/dylanaraps/pfetch) |
 | Discord Client| [vesktop](https://github.com/Vencord/Vesktop)                  |
 | Spotify Theme | [tokyo night](https://github.com/Gspr-bit/Spotify-Tokyo-Night-Theme) [with my own little tweaks]                   |
 | GTK theme     | [Lavanda Dark Compact Tokyonight](https://github.com/mehedirm6244/Miserable_Xfce/tree/Serenade/home/.themes/Lavanda-Dark-Compact-Tokyonight)                   |
-| AUR Helper    | [paru](https://github.com/Morganamilo/paru)            |
-| File Explorer | thunar            |
 
 
 ### Screenshots :
