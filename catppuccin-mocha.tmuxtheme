@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 # NOTE: you can use vars with $<var> and ${<var>} as long as the str is double quoted: ""
+
 # WARNING: hex colors can't contain capital letters
 
 # --> Catppuccin (Mocha)
-thm_bg="#1e1e2e"
+thm_bg="#11121d"
 thm_fg="#cdd6f4"
 thm_cyan="#89dceb"
 thm_black="#181825"

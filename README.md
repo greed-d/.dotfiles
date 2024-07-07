@@ -7,7 +7,13 @@ Place where my dotfiles reside :
 
 You can check for respective WM with the given links below
 
-## [Qtile](https://github.com/greeid/.dotfiles/tree/main/qtile/.config/qtile)
+## [Hyprland](https://github.com/greeid/.dotfiles/tree/main/hypr/.config/hypr)
+
+![hypr1](./hypr/.config/hypr/.screenshots/desktop.png)
+![hypr2](./hypr/.config/hypr/.screenshots/fetch.png)
+![hypr3](./hypr/.config/hypr/.screenshots/nvim.png)
+
+## [Qtile](https://github.com/greeid/.dotfiles/tree/main/qtile/.config/qtile) (No longer maintained)
 
 My qtile config
 
@@ -16,16 +22,11 @@ My qtile config
 ![firefox](./qtile/.config/qtile/./.screenshots/firefox.png)
 ![spotify](./qtile/.config/qtile/./.screenshots/spotify.png)
 
-## [BSPWM](https://github.com/greeid/.dotfiles/tree/main/bspwm/.config/bspwm)
+## [BSPWM](https://github.com/greeid/.dotfiles/tree/main/bspwm/.config/bspwm) (No longer maintained)
 
 ![bspwm1](./bspwm/.config/bspwm/.screenshots/bspdesktop.png)
 ![bspwm1](./bspwm/.config/bspwm/.screenshots/bspwf.png)
 
-## [Hyprland](https://github.com/greeid/.dotfiles/tree/main/hypr/.config/hypr)
-
-![hypr1](./hypr/.config/hypr/.screenshots/desktop.png)
-![hypr2](./hypr/.config/hypr/.screenshots/fetch.png)
-![hypr3](./hypr/.config/hypr/.screenshots/nvim.png)
 
 ## [Rofi](./rofi/.config/rofi/)
 
