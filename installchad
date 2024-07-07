@@ -1,6 +1,0 @@
-#!/bin/bash
-sudo pacman -S neovim
-rm -rf $HOME/.config/nvim
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 
-cd $HOME/.dotfiles
-stow nvim/
