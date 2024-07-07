@@ -39,8 +39,12 @@ function vanvim
     env NVIM_APPNAME=vanvim nvim
 end
 
+function lvim
+    env NVIM_APPNAME=LazyNvim nvim
+end
+
  function nvims
-     set items astronvim nvchad
+     set items astronvim nvchad lvim
      set config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
      if [ -z $config ]
          echo "Nothing selected"
@@ -109,13 +113,16 @@ set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
+set -gx BROWSER floorp
 fish_add_path -g -p $HOME/flutter/bin
 #set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
 
+set --export ANDROID_HOME ~/Android/Sdk/
 # set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
-# set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
+set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
 set PATH "$PATH":"$ANDROID_HOME/tools/"
-set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
+set -gx ANDROID_SDK_ROOT ~/Android/Sdk/
+# set PATH "$PATH":"$ANDROID_HOME/platform-tools/"
 # export -Ux JAVA_HOME "/usr/bin/java"
 ## java 11 jdk
 
@@ -133,7 +140,7 @@ set -gx PATH $JAVA_HOME $PATH
 
 #--------------------------------------> starship <--------------------------------------
 
-#starship init fish | source
+starship init fish | source
 
 #--------------------------------------> jump shell <--------------------------------------
 
