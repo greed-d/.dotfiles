@@ -40,7 +40,6 @@ function vanvim
 end
 
 function lvim
-    env NVIM_APPNAME=LazyNvim nvim
 end
 
  function nvims
@@ -67,6 +66,7 @@ alias lf "yazi"
 
 #--------------------------------------> userful alias <--------------------------------------
 
+alias lvim "env NVIM_APPNAME=LazyNvim nvim"
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
@@ -78,6 +78,7 @@ abbr rt "trash"
 alias vi "NVIM_APPNAME=vanvim nvim"
 alias nvd "neovide"
 alias hvd "env -u WAYLAND_DISPLAY neovide --multigrid"
+alias ffetch "fastfetch --config ~/.config/fastfetch/22.jsonc"
 
 #--------------------------------------> nmcli options <--------------------------------------
 
