@@ -1,6 +1,6 @@
 #setups
-format = "$python$battery$directory "
-right_format = "$git_branch$git_status $cmd_duration"
+format = " $battery$directory "
+right_format = " $java$lua$python$git_branch$git_status $cmd_duration "
 
 [character]
 success_symbol = "[ 󰀘  ](bg:#89b4fa fg:#1e1e2e)"
@@ -9,7 +9,8 @@ vicmd_symbol = "[  ](#f9e2af)"
 
 [directory]
 format = "[ 󰀘  ](bg:#89b4fa fg:#1e1e2e)[ $path ](bg:#1e1e2e fg:#cdd6f4)"
-
+truncation_length = 1
+fish_style_pwd_dir_length = 1
 
 [cmd_duration]
 min_time = 1
@@ -38,7 +39,7 @@ conflicted = "="
 ahead =	" ⇡${count}"
 behind = " ⇣${count}"
 diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
-up_to_date = " "
+up_to_date = " "
 untracked = " ?${count}"
 modified = " !${count}"
 staged = " +${count}"
@@ -48,5 +49,15 @@ renamed = " »${count}"
 
 [python]
 symbol = " "
-format = '[]($style)[(\($virtualenv\))](bg:#161821 fg:#BBC3DF)[ ]($style)'
-style = "bg:none fg:#161821"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )](bold yellow)'
+# format = '[(\($virtualenv\)) ](bg:#161821 fg:#BBC3DF)'
+# style = "bg:none fg:#fab387"
+
+[lua]
+symbol = ""
+format = ' [$symbol $version](bold blue) '
+
+[java]
+symbol = ""
+# format = ' [$symbol $version_format](bold blue) '
+format = '[${symbol}(${version} )]($style)'
