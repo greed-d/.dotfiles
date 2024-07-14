@@ -16,8 +16,8 @@ case $LAYOUT in
   # hyprctl keyword bind SUPER,J,cyclenext
   # hyprctl keyword bind SUPER,K,cyclenext,prev
   # hyprctl keyword bind SUPER,O,togglesplit
-  # hyprctl keyword bind SUPER,P,pseudo
-  # hyprctl keyword bind SUPERSHIFT,P,exec,hyprctl dispatch workspaceopt allpseudo
+  hyprctl keyword bind SUPER,P,pseudo
+  hyprctl keyword bind SUPERSHIFT,P,exec,hyprctl dispatch workspaceopt allpseudo
   notify-send -i "$HOME/.config/hypr/mako/icons/hyprland.png" "Layout" "Dwindle"
   ;;
 "dwindle")
