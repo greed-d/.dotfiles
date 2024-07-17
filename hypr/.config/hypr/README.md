@@ -8,7 +8,7 @@
 |:----------:   | :---: | 
 | AUR Helper    | [paru](https://github.com/Morganamilo/paru)            |
 | Browser       | [floorp](https://floorp.app/en)            |
-| Fetch         | [pfetch](https://github.com/dylanaraps/pfetch) | 
+| Fetch         | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | 
 | File Explorer | thunar |
 | Terminal      | [kitty](https://sw.kovidgoyal.net/kitty/) |
 | Discord Client| [vesktop](https://github.com/Vencord/Vesktop) |
