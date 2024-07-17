@@ -10,7 +10,7 @@
 | Browser       | [floorp](https://floorp.app/en)            |
 | Fetch         | [pfetch](https://github.com/dylanaraps/pfetch) | 
 | File Explorer | thunar            |
-| Terminal      | [alacritty](https://github.com/dylanaraps/pfetch) |
+| Terminal      | [kitty](https://sw.kovidgoyal.net/kitty/) |
 | Discord Client| [vesktop](https://github.com/Vencord/Vesktop)                  |
 | Spotify Theme | [tokyo night](https://github.com/Gspr-bit/Spotify-Tokyo-Night-Theme) [with my own little tweaks]                   |
 | GTK theme     | [Lavanda Dark Compact Tokyonight](https://github.com/mehedirm6244/Miserable_Xfce/tree/Serenade/home/.themes/Lavanda-Dark-Compact-Tokyonight)                   |
@@ -18,7 +18,7 @@
 
 ### Screenshots :
 
-![hypr1](./.screenshots/desktop.png)
+![hypr1](./.screenshots/wallpaper.png)
 
 
 ![hypr2](./.screenshots/fetch.png)
@@ -63,10 +63,6 @@ stow hypr/ alacritty/ fish/ scripts/ rofi/
  > [!NOTE]  
 > More packages may be needed to be installed in order for WM to work properly
 
-
-> [!IMPORTANT]  
-> I will not provide support for the dots, it's here purely for reference, if you'd want to use it you're on your own
-
 > [!WARNING]  
-> **DO NOT** run this as your basic daily driver if you don't know hwat you're doing
+> **DO NOT** run this as your basic daily driver if you don't know what you're doing
 
