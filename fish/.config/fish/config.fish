@@ -39,7 +39,8 @@ function vanvim
     env NVIM_APPNAME=vanvim nvim
 end
 
-function lvim
+function chad
+    env NVIM_APPNAME=nvchad nvim
 end
 
  function nvims
@@ -67,6 +68,7 @@ alias lf "yazi"
 #--------------------------------------> userful alias <--------------------------------------
 
 alias lvim "env NVIM_APPNAME=LazyNvim nvim"
+alias tvim "env NVIM_APPNAME=testvim nvim"
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
