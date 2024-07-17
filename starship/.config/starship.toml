@@ -21,9 +21,9 @@ style = "bg:none fg:#161821"
 
 #battery
 [battery]
-full_symbol = " 󰂄"
-charging_symbol = " "
-discharging_symbol = " 󰂅 "
+full_symbol = "󰂄"
+charging_symbol = ""
+discharging_symbol = "󰂅 "
 
 [[battery.display]]
 threshold = 30
@@ -43,8 +43,8 @@ up_to_date = " "
 untracked = " ?${count}"
 modified = " !${count}"
 staged = " +${count}"
-deleted = " ${count}"
-stashed = " "
+deleted = " 󰅖${count}"
+stashed = " 󰏖"
 renamed = " »${count}"
 
 [python]
