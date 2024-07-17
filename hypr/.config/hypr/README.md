@@ -9,11 +9,11 @@
 | AUR Helper    | [paru](https://github.com/Morganamilo/paru)            |
 | Browser       | [floorp](https://floorp.app/en)            |
 | Fetch         | [pfetch](https://github.com/dylanaraps/pfetch) | 
-| File Explorer | thunar            |
+| File Explorer | thunar |
 | Terminal      | [kitty](https://sw.kovidgoyal.net/kitty/) |
-| Discord Client| [vesktop](https://github.com/Vencord/Vesktop)                  |
-| Spotify Theme | [tokyo night](https://github.com/Gspr-bit/Spotify-Tokyo-Night-Theme) [with my own little tweaks]                   |
-| GTK theme     | [Lavanda Dark Compact Tokyonight](https://github.com/mehedirm6244/Miserable_Xfce/tree/Serenade/home/.themes/Lavanda-Dark-Compact-Tokyonight)                   |
+| Discord Client| [vesktop](https://github.com/Vencord/Vesktop) |
+| Spotify Theme | [tokyo night](https://github.com/Gspr-bit/Spotify-Tokyo-Night-Theme) [with my own little tweaks]  |
+| GTK theme     | [Lavanda Dark Compact Tokyonight](https://github.com/mehedirm6244/Miserable_Xfce/tree/Serenade/home/.themes/Lavanda-Dark-Compact-Tokyonight)  |
 
 
 ### Screenshots :
