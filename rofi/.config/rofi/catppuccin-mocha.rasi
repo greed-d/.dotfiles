@@ -1,3 +1,4 @@
+/**
 * {
     bg-col:  #1e1e2e;
     bg-col-light: #1e1e2e;
@@ -109,3 +110,5 @@ textbox {
     text-color: @blue;
     background-color: @bg-col-light;
 }
+**/
+
