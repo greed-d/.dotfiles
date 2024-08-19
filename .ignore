@@ -1,0 +1,6 @@
+.config/nvim/plugin
+
+fish/.config/fish/fish_variables
+
+nvim/.config/nvim/plugin/packer_compiled.lua
+.config/qtile/mic_toggle.sh
