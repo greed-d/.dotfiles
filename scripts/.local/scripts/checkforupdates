@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Check for updates and count them
-wget -q --spider https://www.archlinux.org
+wget -q --spider https://www.google.com
  
 # Check if there was an error fetching updates
 if [ $? -ne 0 ]; then
