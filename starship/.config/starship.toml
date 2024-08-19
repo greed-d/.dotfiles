@@ -58,6 +58,6 @@ symbol = ""
 format = ' [$symbol $version](bold blue) '
 
 [java]
-symbol = ""
+symbol = ""
 # format = ' [$symbol $version_format](bold blue) '
-format = '[${symbol}(${version} )]($style)'
+format = ' [${symbol} (${version})](bold red)'
