@@ -46,7 +46,7 @@ keys = [
         # Kdocker
         (["control", "shift"], "k", lazy.spawn("kdocker")),
         # Browser
-        ([mod], "b", lazy.spawn("firefox")),
+        ([mod], "b", lazy.spawn("floorp")),
         # Discord
         ([mod], "d", lazy.spawn("discord")),
         # File Explorer

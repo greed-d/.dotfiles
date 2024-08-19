@@ -1,11 +1,15 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export ANDROID_HOME:/opt/android\x2dsdk
+SETUVAR --export ANDROID_HOME:/home/greed/Android/Sdk/
 SETUVAR --export ANDROID_SDK_ROOT:/opt/android\x2dsdk
+SETUVAR --export BROWSER:floorp
 SETUVAR --export CM_DEBUG:1
 SETUVAR --export CM_DIR:/home/greed/\x2elocal/clipboard
 SETUVAR --export CM_LAUNCHER:rofi
 SETUVAR --export JAVA_HOME:\x1d
+SETUVAR --export RSPOTIFY_CLIENT_ID:47234b93f855430b83f5bd0c87d04300
+SETUVAR --export RSPOTIFY_CLIENT_SECRET:0627e6a8fc074a2db0bdd3462ca22c25
+SETUVAR --export RSPOTIFY_REDIRECT_URI:https\x3a//localhost\x3a8888/callback
 SETUVAR --export TERM:tmux\x2d256color
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_edouard_2D_lopez_2F_ayu_2D_theme_2E_fish_files:\x7e/\x2econfig/fish/conf\x2ed/ayu\x2ddark\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2dlight\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2dmirage\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2efish
