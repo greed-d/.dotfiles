@@ -1,4 +1,14 @@
 # BEGIN_KITTY_THEME
-# Gruvbox Material Dark Hard
+# Tokyodark
+font_family JetBrainsMono Nerd Font
+font_size 13.0
+
+confirm_os_window_close   0
+tab_bar_edge              bottom
+tab_bar_style             powerline
+tab_title_template        {title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}
+
+modify_font_underline_position -2
+
 include current-theme.conf
 # END_KITTY_THEME
