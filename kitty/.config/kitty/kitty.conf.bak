@@ -1,27 +1,4 @@
-
-
-
-# font_family       CaskaydiaCove Nerd Font
-font_family      JetbrainsMono Nerd Font 
-
-font_size        14.0
-text_composition_strategy legacy
-
-confirm_os_window_close 0
-tab_bar_edge                bottom
-tab_bar_style               powerline
-tab_powerline_style         round
-tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}
-
-#modify_font underline_position -2
-# modify_font underline_thickness 150%
-# modify_font strikethrough_position -2px
-# box_drawing_scale 0.01, 1, 1.5, 2
-
-include current-theme.conf
-
-
 # BEGIN_KITTY_THEME
-# Ayu
+# Gruvbox Material Dark Hard
 include current-theme.conf
 # END_KITTY_THEME
