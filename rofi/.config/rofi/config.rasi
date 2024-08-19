@@ -14,7 +14,7 @@
     sidebar-mode: true;
 }
 
-@theme "catppuccin-mocha"
+@theme "gruvbox"
 **/
 /**
  *
