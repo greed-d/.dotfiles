@@ -11,8 +11,8 @@
   "on-click-middle": "brightnessctl set 0%",
   "on-click-right": "brightnessctl set 50%",
   "on-update": "",
-  "on-scroll-up": "brightnessctl set +5%",
-  "on-scroll-down": "brightnessctl set 5-%",
+  "on-scroll-up": "~/.local/scripts/Brightness up",
+  "on-scroll-down": "~/.local/scripts/Brightness down",
   "smooth-scrolling-threshold": 1,
 },
 
@@ -178,7 +178,7 @@
   "states": {
     "good": 95,
     "warning": 30,
-    "critical": 15
+    "critical": 10
            },
   "format": "{icon}  {capacity}%",
   "format-charging": " {capacity}%",
@@ -197,7 +197,7 @@
 "pulseaudio": {
   "format": "{icon} {volume}%",
   "format-bluetooth": "{icon}  {volume} %",
-  "format-muted": "",
+  "format-muted": " Muted",
   "format-icons": {
       "headphone": " ",
       "hands-free": " ",
@@ -220,7 +220,7 @@
 "pulseaudio#microphone": {
   "format": "{format_source}",
   "format-source": " {volume}%",
-  "format-source-muted": " ",
+  "format-source-muted": "  Muted",
   "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
   "on-click-right": "pavucontrol -t 4",
   "on-scroll-up": "pamixer --default-source -i 5",
@@ -235,9 +235,10 @@
 
 "clock": {
   //"format": "󰥔 {:%I:%M %p}",
-  "format": "󰥔 {:%a, %H:%M}",
-  "format-alt": "󰥔 {:%H:%M   %Y, %d %B, %A}",
+  "format": "󰥔 {:%a, %H:%M:%S}",
+  "format-alt": " {:%Y, %d %B}",
   "tooltip-format": " <tt><small>{calendar}</small></tt> ",
+  "interval": 1,
   "calendar": {
     "mode"          : "year",
     "mode-mon-col"  : 3,
@@ -260,6 +261,13 @@
     "on-scroll-down": "shift_down"
 },
 
+"idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": " ",
+        "deactivated": " "
+    }
+},
 
 "tray": {
   "icon-size": 20,

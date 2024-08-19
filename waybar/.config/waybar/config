@@ -7,7 +7,7 @@
 "passthrough": false,
 "position": "top",
 "spacing": 3,
-"fixed-center": true,
+"fixed-center": false,
 "ipc": true,
 "margin-top": 6,
 "margin-left": 8,
@@ -17,6 +17,7 @@
  // "mpris",
 "hyprland/workspaces",
   "hyprland/window",
+  
 	],
 "modules-center": [
   "custom/spotify",
@@ -26,11 +27,12 @@
 "memory",
 //"disk",
   "network", 
-  "pulseaudio", 
   "pulseaudio#microphone", 
+  "pulseaudio", 
   "backlight",
   "battery",
   "clock",
+  "idle_inhibitor",
   "tray",
 	],
 

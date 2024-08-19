@@ -12,7 +12,7 @@
 window#waybar {
   background: rgba(17, 18, 29, 1);
   color: @white;
-  border-radius: 15px;
+  border-radius: 7px;
 }
 
 
@@ -28,13 +28,23 @@ window#waybar {
 #pulseaudio,
 #clock,
 #custom-notification,
+#idle_inhibitor,
 #tray,
 #workspaces {
-  background: @module-bg;
-  margin: 1px;
+  background: @lightbg;
+  margin: 2px;
   padding: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 7px;
+  padding-right: 7px;
+
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 5px;
+}
+
+
+#custom-spotify {
+  padding: 0 10 0 10px;
 }
 
 #workspaces {
@@ -42,14 +52,14 @@ window#waybar {
   background-color: @catp;
   margin-top: 7px;
   margin-bottom: 7px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 #window {
   background-color: @catp;
   margin-top: 7px;
   margin-bottom: 7px;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 0px 10px 0px 10px;
 }
 
@@ -67,8 +77,34 @@ window#waybar {
   /* border-radius: 10px; */
 }
 
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.critical:not(.connected) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
 #backlight {
-  color: @red;
+  color: @sun;
   /* background-color: @catp; */
   /* margin-top: 7px; */
   /* margin-bottom: 7px; */
@@ -80,9 +116,9 @@ window#waybar {
 
   color: @module-bg;
   background-color: @python;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 7px
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 5px
 }
 
 
@@ -92,6 +128,7 @@ window#waybar {
   /* margin-top: 7px; */
   /* margin-bottom: 7px; */
   /* border-radius: 10px 0px 0px 10px; */
+  /* margin-right: 0px; */
   color: @dark-purple;
 }
 
@@ -103,7 +140,19 @@ window#waybar {
   /* margin-bottom: 7px; */
   /* padding-left: 0px; */
   /* border-radius: 0px 10px 10px 0px; */
+  border-radius: 7px;
   color: @dark-purple;
+}
+
+#pulseaudio.microphone.source-muted {
+  background-color: @red;
+  color: @module-bg;
+  /* padding-left: 5px; */
+  /* margin-left: 10px; */
+
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 7px;
 }
 
 #memory {
@@ -121,8 +170,8 @@ window#waybar {
 #clock {
   color: @module-bg;
   background-color: @vibrant-green;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 7px;
   margin-right: 5px;
   border-radius: 7px;
 }
