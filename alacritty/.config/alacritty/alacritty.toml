@@ -17,7 +17,6 @@ family = "CaskaydiaMono Nerd Font"
 # family = "JetBrainsMono Nerd Font"
 
 
-
 [window.padding]
 x = 2
 y = 1
