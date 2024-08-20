@@ -1,5 +1,5 @@
 format = " $battery$directory "
-right_format = " $java$lua$python$git_branch$git_status$cmd_duration "
+right_format = " $java$lua$python$git_branch$git_status $cmd_duration "
 
 # [directory]
 # format = "[ 󰀘  ](bg:#0f0 fg:#fff) [ $path ](bg:#0f0 fg:#cdd6f4)"
