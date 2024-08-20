@@ -10,7 +10,7 @@
 
 You can check for respective WM with the given links below
 
-## [Hyprland](https://github.com/greeid/.dotfiles/tree/main/hypr/.config/hypr)
+## [Hyprland](https://github.com/greed-d/.dotfiles/tree/gruvbox/hypr/.config/hypr)
 
 ![hypr1](./hypr/.config/hypr/.screenshots/terminal+notification.png)
 ![hypr3](./hypr/.config/hypr/.screenshots/gruv_nvim.png)
