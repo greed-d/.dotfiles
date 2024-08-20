@@ -8,6 +8,8 @@
 
 Place where my dotfiles reside :
 
+### Check gruvbox branch for gruvbox theme
+
 You can check for respective WM with the given links below
 
 ## [Hyprland](https://github.com/greeid/.dotfiles/tree/main/hypr/.config/hypr)
