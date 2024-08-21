@@ -13,7 +13,7 @@
 | Terminal      | [kitty](https://sw.kovidgoyal.net/kitty/) |
 | Discord Client| [vesktop](https://github.com/Vencord/Vesktop) |
 | Spotify Theme | [Dribble's Gruvbox](https://github.com/spicetify/spicetify-themes) [with my own little tweaks]  |
-| GTK theme     | [Lavanda Dark Compact Tokyonight](https://github.com/TheGreatMcPain/gruvbox-material-gtk?tab=readme-ov-file)  |
+| GTK theme     | [Gruvbox Material GTK theme](https://github.com/TheGreatMcPain/gruvbox-material-gtk?tab=readme-ov-file)  |
 
 
 ### Screenshots :
