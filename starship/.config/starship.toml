@@ -1,21 +1,21 @@
 #setups
 format = " $battery$directory "
-right_format = " $java$lua$python$git_branch $git_status $cmd_duration "
+right_format = " $java$lua$python$git_branch$git_status $cmd_duration "
 
 [character]
-success_symbol = "[ 󰀘  ](bg:#89b4fa fg:#1e1e2e)"
+success_symbol = "[ 󰀘  ](bg:#458488 fg:#282828)"
 error_symbol = "[ ](#f38ba8)"
 vicmd_symbol = "[  ](#f9e2af)"
 
 [directory]
-format = "[ 󰀘  ](bg:#a9b665 fg:#1e1e2e)[ $path ](bg:#484b4c fg:#c7b89d)"
+format = "[ 󰀘  ](bg:#89b4fa fg:#1e1e2e)[ $path ](bg:#0f0 fg:#cdd6f4)"
 truncation_length = 1
 fish_style_pwd_dir_length = 1
 
 [cmd_duration]
 min_time = 1
 # duration & style 
-format = "[[ 󰔚 ](bg:#161821 fg:#eba0ac bold)$duration ](bg:#161821 fg:#BBC3DF)"
+format = "[[ 󰔚 ](bg:#161821 fg:#b16286 bold)$duration ](bg:#161821 fg:#BBC3DF)"
 disabled = false
 style = "bg:none fg:#161821"
 
@@ -29,7 +29,7 @@ discharging_symbol = "󰂅 "
 threshold = 30
 
 [git_branch]
-format = "[[  ](bg:#32302f fg:#A2DD9D bold)$branch ](bg:#32302f fg:#86AAEC)"
+format = "[[  ](bg:#0f0 fg:#A2DD9D bold)$branch ](bg:#0f0 fg:#86AAEC)"
 
 [git_status]
 # $all status$ahead_behind
