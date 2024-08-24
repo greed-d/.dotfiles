@@ -36,3 +36,6 @@ My qtile config
 ## [Rofi](./rofi/.config/rofi/)
 
 - Catppuccin Mocha
+
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=greed-d/.dotfiles&type=Date)](https://star-history.com/#greed-d/.dotfiles&Date)
