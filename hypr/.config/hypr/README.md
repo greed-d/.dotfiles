@@ -29,8 +29,6 @@
 ![hypr3](./.screenshots/tabliss.png)
 
 ![hypr3](./.screenshots/explorer.png)
-
-
 ![hypr3](./.screenshots/spotify.png)
 
 
@@ -60,9 +58,9 @@ Stow the repo
 cd ~/.dotfiles/
 stow hypr/ alacritty/ fish/ scripts/ rofi/
 ```
- > [!NOTE]  
+> [!NOTE]  
 > More packages may be needed to be installed in order for WM to work properly
 
 > [!WARNING]  
-> **DO NOT** run this as your basic daily driver if you don't know what you're doing
+> _**DO NOT**_ run this as your basic daily driver if you don't know what you're doing
 

@@ -209,6 +209,7 @@ fish_add_path /home/greed/.spicetify
 # end
 ### END OF SPARK ###
 
+
 #THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
 set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
 
