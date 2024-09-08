@@ -1,0 +1,2 @@
+#/bin/bash
+reflector -p https -a 5 --delay 0.25 -n 10 -f 10
