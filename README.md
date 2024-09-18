@@ -1,5 +1,7 @@
 # Dotfiles
 
+## I've moved to NixOS and this repo will no longer be maintained. This repo will start to get maintained if I ever decide to come back to arch.
+
 > [!NOTE]  
 > `wallpapers` moved to [wallpapers](https://www.github.com/greeid/wallpapers) repository
 
