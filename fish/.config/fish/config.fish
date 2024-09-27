@@ -59,11 +59,11 @@ bind \ca 'nvims'
 
 #--------------------------------------> Alias for direcotry <--------------------------------------
 
-alias ls "exa --icons --git --group-directories-first"
-alias la "exa -a --icons --git --group-directories-first"
-alias lt "exa -lah --icons --color  --no-user --git -T -L 3 --ignore-glob=".git" --group-directories-first" 
+alias ls "eza --icons --git --group-directories-first"
+alias la "eza -a --icons --git --group-directories-first"
+alias lt "eza -lah --icons --color  --no-user --git -T -L 3 --ignore-glob=".git" --group-directories-first" 
 alias lf "yazi"
-#alias lt "exa -lah --color automatic -T -L 2 --git --icons --group-directories-first --no-user" 
+#alias lt "eza -lah --color automatic -T -L 2 --git --icons --group-directories-first --no-user" 
 
 #--------------------------------------> userful alias <--------------------------------------
 
@@ -170,7 +170,7 @@ fish_add_path /home/greed/.spicetify
 #                 echo "spark version $spark_version"
 #             case {,-}-h{elp,}
 #                 echo "usage: spark [--min=<n> --max=<n>] <numbers...>  Draw sparklines"
-#                 echo "examples:"
+#                 echo "ezamples:"
 #                 echo "       spark 1 2 3 4"
 #                 echo "       seq 100 | sort -R | spark"
 #                 echo "       awk \\\$0=length spark.fish | spark"

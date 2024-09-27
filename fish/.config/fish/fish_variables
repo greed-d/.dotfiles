@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export ANDROID_HOME:/opt/android\x2dsdk
+SETUVAR --export ANDROID_HOME:/home/greed/Android/Sdk/
 SETUVAR --export ANDROID_SDK_ROOT:/opt/android\x2dsdk
 SETUVAR --export CM_DEBUG:1
 SETUVAR --export CM_DIR:/home/greed/\x2elocal/clipboard
