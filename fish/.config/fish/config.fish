@@ -65,6 +65,25 @@ end
 
 bind \ca nvims
 
+#--------------------------------------> Toggle between vi mode and normal mode <--------------------------------------
+
+function toggle_vi_mode
+    if test "$fish_key_bindings" = fish_vi_key_bindings
+        fish_default_key_bindings
+        echo "Switched to Normal Mode"
+    else
+        fish_vi_key_bindings
+        echo "Switched to Vi Mode"
+    end
+end
+
+bind \ct toggle_vi_mode
+
+#artty
+#if not command -v arTTY >/dev/null
+#    arTTY
+#end
+
 #--------------------------------------> Alias for direcotry <--------------------------------------
 
 alias ls "eza --icons --git --group-directories-first"
@@ -119,7 +138,7 @@ alias tls "tmux list-sessions"
 alias tds "tmux detach"
 
 bind \cf tmux-sessionizer
-bind \cr sessionizer-panes
+#bind \cr sessionizer-panes
 
 #--------------------------------------> PATH <--------------------------------------
 
@@ -129,7 +148,7 @@ set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"$HOME/.sdkman/candidates/gradle/current/bin/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
-set -gx BROWSER floorp
+set -gx BROWSER zen-browser
 fish_add_path -g -p $HOME/flutter/bin
 #set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
 
