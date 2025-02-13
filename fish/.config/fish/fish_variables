@@ -62,3 +62,4 @@ SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_user_paths:/home/greed/\x2espicetify
 SETUVAR mirage:\x1d
+SETUVAR --export selected:catppuccin
