@@ -1,0 +1,247 @@
+@forward "assets/main";
+@forward "assets/navbar";
+@forward "assets/now_playing";
+@forward "assets/settings";
+@forward "assets/top_bar";
+@forward "assets/snippets";
+@forward "assets/tracklist";
+
+:root {
+	// Variables
+	--border-radius: 8px;
+	--button-radius: 8px;
+	--image-blur: 4px;
+	--gradient-speed: 50s;
+	--gradient-width: 150%;
+	--gradient-blend-mode: luminosity;
+	--gradient-background-image: none;
+	--gradient-radius: 50%;
+	--cover-art-width: 84px;
+	--cover-art-height: 84px;
+	--cover-art-radius: 8px;
+	--cover-art-left: 0px;
+	--cover-art-bottom: 20px;
+	--header-opacity: 0.6;
+	--tracklist-gradient-height: 232px;
+	--tracklist-gradient-opacity: 0.6;
+	--tracklist-gradient-noise: var(--background-noise);
+	--image-url: none;
+
+	// Custom Radii
+	button,
+	button span,
+	input,
+	select,
+	img,
+	.x-entityImage-xsmall,
+	div[style*="background-image"]:has(img),
+	.profile-userEditDetails-image div:nth-child(2),
+	[data-encore-id="buttonSecondary"] {
+		border-radius: var(--border-radius) !important;
+	}
+
+	button:not(.main-editImageButton-overlay):not([style*="background-image"]):not(.main-buddyFeed-overlay),
+	button span:not(.Lyric.Synced.Line):not([data-encore-id="text"]),
+	button figure img,
+	button:has(span:empty),
+	input:not([style*="background-image"]),
+	select,
+	[data-encore-id="buttonSecondary"] {
+		border-radius: var(--button-radius) !important;
+	}
+
+	// Remove Overflow
+	.Root__top-container {
+		overflow: hidden;
+	}
+
+	// Custom Topbar Height + Bg Colour Matching
+	&:not(:has(.global-nav)) .Root__top-container {
+		padding-top: max(calc(var(--comfy-topbar-height, 40px) / var(--zoom, 1)), 8px) !important;
+	}
+
+	.global-nav .Root__top-container {
+		grid-template-rows: calc(var(--comfy-topbar-height, 64px) / var(--zoom, 1) - 16px) 1fr auto;
+	}
+
+	&.spotify__container--is-desktop.spotify__os--is-windows:not(.fullscreen) {
+		&:has(.global-nav) body::after {
+			height: calc(var(--comfy-topbar-height, 64px) / var(--zoom, 1)) !important;
+		}
+
+		&:has(.global-nav-centered) body::after {
+			height: min(calc(32px / var(--zoom, 1)), calc(var(--comfy-topbar-height, 64px) / var(--zoom, 1))) !important;
+			top: calc((var(--comfy-topbar-height, 64px) / var(--zoom, 1) - min(calc(32px / var(--zoom, 1)), var(--comfy-topbar-height, 64px))) / 2);
+		}
+	}
+
+
+	&.spotify__container--is-desktop.spotify__os--is-windows .Root__globalNav {
+		padding-block: calc(var(--comfy-topbar-height, 64px) / 2 - 8px);
+	}
+
+	&.spotify__container--is-desktop.spotify__os--is-windows:not(.fullscreen) body::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		z-index: 999;
+		backdrop-filter: brightness(2.12);
+		width: calc(135px / var(--zoom, 1));
+		height: calc(var(--comfy-topbar-height, 40px) / var(--zoom, 1));
+	}
+
+	// Filtering
+	.main-trackList-playingIcon,
+	.view-homeShortcutsGrid-playingIcon,
+	[src*="equaliser"] {
+		-webkit-mask-image: url("data:image/svg+xml,%3Csvg id='playing-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 24'%3E%3Cdefs%3E%3Cstyle%3E %23playing-icon %7B fill: %2320BC54; %7D @keyframes play %7B 0%25 %7Btransform: scaleY(1);%7D 3.3%25 %7Btransform: scaleY(0.9583);%7D 6.6%25 %7Btransform: scaleY(0.9166);%7D 9.9%25 %7Btransform: scaleY(0.8333);%7D 13.3%25 %7Btransform: scaleY(0.7083);%7D 16.6%25 %7Btransform: scaleY(0.5416);%7D 19.9%25 %7Btransform: scaleY(0.4166);%7D 23.3%25 %7Btransform: scaleY(0.25);%7D 26.6%25 %7Btransform: scaleY(0.1666);%7D 29.9%25 %7Btransform: scaleY(0.125);%7D 33.3%25 %7Btransform: scaleY(0.125);%7D 36.6%25 %7Btransform: scaleY(0.1666);%7D 39.9%25 %7Btransform: scaleY(0.1666);%7D 43.3%25 %7Btransform: scaleY(0.2083);%7D 46.6%25 %7Btransform: scaleY(0.2916);%7D 49.9%25 %7Btransform: scaleY(0.375);%7D 53.3%25 %7Btransform: scaleY(0.5);%7D 56.6%25 %7Btransform: scaleY(0.5833);%7D 59.9%25 %7Btransform: scaleY(0.625);%7D 63.3%25 %7Btransform: scaleY(0.6666);%7D 66.6%25 %7Btransform: scaleY(0.6666);%7D 69.9%25 %7Btransform: scaleY(0.6666);%7D 73.3%25 %7Btransform: scaleY(0.6666);%7D 76.6%25 %7Btransform: scaleY(0.7083);%7D 79.9%25 %7Btransform: scaleY(0.75);%7D 83.3%25 %7Btransform: scaleY(0.8333);%7D 86.6%25 %7Btransform: scaleY(0.875);%7D 89.9%25 %7Btransform: scaleY(0.9166);%7D 93.3%25 %7Btransform: scaleY(0.9583);%7D 96.6%25 %7Btransform: scaleY(1);%7D %7D %23bar1 %7B transform-origin: bottom; animation: play 0.9s -0.51s infinite; %7D %23bar2 %7B transform-origin: bottom; animation: play 0.9s infinite; %7D %23bar3 %7B transform-origin: bottom; animation: play 0.9s -0.15s infinite; %7D %23bar4 %7B transform-origin: bottom; animation: play 0.9s -0.75s infinite; %7D %3C/style%3E%3C/defs%3E%3Ctitle%3Eplaying-icon%3C/title%3E%3Crect id='bar1' class='cls-1' width='4' height='24'/%3E%3Crect id='bar2' class='cls-1' x='6' width='4' height='24'/%3E%3Crect id='bar3' class='cls-1' x='12' width='4' height='24'/%3E%3Crect id='bar4' class='cls-1' x='18' width='4' height='24'/%3E%3C/svg%3E");
+		background: var(--spice-button-active);
+		content-visibility: hidden;
+		-webkit-mask-repeat: no-repeat;
+		border-radius: 0 !important;
+	}
+
+	.x-settings-equalizerPanelCanvas {
+		filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1181%) hue-rotate(346deg) brightness(101%) contrast(105%) !important;
+		border-radius: 0 !important;
+	}
+
+	// Base Sets
+	.encore-dark-theme,
+	.encore-dark-theme .encore-base-set {
+		--background-elevated-base: var(--spice-main-elevated);
+		--background-highlight: var(--spice-highlight);
+	}
+
+	.encore-bright-accent-set {
+		--background-base: var(--spice-play-button);
+		--background-highlight: var(--spice-play-button-active);
+		--background-press: var(--spice-play-button-active);
+	}
+
+	.encore-inverted-light-set {
+		--background-highlight: var(--spice-text);
+		--background-press: var(--spice-subtext);
+	}
+
+	// Premium Fullscreen Overlay
+	.npv-background-image__overlay {
+		background: linear-gradient(rgba(var(--spice-rgb-shadow), 0.5) 0, transparent 100%), var(--background-noise);
+		background-color: unset;
+	}
+
+	// Scrollbars
+	.Root__main-view .main-view-container__scroll-node-child {
+		padding-bottom: 0;
+	}
+
+	aside#Desktop_PanelContainer_Id .os-scrollbar-vertical,
+	.os-scrollbar-horizontal {
+		display: none !important;
+	}
+
+	.os-scrollbar-track,
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	.os-scrollbar-handle,
+	::-webkit-scrollbar-thumb {
+		border-radius: 1em;
+		--os-handle-perpendicular-size-active: 8px;
+		--os-handle-perpendicular-size-hover: 8px;
+		--os-handle-perpendicular-size: 8px;
+	}
+
+	.os-scrollbar {
+		--os-padding-perpendicular: 4px;
+	}
+
+	::-webkit-scrollbar-track {
+		margin-bottom: 10px;
+	}
+
+	// Coloured heart
+	.Button-textBrightAccent-lg-32-buttonTertiary-iconOnly-condensed-useBrowserDefaultFocusStyle,
+	.main-addButton-active {
+		color: var(--spice-heart);
+
+		&:hover {
+			color: rgba(var(--spice-rgb-heart), 0.7);
+		}
+	}
+
+	#_R_G *:not([stroke="none"]) {
+		stroke: var(--spice-heart);
+	}
+
+	.main-trackList-rowHeartButton,
+	.control-button-heart,
+	#_R_G {
+		& *:not([fill="none"]) {
+			fill: var(--spice-heart) !important;
+		}
+	}
+
+	// Menus
+	#context-menu {
+		overflow: hidden;
+
+		.main-userWidget-dropDownMenu .main-contextMenu-menuItemButton:has(span + svg)::before {
+			border-bottom: 1px solid rgba(var(--spice-rgb-selected-row), .1);
+			content: "";
+			left: 0;
+			pointer-events: none;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		.main-popper-arrow,
+		.main-popper-arrow::before {
+			background-color: var(--spice-player) !important;
+		}
+
+		ul:not([aria-labelledby~="device-picker-header"]) {
+			background-color: var(--spice-player);
+
+			button,
+			a {
+				border-radius: 2px !important;
+
+				&:not(.main-contextMenu-disabled):focus,
+				&:not(.main-contextMenu-disabled):hover,
+				&[aria-expanded="true"] {
+					background-color: rgba(var(--spice-rgb-pagelink-active), 0.15);
+					transition: 150ms background-color;
+				}
+			}
+		}
+	}
+
+	#bookmark-menu {
+		background-color: var(--spice-player);
+		border-radius: var(--border-radius);
+
+		.bookmark-filter {
+			background-color: var(--spice-player);
+		}
+
+		button,
+		a {
+			border-radius: 0;
+
+			&::before,
+			&::after {
+				content: none;
+			}
+
+			&:not(.main-contextMenu-disabled):focus,
+			&:not(.main-contextMenu-disabled):hover,
+			&[aria-expanded="true"] {
+				background-color: rgba(var(--spice-rgb-pagelink-active), 0.15);
+				transition: 150ms background-color;
+			}
+		}
+	}
+}

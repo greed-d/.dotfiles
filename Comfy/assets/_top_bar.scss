@@ -1,0 +1,44 @@
+:root .main-topBar-container {
+	.main-topBar-topbarContent *,
+	.main-topBar-topbarContentWrapper * {
+		justify-content: center;
+		text-align: center;
+	}
+
+	.main-topBar-searchBar {
+		>form input {
+			&::placeholder {
+				color: rgba(var(--spice-rgb-selected-row), 0.7);
+			}
+
+			height: 32px;
+			background-color: rgba(var(--spice-rgb-shadow), 0.7);
+		}
+	}
+
+	.main-topBar-historyButtons button:hover {
+		transform: scale(1.1);
+	}
+
+	.main-topBar-topbarContent>div:has([data-encore-id="buttonPrimary"]):first-child {
+		display: none !important;
+	}
+
+	.main-topBar-background {
+		background-color: var(--spice-main) !important;
+	}
+
+	.main-topBar-overlay {
+		background-color: transparent !important;
+	}
+
+	.main-topBar-UpgradeButton {
+		font-size: 0;
+		overflow: hidden;
+		background: url("https://i.imgur.com/nzAfcIL.png") 50% / contain no-repeat;
+		border: none;
+		padding: 5px;
+		box-sizing: content-box;
+		width: 12px;
+	}
+}

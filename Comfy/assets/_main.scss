@@ -1,0 +1,275 @@
+// Global Nav Support
+:root .global-nav {
+	.Root__main-view .main-view-container .main-entityHeader-container {
+		padding: 32px;
+		align-items: center;
+		margin-top: 64px;
+	}
+}
+
+:root #main.Banner-Enabled {
+	.comfy-banner-frame {
+		display: block;
+
+		.comfy-banner-image {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-size: cover;
+			background-position: top;
+			background-image: var(--image-url);
+			filter: blur(var(--image-blur));
+			-webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+			mask-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+			transition: background 0.5s ease;
+		}
+
+		.comfy-banner-image:last-of-type {
+			display: none;
+		}
+	}
+
+
+	.main-entityHeader-backgroundColor {
+		background: none !important;
+	}
+
+	// gradient noise gets stretched vertically with this approach - but no black lines
+	&.Custom-Playbar-Snippet:not(.Comfy-nord-Snippet, .Comfy-nord-flat-Snippet, .Playbar-Above-Right-Panel-Snippet) {
+
+		.artist-artistOverview-artistOverviewContent,
+		.main-actionBarBackground-background {
+			min-height: calc(100vh - min(30vh, clamp(250px, 250px + (100vw - var(--comfy-left-sidebar-width, 0px) - var(--comfy-panel-width, 0px) - 600px)/424*150, 400px)) - 128px - 12px) !important;
+		}
+	}
+
+	.artist-artistOverview-artistOverviewContent,
+	.main-actionBarBackground-background {
+		background-image: linear-gradient(rgba(var(--spice-rgb-main-transition), var(--tracklist-gradient-opacity)) 0,
+				var(--spice-main) var(--tracklist-gradient-height)),
+			var(--tracklist-gradient-noise) !important;
+		background-color: transparent !important;
+		height: calc(100% - 250px);
+		min-height: calc(100vh - min(30vh, clamp(250px, 250px + (100vw - var(--comfy-left-sidebar-width, 0px) - var(--comfy-panel-width, 0px) - 600px)/424*150, 400px)) - 128px);
+		background-size: auto 100%, 300px var(--tracklist-gradient-height);
+		background-repeat: repeat-x;
+	}
+
+	.artist-artistOverview-artistOverviewContent {
+		position: relative !important;
+
+		.main-actionBarBackground-background {
+			background-image: none !important;
+			background-color: unset !important;
+		}
+	}
+
+	.playlist-playlist-playlistContent,
+	.dTKw7B8X1ybw7SHebMH3,
+	.xcTrtCsYOPtSElbX9inq,
+	.EmeHQXR87mUskYK6xEde,
+	.N_8iI7NKHP0iG2jp3g0R {
+		background: none; // Remove background
+	}
+
+	.main-entityHeader-background {
+		height: calc(clamp(340px, 30vh, 400px) + var(--tracklist-gradient-height));
+		max-height: 100%;
+
+		&.main-entityHeader-overlay {
+			--bgColor: unset !important;
+		}
+	}
+
+	.main-entityHeader-withBackgroundImage {
+		height: clamp(340px, 30vh, 400px) !important;
+	}
+}
+
+:root .Root__main-view {
+	.comfy-banner-frame {
+		display: none;
+	}
+
+	// Ad containers
+	.main-leaderboardComponent-container,
+	.sponsor-container {
+		display: none !important;
+	}
+
+	.main-view-container {
+
+		// Main Page Tweaks
+		main:not(:has(.lyrics-lyricsContainer-LyricsContainer)) {
+			position: sticky;
+			padding-bottom: 32px;
+
+			.os-host-overflow,
+			.os-padding,
+			.os-viewport,
+			div[data-overlayscrollbars~="host"],
+			[data-overlayscrollbars-viewport~="scrollbarHidden"] {
+				overflow: visible !important; // Override overflow property
+			}
+		}
+
+		// Radio Button Coloring
+		input:checked~.x-toggle-indicatorWrapper {
+			background-color: var(--spice-radio-btn-active);
+		}
+
+		// Cards
+		&:not(:has(#stats-app)) .main-card-card {
+			background: var(--spice-sidebar);
+			border-radius: var(--border-radius);
+			padding: 0;
+			overflow: hidden;
+
+			&:hover {
+				background: var(--spice-card);
+			}
+
+			.main-card-PlayButtonContainer {
+				right: 12px !important;
+			}
+
+			.main-card-imageContainer {
+				margin-bottom: -4px;
+
+				.main-cardImage-circular,
+				img {
+					border-radius: 0 !important; // Remove border-radius
+				}
+
+				.main-cardImage-imageWrapper {
+					box-shadow: none !important;
+				}
+			}
+
+			.main-card-cardMetadata {
+				padding: 16px;
+			}
+		}
+
+		// Headers
+		.rX_OmqCngvY5ZCoYBZgb.zyeJ9w99yrvGokL3BsMc,
+		.hIFR8WDm_54EEIa1gwpC.fIvMht6B9HdROywMNJZ4,
+		.main-home-filterChipsContainer>div:first-child {
+			&:after {
+				background-color: var(--spice-main);
+			}
+		}
+
+		.main-home-homeHeader {
+			display: none;
+		}
+
+		.main-entityHeader-container {
+			padding: 32px;
+			justify-content: center;
+
+			&>div:nth-last-of-type(2),
+			&>div.contentSpacing,
+			.main-entityHeader-imageContainer {
+				align-self: center;
+				justify-content: center;
+
+				&+.main-entityHeader-headerText {
+					flex: unset;
+					justify-content: center;
+
+					.main-entityHeader-title h1 {
+						font-size: 3rem !important;
+					}
+				}
+			}
+		}
+
+		// Action bar
+		.main-actionBar-ActionBar {
+			padding: 8px 16px 16px 16px; // Adjust padding
+
+			.main-actionBar-ActionBarRow {
+				&:first-of-type {
+					>div:first-child {
+						margin-top: -24px;
+					}
+				}
+
+				>div:first-child {
+					margin-left: calc(var(--content-spacing) + 3px);
+				}
+
+				>:first-child:not(:only-child) {
+					margin-right: calc(var(--content-spacing) + 4px);
+				}
+
+				[class*="Button"] {
+					min-block-size: 32px;
+					padding-block: 0;
+				}
+			}
+		}
+
+		// Artist Page
+		.artist-artistOverview-artistOverviewContent .contentSpacing>.main-gridContainer-gridContainer {
+			padding-bottom: var(--grid-gap);
+		}
+
+		// Home Page
+		.view-homeShortcutsGrid-shortcut {
+			border-radius: var(--border-radius);
+
+			.view-homeShortcutsGrid-imageWrapper {
+				border-radius: calc(var(--border-radius) + 15px);
+			}
+
+			.main-playButton-PlayButton {
+				background: none !important;
+			}
+		}
+
+		// Lyrics plus
+		.lyrics-lyricsContainer-Provider {
+			font-size: 0;
+		}
+
+		.lyrics-lyricsContainer-LyricsContainer {
+			&::-webkit-scrollbar {
+				width: 0 !important;
+				height: 0 !important;
+			}
+
+			.lyrics-lyricsContainer-LyricsBackground {
+				z-index: -1;
+				background-repeat: no-repeat;
+				background-size: cover;
+				-webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+				mask-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+			}
+		}
+
+		// Shows
+		section[data-testid="your-episodes-page"] {
+			.main-actionBarBackground-background {
+				height: calc(100vh - 494px) !important;
+			}
+		}
+
+		section[data-testid="episode"] {
+			.main-actionBar-ActionBar {
+				flex-direction: column-reverse;
+
+				.main-actionBar-ActionBarRow {
+					margin-top: 0 !important;
+
+					&:nth-child(1) {
+						padding-top: 2rem;
+					}
+				}
+			}
+		}
+	}
+}
