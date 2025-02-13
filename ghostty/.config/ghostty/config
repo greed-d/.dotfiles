@@ -40,7 +40,7 @@ font-family = JetBrainsMono NF
 # font-family = InputMono Nerd Font
 font-size = 13
 
-theme = catppuccin-mocha
+theme = nordic
 
 window-decoration = false
 
