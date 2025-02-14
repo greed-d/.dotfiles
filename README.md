@@ -1,12 +1,14 @@
 # Dotfiles
 
+## The repo is currently overgoing a major overhaul, do apply caution
+
 ## I've moved to NixOS and this repo will no longer be maintained. This repo will start to get maintained if I ever decide to come back to arch.
 
 > [!NOTE]  
 > `wallpapers` moved to [wallpapers](https://www.github.com/greeid/wallpapers) repository
 
 > [!NOTE]
-> Neovim config is in [nvim-conf](https://github.com/greeid/nvim-conf) repo 
+> Neovim config is in [nvim-conf](https://github.com/greeid/nvim-conf) repo
 
 Place where my dotfiles reside :
 
@@ -34,10 +36,10 @@ My qtile config
 ![bspwm1](./bspwm/.config/bspwm/.screenshots/bspdesktop.png)
 ![bspwm1](./bspwm/.config/bspwm/.screenshots/bspwf.png)
 
-
 ## [Rofi](./rofi/.config/rofi/)
 
 - Catppuccin Mocha
 
 ## Star History
+
 [![Star History Chart](https://api.star-history.com/svg?repos=greed-d/.dotfiles&type=Date)](https://star-history.com/#greed-d/.dotfiles&Date)
