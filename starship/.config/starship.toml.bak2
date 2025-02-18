@@ -1,0 +1,69 @@
+#setups
+format = " $battery$directory "
+right_format = ' $java$lua$python$git_branch$git_status$cmd_duration '
+
+[character]
+success_symbol = "[ 󰀘 ](bg:#458488 fg:#282828)"
+error_symbol = "[ ](#f38ba8)"
+vicmd_symbol = "[  ](#f9e2af)"
+
+[directory]
+format = "[ 󰀘  ](bg:#89b4fa fg:#11121b)[ $path ](bg:#45475a fg:#cdd6f4)"
+truncation_length = 1
+fish_style_pwd_dir_length = 1
+
+
+[cmd_duration]
+min_time = 1
+# duration & style 
+format = "[[ 󰔚 ](fg:#b16286 bold)$duration ](fg:#BBC3DF)"
+disabled = false
+style = "bg:none fg:#161821"
+
+#battery
+[battery]
+full_symbol = "󰂄"
+charging_symbol = ""
+discharging_symbol = "󰂅 "
+
+[[battery.display]]
+threshold = 30
+
+[git_branch]
+# format = '$symbol(fg: #a6e3a1)[$branch](bg:#0f0 fg:#86AAEC)'
+format = '(\( $symbol$branch)'
+symbol = ' '
+style = "fg: #a6e3a1"
+
+[git_status]
+# $all status$ahead_behind
+# format = "[$all_status$ahead_behind ](bg:#161821 fg:#b4befe)"
+#
+format = '[( |$all_status$ahead_behind \))](fg: #b4befe)'
+style = "bg:none fg:none"
+conflicted = "="
+ahead = " ⇡${count}"
+behind = " ⇣${count}"
+diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = " "
+untracked = " ?${count}"
+modified = " !${count}"
+staged = " +${count}"
+deleted = " 󰅖${count}"
+stashed = " 󰏖"
+renamed = " »${count}"
+
+[python]
+symbol = " "
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )](bold yellow)'
+# format = '[(\($virtualenv\)) ](bg:#161821 fg:#BBC3DF)'
+# style = "bg:none fg:#fab387"
+
+[lua]
+symbol = ""
+format = ' [$symbol $version](bold blue) '
+
+[java]
+symbol = ""
+# format = ' [$symbol $version_format](bold blue) '
+format = ' [${symbol} (${version})](bold red)'
