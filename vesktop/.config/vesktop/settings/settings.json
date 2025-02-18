@@ -3,7 +3,9 @@
     "autoUpdateNotification": true,
     "useQuickCss": true,
     "themeLinks": [],
-    "enabledThemes": [],
+    "enabledThemes": [
+        "catppuccin-mocha.css"
+    ],
     "enableReactDevtools": false,
     "frameless": false,
     "transparent": false,
@@ -583,7 +585,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1739873190742
+        "settingsSyncVersion": 1739873501105
     },
     "eagerPatches": false
 }
