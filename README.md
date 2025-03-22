@@ -1,43 +1,24 @@
 # Dotfiles
-
-## I've moved to NixOS and this repo will no longer be maintained. This repo will start to get maintained if I ever decide to come back to arch.
+## Place where my dotfiles reside :
 
 > [!NOTE]  
 > `wallpapers` moved to [wallpapers](https://www.github.com/greeid/wallpapers) repository
 
 > [!NOTE]
-> Neovim config is in [nvim-conf](https://github.com/greeid/nvim-conf) repo 
+> Neovim config is in [nvim-minimal](https://github.com/greed-d/nvim-minimal) repo 
 
-Place where my dotfiles reside :
-
-### Check gruvbox branch for gruvbox theme
-
-You can check for respective WM with the given links below
+> [!NOTE]
+> Click on WM name for more screenshots and installation process
 
 ## [Hyprland](https://github.com/greeid/.dotfiles/tree/main/hypr/.config/hypr)
-
+### Wallpaper
 ![hypr1](./hypr/.config/hypr/.screenshots/wallpaper.png)
+
+### Fetch
 ![hypr2](./hypr/.config/hypr/.screenshots/fetch.png)
-![hypr3](./hypr/.config/hypr/.screenshots/nvim.png)
 
-## [Qtile](https://github.com/greeid/.dotfiles/tree/main/qtile/.config/qtile) (No longer maintained)
-
-My qtile config
-
-![Qtile2](./qtile/.config/qtile/.screenshots/Qtile2.png)
-![Qtile](./qtile/.config/qtile/./.screenshots/qtile.png)
-![firefox](./qtile/.config/qtile/./.screenshots/firefox.png)
-![spotify](./qtile/.config/qtile/./.screenshots/spotify.png)
-
-## [BSPWM](https://github.com/greeid/.dotfiles/tree/main/bspwm/.config/bspwm) (No longer maintained)
-
-![bspwm1](./bspwm/.config/bspwm/.screenshots/bspdesktop.png)
-![bspwm1](./bspwm/.config/bspwm/.screenshots/bspwf.png)
-
-
-## [Rofi](./rofi/.config/rofi/)
-
-- Catppuccin Mocha
+### [Neovim](https://github.com/greed-d/nvim-minimal)
+![hypr3](https://github.com/greed-d/nvim-minimal/blob/main/.screenshots/cmp.png?raw=true)
 
 ## Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=greed-d/.dotfiles&type=Date)](https://star-history.com/#greed-d/.dotfiles&Date)
