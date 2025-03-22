@@ -10,7 +10,7 @@
 > [!NOTE]
 > Click on WM name for more screenshots and installation process
 
-## [Hyprland](https://github.com/greeid/.dotfiles/tree/main/hypr/.config/hypr)
+## [Hyprland](https://github.com/greed-d/.dotfiles/tree/catppuccin/hypr/.config/hypr)
 ### Wallpaper
 ![hypr1](./hypr/.config/hypr/.screenshots/wallpaper.png)
 
