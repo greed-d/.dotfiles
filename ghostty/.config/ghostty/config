@@ -26,6 +26,7 @@ term = xterm-ghostty
 
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
+gtk-single-instance = true
 
 window-padding-x = 15
 window-padding-y = 8
@@ -42,6 +43,7 @@ font-family = JetBrainsMono NF
 font-size = 13
 
 theme = catppuccin-mocha
+cursor-text = #000000
 
 window-decoration = false
 
