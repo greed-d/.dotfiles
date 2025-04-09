@@ -1,7 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-right_format = """$cmd_duration"""
-format = """$battery$directory$git_branch$git_status$git_state$git_state$python$line_break$character"""
+format = """$battery$directory$git_branch$git_status$git_state$git_state$line_break$character"""
+right_format = """$python $cmd_duration"""
 
 add_newline = false
 
@@ -96,7 +96,7 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
 [cmd_duration]
 min_time = 10
-format = '󰥔 [$duration](bold yellow)'
+format = '󰥔 [$duration](bold purple)'
 show_milliseconds = true
 
 # [python]
@@ -106,4 +106,4 @@ show_milliseconds = true
 
 [python]
 symbol = " "
-format = '[(\($virtualenv\))](bold yellow)'
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
