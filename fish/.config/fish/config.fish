@@ -86,6 +86,7 @@ alias e thunar
 alias x exit
 alias lg lazygit
 abbr rt trash
+alias ggu "git config --get user.name"
 alias vi "NVIM_APPNAME=vanvim nvim"
 alias nvd neovide
 alias hvd "env -u WAYLAND_DISPLAY neovide --multigrid"
@@ -124,6 +125,7 @@ bind \cf tmux-sessionizer
 set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/ghostty/zig-out/bin/"
 set PATH "$PATH":"$HOME/.local/bin/"
+set PATH "$PATH":"$HOME/.local/colorscripts/"
 set PATH "$PATH":"$HOME/.sdkman/candidates/gradle/current/bin/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"

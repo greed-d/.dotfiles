@@ -6,7 +6,7 @@
     set -l orange ff9e64
     set -l yellow e0af68
     set -l green 9ece6a
-    set -l purple 9f81d4
+    set -l purple 9d7cd8
     set -l cyan 7dcfff
     set -l pink bb9af7
 
@@ -17,6 +17,7 @@
     set -g fish_color_quote $yellow
     set -g fish_color_redirection $foreground
     set -g fish_color_end $orange
+    set -g fish_color_option $pink
     set -g fish_color_error $red
     set -g fish_color_param $purple
     set -g fish_color_comment $comment
