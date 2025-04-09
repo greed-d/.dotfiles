@@ -28,8 +28,8 @@ gtk-tabs-location = bottom
 gtk-wide-tabs = false
 gtk-single-instance = true
 
-window-padding-x = 15
-window-padding-y = 8
+window-padding-x = 7
+window-padding-y = 7
 
 window-save-state = always
 
@@ -42,7 +42,7 @@ font-family = JetBrainsMono NF
 # font-family = InputMono Nerd Font
 font-size = 13
 
-theme = catppuccin-mocha
+theme = tokyonight_night
 cursor-text = #000000
 
 window-decoration = false
