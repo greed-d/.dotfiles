@@ -1,0 +1,175 @@
+@import url("/home/greed/.config/waybar/custom-colors.css");
+* {
+  padding: 0px;
+  margin: 0px;
+  /* border: none; */
+  border-radius: 0px;
+  font-family: "GeistMono Nerd Font";
+  font-weight: 500;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+window#waybar {
+  background: rgba(18, 18, 30, 1);
+  color: @white;
+  border-radius: 8px;
+  /* opacity: 1; */
+  margin: 2px;
+}
+
+tooltip {
+  background: @module-bg;
+  border-radius: 7px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #11111b;
+}
+
+#window,
+#mpris,
+#custom-spotify,
+#custom-updater,
+#memory,
+#network,
+#workspaces,
+#battery,
+#backlight,
+#pulseaudio,
+#clock,
+#custom-notification,
+#tray {
+  background-color: @module-bg;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+  border-color: @white;
+  
+}
+
+#tray {
+  background-color: @module-bg;
+  padding: 2px 10px 2px 10px;
+  border-radius: 10px;
+  border-color: @white;
+  
+}
+
+#window {
+  margin-left: 5px;
+}
+
+#mpris {
+  color: @white;
+}
+
+/* #mpris.paused { */
+/*   border-bottom: 2px solid @white; */
+/* } */
+
+#network {
+  color: @blue;
+}
+
+#memory {
+  color: @sun;
+}
+
+#workspaces button {
+  /* color: @white; */
+  background-color: @module-bg;
+  padding: 4px;
+}
+
+#workspaces button.active {
+  color: @green;
+}
+
+#workspaces button.active:nth-child(1) {
+  color: @firefox;
+}
+
+#workspaces button.active:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button.active:nth-child(3) {
+  color: @purple;
+}
+
+#workspaces button.active:nth-child(4) {
+  color: @sun;
+}
+
+#workspaces button.active:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button.active:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button.active:nth-child(7) {
+  color: @cyan;
+}
+
+#workspaces button.active:nth-child(8) {
+  color: @green;
+}
+
+#workspaces button.active:nth-child(9) {
+  color: @blue;
+}
+/* #workspaces button.active:nth-child(-n+2) { */
+/*   color: @red; */
+/* } */
+/* #workspaces button.persistent { */
+/*   background-color: @module-bg; */
+/*   color: @blue; */
+/* } */
+
+#workspaces button.empty {
+  color: @white;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+/* #workspaces button.active:hover { */
+/*   color: @module-bg; */
+/*   background-color: @white; */
+/*   border-radius: 20px; */
+/*   padding-left: 10px; */
+/*   padding-right: 10px; */
+/*   padding-top: 2px; */
+/*   padding-bottom: 2px; */
+/* } */
+/**/
+#workspaces button:hover {
+  color: @green;
+}
+
+#custom-updater {
+  color: @red;
+}
+
+#battery {
+  color: @vibrant-green;
+}
+
+#backlight {
+  color: @sun;
+}
+
+#pulseaudio {
+  color: @purple;
+}
+
+#clock {
+  color: @cyan;
+}
+
+#custom-notification {
+  color: @white;
+  margin-right: 5px;
+}

@@ -1,0 +1,325 @@
+@import url("/home/greed/.config/waybar/custom-colors.css");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0px;
+  font-family: "GeistMono Nerd Font";
+  font-size: 14px;
+  font-weight: 800;
+}
+
+window#waybar {
+  background: rgba(17, 18, 29, 1);
+  color: @white;
+  border-radius: 7px;
+}
+
+
+#disk,
+#window,
+#mpris,
+#custom-spotify,
+#custom-updater,
+#memory,
+#network,
+#battery,
+#backlight,
+#pulseaudio,
+#clock,
+#custom-notification,
+#idle_inhibitor,
+#tray,
+#workspaces {
+  background: @lightbg;
+  margin: 2px;
+  padding: 2px;
+  padding-left: 7px;
+  padding-right: 7px;
+
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 5px;
+}
+
+
+#custom-spotify {
+  padding: 0 10 0 10px;
+}
+
+#workspaces {
+  margin-left: 9px;
+  background-color: @catp;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 5px;
+}
+
+#window {
+  background-color: @catp;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+}
+
+
+#custom-updater {
+  color: @red;
+}
+
+#battery {
+  color: @vibrant-green;
+
+  /* background-color: @catp; */
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  /* border-radius: 10px; */
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.critical:not(.connected) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#backlight {
+  color: @sun;
+  /* background-color: @catp; */
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  /* border-radius: 10px; */
+}
+
+
+#network {
+
+  color: @module-bg;
+  background-color: @python;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 5px
+}
+
+
+#pulseaudio {
+  /* padding-right: 0px; */
+  /* background-color: @catp; */
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  /* border-radius: 10px 0px 0px 10px; */
+  /* margin-right: 0px; */
+  color: @dark-purple;
+}
+
+#pulseaudio.microphone {
+  /* padding-left: 0px; */
+
+  /* background-color: @catp; */
+  /* margin-top: 7px; */
+  /* margin-bottom: 7px; */
+  /* padding-left: 0px; */
+  /* border-radius: 0px 10px 10px 0px; */
+  border-radius: 7px;
+  color: @dark-purple;
+}
+
+#pulseaudio.microphone.source-muted {
+  background-color: @red;
+  color: @module-bg;
+  /* padding-left: 5px; */
+  /* margin-left: 10px; */
+
+  margin-top: 7px;
+  margin-bottom: 7px;
+  border-radius: 7px;
+}
+
+#memory {
+  color: @sun;
+
+  /* background-color: @sun; */
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+}
+
+#bluetooth {
+  color: @python;
+}
+
+#clock {
+  color: @module-bg;
+  background-color: @vibrant-green;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-right: 5px;
+  border-radius: 7px;
+}
+
+#disk {
+  color: @cyan;
+}
+
+#tray {
+  margin-right: 10px;
+}
+
+/* #window { */
+/*   color: @module-bg; */
+/*   background-color: @white; */
+/*   margin-top: 10px; */
+/*   margin-bottom: 10px; */
+/* } */
+
+#workspaces button {
+  padding: 1px;
+}
+
+#workspaces button:nth-child(1) {
+  color: @firefox;
+}
+
+#workspaces button:hover:nth-child(1) {
+  color: @firefox;
+}
+
+#workspaces button.empty:nth-child(1) {
+  color: @firefox;
+}
+
+#workspaces button.active:nth-child(1) {
+  color: @firefox;
+
+}
+
+#workspaces button:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button:hover:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button.empty:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button.active:nth-child(2) {
+  color: @python;
+}
+
+#workspaces button:nth-child(3) {
+  color: @dark-purple;
+}
+
+#workspaces button:hover:nth-child(3) {
+  color: @dark-purple;
+}
+
+#workspaces button.empty:nth-child(3) {
+  color: @dark-purple;
+}
+
+#workspaces button.active:nth-child(3) {
+  color: @dark-purple;
+}
+
+#workspaces button:nth-child(4) {
+  color: @green;
+}
+
+#workspaces button:hover:nth-child(4) {
+  color: @green;
+}
+
+#workspaces button.empty:nth-child(4) {
+  color: @green;
+}
+
+#workspaces button.active:nth-child(4) {
+  color: @green;
+}
+
+#workspaces button:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button:hover:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button.empty:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button.active:nth-child(5) {
+  color: @git;
+}
+
+#workspaces button:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button:hover:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button.empty:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button.active:nth-child(6) {
+  color: @blue;
+}
+
+#workspaces button:nth-child(7) {
+  color: @baby-pink;
+}
+
+#workspaces button:hover:nth-child(7) {
+  color: @baby-pink;
+}
+
+#workspaces button.empty:nth-child(7) {
+  color: @baby-pink;
+}
+
+#workspaces button.active:nth-child(7) {
+  color: @baby-pink;
+}
+
+#workspaces button:nth-child(8) {
+  color: @sun;
+}
+
+#workspaces button:hover:nth-child(8) {
+  color: @baby-pink;
+}
+
+#workspaces button.empty:nth-child(8) {
+  color: @baby-pink;
+}
+
+#workspaces button.active:nth-child(8) {
+  color: @baby-pink;
+}
