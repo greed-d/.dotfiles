@@ -1,0 +1,15 @@
+[Unit]
+Description=Watch Wayland Clipboard and Store with cliphist
+# PartOf and After ensure it starts with and is stopped with the graphical session
+PartOf=graphical-session.target
+After=graphical-session.target
+# Requisite= is usually too strict and can prevent login if this fails
+
+[Service]
+# We need sh -c to handle the pipe correctly. Use full paths.
+ExecStart=/bin/sh -c '/usr/bin/wl-paste --watch /usr/bin/cliphist store'
+Restart=on-failure
+
+[Install]
+# This makes the service start automatically when graphical-session.target starts
+WantedBy=graphical-session.target
