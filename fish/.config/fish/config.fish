@@ -86,6 +86,7 @@ alias e thunar
 alias x exit
 alias lg lazygit
 abbr rt trash
+abbr uvr "uv run"
 alias ggu "git config --get user.name"
 alias vi "NVIM_APPNAME=vanvim nvim"
 alias nvd neovide
