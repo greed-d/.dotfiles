@@ -1,133 +1,18 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 36,
-  "spacing": 4,
-  "exclusive": true,
-  "passthrough": false,
-  "fixed-center": true,
-
-  "modules-left": [
-    "niri/window",
-    "custom/sep",
-    "mpris",
-    "custom/sep",
-    "tray",
-    "custom/sep",
-    "cpu",
-    "power-profiles-daemon",
-    "custom/update",
-    "custom/sep",
-  ],
-  "modules-center": ["niri/workspaces"],
+  "height": 40, // Waybar height (to be removed for auto height)
+  "layer": "top", // Waybar at top layer
+  "modules-left": ["niri/window", "cpu", "memory", "niri/workspaces"],
+  "modules-center": ["mpris"],
   "modules-right": [
-    // "custom/screen-recorder",
-    "custom/sep",
+    "tray",
     "pulseaudio",
     "pulseaudio#microphone",
     "backlight",
-    "custom/sep",
     "battery",
-    "memory",
-    "custom/sep",
+    "custom/lock",
     "clock",
-    "custom/sep",
-    "idle_inhibitor",
-    "custom/power",
+    "custom/weather",
   ],
-
-  "custom/screen-recorder": {
-    "exec": "~/.config/waybar/modules/screen_recorder_init.sh",
-    "interval": 1,
-    "return-type": "json",
-    "format": "{}",
-    "on-click": "~/.config/waybar/modules/screen_recorder.sh save",
-    "on-click-middle": "~/.config/waybar/modules/screen_recorder.sh restart",
-    "on-click-right": "~/.config/waybar/modules/screen_recorder.sh stop",
-  },
-
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": "",
-    },
-  },
-  "backlight": {
-    "format": "{icon}  {percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "tooltip": false,
-    "on-scroll-up": "swayosd-client --brightness +5",
-    "on-scroll-down": "swayosd-client --brightness -5",
-    // "min-length": 6,
-    "max-length": 6,
-  },
-
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": " ",
-      "performance": " ",
-      "balanced": " ",
-      "power-saver": " ",
-    },
-  },
-
-  "battery": {
-    "interval": 60,
-    "align": 0,
-    "rotate": 0,
-    //"bat": "BAT1",
-    //"adapter": "ACAD",
-    "full-at": 100,
-    "design-capacity": false,
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 10,
-    },
-    "format": "{icon}   {capacity}%",
-    "format-charging": "  {capacity}%",
-    "format-plugged": "  {capacity}%",
-    "format-full": "{icon}   Full",
-    "format-alt": "{icon} {time}",
-    "format-icons": ["", "", "", "", ""],
-    "format-time": "{H}h {M}min",
-    "tooltip": true,
-    "tooltip-format": " {timeTo} {power}w ",
-    "on-click-middle": "~/.config/hypr/scripts/ChangeBlur.sh",
-    "on-click-right": "$HOME/.config/hypr/scripts/WofiPower.sh",
-  },
-
-  // "custom/music-player": {
-  //   "interval": 1,
-  //   "format": "{}",
-  //   "return-type": "json",
-  //   "exec": "~/.config/waybar/modules/music_player.sh grep",
-  //   "on-click": "~/.config/waybar/modules/music_player.sh previous",
-  //   "on-click-middle": "~/.config/waybar/modules/music_player.sh pause",
-  //   "on-click-right": "~/.config/waybar/modules/music_player.sh next",
-  // },
-  "mpris": {
-    "format": "{player_icon}  {title}",
-    "format-paused": "{player_icon} - {status_icon}  {title}",
-    "artist-len": 10,
-    "title-len": 20,
-    "player-icons": {
-      "default": "▶",
-      "mpv": "🎵",
-      "spotify": " ",
-      "firefox": " ",
-      "chromium": "  ",
-    },
-    "status-icons": {
-      "paused": " ",
-    },
-    // "ignored-players": ["firefox"]
-  },
-
   "niri/workspaces": {
     "on-click": "activate",
     "format": "{name}",
@@ -236,38 +121,13 @@
       "Authenticate": "  Authenticate",
     },
   },
-
-  "custom/update": {
-    "exec": "~/.config/waybar/modules/system-update.sh",
-    "return-type": "json",
-    "format": "{}",
-    "on-click": "~/.config/waybar/modules/system-update.sh up",
-    "interval": 30,
-    "min-length": 1,
-    "max-length": 1,
-  },
-
-  "hyprland/window": {
-    "format": "{}",
-    "rewrite": {
-      "": "<span foreground='#89b4fa'>󰨇  </span> Desktop",
-      "nvim": "<span foreground='#a6e3a1'> </span> Neovim",
-      "nvim (.*)": "<span foreground='#a6e3a1'> </span> $1",
-      "(.{30}).*": "$1..",
-    },
-    "icon": true,
-    "icon-size": 22,
-  },
-
   "tray": {
-    "show-passive-items": true,
     "spacing": 10,
   },
-
   "clock": {
     // "tooltip": false,
-    "format": "   {:%H:%M:%S}",
-    "format-alt": "   {:%a, %d %b}",
+    "format": "  {:%H:%M:%S}",
+    "format-alt": "  {:%a, %d %b}",
     "interval": 1,
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
@@ -285,50 +145,61 @@
     "max-length": 28,
   },
 
-  "pulseaudio": {
-    "format": "{icon}   {volume}%",
-    "format-muted": "  muted",
-    "format-icons": {
-      "headphone": " ",
-      "hands-free": "󰂑",
-      "headset": "󰂑",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [" ", " ", " "],
-    },
-    "on-click-middle": "pavucontrol",
-    "on-click": "swayosd-client --output-volume mute-toggle",
-    "on-scroll-up": "swayosd-client --output-volume +1",
-    "on-scroll-down": "swayosd-client --output-volume -1",
-  },
-
   "cpu": {
-    "format": "󰍛  {usage}%",
+    "format": "󰍛 {usage}%",
     "tooltip": false,
     "interval": 5,
     // "min-length": 6,
     // "max-length": 6
   },
-
   "memory": {
     "states": {
       "warning": 75,
       "critical": 90,
     },
 
-    "format": "   {percentage}%",
+    "format": "  {percentage}%",
     "format-critical": "󰀦 {percentage}%",
     "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
     "interval": 5,
     // "min-length": 7,
     // "max-length": 7
   },
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "tooltip": true,
+    "tooltip-format": "{percent}%",
+    "on-scroll-up": "swayosd-client --brightness +5",
+    "on-scroll-down": "swayosd-client --brightness -5",
+  },
+  "network": {
+    /* "format-wifi": "直", */
+    "format-wifi": "{icon}",
+    "format-ethernet": " ",
+    "format-disconnected": "睊",
+    "tooltip-format": "{essid}",
+    "on-click": "~/.config/waybar/scripts/network/rofi-network-manager.sh",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+  },
 
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "婢",
+    "format-icons": {
+      "default": ["", "", "墳"],
+    },
+    "on-click-middle": "pavucontrol",
+    "on-click": "swayosd-client --output-volume mute-toggle",
+    "on-scroll-up": "swayosd-client --output-volume +1",
+    "on-scroll-down": "swayosd-client --output-volume -1",
+    "tooltip": true,
+    "tooltip-format": "{volume}%",
+  },
   "pulseaudio#microphone": {
     "format": "{format_source}",
-    "format-source": "  {volume}%",
-    "format-source-muted": " ",
+    "format-source": " ",
+    "format-source-muted": "󰍭<span font-family='Lexend' size='11000'> Muted</span>",
     "on-click": "swayosd-client --input-volume mute-toggle",
     "on-click-middle": "",
     "on-scroll-up": "swayosd-client --input-volume +1",
@@ -336,14 +207,64 @@
     "tooltip-format": "{source_desc} | {source_volume}%",
   },
 
-  "custom/sep": {
-    "format": "|",
-    "tooltip": false,
+  "battery": {
+    "bat": "BAT1",
+    "adapter": "ACAD",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "max-length": 20,
+    "format": "{icon} ",
+    "format-warning": "{icon}",
+    "format-critical": "{icon}",
+    "format-charging": "<span font-family='Font Awesome 6 Free'></span>",
+    "format-plugged": "ﮣ",
+    "tooltip": true,
+    "tooltip-format": "{capacity}%",
+
+    "format-alt": "{icon} {time}",
+    "format-full": "ﮣ",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "custom/weather": {
+    "exec": "python3 ~/.config/waybar/scripts/weather.py",
+    "restart-interval": 300,
+    "return-type": "json",
   },
 
-  "custom/power": {
-    "tooltip": false,
-    "on-click": "swaync-client -t -sw",
-    "format": "󰂚 ",
+  "mpris": {
+    "format": "{player_icon}  {title}",
+    "format-paused": "{player_icon} - {status_icon}  {title}",
+    "artist-len": 10,
+    "title-len": 20,
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵",
+      "spotify": " ",
+      "firefox": " ",
+      "chromium": "  ",
+    },
+    "status-icons": {
+      "paused": " ",
+    },
+    // "ignored-players": ["firefox"]
+  },
+  "custom/spotify": {
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "format": " {}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-double-click-right": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+  },
+  "custom/power-menu": {
+    "format": " ⏻ ",
+    "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh &",
+  },
+  "custom/launcher": {
+    "format": "",
+    "on-click": "rofi -show drun &",
   },
 }
