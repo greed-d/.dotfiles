@@ -3,7 +3,7 @@
 format = """$battery$directory$git_branch$git_status$git_state$git_state$line_break$character"""
 right_format = """$python $cmd_duration"""
 
-add_newline = false
+add_newline = true
 
 # Other languages configurations:
 c.disabled = true
