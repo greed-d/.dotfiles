@@ -35,7 +35,6 @@ window-save-state = always
 
 confirm-close-surface=false
 
-# Empty values reset the configuration to the default value
 
 # font-family = CaskaydiaMono Nerd Font
 font-family = JetBrainsMono NF
@@ -47,30 +46,3 @@ cursor-text = #000000
 
 window-decoration = false
 
-# font-variation = wght
-
-# Colors can be changed by setting the 16 colors of `palette`, which each color
-# being defined as regular and bold.
-#
-# palette = 0=#15161E
-# palette = 1=#f7768e
-# palette = 2=#9ece6a
-# palette = 3=#e0af68
-# palette = 4=#7aa2f7
-# palette = 5=#bb9af7
-# palette = 6=#7dcfff
-# palette = 7=#a9b1d6
-# palette = 8=#414868
-# palette = 9=#f7768e
-# palette = 10=#9ece6a
-# palette = 11=#e0af68
-# palette = 12=#7aa2f7
-# palette = 13=#bb9af7
-# palette = 14=#7dcfff
-# palette = 15=#c0caf5
-# background = #050505
-# foreground = #c0caf5
-# cursor-color = #cdd6f4
-# selection-background = #cdd6f4
-# selection-foreground = #1a1b26
-# #
