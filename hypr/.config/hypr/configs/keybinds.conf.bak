@@ -6,13 +6,13 @@
 # Set programs that you use below
 
 $mainMod = SUPER
-$terminal = uwsm app -- ghostty
-$fileManager = uwsm app -- nautilus
+$terminal = ghostty
+$fileManager = thunar
 # $menu = rofi -show drun -theme ~/.config/rofi/catppuccin.rasi
-$menu = uwsm app -- rofi -show drun -theme /home/greed/.config/rofi/type1.rasi
-$emoji = fuzzel-emoji
-$browser = uwsm app -- zen-browser
-$disc_client = uwsm app -- vesktop
+$menu = rofi -show drun -theme /home/greed/.config/rofi/type1.rasi
+$emoji = rofi -modi emoji -show emoji 
+$browser = zen-browser
+$disc_client = vesktop
 $scripts = $HOME/.local/scripts/
 $hyp_script = $HOME/.config/hypr/scripts/
 
