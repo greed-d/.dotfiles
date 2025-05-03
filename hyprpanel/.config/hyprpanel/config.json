@@ -65,7 +65,7 @@
       ]
     }
   },
-  "theme.font.name": "Google Sans",
+  "theme.font.name": "Lexend",
   "theme.font.weight": 500,
   "theme.bar.menus.menu.notifications.scrollbar.color": "#b4befe",
   "theme.bar.menus.menu.notifications.pager.label": "#9399b2",
@@ -594,5 +594,6 @@
   "theme.bar.buttons.borderSize": "0.08em",
   "menus.transition": "crossfade",
   "theme.osd.duration": 2000,
-  "menus.clock.time.hideSeconds": false
+  "menus.clock.time.hideSeconds": false,
+  "theme.font.label": "Lexend"
 }
