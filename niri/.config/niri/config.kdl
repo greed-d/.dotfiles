@@ -50,10 +50,10 @@ output "eDP-1" {
 /*
 ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
 ██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
-██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║   
-██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║   
-███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║   
-╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝   
+██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║
+██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║
+███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║
+╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝
 */
 layout {
   gaps 9
@@ -108,6 +108,7 @@ layout {
 ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 */
 animations {
+  off
   slowdown 1.2
 
   window-open {
@@ -194,6 +195,34 @@ layer-rule {
   opacity 1.0
 }
 
+layer-rule {
+  //  eww
+    match namespace="gtk-layer-shell"
+    match at-startup=true
+    shadow {
+        on
+        softness 10
+        spread 1
+        offset x=0 y=1
+        draw-behind-window true
+        color "#00000030"
+    }
+}
+
+layer-rule {
+  //  eww
+    match namespace="rofi"
+    match at-startup=true
+    shadow {
+        on
+        softness 10
+        spread 1
+        offset x=0 y=1
+        draw-behind-window true
+        color "#00000030"
+    }
+}
+
 /*
 
 ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗    ██████╗ ██╗   ██╗██╗     ███████╗███████╗
@@ -230,6 +259,7 @@ window-rule {
   
   match app-id="^xdm-app$"
   match app-id="^org.qbittorrent.qBittorrent$"
+  match app-id="^org.pulseaudio.pavucontrol$"
   
   open-floating true
 }
@@ -262,7 +292,6 @@ window-rule {
   match app-id="thunar$"
   match app-id="obsidian$"
   match app-id="com.github.th_ch.youtube_music"
-  match app-id="com.mitchellh.ghostty"
   match app-id="Postman"
 
   open-maximized true
@@ -335,8 +364,8 @@ binds {
 
   // Screenshots
   Print { screenshot; }
-  Mod+Alt+S { screenshot-screen show-pointer=false; }
-  Mod+Shift+S { screenshot show-pointer=false; }
+  Mod+Alt+S { screenshot-screen; }
+  Mod+Shift+S { screenshot ; }
 
   // Power stuff
   Mod+Shift+Q { spawn "bash" "-c" "shutdown now"; }
@@ -345,7 +374,7 @@ binds {
 
   //Binds for application
   Mod+Return { spawn "ghostty"; }
-  Mod+Space { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
+  Mod+Space { spawn "bash" "-c" "pkill rofi || rofi -show drun -theme /home/greed/.config/rofi/type6.rasi"; }
   Super+Ctrl+L { spawn "hyprlock"; }
   Mod+B { spawn "zen-browser"; }
   Mod+E { spawn "thunar"; }
@@ -492,6 +521,8 @@ environment {
   QT_QPA_PLATFORM "wayland"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
   EDITOR "nvim"
+  MOZ_ENABLE_WAYLAND "1" 
+  DISPLAY ":3"
 }
 
 // Miscellaneous Settings
@@ -505,5 +536,11 @@ hotkey-overlay {
 switch-events {
     lid-close { spawn "notify-send" "The laptop lid is closed!"; }
     lid-open { spawn "notify-send" "The laptop lid is open!"; }
+}
+
+cursor {
+  xcursor-theme "Bibata-Modern-Classic"
+  xcursor-size 24
+  hide-when-typing
 }
 
