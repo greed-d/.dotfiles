@@ -53,7 +53,7 @@ end
 
 function nvims
     set items astronvim nvchad lvim kvim
-    set config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+    set config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
     if [ -z $config ]
         echo "Nothing selected"
         return 0
@@ -127,7 +127,7 @@ set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/ghostty/zig-out/bin/"
 set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"$HOME/.local/colorscripts/"
-set PATH "$PATH":"$HOME/.sdkman/candidates/gradle/current/bin/"
+# set PATH "$PATH":"$HOME/.sdkman/candidates/gradle/current/bin/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
 set PATH "$PATH":"$HOME/.local/share/bob/nvim-bin"
