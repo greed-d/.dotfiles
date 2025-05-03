@@ -1,4 +1,10 @@
 .config/nvim/plugin
+vesktop/.config/vesktop/sessionData
+vesktop/.config/vesktop/Crashpad
+vesktop/.config/vesktop/SingletonCookie
+vesktop/.config/vesktop/SingletonLock
+vesktop/.config/vesktop/SingletonSocket
+vesktop/.config/vesktop/state.json
 
 fish/.config/fish/fish_variables
 
