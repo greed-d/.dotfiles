@@ -513,7 +513,7 @@ binds {
 // NOTE: Autostart, environment and misc stuff
 
 //Autostart
-spawn-at-startup "xwayland-satellite"
+// spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 // Environment Variables
@@ -522,7 +522,7 @@ environment {
   ELECTRON_OZONE_PLATFORM_HINT "auto"
   EDITOR "nvim"
   MOZ_ENABLE_WAYLAND "1" 
-  DISPLAY ":3"
+  DISPLAY ":1"
 }
 
 // Miscellaneous Settings
