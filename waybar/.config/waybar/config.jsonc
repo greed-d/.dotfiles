@@ -19,9 +19,7 @@
     "custom/update",
     "custom/sep",
   ],
-  "modules-center": [
-    "niri/workspaces",
-    ],
+  "modules-center": ["niri/workspaces"],
   "modules-right": [
     // "custom/screen-recorder",
     "custom/sep",
@@ -52,8 +50,8 @@
     "format": "{icon}",
     "format-icons": {
       "activated": "",
-      "deactivated": ""
-    }
+      "deactivated": "",
+    },
   },
   "backlight": {
     "format": "{icon}  {percent}%",
@@ -62,7 +60,7 @@
     "on-scroll-up": "swayosd-client --brightness +5",
     "on-scroll-down": "swayosd-client --brightness -5",
     // "min-length": 6,
-    "max-length": 6
+    "max-length": 6,
   },
 
   "power-profiles-daemon": {
@@ -73,7 +71,7 @@
       "default": " ",
       "performance": " ",
       "balanced": " ",
-      "power-saver": " "
+      "power-saver": " ",
     },
   },
 
@@ -122,7 +120,7 @@
       "mpv": "🎵",
       "spotify": " ",
       "firefox": " ",
-      "chromium" : "  "
+      "chromium": "  ",
     },
     "status-icons": {
       "paused": " ",
@@ -149,7 +147,7 @@
     "disable-scroll": false,
     "active-only": false,
     "display-condition": "only-populated",
-    "min-length" : 10,
+    "min-length": 10,
   },
 
   "niri/window": {
@@ -161,8 +159,7 @@
 
     "rewrite": {
       // Desktop
-      "": 
-        "<span foreground='#8aadf4'> </span> Hyprland",
+      "": "<span foreground='#8aadf4'> </span> Hyprland",
 
       // Terminal
       // "~": "   Terminal",
@@ -173,63 +170,42 @@
 
       // Browser
 
-      "(.*)Mozilla Firefox": 
-        "<span foreground='#ed8796'>󰈹 </span> Firefox",
-      "(.*) — Mozilla Firefox": 
-        "<span foreground='#ed8796'>󰈹 </span> $1",
+      "(.*)Mozilla Firefox": "<span foreground='#ed8796'>󰈹 </span> Firefox",
+      "(.*) — Mozilla Firefox": "<span foreground='#ed8796'>󰈹 </span> $1",
 
-      "(.*)Zen Browser": 
-        "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
-      "(.*) — Zen Browser": 
-        "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
-      "zen": 
-        "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
+      "(.*)Zen Browser": "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
+      "(.*) — Zen Browser": "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
+      "zen": "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
 
       // Development
 
-      "(.*) - Visual Studio Code": 
-        "<span foreground='#8aadf4'>󰨞  </span> $1",
-      "(.*)Visual Studio Code": 
-        "<span foreground='#8aadf4'>󰨞  </span> Visual Studio Code",
+      "(.*) - Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> $1",
+      "(.*)Visual Studio Code": "<span foreground='#8aadf4'>󰨞  </span> Visual Studio Code",
 
-      "nvim": 
-        "<span foreground='#a6da95'>  </span> Neovim",
-      "nvim (.*)": 
-        "<span foreground='#a6da95'>  </span> Neovim",
+      "nvim": "<span foreground='#a6da95'>  </span> Neovim",
+      "nvim (.*)": "<span foreground='#a6da95'>  </span> Neovim",
 
-      "vim": 
-        "<span foreground='#a6da95'>  </span> Vim",
-      "vim (.*)": 
-        "<span foreground='#a6da95'>  </span> $1",
+      "vim": "<span foreground='#a6da95'>  </span> Vim",
+      "vim (.*)": "<span foreground='#a6da95'>  </span> $1",
 
-      "Element": 
-        "<span foreground='#a6da95'>󰹻  </span> Element",
+      "Element": "<span foreground='#a6da95'>󰹻  </span> Element",
       // Media
 
-      "(.*)Spotify": 
-        "<span foreground='#a6da95'>  </span> Spotify",
-      "(.*)Spotify Premium": 
-        "<span foreground='#a6da95'>  </span> Spotify Premium",
+      "(.*)Spotify": "<span foreground='#a6da95'>  </span> Spotify",
+      "(.*)Spotify Premium": "<span foreground='#a6da95'>  </span> Spotify Premium",
 
-      // "OBS(.*)": 
+      // "OBS(.*)":
       //   "<span foreground='#a5adcb'>  </span> OBS Studio",
 
-      "VLC media player": 
-        "<span foreground='#f5a97f'>󰕼  </span> VLC Media Player",
-      "(.*) - VLC media player": 
-        "<span foreground='#f5a97f'>󰕼  </span> $1",
+      "VLC media player": "<span foreground='#f5a97f'>󰕼  </span> VLC Media Player",
+      "(.*) - VLC media player": "<span foreground='#f5a97f'>󰕼  </span> $1",
 
-      "(.*) - mpv": 
-        "<span foreground='#c6a0f6'>  </span> mpv",
-      "mpv": 
-        "<span foreground='#c6a0f6'>  </span> mpv",
+      "(.*) - mpv": "<span foreground='#c6a0f6'>  </span> mpv",
+      "mpv": "<span foreground='#c6a0f6'>  </span> mpv",
 
-      "thunar": 
-        "<span foreground='#8aadf4'>󰉋  </span> Thunar",
-      "obsidian": 
-        "<span foreground='#5b4965'>󱞁  </span> Obsidian",
-      "com.github.th_ch.youtube_music": 
-        "<span foreground='#FF0000'>  </span> YT Music",
+      "thunar": "<span foreground='#8aadf4'>󰉋  </span> Thunar",
+      "obsidian": "<span foreground='#5b4965'>󱞁  </span> Obsidian",
+      "com.github.th_ch.youtube_music": "<span foreground='#FF0000'>  </span> YT Music",
 
       "qView": "  qView",
 
@@ -239,35 +215,26 @@
 
       // Social
 
-      "vesktop": 
-        "<span foreground='#8aadf4'>   </span> Discord",
+      "vesktop": "<span foreground='#8aadf4'>   </span> Discord",
 
       "• Discord(.*)": "Discord$1",
-      "(.*)Discord(.*)": 
-        "<span foreground='#8aadf4'>  </span> Discord",
+      "(.*)Discord(.*)": "<span foreground='#8aadf4'>  </span> Discord",
 
-      "Telegram (.*)":
-        "<span foreground='#24A1DE'>  </span> Telegram",
-      "org.telegram.desktop":
-        "<span foreground='#24A1DE'>  </span> Telegram",
+      "Telegram (.*)": "<span foreground='#24A1DE'>  </span> Telegram",
+      "org.telegram.desktop": "<span foreground='#24A1DE'>  </span> Telegram",
 
       // Documents
 
-      "ONLYOFFICE Desktop Editors": 
-        "<span foreground='#ed8796'> </span> OnlyOffice Desktop",
+      "ONLYOFFICE Desktop Editors": "<span foreground='#ed8796'> </span> OnlyOffice Desktop",
 
-      "(.*).docx": 
-        "<span foreground='#8aadf4'> </span> $1.docx",
-      "(.*).xlsx": 
-        "<span foreground='#a6da95'> </span> $1.xlsx",
-      "(.*).pptx": 
-        "<span foreground='#f5a97f'> </span> $1.pptx",
-      "(.*).pdf": 
-        "<span foreground='#ed8796'> </span> $1.pdf",
+      "(.*).docx": "<span foreground='#8aadf4'> </span> $1.docx",
+      "(.*).xlsx": "<span foreground='#a6da95'> </span> $1.xlsx",
+      "(.*).pptx": "<span foreground='#f5a97f'> </span> $1.pptx",
+      "(.*).pdf": "<span foreground='#ed8796'> </span> $1.pdf",
 
       // System
-      "Authenticate": "  Authenticate"
-    }
+      "Authenticate": "  Authenticate",
+    },
   },
 
   "custom/update": {
@@ -298,7 +265,7 @@
   },
 
   "clock": {
-      // "tooltip": false,
+    // "tooltip": false,
     "format": "   {:%H:%M:%S}",
     "format-alt": "   {:%a, %d %b}",
     "interval": 1,
@@ -334,7 +301,7 @@
     "on-click": "swayosd-client --output-volume mute-toggle",
     "on-scroll-up": "swayosd-client --output-volume +1",
     "on-scroll-down": "swayosd-client --output-volume -1",
-  }, 
+  },
 
   "cpu": {
     "format": "󰍛  {usage}%",
@@ -347,7 +314,7 @@
   "memory": {
     "states": {
       "warning": 75,
-      "critical": 90
+      "critical": 90,
     },
 
     "format": "   {percentage}%",
