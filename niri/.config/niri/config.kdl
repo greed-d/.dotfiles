@@ -363,7 +363,7 @@ binds {
   Mod+Tab { focus-workspace-previous; }
 
   // Screenshots
-  Print { screenshot; }
+  Print { screenshot-screen write-to-disk=true; }
   Mod+Alt+S { screenshot-screen; }
   Mod+Shift+S { screenshot ; }
 
@@ -377,7 +377,7 @@ binds {
   Mod+Space { spawn "bash" "-c" "pkill rofi || rofi -show drun -theme /home/greed/.config/rofi/type6.rasi"; }
   Super+Ctrl+L { spawn "hyprlock"; }
   Mod+B { spawn "zen-browser"; }
-  Mod+E { spawn "thunar"; }
+  Mod+E { spawn "nautilus"; }
   Mod+D { spawn "vesktop"; }
   Mod+T { spawn "telegram-desktop"; }
   Mod+M { spawn "youtube-music"; }
