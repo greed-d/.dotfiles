@@ -65,6 +65,8 @@ end
 
 bind \ca nvims
 
+# colorscript -r
+
 #--------------------------------------> Alias for direcotry <--------------------------------------
 
 alias ls "eza --icons --git --group-directories-first"
@@ -169,10 +171,20 @@ zoxide init fish | source
 #--------------------------------------> spicetify <--------------------------------------
 
 fish_add_path /home/greed/.spicetify
+# Start ssh-agent (and source its output to set environment variables)
+# Use -c to get csh-compatible output that 'source' can handle in fish
+# ssh-agent -c | source
 
+# Add SSH keys to ssh-agent
+# Use ^/dev/null to redirect stderr to /dev/null in fish
+ssh-add ~/.ssh/id_ed25519 2>/dev/null
+ssh-add ~/.ssh/id_rsa_work 2>/dev/null
 #THIS MUST BE AT THE END OF THE FILE FOR platform-tools TO WORK!!!
 set PATH "$PATH":"$HOME/Android_Stuff/SDK/platform-tools"
 
+if test -n "$NVIM_LISTEN_ADDRESS"
+    set -x MANPAGER "/usr/local/bin/nvr -c 'Man!' -o -"
+end
 # pnpm
 set -gx PNPM_HOME "/home/greed/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
