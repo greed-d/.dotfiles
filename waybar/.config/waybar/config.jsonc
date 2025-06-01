@@ -1,17 +1,34 @@
 {
-  "height": 40, // Waybar height (to be removed for auto height)
+  // "height": 40, // Waybar height (to be removed for auto height)
   "layer": "top", // Waybar at top layer
-  "modules-left": ["niri/window", "cpu", "memory", "niri/workspaces"],
-  "modules-center": ["mpris"],
+  "modules-left": [
+    "niri/window",
+    "custom/separator#dot-line",
+    "group/mobo_drawer",
+    "custom/separator#dot-line",
+    "niri/workspaces",
+    "custom/separator#dot-line",
+    "custom/update",
+    "custom/separator#dot-line",
+    "custom/weather",
+  ],
+  "modules-center": [
+    "custom/swaync",
+    "custom/separator#dot-line",
+    "clock",
+    "custom/separator#dot-line",
+    "idle_inhibitor",
+  ],
   "modules-right": [
+    "group/mpris-group",
+    "custom/separator#dot-line",
     "tray",
-    "pulseaudio",
-    "pulseaudio#microphone",
+    "custom/separator#dot-line",
+    "group/audio",
     "backlight",
     "battery",
-    "custom/lock",
-    "clock",
-    "custom/weather",
+    "custom/separator#dot-line",
+    "custom/power-menu",
   ],
   "niri/workspaces": {
     "on-click": "activate",
@@ -37,19 +54,16 @@
 
   "niri/window": {
     "format": "{app_id}",
-    // "format": "{}",
     "min-length": 5,
     "max-length": 20,
-    // "icon" : true,
 
     "rewrite": {
-      // Desktop
       "": "<span foreground='#8aadf4'> </span> Hyprland",
 
       // Terminal
-      // "~": "   Terminal",
+      // "~": "  Home",
       // "zsh": "   Terminal",
-      // "kitty": "   Terminal",
+      // "kitty": "  Kitty",
       // "ghostty": "  Ghostty",
       "com.mitchellh.ghostty": "   Ghostty",
 
@@ -60,7 +74,7 @@
 
       "(.*)Zen Browser": "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
       "(.*) — Zen Browser": "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
-      "zen": "<span foreground='#f5a97f'>󰺕  </span> Zen Browser",
+      "zen": "<span foreground='#f5a97f'>󰺕  </span> Zen",
 
       // Development
 
@@ -79,8 +93,7 @@
       "(.*)Spotify": "<span foreground='#a6da95'>  </span> Spotify",
       "(.*)Spotify Premium": "<span foreground='#a6da95'>  </span> Spotify Premium",
 
-      // "OBS(.*)":
-      //   "<span foreground='#a5adcb'>  </span> OBS Studio",
+      "com.obsproject.Studio": "<span foreground='#a5adcb'>  </span> OBS Studio",
 
       "VLC media player": "<span foreground='#f5a97f'>󰕼  </span> VLC Media Player",
       "(.*) - VLC media player": "<span foreground='#f5a97f'>󰕼  </span> $1",
@@ -145,6 +158,21 @@
     "max-length": 28,
   },
 
+  "temperature": {
+    "interval": 10,
+    "tooltip": true,
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon1/temp1_input",
+      "/sys/class/thermal/thermal_zone0/temp",
+    ],
+    //"thermal-zone": 0,
+    "critical-threshold": 82,
+    "format-critical": "{temperatureC}°C {icon}",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["󰈸"],
+    "on-click-right": "ghostty -e nvtop",
+  },
+
   "cpu": {
     "format": "󰍛 {usage}%",
     "tooltip": false,
@@ -184,10 +212,10 @@
   },
 
   "pulseaudio": {
-    "format": "{icon}",
+    "format": "{icon} <span font='11'>{volume}%</span>",
     "format-muted": "婢",
     "format-icons": {
-      "default": ["", "", "墳"],
+      "default": ["", "", "󰕾"],
     },
     "on-click-middle": "pavucontrol",
     "on-click": "swayosd-client --output-volume mute-toggle",
@@ -197,9 +225,10 @@
     "tooltip-format": "{volume}%",
   },
   "pulseaudio#microphone": {
-    "format": "{format_source}",
-    "format-source": " ",
-    "format-source-muted": "󰍭<span font-family='Lexend' size='11000'> Muted</span>",
+    "format": "{format_source} | <span font='11'>{source_volume}% </span>",
+    "format-source": "",
+    // "format-source-muted": "󰍭<span font-family='Lexend' size='11000'> Muted</span>",
+    "format-source-muted": "󰍭",
     "on-click": "swayosd-client --input-volume mute-toggle",
     "on-click-middle": "",
     "on-scroll-up": "swayosd-client --input-volume +1",
@@ -234,23 +263,34 @@
     "return-type": "json",
   },
 
+  "mpris#title": {
+    "format": "{title} ",
+    "format-paused": " {title} ",
+    "artist-len": 10,
+    "title-len": 20,
+  },
+
   "mpris": {
-    "format": "{player_icon}  {title}",
-    "format-paused": "{player_icon} - {status_icon}  {title}",
+    "format": "{player_icon}",
+    "format-paused": "{status_icon} | {player_icon}",
     "artist-len": 10,
     "title-len": 20,
     "player-icons": {
-      "default": "▶",
+      "default": " ",
       "mpv": "🎵",
       "spotify": " ",
       "firefox": " ",
-      "chromium": "  ",
+      "chromium": " ",
     },
     "status-icons": {
       "paused": " ",
+      "playing": "",
+      "stopped": "",
     },
     // "ignored-players": ["firefox"]
   },
+
+  // NOTE : Custom Modules
   "custom/spotify": {
     "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
     "format": " {}",
@@ -261,10 +301,92 @@
   },
   "custom/power-menu": {
     "format": " ⏻ ",
-    "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh &",
+    "on-click": "bash ~/.config/rofi/powermenu.sh &",
   },
   "custom/launcher": {
     "format": "",
     "on-click": "rofi -show drun &",
+  },
+
+  "custom/separator#dot-line": {
+    "format": "",
+    "interval": "once",
+    "tooltip": false,
+  },
+  "custom/separator#line": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false,
+  },
+
+  "idle_inhibitor": {
+    "tooltip": true,
+    "tooltip-format-activated": "Idle_inhibitor active",
+    "tooltip-format-deactivated": "Idle_inhibitor not active",
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " ",
+    },
+  },
+
+  "custom/update": {
+    "exec": "~/.config/waybar/scripts/system-update.sh",
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "~/.config/waybar/scripts/system-update.sh up",
+    "interval": 30,
+    "min-length": 3,
+  },
+  "custom/swaync": {
+    "tooltip": true,
+    "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+    "format": "{} {icon} ",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+
+  // NOTE : Groups from here
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "pulseaudio",
+      "transition-left-to-right": true,
+    },
+    "modules": ["pulseaudio", "pulseaudio#microphone"],
+  },
+  "group/mpris-group": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "mpris",
+      "transition-left-to-right": true,
+    },
+    "modules": ["mpris", "mpris#title"],
+  },
+
+  "group/mobo_drawer": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "cpu",
+      "transition-left-to-right": true,
+    },
+    "modules": ["cpu", "temperature", "memory"],
   },
 }
