@@ -37,10 +37,10 @@ confirm-close-surface=false
 
 
 # font-family = CaskaydiaMono Nerd Font
-font-family = JetBrainsMono NF
+font-family = JetBrainsMono Nerd Font
 # font-family = InputMono Nerd Font
 font-size = 13
-
+font-feature = -calt
 theme = tokyonight_night
 cursor-text = #000000
 
