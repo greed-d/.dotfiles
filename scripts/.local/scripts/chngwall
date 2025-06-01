@@ -1,4 +1,6 @@
 #!/bin/bash
 
-hyprctl hyprpaper preload ~/wallpapers/Wallpapers/Pictures/Wallpapers/$1
-hyprctl hyprpaper wallpaper "eDP-1,~/wallpapers/Wallpapers/Pictures/Wallpapers/$1"
+# hyprctl hyprpaper preload ~/wallpapers/Wallpapers/Pictures/Wallpapers/$1
+#
+# hyprctl hyprpaper wallpaper "eDP-1,~/wallpapers/Wallpapers/Pictures/Wallpapers/$1"
+swww img $1 --transition-bezier .43,1.19,1,.4 --transition-fps 30 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2
