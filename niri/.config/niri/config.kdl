@@ -29,6 +29,12 @@ input {
   focus-follows-mouse max-scroll-amount="0%"
 }
 
+gestures {
+  hot-corners {
+    off
+  }
+}
+
 
 /*
 ███╗   ███╗ ██████╗ ███╗   ██╗██╗████████╗ ██████╗ ██████╗ 
@@ -108,8 +114,8 @@ layout {
 ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 */
 animations {
-  off
-  slowdown 1.2
+  // off
+  slowdown 0.8
 
   window-open {
     duration-ms 200
@@ -256,10 +262,12 @@ window-rule {
   match title="^(hyprland-share-picker)$"
   match title="^(.*)-Google$"
   match title="^(.*)System Update$"
+  match title="(.*) - Google (.*) - (.*)"
   
   match app-id="^xdm-app$"
   match app-id="^org.qbittorrent.qBittorrent$"
   match app-id="^org.pulseaudio.pavucontrol$"
+  match app-id="^net.davidotek.pupgui2$"
   
   open-floating true
 }
@@ -293,6 +301,7 @@ window-rule {
   match app-id="obsidian$"
   match app-id="com.github.th_ch.youtube_music"
   match app-id="Postman"
+  match app-id="Spotify"
 
   open-maximized true
 }
@@ -304,7 +313,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 6
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
@@ -319,7 +328,7 @@ window-rule {
 
 window-rule {
   match app-id="Postman$"
-  open-on-workspace "3"
+  open-on-workspace "2"
 }
 
 window-rule {
@@ -334,6 +343,7 @@ window-rule{
 
 window-rule {
   match app-id="com.github.th_ch.youtube_music$"
+  match app-id="Spotify"
   open-on-workspace "8"
 }
 
@@ -514,7 +524,7 @@ binds {
 
 //Autostart
 // spawn-at-startup "xwayland-satellite"
-spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "/home/greed/.config/niri/scripts/autostart.sh"
 
 // Environment Variables
 environment {
