@@ -15,9 +15,9 @@
   "modules-center": [
     "custom/swaync",
     "custom/separator#dot-line",
-    "clock",
+    "group/clock-group",
     "custom/separator#dot-line",
-    "idle_inhibitor",
+    "group/util-toggle-group",
   ],
   "modules-right": [
     "group/mpris-group",
@@ -25,8 +25,8 @@
     "tray",
     "custom/separator#dot-line",
     "group/audio",
-    "backlight",
-    "battery",
+    "group/backlight-group",
+    "group/battery-group",
     "custom/separator#dot-line",
     "custom/power-menu",
   ],
@@ -137,10 +137,42 @@
   "tray": {
     "spacing": 10,
   },
-  "clock": {
+
+  "power-profiles-daemon": {
+    "format": "{icon} ",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+  },
+  "clock#time": {
     // "tooltip": false,
     "format": "  {:%H:%M:%S}",
     "format-alt": "  {:%a, %d %b}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#f5e0dc'><b>{}</b></span>",
+        "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+        "today": "<span color='#f38ba8'><b>{}</b></span>",
+      },
+    },
+    "actions": { "on-click-right": "mode" },
+    "min-length": 8,
+    "max-length": 28,
+  },
+  "clock#date": {
+    // "tooltip": false,
+    // "format": "  {:%H:%M:%S}",
+    "format": "   {:%A, %d %B}",
     "interval": 1,
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
@@ -173,13 +205,17 @@
     "on-click-right": "ghostty -e nvtop",
   },
 
-  "cpu": {
-    "format": "󰍛 {usage}%",
-    "tooltip": false,
-    "interval": 5,
-    // "min-length": 6,
-    // "max-length": 6
-  },
+  // "cpu": {
+  //   "format": "󰍛 {usage}%",
+  //   "format-alt" : "{load}",
+  //   "tooltip": false,
+  //   "interval": 5,
+  // },
+   "cpu": {
+        "interval": 1,
+        "format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+   },
   "memory": {
     "states": {
       "warning": 75,
@@ -193,9 +229,16 @@
     // "min-length": 7,
     // "max-length": 7
   },
-  "backlight": {
+  "backlight#icon": {
     "format": "{icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "tooltip": true,
+    "tooltip-format": "{percent}%",
+    "on-scroll-up": "swayosd-client --brightness +5",
+    "on-scroll-down": "swayosd-client --brightness -5",
+  },
+  "backlight#text": {
+    "format": "{percent}%",
     "tooltip": true,
     "tooltip-format": "{percent}%",
     "on-scroll-up": "swayosd-client --brightness +5",
@@ -236,7 +279,7 @@
     "tooltip-format": "{source_desc} | {source_volume}%",
   },
 
-  "battery": {
+  "battery#icon": {
     "bat": "BAT1",
     "adapter": "ACAD",
     "interval": 60,
@@ -246,15 +289,36 @@
     },
     "max-length": 20,
     "format": "{icon} ",
-    "format-warning": "{icon}",
-    "format-critical": "{icon}",
-    "format-charging": "<span font-family='Font Awesome 6 Free'></span>",
+    "format-warning": "{icon} ",
+    "format-critical": "{icon} ",
+    "format-charging": "<span font-family='Font Awesome 6 Free'> </span>",
     "format-plugged": "ﮣ",
     "tooltip": true,
     "tooltip-format": "{capacity}%",
 
     "format-alt": "{icon} {time}",
     "format-full": "ﮣ",
+    "format-icons": ["", "", "", "", ""],
+  },
+
+  "battery#text": {
+    "bat": "BAT1",
+    "adapter": "ACAD",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "max-length": 20,
+    "format": "{capacity}%",
+    "format-warning": "{capacity}%",
+    "format-critical": "{capacity}%",
+    "format-charging": "{capacity}%",
+    "format-plugged": "Plugged",
+    "tooltip": true,
+    "tooltip-format": "{capacity}%",
+
+    "format-full": "Full",
     "format-icons": ["", "", "", "", ""],
   },
   "custom/weather": {
@@ -388,5 +452,42 @@
       "transition-left-to-right": true,
     },
     "modules": ["cpu", "temperature", "memory"],
+  },
+
+  "group/backlight-group": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "backlight#icon",
+      "transition-left-to-right": true,
+    },
+    "modules": ["backlight#icon", "backlight#text"],
+  },
+  "group/battery-group": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "battery#icon",
+      "transition-left-to-right": true,
+    },
+    "modules": ["battery#icon", "battery#text"],
+  },
+  "group/clock-group": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "clock#time",
+      "transition-left-to-right": true,
+    },
+    "modules": ["clock#time", "clock#date"],
+  },
+  "group/util-toggle-group": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "idle_inhibitor",
+      "transition-left-to-right": true,
+    },
+    "modules": ["idle_inhibitor", "power-profiles-daemon"],
   },
 }
