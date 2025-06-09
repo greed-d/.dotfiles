@@ -35,9 +35,14 @@ window-save-state = always
 
 confirm-close-surface=false
 
+font-family = JetBrainsMono NF
+font-style = SemiBold
+font-style-bold = ExtraBold
+font-style-italic = SemiBold Italic
+font-style-bold-italic = ExtraBold Italic
 
 # font-family = CaskaydiaMono Nerd Font
-font-family = JetBrainsMono Nerd Font
+# font-family = JetBrainsMono Nerd Font
 # font-family = InputMono Nerd Font
 font-size = 13
 font-feature = -calt
