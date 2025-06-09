@@ -37,9 +37,9 @@ confirm-close-surface=false
 
 font-family = JetBrainsMono NF
 font-style = SemiBold
-font-style-bold = ExtraBold
+font-style-bold = Bold
 font-style-italic = SemiBold Italic
-font-style-bold-italic = ExtraBold Italic
+font-style-bold-italic = Bold Italic
 
 # font-family = CaskaydiaMono Nerd Font
 # font-family = JetBrainsMono Nerd Font
