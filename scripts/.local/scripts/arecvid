@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$HOME"/Videos/ || exit
+wf-recorder --audio --file="$1".mp4
