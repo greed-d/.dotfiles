@@ -31,7 +31,7 @@ input {
 
 gestures {
   hot-corners {
-    off
+    // off
   }
 }
 
@@ -114,7 +114,7 @@ layout {
 ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 */
 animations {
-  // off
+  off
   slowdown 0.8
 
   window-open {
