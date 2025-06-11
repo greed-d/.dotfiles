@@ -383,14 +383,15 @@ binds {
   Mod+Alt+P { power-off-monitors; }
 
   //Binds for application
-  Mod+Return { spawn "ghostty"; }
+  Mod+Return { spawn "app2unit" "--" "kitty"; }
   Mod+Space { spawn "bash" "-c" "pkill rofi || rofi -show drun -theme /home/greed/.config/rofi/type6.rasi"; }
-  Super+Ctrl+L { spawn "hyprlock"; }
-  Mod+B { spawn "zen-browser"; }
-  Mod+E { spawn "nautilus"; }
-  Mod+D { spawn "vesktop"; }
-  Mod+T { spawn "telegram-desktop"; }
-  Mod+M { spawn "youtube-music"; }
+  Super+Ctrl+L { spawn "app2unit" "--" "hyprlock"; }
+  Mod+B { spawn "app2unit" "--" "zen-browser"; }
+  Mod+E { spawn "app2unit" "--" "nautilus"; }
+  Mod+D { spawn "app2unit" "--" "vesktop"; }
+  Mod+T { spawn "app2unit" "--" "telegram-desktop"; }
+  Mod+M { spawn "app2unit" "--" "youtube-music"; }
+  Mod+A { spawn "app2unit" "--" "postman"; }
   Mod+slash { spawn "fuzzel-emoji"; }
   Mod+Shift+M { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
 
