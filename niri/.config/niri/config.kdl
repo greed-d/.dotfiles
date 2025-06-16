@@ -115,7 +115,7 @@ layout {
 */
 animations {
   // off
-  slowdown 0.8
+  slowdown 0.6
 
   window-open {
     duration-ms 200
@@ -392,6 +392,7 @@ binds {
   Mod+T { spawn "app2unit" "--" "telegram-desktop"; }
   Mod+M { spawn "app2unit" "--" "youtube-music"; }
   Mod+A { spawn "app2unit" "--" "postman"; }
+  Mod+O { spawn "app2unit" "--" "obsidian"; }
   Mod+slash { spawn "fuzzel-emoji"; }
   Mod+Shift+M { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
 
