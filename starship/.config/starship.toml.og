@@ -1,22 +1,65 @@
-format = "$directory$git_branch$git_status$git_state $character"
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """$battery$directory$git_branch$git_status$git_state$git_state$line_break$character"""
 right_format = """$python $cmd_duration"""
 
-[character]
-success_symbol = "[](red)[](green)[](yellow) "
-error_symbol = "[](red)[](red)[](red) "
-vicmd_symbol = "[](green)[](yellow)[](yellow) "
-format = "$symbol"
+add_newline = true
 
-[character.root]
-success_symbol = "[](red)[](green)[](yellow) "
-error_symbol = "[](red)[](green)[](yellow) "
+# Other languages configurations:
+c.disabled = true
+cmake.disabled = true
+haskell.disabled = true
+# python.disabled = true
+ruby.disabled = true
+rust.disabled = true
+perl.disabled = true
+package.disabled = true
+lua.disabled = true
+nodejs.disabled = true
+java.disabled = true
+golang.disabled = true
+
+palette = "catppuccin_mocha"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+
+[line_break]
+disabled = false
 
 [directory]
-style = "blue"
-format = "[󰉋 $path]($style) "
-home_symbol = "~"
-truncation_length = 0
-truncate_to_repo = false
+fish_style_pwd_dir_length = 1
+
+[character]
+success_symbol = "[➜](green bold)"
+error_symbol = "[ ](red)"
+vicmd_symbol = "[ ](yellow)"
 
 [git_branch]
 format = "[[\\( $symbol$branch](rosewater) | ](text)"
