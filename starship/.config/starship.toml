@@ -74,10 +74,11 @@ diverged = "[⇕⇡${ahead_count} ⇣${behind_count} ](teal)"
 up_to_date = "[󰄸 ](bold green)"
 untracked = "[?${count} ](maroon)"
 stashed = "[ 󰏖 ](bold green)"
-modified = "[!${count} ](yellow)"
+modified = "[~${count} ](yellow)"
 staged = "[+${count} ](green)"
 renamed = "[»${count} ](peach)"
-deleted = "[ ${count} ](bold red)"
+# deleted = "[ ${count} ](bold red)"
+deleted = "[-${count} ](bold red)"
 
 [git_commit]
 format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"

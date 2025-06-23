@@ -5,13 +5,13 @@ state=`pacmd list-sources | awk '/muted/ { print $2 }' | tail -1`
 micStatus="no"
 if [ $state = "yes" ]; then
     micStatus="on"
-    icon="~/.config/hypr/icons/microphone.png"
+    # icon="~/.config/hypr/icons/microphone.png"
 else
     micStatus="off"
-    icon="~/.config/hypr/icons/microphone-mute.png"
+    # icon="~/.config/hypr/icons/microphone-mute.png"
 fi
-pactl set-source-mute 1 toggle
-notify-send --hint=int:transient:1 -t 1200 -i $icon "Mic switched: $state"
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+# notify-send --hint=int:transient:1 -t 1200 -i $icon "Mic switched: $state"
 #dunstify -h int:transient:1 -t 1000 -i $icon "Mic switched: $state"
 # ~/Scripts/notify.sh "Mic status" "Mic switched: $micStatus" "/usr/share/icons/Adwaita/32x32/$icon.symbolic.png" 2 update
 

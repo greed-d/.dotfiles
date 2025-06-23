@@ -114,7 +114,7 @@ layout {
 ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 */
 animations {
-  // off
+  off
   slowdown 0.6
 
   window-open {
@@ -328,7 +328,7 @@ window-rule {
   draw-border-with-background false
   match app-id="kitty$"
   match app-id="com.mitchellh.ghostty$"
-  opacity 0.97
+  // opacity 0.70
 }
 
 window-rule {

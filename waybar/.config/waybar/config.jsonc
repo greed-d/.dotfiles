@@ -211,11 +211,11 @@
   //   "tooltip": false,
   //   "interval": 5,
   // },
-   "cpu": {
-        "interval": 1,
-        "format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-   },
+  "cpu": {
+    "interval": 1,
+    "format": "{icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+  },
   "memory": {
     "states": {
       "warning": 75,

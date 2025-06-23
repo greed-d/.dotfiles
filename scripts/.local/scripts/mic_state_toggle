@@ -1,0 +1,14 @@
+#!/bin/bash
+
+MIC_SOURCE_ID=52
+
+# Check if mic is muted
+if wpctl get-volume "$MIC_SOURCE_ID" | grep -q MUTED; then
+  # Unmute mic
+  wpctl set-mute "$MIC_SOURCE_ID" 0
+  notify-send -i microphone-sensitivity-high-symbolic "Microphone Unmuted"
+else
+  # Mute mic
+  wpctl set-mute "$MIC_SOURCE_ID" 1
+  notify-send -i microphone-sensitivity-muted-symbolic "Microphone Muted"
+fi
