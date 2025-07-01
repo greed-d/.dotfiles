@@ -46,7 +46,7 @@ font-style-bold-italic = Bold Italic
 # font-family = InputMono Nerd Font
 font-size = 13
 font-feature = -calt
-theme = tokyonight_night
+theme = "Everforest Dark - Hard"
 cursor-text = #000000
 
 window-decoration = false
