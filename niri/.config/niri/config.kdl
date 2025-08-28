@@ -85,7 +85,7 @@ layout {
   }
 
   focus-ring {
-    width 2
+    width 1
     active-color "#cba6f7"
     inactive-color "#45475A"
   }
@@ -393,7 +393,7 @@ binds {
   Mod+Alt+P { power-off-monitors; }
 
   //Binds for application
-  Mod+Return { spawn "app2unit" "--" "ghostty"; }
+  Mod+Return { spawn "app2unit" "--" "kitty"; }
   Mod+Space { spawn "bash" "-c" "pkill rofi || rofi -show drun -theme /home/greed/.config/rofi/type6.rasi"; }
   Super+Ctrl+L { spawn "app2unit" "--" "hyprlock"; }
   Mod+B { spawn "app2unit" "--" "zen-browser"; }
