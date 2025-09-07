@@ -5,6 +5,7 @@ SETUVAR --export ANDROID_SDK_ROOT:/opt/android\x2dsdk
 SETUVAR --export CM_DEBUG:1
 SETUVAR --export CM_DIR:/home/greed/\x2elocal/clipboard
 SETUVAR --export CM_LAUNCHER:rofi
+SETUVAR --export EDITOR:nvim
 SETUVAR --export JAVA_HOME:\x1d
 SETUVAR --export TERM:tmux\x2d256color
 SETUVAR __fish_initialized:3800
