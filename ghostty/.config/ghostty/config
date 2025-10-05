@@ -48,7 +48,7 @@ font-size = 13
 font-feature = -calt
 # theme = tokyonight_night
 # theme = "Jellybeans" 
-theme = "Everforest Dark - Hard" 
+theme = "Catppuccin Mocha" 
 cursor-text = #000000
 
 window-decoration = false
