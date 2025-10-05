@@ -14,10 +14,10 @@ autocmd("TextYankPost", {
 
 -------------------------------------- format on save ------------------------------------------
 
-autocmd("BufWritePre", {
-	command = "lua vim.lsp.buf.format()",
-	pattern = "*.cpp,*.css,*.go,*.h,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.py,*.rs,*.ts,*.tsx,*.yaml,*.c,*.dart,*.jsonc",
-})
+-- autocmd("BufWritePre", {
+-- 	command = "lua vim.lsp.buf.format()",
+-- 	pattern = "*.cpp,*.css,*.go,*.h,*.html,*.js,*.json,*.jsx,*.lua,*.md,*.py,*.rs,*.ts,*.tsx,*.yaml,*.c,*.dart,*.jsonc",
+-- })
 
 -------------------------------------> Send Focus to temrinal <------------------------------------
 

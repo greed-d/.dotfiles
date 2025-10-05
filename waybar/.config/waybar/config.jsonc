@@ -1,6 +1,7 @@
 {
   // "height": 40, // Waybar height (to be removed for auto height)
   "layer": "top", // Waybar at top layer
+  "position": "bottom",
   "modules-left": [
     "niri/window",
     "custom/separator#dot-line",
@@ -282,23 +283,23 @@
   "battery#icon": {
     "bat": "BAT1",
     "adapter": "ACAD",
-    "interval": 60,
+    "interval": 1,
     "states": {
       "warning": 30,
       "critical": 15,
     },
     "max-length": 20,
-    "format": "{icon} ",
-    "format-warning": "{icon} ",
-    "format-critical": "{icon} ",
-    "format-charging": "<span font-family='Font Awesome 6 Free'> </span>",
-    "format-plugged": "ﮣ",
+    "format": "{icon} {capacity}%",
+    "format-warning": "{icon} {capacity}%",
+    "format-critical": "{icon} {capacity}%",
+    "format-charging": "<span font-family='Font Awesome 6 Free'> </span>{capacity}%",
+    "format-plugged": "ﮣ {capacity}%",
     "tooltip": true,
     "tooltip-format": "{capacity}%",
 
     "format-alt": "{icon} {time}",
-    "format-full": "ﮣ",
-    "format-icons": ["", "", "", "", ""],
+    "format-full": "{icon} {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "],
   },
 
   "battery#text": {
@@ -318,7 +319,7 @@
     "tooltip": true,
     "tooltip-format": "{capacity}%",
 
-    "format-full": "Full",
+    "format-full": "{capacity}%",
     "format-icons": ["", "", "", "", ""],
   },
   "custom/weather": {
@@ -461,16 +462,16 @@
       "children-class": "backlight#icon",
       "transition-left-to-right": true,
     },
-    "modules": ["backlight#icon", "backlight#text"],
+    "modules": ["backlight#icon"],
   },
   "group/battery-group": {
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 500,
-      "children-class": "battery#icon",
+      "children-class": "battery#text",
       "transition-left-to-right": true,
     },
-    "modules": ["battery#icon", "battery#text"],
+    "modules": ["battery#icon"],
   },
   "group/clock-group": {
     "orientation": "inherit",
