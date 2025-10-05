@@ -6,53 +6,45 @@
 ██║██║ ╚████║██║     ╚██████╔╝   ██║
 ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝    ╚═╝
 */
-
 input {
-  keyboard {
-    xkb {
-      // URGENT : Put xkb options and layout here
+    keyboard {
+        xkb {
+ // URGENT : Put xkb options and layout here
+
+        }
     }
-  }
-
-  touchpad {
-    tap
-    dwt
-    natural-scroll
-    accel-speed 0.3
-  }
-
-  mouse {
-    accel-speed 0.2
-  }
-
-  workspace-auto-back-and-forth
-  focus-follows-mouse max-scroll-amount="0%"
+    touchpad {
+        tap
+        dwt
+        natural-scroll
+        accel-speed 0.3
+    }
+    mouse {
+        accel-speed 0.2
+    }
+    workspace-auto-back-and-forth
+    focus-follows-mouse max-scroll-amount="0%"
 }
-
 gestures {
-  hot-corners {
-    // off
-  }
+    hot-corners {
+ // off
+
+    }
 }
-
-
 /*
-███╗   ███╗ ██████╗ ███╗   ██╗██╗████████╗ ██████╗ ██████╗ 
+███╗   ███╗ ██████╗ ███╗   ██╗██╗████████╗ ██████╗ ██████╗
 ████╗ ████║██╔═══██╗████╗  ██║██║╚══██╔══╝██╔═══██╗██╔══██╗
 ██╔████╔██║██║   ██║██╔██╗ ██║██║   ██║   ██║   ██║██████╔╝
 ██║╚██╔╝██║██║   ██║██║╚██╗██║██║   ██║   ██║   ██║██╔══██╗
 ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║██║   ██║   ╚██████╔╝██║  ██║
 ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
 */
-
 // HACK: Check `niri msg outputs` to see all about monitors
-
 output "eDP-1" {
-  mode "1920x1080@60.096"
-  scale 1 // [Possible choices are "1.5" or "150%" too]
-  transform "normal"
+    mode "1920x1080@60.096"
+    scale 1
+ // [Possible choices are "1.5" or "150%" too]    transform "normal"
 }
-
 /*
 ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
 ██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
@@ -62,51 +54,46 @@ output "eDP-1" {
 ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝
 */
 layout {
-  gaps 9
-  center-focused-column "never"
+    gaps 9
+    center-focused-column "never"
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
+    preset-window-heights {
+        proportion 0.2
+        proportion 0.4
+        proportion 0.5
+        proportion 0.6
+        proportion 0.8
+    }
+    default-column-width {
+        proportion 0.5
+    }
+    focus-ring {
+        width 1
+        active-color "#cba6f7"
+        inactive-color "#45475A"
+    }
+    border {
+        off
+    }
+    shadow {
+        on
+        softness 20
+        spread 7
+        offset x=-1 y=-5
+        color "#0009"
+    }
+    struts {
 
-  preset-column-widths {
-    proportion 0.25
-    proportion 0.5
-    proportion 0.75
-    proportion 1.0
-  }
-
-  preset-window-heights {
-    proportion 0.2
-    proportion 0.4
-    proportion 0.5
-    proportion 0.6
-    proportion 0.8
-  }
-
-  default-column-width { 
-    proportion 0.5
-  }
-
-  focus-ring {
-    width 1
-    active-color "#cba6f7"
-    inactive-color "#45475A"
-  }
-
-  border {
-    off
-  }
-
-  shadow {
-    on
-    softness 20
-    spread 7
-    offset x=-1 y=-5
-    color "#0009"
-  }
-  struts {}
+    }
 }
-
 // NOTE: Animations
 /*
- █████╗ ███╗   ██╗██╗███╗   ███╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+█████╗ ███╗   ██╗██╗███╗   ███╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
 ██╔══██╗████╗  ██║██║████╗ ████║██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
 ███████║██╔██╗ ██║██║██╔████╔██║███████║   ██║   ██║██║   ██║██╔██╗ ██║
 ██╔══██║██║╚██╗██║██║██║╚██╔╝██║██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
@@ -114,71 +101,24 @@ layout {
 ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 */
 animations {
-  off
-  slowdown 0.6
-
-  window-open {
-    duration-ms 200
-    curve "linear"
-    custom-shader r"
-
-    vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {
-      vec3 coords_tex = niri_geo_to_tex * coords_geo;
-      vec4 color = texture2D(niri_tex, coords_tex.st);
-      vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
-      coords = coords / length(size_geo.xy);
-      float p = niri_clamped_progress;
-      if (p * p <= dot(coords, coords))
-      color = vec4(0.0);
-
-      return color;
+    off
+    slowdown 0.6
+    window-open {
+        duration-ms 200
+        curve "linear"
+        custom-shader "\n\n    vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {\n      vec3 coords_tex = niri_geo_to_tex * coords_geo;\n      vec4 color = texture2D(niri_tex, coords_tex.st);\n      vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;\n      coords = coords / length(size_geo.xy);\n      float p = niri_clamped_progress;\n      if (p * p <= dot(coords, coords))\n      color = vec4(0.0);\n\n      return color;\n    }\n\n    vec4 open_color(vec3 coords_geo, vec3 size_geo) {\n      return expanding_circle(coords_geo, size_geo);\n    }\n    "
     }
-
-    vec4 open_color(vec3 coords_geo, vec3 size_geo) {
-      return expanding_circle(coords_geo, size_geo);
+    window-close {
+        duration-ms 175
+        curve "linear"
+        custom-shader "\n    vec4 shrinking_circle(vec3 coords_geo, vec3 size_geo) {\n      vec3 coords_tex = niri_geo_to_tex * coords_geo;\n      vec4 color = texture2D(niri_tex, coords_tex.st);\n      // Calculate coordinates relative to center, scaled appropriately\n      vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;\n      // Normalize coordinates based on diagonal length for a circular shape\n      coords = coords / length(size_geo.xy);\n\n      // Invert the progress for closing effect: 1 -> 0\n      float p_close = 1.0 - niri_clamped_progress;\n\n      // If pixel's squared distance from center is >= shrinking radius squared, make transparent\n      // (Keeps pixels *inside* the shrinking radius p_close)\n      if (p_close * p_close <= dot(coords, coords))\n      color = vec4(0.0);\n\n      // Optional: You could also fade the alpha slightly faster at the end if desired\n      // color.a *= p_close; // Fades out completely as radius reaches 0\n\n      return color;\n    }\n\n    vec4 close_color(vec3 coords_geo, vec3 size_geo) {\n      return shrinking_circle(coords_geo, size_geo);\n    }"
     }
-    "
-  }
+    window-resize {
 
-
-  window-close {
-    duration-ms 175
-    curve "linear"
-    custom-shader r"
-    vec4 shrinking_circle(vec3 coords_geo, vec3 size_geo) {
-      vec3 coords_tex = niri_geo_to_tex * coords_geo;
-      vec4 color = texture2D(niri_tex, coords_tex.st);
-      // Calculate coordinates relative to center, scaled appropriately
-      vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
-      // Normalize coordinates based on diagonal length for a circular shape
-      coords = coords / length(size_geo.xy);
-
-      // Invert the progress for closing effect: 1 -> 0
-      float p_close = 1.0 - niri_clamped_progress;
-
-      // If pixel's squared distance from center is >= shrinking radius squared, make transparent
-      // (Keeps pixels *inside* the shrinking radius p_close)
-      if (p_close * p_close <= dot(coords, coords))
-      color = vec4(0.0);
-
-      // Optional: You could also fade the alpha slightly faster at the end if desired
-      // color.a *= p_close; // Fades out completely as radius reaches 0
-
-      return color;
     }
-
-    vec4 close_color(vec3 coords_geo, vec3 size_geo) {
-      return shrinking_circle(coords_geo, size_geo);
-    }"
-  }
-
-  window-resize {
-  }
 }
-
-
 /*
- NOTE: Workspace 
+NOTE: Workspace
 */
 workspace "1"
 workspace "2"
@@ -190,19 +130,15 @@ workspace "7"
 workspace "8"
 workspace "9"
 workspace "0"
-
 /*
-
 [[ Layer Rule ]]
-
-*/ 
+*/
 layer-rule {
-  match namespace="^launcher$"
-  opacity 1.0
+    match namespace="^launcher$"
+    opacity 1.0
 }
-
 layer-rule {
-  //  eww
+    //  eww
     match namespace="gtk-layer-shell"
     match at-startup=true
     shadow {
@@ -214,9 +150,8 @@ layer-rule {
         color "#00000030"
     }
 }
-
 layer-rule {
-  //  eww
+    //  eww
     match namespace="rofi"
     match at-startup=true
     shadow {
@@ -228,145 +163,123 @@ layer-rule {
         color "#00000030"
     }
 }
-
 /*
-
 ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗    ██████╗ ██╗   ██╗██╗     ███████╗███████╗
 ██║    ██║██║████╗  ██║██╔══██╗██╔═══██╗██║    ██║    ██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
 ██║ █╗ ██║██║██╔██╗ ██║██║  ██║██║   ██║██║ █╗ ██║    ██████╔╝██║   ██║██║     █████╗  ███████╗
 ██║███╗██║██║██║╚██╗██║██║  ██║██║   ██║██║███╗██║    ██╔══██╗██║   ██║██║     ██╔══╝  ╚════██║
 ╚███╔███╔╝██║██║ ╚████║██████╔╝╚██████╔╝╚███╔███╔╝    ██║  ██║╚██████╔╝███████╗███████╗███████║
- ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝  ╚══╝╚══╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝
-*/ 
+╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝  ╚══╝╚══╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝
+*/
 window-rule {
-  match title="^(file_progress)$"
-  match title="^(confirm)$"
-  match title="^(dialog)$"
-  match title="^(download)$"
-  match title="^(notification )$"
-  match title="^(error)$"
-  match title="^(splash)$"
-  match title="^(nwg-look)$"
-  match title="^(confirmreset)$"
-  match title="^(Delete profile)$"
-  match title="^File Operation Progress$"
-  match title="^Confirm to replace files$"
-  match title="^KDE Connect URL handler$"
-  match title="^(Open File)(.*)$"
-  match title="^(Select a File)(.*)$"
-  match title="^(Choose wallpaper)(.*)$"
-  match title="^(Open Folder)(.*)$"
-  match title="^(Save As)(.*)$"
-  match title="^(Library)(.*)$"
-  match title="^(File Upload)(.*)$"
-  match title="^(hyprland-share-picker)$"
-  match title="^(.*)-Google$"
-  match title="^(.*)System Update$"
-  match title="(.*) - Google (.*) - (.*)"
-  
-  match app-id="^xdm-app$"
-  match app-id="^org.qbittorrent.qBittorrent$"
-  match app-id="^org.pulseaudio.pavucontrol$"
-  match app-id="^net.davidotek.pupgui2$"
-  
-  open-floating true
+    match title="^(file_progress)$"
+    match title="^(confirm)$"
+    match title="^(dialog)$"
+    match title="^(download)$"
+    match title="^(notification )$"
+    match title="^(error)$"
+    match title="^(splash)$"
+    match title="^(nwg-look)$"
+    match title="^(confirmreset)$"
+    match title="^(Delete profile)$"
+    match title="^File Operation Progress$"
+    match title="^Confirm to replace files$"
+    match title="^KDE Connect URL handler$"
+    match title="^(Open File)(.*)$"
+    match title="^(Select a File)(.*)$"
+    match title="^(Choose wallpaper)(.*)$"
+    match title="^(Open Folder)(.*)$"
+    match title="^(Save As)(.*)$"
+    match title="^(Library)(.*)$"
+    match title="^(File Upload)(.*)$"
+    match title="^(hyprland-share-picker)$"
+    match title="^(.*)-Google$"
+    match title="^(.*)System Update$"
+    match title="(.*) - Google (.*) - (.*)"
+    match app-id="^xdm-app$"
+    match app-id="^org.qbittorrent.qBittorrent$"
+    match app-id="^org.pulseaudio.pavucontrol$"
+    match app-id="^net.davidotek.pupgui2$"
+    open-floating true
 }
-
 window-rule {
-  match app-id=r#"zen$"# title="^Picture-in-Picture$"
-  open-floating true
+    match app-id="zen$" title="^Picture-in-Picture$"
+    open-floating true
 }
-
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
+    match app-id="^org\\.wezfurlong\\.wezterm$"
+    default-column-width {
 
+    }
+}
 // Needed for steam, read wiki for more
 window-rule {
-  match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
-  default-floating-position x=10 y=10 relative-to="bottom-right"
+    match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
-
 window-rule {
-  match app-id="org.telegram.desktop$"
-  match app-id="zen$"
-  match app-id="vesktop$"
-  match app-id="thunar$"
-  match app-id="obsidian$"
-  match app-id="com.github.th_ch.youtube_music"
-  match app-id="Postman"
-  match app-id="Spotify"
-  match app-id="Element"
-
-  open-maximized true
-   
+    match app-id="org.telegram.desktop$"
+    match app-id="zen$"
+    match app-id="vesktop$"
+    match app-id="thunar$"
+    match app-id="obsidian$"
+    match app-id="com.github.th_ch.youtube_music"
+    match app-id="Postman"
+    match app-id="Spotify"
+    match app-id="Element"
+    open-maximized true
 }
-
 window-rule {
-  match app-id="mpv$"
-
-  open-fullscreen true
+    match app-id="mpv$"
+    open-fullscreen true
 }
-
 window-rule {
     geometry-corner-radius 0
     clip-to-geometry true
 }
-
-
 /*
 [[ App Rules ]]
-*/ 
-
+*/
 window-rule {
-  draw-border-with-background false
-  match app-id="kitty$"
-  match app-id="com.mitchellh.ghostty$"
-  // opacity 0.70
+    draw-border-with-background false
+    match app-id="kitty$"
+    match app-id="com.mitchellh.ghostty$"
+ // opacity 0.70
 }
-
 window-rule {
-  match app-id="zen$"
-  open-on-workspace "1"
+    match app-id="zen$"
+    open-on-workspace "1"
 }
-
 window-rule {
-  match app-id="Postman$"
-  open-on-workspace "2"
+    match app-id="Postman$"
+    open-on-workspace "2"
 }
-
 window-rule {
-  match app-id="^thunar$"
-  open-on-workspace "6"
+    match app-id="^thunar$"
+    open-on-workspace "6"
 }
-
-window-rule{
+window-rule {
     match app-id="^obsidian$"
     open-on-workspace "7"
 }
-
 window-rule {
-  match app-id="com.github.th_ch.youtube_music$"
-  match app-id="Spotify"
-  open-on-workspace "8"
+    match app-id="com.github.th_ch.youtube_music$"
+    match app-id="Spotify"
+    open-on-workspace "8"
 }
-
 window-rule {
-  match app-id=r#"^vesktop$"#
-  open-on-workspace "9"
+    match app-id="^vesktop$"
+    open-on-workspace "9"
 }
-
 window-rule {
-  match app-id=r#"^org.telegram.desktop$"#
-  open-on-workspace "0"
+    match app-id="^org.telegram.desktop$"
+    open-on-workspace "0"
 }
-
 /*
 ██╗  ██╗███████╗██╗   ██╗██████╗ ██╗███╗   ██╗██████╗ ███████╗
 ██║ ██╔╝██╔════╝╚██╗ ██╔╝██╔══██╗██║████╗  ██║██╔══██╗██╔════╝
@@ -375,194 +288,397 @@ window-rule {
 ██║  ██╗███████╗   ██║   ██████╔╝██║██║ ╚████║██████╔╝███████║
 ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
 */
-
 binds {
-  Mod+Shift+Slash { show-hotkey-overlay; }
-  Mod+W { close-window; }
-
-  Mod+Tab { focus-workspace-previous; }
-
-  // Screenshots
-  Print { screenshot-screen write-to-disk=true; }
-  Mod+Alt+S { screenshot-screen; }
-  Mod+Shift+S { screenshot ; }
-
-  // Power stuff
-  Mod+Shift+Q { spawn "bash" "-c" "shutdown now"; }
-  Mod+Ctrl+Q { quit skip-confirmation=true; }
-  Mod+Alt+P { power-off-monitors; }
-
-  //Binds for application
-  Mod+Return { spawn "app2unit" "--" "kitty"; }
-  Mod+Space { spawn "bash" "-c" "pkill rofi || rofi -show drun -theme /home/greed/.config/rofi/type6.rasi"; }
-  Super+Ctrl+L { spawn "app2unit" "--" "hyprlock"; }
-  Mod+B { spawn "app2unit" "--" "zen-browser"; }
-  Mod+E { spawn "app2unit" "--" "nautilus"; }
-  Mod+D { spawn "app2unit" "--" "vesktop"; }
-  Mod+T { spawn "app2unit" "--" "telegram-desktop"; }
-  Mod+M { spawn "app2unit" "--" "youtube-music"; }
-  Mod+A { spawn "app2unit" "--" "postman"; }
-  Mod+O { spawn "app2unit" "--" "obsidian"; }
-  Mod+slash { spawn "fuzzel-emoji"; }
-  Mod+Shift+M { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
-
-  Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
-
-  // Special Keys
-
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "+5"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "-5"; }
-  XF86AudioMute        allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
-  XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-
-  XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brighntess" "-5"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brighntess" "+5"; }
-
-  // Window Movement and focus
-  Mod+H     { focus-column-left; }
-  Mod+J     { focus-window-down; }
-  Mod+K     { focus-window-up; }
-  Mod+L     { focus-column-right; }
-
-  Mod+Ctrl+Left  { move-column-left; }
-  Mod+Ctrl+Down  { move-window-down; }
-  Mod+Ctrl+Up    { move-window-up; }
-  Mod+Ctrl+Right { move-column-right; }
-  Mod+Shift+H     { move-column-left; }
-  Mod+Shift+J     { move-window-down; }
-  Mod+Shift+K     { move-window-up; }
-  Mod+Shift+L     { move-column-right; }
-
-  Mod+P     { focus-column-first; }
-  Mod+N     { focus-column-last; }
-  Mod+Shift+P { move-column-to-first; }
-  Mod+Shift+N  { move-column-to-last; }
-
-  Mod+Shift+Left  { focus-monitor-left; }
-  Mod+Shift+Down  { focus-monitor-down; }
-  Mod+Shift+Up    { focus-monitor-up; }
-  Mod+Shift+Right { focus-monitor-right; }
-  Mod+Ctrl+H     { focus-monitor-left; }
-  Mod+Ctrl+J     { focus-monitor-down; }
-  Mod+Ctrl+K     { focus-monitor-up; }
-  Mod+Ctrl+L     { focus-monitor-right; }
-
-  Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-  Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-  Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-  Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-  Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-  Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-  Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-  Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
-
-  Mod+U              { focus-workspace-down; }
-  Mod+I              { focus-workspace-up; }
-  Mod+Ctrl+U         { move-column-to-workspace-down; }
-  Mod+Ctrl+I         { move-column-to-workspace-up; }
-
-  Mod+Shift+U         { move-workspace-down; }
-  Mod+Shift+I         { move-workspace-up; }
-
-  Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-  Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-  Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-  Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-
-  Mod+WheelScrollRight      { focus-column-right; }
-  Mod+WheelScrollLeft       { focus-column-left; }
-  Mod+Ctrl+WheelScrollRight { move-column-right; }
-  Mod+Ctrl+WheelScrollLeft  { move-column-left; }
-
-  // Usually scrolling up and down with Shift in applications results in
-  // horizontal scrolling; these binds replicate that.
-  Mod+Shift+WheelScrollDown      { focus-column-right; }
-  Mod+Shift+WheelScrollUp        { focus-column-left; }
-  Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-  Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
-
-  //Workspace binds
-  Mod+1 { focus-workspace "1"; }
-  Mod+2 { focus-workspace "2"; }
-  Mod+3 { focus-workspace "3"; }
-  Mod+4 { focus-workspace "4"; }
-  Mod+5 { focus-workspace "5"; }
-  Mod+6 { focus-workspace "6"; }
-  Mod+7 { focus-workspace "7"; }
-  Mod+8 { focus-workspace "8"; }
-  Mod+9 { focus-workspace "9"; }
-  Mod+0 { focus-workspace "0"; }
-  Mod+Shift+1 { move-column-to-workspace "1"; }
-  Mod+Shift+2 { move-column-to-workspace "2"; }
-  Mod+Shift+3 { move-column-to-workspace "3"; }
-  Mod+Shift+4 { move-column-to-workspace "4"; }
-  Mod+Shift+5 { move-column-to-workspace "5"; }
-  Mod+Shift+6 { move-column-to-workspace "6"; }
-  Mod+Shift+7 { move-column-to-workspace "7"; }
-  Mod+Shift+8 { move-column-to-workspace "8"; }
-  Mod+Shift+9 { move-column-to-workspace "9"; }
-  Mod+Shift+0 { move-column-to-workspace "0"; }
-
-  // The following binds move the focused window in and out of a column.
-  // If the window is alone, they will consume it into the nearby column to the side.
-  // If the window is already in a column, they will expel it out.
-  Mod+BracketLeft  { consume-or-expel-window-left; }
-  Mod+BracketRight { consume-or-expel-window-right; }
-
-  // Consume one window from the right to the bottom of the focused column.
-  Mod+Comma  { consume-window-into-column; }
-  // Expel the bottom window from the focused column to the right.
-  Mod+Period { expel-window-from-column; }
-
-  Mod+R { switch-preset-column-width; }
-  Mod+Alt+K { switch-preset-window-height; }
-  Mod+Alt+J { reset-window-height; }
-  Mod+backslash { maximize-column; }
-  Mod+F { fullscreen-window; }
-
-  Mod+Minus { set-column-width "-10%"; }
-  Mod+Equal { set-column-width "+10%"; }
-
-  // Finer height adjustments when in column with other windows.
-  Mod+Shift+Minus { set-window-height "-10%"; }
-  Mod+Shift+Equal { set-window-height "+10%"; }
-
-  Mod+Shift+T { toggle-column-tabbed-display; }
-  Mod+S       { toggle-window-floating; }
-  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Shift+Slash {
+        show-hotkey-overlay
+    }
+    Mod+W {
+        close-window
+    }
+    Mod+Tab {
+        focus-workspace-previous
+    }
+    // Screenshots
+    Print {
+        screenshot-screen write-to-disk=true
+    }
+    Mod+Alt+S {
+        screenshot-screen
+    }
+    Mod+Shift+S {
+        screenshot
+    }
+    // Power stuff
+    Mod+Shift+Q {
+        spawn "bash" "-c" "shutdown now"
+    }
+    Mod+Ctrl+Q {
+        quit skip-confirmation=true
+    }
+    Mod+Alt+P {
+        power-off-monitors
+    }
+    //Binds for application
+    Mod+Return {
+        spawn "app2unit" "--" "ghostty"
+    }
+    Mod+Space hotkey-overlay-title="Application Launcher" {
+        spawn "dms" "ipc" "call" "spotlight" "toggle"
+    }
+    Super+Ctrl+L hotkey-overlay-title="Lock Screen" {
+        spawn "dms" "ipc" "call" "lock" "lock"
+    }
+    Mod+X hotkey-overlay-title="Power Menu" {
+        spawn "dms" "ipc" "call" "powermenu" "toggle"
+    }
+    Mod+B {
+        spawn "app2unit" "--" "zen-browser"
+    }
+    Mod+E {
+        spawn "app2unit" "--" "nautilus"
+    }
+    Mod+D {
+        spawn "app2unit" "--" "vesktop"
+    }
+    Mod+T hotkey-overlay-title="Notification Center" {
+        spawn "dms" "ipc" "call" "notifications" "toggle"
+    }
+    Mod+M {
+        spawn "app2unit" "--" "youtube-music"
+    }
+    Mod+A {
+        spawn "app2unit" "--" "postman"
+    }
+    Mod+O {
+        spawn "app2unit" "--" "obsidian"
+    }
+    Mod+slash {
+        spawn "fuzzel-emoji"
+    }
+    Mod+Shift+M {
+        spawn "swayosd-client" "--input-volume" "mute-toggle"
+    }
+    Mod+V hotkey-overlay-title="Clipboard Manager" {
+        spawn "dms" "ipc" "call" "clipboard" "toggle"
+    }
+    // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
+    // Special Keys
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "increment" "3"
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "decrement" "3"
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "mute"
+    }
+    XF86AudioMicMute allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "micmute"
+    }
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn "dms" "ipc" "call" "brightness" "increment" "5" ""
+    }
+    // You can override the default device for e.g. keyboards by adding the device name to the last param
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""
+    }
+    // Window Movement and focus
+    Mod+H {
+        focus-column-left
+    }
+    Mod+J {
+        focus-window-down
+    }
+    Mod+K {
+        focus-window-up
+    }
+    Mod+L {
+        focus-column-right
+    }
+    Mod+Ctrl+Left {
+        move-column-left
+    }
+    Mod+Ctrl+Down {
+        move-window-down
+    }
+    Mod+Ctrl+Up {
+        move-window-up
+    }
+    Mod+Ctrl+Right {
+        move-column-right
+    }
+    Mod+Shift+H {
+        move-column-left
+    }
+    Mod+Shift+J {
+        move-window-down
+    }
+    Mod+Shift+K {
+        move-window-up
+    }
+    Mod+Shift+L {
+        move-column-right
+    }
+    Mod+P {
+        focus-column-first
+    }
+    Mod+N {
+        focus-column-last
+    }
+    Mod+Shift+P {
+        move-column-to-first
+    }
+    Mod+Shift+N {
+        move-column-to-last
+    }
+    Mod+Shift+Left {
+        focus-monitor-left
+    }
+    Mod+Shift+Down {
+        focus-monitor-down
+    }
+    Mod+Shift+Up {
+        focus-monitor-up
+    }
+    Mod+Shift+Right {
+        focus-monitor-right
+    }
+    Mod+Ctrl+H {
+        focus-monitor-left
+    }
+    Mod+Ctrl+J {
+        focus-monitor-down
+    }
+    Mod+Ctrl+K {
+        focus-monitor-up
+    }
+    Mod+Ctrl+L {
+        focus-monitor-right
+    }
+    Mod+Shift+Ctrl+Left {
+        move-column-to-monitor-left
+    }
+    Mod+Shift+Ctrl+Down {
+        move-column-to-monitor-down
+    }
+    Mod+Shift+Ctrl+Up {
+        move-column-to-monitor-up
+    }
+    Mod+Shift+Ctrl+Right {
+        move-column-to-monitor-right
+    }
+    Mod+Shift+Ctrl+H {
+        move-column-to-monitor-left
+    }
+    Mod+Shift+Ctrl+J {
+        move-column-to-monitor-down
+    }
+    Mod+Shift+Ctrl+K {
+        move-column-to-monitor-up
+    }
+    Mod+Shift+Ctrl+L {
+        move-column-to-monitor-right
+    }
+    Mod+U {
+        focus-workspace-down
+    }
+    Mod+I {
+        focus-workspace-up
+    }
+    Mod+Ctrl+U {
+        move-column-to-workspace-down
+    }
+    Mod+Ctrl+I {
+        move-column-to-workspace-up
+    }
+    Mod+Shift+U {
+        move-workspace-down
+    }
+    Mod+Shift+I {
+        move-workspace-up
+    }
+    Mod+WheelScrollDown cooldown-ms=150 {
+        focus-workspace-down
+    }
+    Mod+WheelScrollUp cooldown-ms=150 {
+        focus-workspace-up
+    }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 {
+        move-column-to-workspace-down
+    }
+    Mod+Ctrl+WheelScrollUp cooldown-ms=150 {
+        move-column-to-workspace-up
+    }
+    Mod+WheelScrollRight {
+        focus-column-right
+    }
+    Mod+WheelScrollLeft {
+        focus-column-left
+    }
+    Mod+Ctrl+WheelScrollRight {
+        move-column-right
+    }
+    Mod+Ctrl+WheelScrollLeft {
+        move-column-left
+    }
+    // Usually scrolling up and down with Shift in applications results in
+    // horizontal scrolling; these binds replicate that.
+    Mod+Shift+WheelScrollDown {
+        focus-column-right
+    }
+    Mod+Shift+WheelScrollUp {
+        focus-column-left
+    }
+    Mod+Ctrl+Shift+WheelScrollDown {
+        move-column-right
+    }
+    Mod+Ctrl+Shift+WheelScrollUp {
+        move-column-left
+    }
+    //Workspace binds
+    Mod+1 {
+        focus-workspace "1"
+    }
+    Mod+2 {
+        focus-workspace "2"
+    }
+    Mod+3 {
+        focus-workspace "3"
+    }
+    Mod+4 {
+        focus-workspace "4"
+    }
+    Mod+5 {
+        focus-workspace "5"
+    }
+    Mod+6 {
+        focus-workspace "6"
+    }
+    Mod+7 {
+        focus-workspace "7"
+    }
+    Mod+8 {
+        focus-workspace "8"
+    }
+    Mod+9 {
+        focus-workspace "9"
+    }
+    Mod+0 {
+        focus-workspace "0"
+    }
+    Mod+Shift+1 {
+        move-column-to-workspace "1"
+    }
+    Mod+Shift+2 {
+        move-column-to-workspace "2"
+    }
+    Mod+Shift+3 {
+        move-column-to-workspace "3"
+    }
+    Mod+Shift+4 {
+        move-column-to-workspace "4"
+    }
+    Mod+Shift+5 {
+        move-column-to-workspace "5"
+    }
+    Mod+Shift+6 {
+        move-column-to-workspace "6"
+    }
+    Mod+Shift+7 {
+        move-column-to-workspace "7"
+    }
+    Mod+Shift+8 {
+        move-column-to-workspace "8"
+    }
+    Mod+Shift+9 {
+        move-column-to-workspace "9"
+    }
+    Mod+Shift+0 {
+        move-column-to-workspace "0"
+    }
+    // The following binds move the focused window in and out of a column.
+    // If the window is alone, they will consume it into the nearby column to the side.
+    // If the window is already in a column, they will expel it out.
+    Mod+BracketLeft {
+        consume-or-expel-window-left
+    }
+    Mod+BracketRight {
+        consume-or-expel-window-right
+    }
+    // Consume one window from the right to the bottom of the focused column.
+    // Expel the bottom window from the focused column to the right.
+    Mod+Period {
+        expel-window-from-column
+    }
+    Mod+R {
+        switch-preset-column-width
+    }
+    Mod+Alt+K {
+        switch-preset-window-height
+    }
+    Mod+Alt+J {
+        reset-window-height
+    }
+    Mod+backslash {
+        maximize-column
+    }
+    Mod+F {
+        fullscreen-window
+    }
+    Mod+Minus {
+        set-column-width "-10%"
+    }
+    Mod+Equal {
+        set-column-width "+10%"
+    }
+    // Finer height adjustments when in column with other windows.
+    Mod+Shift+Minus {
+        set-window-height "-10%"
+    }
+    Mod+Shift+Equal {
+        set-window-height "+10%"
+    }
+    Mod+Shift+T {
+        toggle-column-tabbed-display
+    }
+    Mod+S {
+        toggle-window-floating
+    }
+    Mod+Escape allow-inhibiting=false {
+        toggle-keyboard-shortcuts-inhibit
+    }
 }
-
 // NOTE: Autostart, environment and misc stuff
-
 //Autostart
 // spawn-at-startup "xwayland-satellite"
-spawn-at-startup "/home/greed/.config/niri/scripts/autostart.sh"
-
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "dms" "run"
 // Environment Variables
 environment {
-  QT_QPA_PLATFORM "wayland"
-  ELECTRON_OZONE_PLATFORM_HINT "auto"
-  EDITOR "nvim"
-  MOZ_ENABLE_WAYLAND "1" 
-  DISPLAY ":1"
+    QT_QPA_PLATFORM "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    EDITOR "nvim"
+    MOZ_ENABLE_WAYLAND "1"
+    DISPLAY ":1"
 }
-
 // Miscellaneous Settings
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
 hotkey-overlay {
-  skip-at-startup
+    skip-at-startup
 }
-
 // One day I hope my laptop shows this event
 switch-events {
-    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
-    lid-open { spawn "notify-send" "The laptop lid is open!"; }
+    lid-close {
+        spawn "notify-send" "The laptop lid is closed!"
+    }
+    lid-open {
+        spawn "notify-send" "The laptop lid is open!"
+    }
 }
-
 cursor {
-  xcursor-theme "Bibata-Modern-Classic"
-  xcursor-size 24
-  hide-when-typing
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+    hide-when-typing
 }
 
