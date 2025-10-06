@@ -88,7 +88,7 @@ layout {
         color "#0009"
     }
     struts {
-
+        left 625
     }
 }
 // NOTE: Animations
@@ -294,6 +294,9 @@ binds {
     }
     Mod+W {
         close-window
+    }
+    Mod+Ctrl+Shift+F {
+        toggle-windowed-fullscreen
     }
     Mod+Tab {
         focus-workspace-previous
