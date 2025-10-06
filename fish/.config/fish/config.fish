@@ -126,6 +126,7 @@ bind \cf tmux-sessionizer
 #--------------------------------------> PATH <--------------------------------------
 
 set PATH "$PATH":"$HOME/.local/scripts/"
+set PATH "$PATH":"$HOME/.local/share/nvim/mason/bin"
 set PATH "$PATH":"$HOME/ghostty/zig-out/bin/"
 set PATH "$PATH":"$HOME/.local/bin/"
 set PATH "$PATH":"$HOME/.local/colorscripts/"
