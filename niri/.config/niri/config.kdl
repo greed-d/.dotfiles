@@ -322,17 +322,28 @@ binds {
         power-off-monitors
     }
     //Binds for application
+    // Core Noctalia binds
+    Mod+Space {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
+    }
+    Mod+Comma {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
+    }
+    // Utility shortcuts
+    Mod+V {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"
+    }
+    Mod+C {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
+    }
+    Mod+T {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
+    }
+    // Mod+L {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "toggle"
+    // }
     Mod+Return {
         spawn "app2unit" "--" "ghostty"
-    }
-    Mod+Space hotkey-overlay-title="Application Launcher" {
-        spawn "dms" "ipc" "call" "spotlight" "toggle"
-    }
-    Super+Ctrl+L hotkey-overlay-title="Lock Screen" {
-        spawn "dms" "ipc" "call" "lock" "lock"
-    }
-    Mod+X hotkey-overlay-title="Power Menu" {
-        spawn "dms" "ipc" "call" "powermenu" "toggle"
     }
     Mod+B {
         spawn "app2unit" "--" "zen-browser"
@@ -342,9 +353,6 @@ binds {
     }
     Mod+D {
         spawn "app2unit" "--" "vesktop"
-    }
-    Mod+T hotkey-overlay-title="Notification Center" {
-        spawn "dms" "ipc" "call" "notifications" "toggle"
     }
     Mod+M {
         spawn "app2unit" "--" "youtube-music"
@@ -361,29 +369,24 @@ binds {
     Mod+Shift+M {
         spawn "swayosd-client" "--input-volume" "mute-toggle"
     }
-    Mod+V hotkey-overlay-title="Clipboard Manager" {
-        spawn "dms" "ipc" "call" "clipboard" "toggle"
-    }
     // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
     // Special Keys
-    XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "increment" "3"
+    // Audio controls
+    XF86AudioRaiseVolume {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
     }
-    XF86AudioLowerVolume allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "decrement" "3"
+    XF86AudioLowerVolume {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
     }
-    XF86AudioMute allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "mute"
+    XF86AudioMute {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"
     }
-    XF86AudioMicMute allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "micmute"
+    // Brightness controls
+    XF86MonBrightnessUp {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
     }
-    XF86MonBrightnessUp allow-when-locked=true {
-        spawn "dms" "ipc" "call" "brightness" "increment" "5" ""
-    }
-    // You can override the default device for e.g. keyboards by adding the device name to the last param
-    XF86MonBrightnessDown allow-when-locked=true {
-        spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""
+    XF86MonBrightnessDown {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
     }
     // Window Movement and focus
     Mod+H {
@@ -655,7 +658,6 @@ binds {
 //Autostart
 // spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-spawn-at-startup "dms" "run"
 // Environment Variables
 environment {
     QT_QPA_PLATFORM "wayland"
