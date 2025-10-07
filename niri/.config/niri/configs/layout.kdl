@@ -1,0 +1,46 @@
+/*
+██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
+██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
+██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║
+██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║
+███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║
+╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝
+*/
+layout {
+    gaps 9
+    center-focused-column "never"
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
+    preset-window-heights {
+        proportion 0.2
+        proportion 0.4
+        proportion 0.5
+        proportion 0.6
+        proportion 0.8
+    }
+    default-column-width {
+        proportion 0.5
+    }
+    focus-ring {
+        width 1
+        active-color "#cba6f7"
+        inactive-color "#45475A"
+    }
+    border {
+        off
+    }
+    shadow {
+        on
+        softness 20
+        spread 7
+        offset x=-1 y=-5
+        color "#0009"
+    }
+    struts {
+        left 625
+    }
+}

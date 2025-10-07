@@ -1,0 +1,29 @@
+
+environment {
+    QT_QPA_PLATFORM "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    EDITOR "nvim"
+    MOZ_ENABLE_WAYLAND "1"
+    DISPLAY ":1"
+    GTK_THEME "adw-gtk3-dark"
+}
+// Miscellaneous Settings
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+hotkey-overlay {
+    skip-at-startup
+}
+// One day I hope my laptop shows this event
+switch-events {
+    lid-close {
+        spawn "notify-send" "The laptop lid is closed!"
+    }
+    lid-open {
+        spawn "notify-send" "The laptop lid is open!"
+    }
+}
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 20
+    hide-when-typing
+}

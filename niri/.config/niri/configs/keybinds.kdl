@@ -1,0 +1,374 @@
+/*
+██╗  ██╗███████╗██╗   ██╗██████╗ ██╗███╗   ██╗██████╗ ███████╗
+██║ ██╔╝██╔════╝╚██╗ ██╔╝██╔══██╗██║████╗  ██║██╔══██╗██╔════╝
+█████╔╝ █████╗   ╚████╔╝ ██████╔╝██║██╔██╗ ██║██║  ██║███████╗
+██╔═██╗ ██╔══╝    ╚██╔╝  ██╔══██╗██║██║╚██╗██║██║  ██║╚════██║
+██║  ██╗███████╗   ██║   ██████╔╝██║██║ ╚████║██████╔╝███████║
+╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+*/
+binds {
+    Mod+Shift+Slash {
+        show-hotkey-overlay
+    }
+    Mod+W {
+        close-window
+    }
+    Mod+Ctrl+Shift+F {
+        toggle-windowed-fullscreen
+    }
+    Mod+Tab {
+        focus-workspace-previous
+    }
+    // Screenshots
+    Print {
+        screenshot-screen write-to-disk=true
+    }
+    Mod+Alt+S {
+        screenshot-screen
+    }
+    Mod+Shift+S {
+        screenshot
+    }
+    // Power stuff
+    Mod+Shift+Q {
+        spawn "bash" "-c" "shutdown now"
+    }
+    Mod+Ctrl+Q {
+        quit skip-confirmation=true
+    }
+    Mod+Alt+P {
+        power-off-monitors
+    }
+    //Binds for application
+    // Core Noctalia binds
+    Mod+Space {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
+    }
+    Mod+Comma {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
+    }
+    // Utility shortcuts
+    Mod+V {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"
+    }
+    Mod+C {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
+    }
+    Mod+T {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
+    }
+    Mod+Alt+L {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "toggle"
+    }
+    Mod+Return {
+        spawn "app2unit" "--" "ghostty"
+    }
+    Mod+B {
+        spawn "app2unit" "--" "zen-browser"
+    }
+    Mod+E {
+        spawn "app2unit" "--" "dolphin"
+    }
+    Mod+D {
+        spawn "app2unit" "--" "vesktop"
+    }
+    Mod+M {
+        spawn "app2unit" "--" "youtube-music"
+    }
+    Mod+A {
+        spawn "app2unit" "--" "postman"
+    }
+    Mod+O {
+        spawn "app2unit" "--" "obsidian"
+    }
+    Mod+slash {
+        spawn "fuzzel-emoji"
+    }
+    Mod+Shift+M {
+        spawn "swayosd-client" "--input-volume" "mute-toggle"
+    }
+    // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
+    // Special Keys
+    // Audio controls
+    XF86AudioRaiseVolume {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
+    }
+    XF86AudioLowerVolume {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
+    }
+    XF86AudioMute {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"
+    }
+    // Brightness controls
+    XF86MonBrightnessUp {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
+    }
+    XF86MonBrightnessDown {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
+    }
+    // Window Movement and focus
+    Mod+H {
+        focus-column-left
+    }
+    Mod+J {
+        focus-window-down
+    }
+    Mod+K {
+        focus-window-up
+    }
+    Mod+L {
+        focus-column-right
+    }
+    Mod+Ctrl+Left {
+        move-column-left
+    }
+    Mod+Ctrl+Down {
+        move-window-down
+    }
+    Mod+Ctrl+Up {
+        move-window-up
+    }
+    Mod+Ctrl+Right {
+        move-column-right
+    }
+    Mod+Shift+H {
+        move-column-left
+    }
+    Mod+Shift+J {
+        move-window-down
+    }
+    Mod+Shift+K {
+        move-window-up
+    }
+    Mod+Shift+L {
+        move-column-right
+    }
+    Mod+P {
+        focus-column-first
+    }
+    Mod+N {
+        focus-column-last
+    }
+    Mod+Shift+P {
+        move-column-to-first
+    }
+    Mod+Shift+N {
+        move-column-to-last
+    }
+    Mod+Shift+Left {
+        focus-monitor-left
+    }
+    Mod+Shift+Down {
+        focus-monitor-down
+    }
+    Mod+Shift+Up {
+        focus-monitor-up
+    }
+    Mod+Shift+Right {
+        focus-monitor-right
+    }
+    Mod+Ctrl+H {
+        focus-monitor-left
+    }
+    Mod+Ctrl+J {
+        focus-monitor-down
+    }
+    Mod+Ctrl+K {
+        focus-monitor-up
+    }
+    Mod+Ctrl+L {
+        focus-monitor-right
+    }
+    Mod+Shift+Ctrl+Left {
+        move-column-to-monitor-left
+    }
+    Mod+Shift+Ctrl+Down {
+        move-column-to-monitor-down
+    }
+    Mod+Shift+Ctrl+Up {
+        move-column-to-monitor-up
+    }
+    Mod+Shift+Ctrl+Right {
+        move-column-to-monitor-right
+    }
+    Mod+Shift+Ctrl+H {
+        move-column-to-monitor-left
+    }
+    Mod+Shift+Ctrl+J {
+        move-column-to-monitor-down
+    }
+    Mod+Shift+Ctrl+K {
+        move-column-to-monitor-up
+    }
+    Mod+Shift+Ctrl+L {
+        move-column-to-monitor-right
+    }
+    Mod+U {
+        focus-workspace-down
+    }
+    Mod+I {
+        focus-workspace-up
+    }
+    Mod+Ctrl+U {
+        move-column-to-workspace-down
+    }
+    Mod+Ctrl+I {
+        move-column-to-workspace-up
+    }
+    Mod+Shift+U {
+        move-workspace-down
+    }
+    Mod+Shift+I {
+        move-workspace-up
+    }
+    Mod+WheelScrollDown cooldown-ms=150 {
+        focus-workspace-down
+    }
+    Mod+WheelScrollUp cooldown-ms=150 {
+        focus-workspace-up
+    }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 {
+        move-column-to-workspace-down
+    }
+    Mod+Ctrl+WheelScrollUp cooldown-ms=150 {
+        move-column-to-workspace-up
+    }
+    Mod+WheelScrollRight {
+        focus-column-right
+    }
+    Mod+WheelScrollLeft {
+        focus-column-left
+    }
+    Mod+Ctrl+WheelScrollRight {
+        move-column-right
+    }
+    Mod+Ctrl+WheelScrollLeft {
+        move-column-left
+    }
+    // Usually scrolling up and down with Shift in applications results in
+    // horizontal scrolling; these binds replicate that.
+    Mod+Shift+WheelScrollDown {
+        focus-column-right
+    }
+    Mod+Shift+WheelScrollUp {
+        focus-column-left
+    }
+    Mod+Ctrl+Shift+WheelScrollDown {
+        move-column-right
+    }
+    Mod+Ctrl+Shift+WheelScrollUp {
+        move-column-left
+    }
+    //Workspace binds
+    Mod+1 {
+        focus-workspace "1"
+    }
+    Mod+2 {
+        focus-workspace "2"
+    }
+    Mod+3 {
+        focus-workspace "3"
+    }
+    Mod+4 {
+        focus-workspace "4"
+    }
+    Mod+5 {
+        focus-workspace "5"
+    }
+    Mod+6 {
+        focus-workspace "6"
+    }
+    Mod+7 {
+        focus-workspace "7"
+    }
+    Mod+8 {
+        focus-workspace "8"
+    }
+    Mod+9 {
+        focus-workspace "9"
+    }
+    Mod+0 {
+        focus-workspace "0"
+    }
+    Mod+Shift+1 {
+        move-column-to-workspace "1"
+    }
+    Mod+Shift+2 {
+        move-column-to-workspace "2"
+    }
+    Mod+Shift+3 {
+        move-column-to-workspace "3"
+    }
+    Mod+Shift+4 {
+        move-column-to-workspace "4"
+    }
+    Mod+Shift+5 {
+        move-column-to-workspace "5"
+    }
+    Mod+Shift+6 {
+        move-column-to-workspace "6"
+    }
+    Mod+Shift+7 {
+        move-column-to-workspace "7"
+    }
+    Mod+Shift+8 {
+        move-column-to-workspace "8"
+    }
+    Mod+Shift+9 {
+        move-column-to-workspace "9"
+    }
+    Mod+Shift+0 {
+        move-column-to-workspace "0"
+    }
+    // The following binds move the focused window in and out of a column.
+    // If the window is alone, they will consume it into the nearby column to the side.
+    // If the window is already in a column, they will expel it out.
+    Mod+BracketLeft {
+        consume-or-expel-window-left
+    }
+    Mod+BracketRight {
+        consume-or-expel-window-right
+    }
+    // Consume one window from the right to the bottom of the focused column.
+    // Expel the bottom window from the focused column to the right.
+    Mod+Period {
+        expel-window-from-column
+    }
+    Mod+R {
+        switch-preset-column-width
+    }
+    Mod+Alt+K {
+        switch-preset-window-height
+    }
+    Mod+Alt+J {
+        reset-window-height
+    }
+    Mod+backslash {
+        maximize-column
+    }
+    Mod+F {
+        fullscreen-window
+    }
+    Mod+Minus {
+        set-column-width "-10%"
+    }
+    Mod+Equal {
+        set-column-width "+10%"
+    }
+    // Finer height adjustments when in column with other windows.
+    Mod+Shift+Minus {
+        set-window-height "-10%"
+    }
+    Mod+Shift+Equal {
+        set-window-height "+10%"
+    }
+    Mod+Shift+T {
+        toggle-column-tabbed-display
+    }
+    Mod+S {
+        toggle-window-floating
+    }
+    Mod+Escape allow-inhibiting=false {
+        toggle-keyboard-shortcuts-inhibit
+    }
+}
