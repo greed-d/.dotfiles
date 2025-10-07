@@ -7,7 +7,7 @@
         "position": "center",
         "sortByMostUsed": true,
         "terminalCommand": "xterm -e",
-        "useApp2Unit": true
+        "useApp2Unit": false
     },
     "audio": {
         "cavaFrameRate": 60,
@@ -125,6 +125,12 @@
                     "displayMode": "alwaysShow",
                     "id": "Battery",
                     "warningThreshold": 25
+                },
+                {
+                    "customIconPath": "",
+                    "icon": "noctalia",
+                    "id": "ControlCenter",
+                    "useDistroLogo": false
                 }
             ]
         }
@@ -189,7 +195,7 @@
         "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1759758519000,
+        "lastSeenTs": 1759797160000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
@@ -239,7 +245,7 @@
     },
     "wallpaper": {
         "defaultWallpaper": "/etc/xdg/quickshell/noctalia-shell/Assets/Wallpaper/noctalia.png",
-        "directory": "/home/greed/Pictures/walls-catppuccin-mocha/",
+        "directory": "/home/greed/Pictures/walls-catppuccin-mocha",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "fillColor": "#000000",
@@ -248,7 +254,7 @@
             {
                 "directory": "/home/greed/Pictures/walls-catppuccin-mocha",
                 "name": "eDP-1",
-                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha//marine-tunnel.jpg"
+                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/degirled.png"
             }
         ],
         "randomEnabled": false,
