@@ -118,7 +118,7 @@ window-rule {
     open-fullscreen true
 }
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 3
     clip-to-geometry true
 }
 /*
