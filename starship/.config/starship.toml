@@ -1,5 +1,6 @@
 format = """
 [╭](bold overlay1) \
+$python\
 $directory\
 $git_branch\
 $git_status\
@@ -51,7 +52,7 @@ color_yellow = '#d79921'
 [character]
 format = """
 [╰─$symbol](fg:overlay1) """
-success_symbol = '[](fg:bold text)'
+success_symbol = '[󰘧](fg:bold green)'
 error_symbol = '[](fg:bold red)'
 
 [directory]
@@ -123,4 +124,4 @@ show_milliseconds = true
 
 [python]
 symbol = " "
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = '[(\($virtualenv\) | )]($style)'
