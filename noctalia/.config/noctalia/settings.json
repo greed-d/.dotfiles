@@ -21,9 +21,9 @@
     "bar": {
         "backgroundOpacity": 0.7000000000000001,
         "density": "comfortable",
-        "floating": false,
+        "floating": true,
         "marginHorizontal": 0.25,
-        "marginVertical": 0.25,
+        "marginVertical": 0.1,
         "monitors": [
         ],
         "position": "bottom",
@@ -47,7 +47,7 @@
                     "usePrimaryColor": true
                 },
                 {
-                    "id": "PowerProfile"
+                    "id": "NightLight"
                 },
                 {
                     "id": "KeepAwake"
@@ -127,10 +127,7 @@
                     "warningThreshold": 25
                 },
                 {
-                    "customIconPath": "",
-                    "icon": "noctalia",
-                    "id": "ControlCenter",
-                    "useDistroLogo": false
+                    "id": "SessionMenu"
                 }
             ]
         }
@@ -142,7 +139,7 @@
         "darkMode": true,
         "generateTemplatesForPredefined": true,
         "matugenSchemeType": "scheme-fruit-salad",
-        "predefinedScheme": "Tokyo Night",
+        "predefinedScheme": "Catppuccin",
         "useWallpaperColors": false
     },
     "controlCenter": {
@@ -164,7 +161,7 @@
         "avatarImage": "/home/greed/.face",
         "dimDesktop": true,
         "forceBlackScreenCorners": false,
-        "radiusRatio": 1,
+        "radiusRatio": 0.22,
         "screenRadiusRatio": 1,
         "showScreenCorners": false
     },
@@ -195,7 +192,7 @@
         "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1759797160000,
+        "lastSeenTs": 1759818818000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
@@ -254,7 +251,7 @@
             {
                 "directory": "/home/greed/Pictures/walls-catppuccin-mocha",
                 "name": "eDP-1",
-                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/degirled.png"
+                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/dominik-mayer-10.jpg"
             }
         ],
         "randomEnabled": false,
