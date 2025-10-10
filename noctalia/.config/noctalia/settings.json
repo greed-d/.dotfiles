@@ -36,7 +36,10 @@
                     "showUnreadBadge": true
                 },
                 {
-                    "id": "WallpaperSelector"
+                    "customIconPath": "",
+                    "icon": "noctalia",
+                    "id": "ControlCenter",
+                    "useDistroLogo": false
                 },
                 {
                     "customFont": "",
@@ -56,9 +59,9 @@
             "left": [
                 {
                     "customIconPath": "",
-                    "icon": "noctalia",
+                    "icon": "",
                     "id": "ControlCenter",
-                    "useDistroLogo": false
+                    "useDistroLogo": true
                 },
                 {
                     "hideUnoccupied": true,
@@ -138,8 +141,8 @@
     "colorSchemes": {
         "darkMode": true,
         "generateTemplatesForPredefined": true,
-        "matugenSchemeType": "scheme-fruit-salad",
-        "predefinedScheme": "Catppuccin",
+        "matugenSchemeType": "scheme-expressive",
+        "predefinedScheme": "TokyoNight-Night",
         "useWallpaperColors": false
     },
     "controlCenter": {
@@ -192,7 +195,7 @@
         "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1759818818000,
+        "lastSeenTs": 1759978039000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
@@ -251,7 +254,7 @@
             {
                 "directory": "/home/greed/Pictures/walls-catppuccin-mocha",
                 "name": "eDP-1",
-                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/dominik-mayer-10.jpg"
+                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/black-hole.png"
             }
         ],
         "randomEnabled": false,
