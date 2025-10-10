@@ -6,6 +6,7 @@ environment {
     MOZ_ENABLE_WAYLAND "1"
     DISPLAY ":1"
     GTK_THEME "adw-gtk3-dark"
+    XDG_MENU_PREFIX "arch-"
 }
 // Miscellaneous Settings
 prefer-no-csd

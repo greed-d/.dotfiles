@@ -41,15 +41,21 @@ binds {
     }
     //Binds for application
     // Core Noctalia binds
+    // Mod+Space {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
+    // }
     Mod+Space {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
+        spawn "vicinae" "toggle"
+    }
+    Alt+Space {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
     }
     Mod+Comma {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
     }
     // Utility shortcuts
     Mod+V {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"
+        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
     }
     Mod+C {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
@@ -79,13 +85,13 @@ binds {
         spawn "app2unit" "--" "postman"
     }
     Mod+O {
-        spawn "app2unit" "--" "obsidian"
+        toggle-overview
     }
     Mod+slash {
-        spawn "fuzzel-emoji"
+        spawn "vicinae" "vicinae://extensions/vicinae/vicinae/search-emojis"
     }
     Mod+Shift+M {
-        spawn "swayosd-client" "--input-volume" "mute-toggle"
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"
     }
     // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
     // Special Keys

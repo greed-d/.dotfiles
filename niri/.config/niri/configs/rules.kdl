@@ -139,7 +139,7 @@ window-rule {
     open-on-workspace "2"
 }
 window-rule {
-    match app-id="^thunar$"
+    match app-id="^org.kde.dolphin$"
     open-on-workspace "6"
 }
 window-rule {
