@@ -94,6 +94,7 @@ alias vi "NVIM_APPNAME=vanvim nvim"
 alias nvd neovide
 alias hvd "env -u WAYLAND_DISPLAY neovide --multigrid"
 alias ffetch "fastfetch --config ~/.config/fastfetch/22.jsonc"
+alias rip "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 #--------------------------------------> nmcli options <--------------------------------------
 
