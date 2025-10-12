@@ -28,14 +28,6 @@
 
 ![niri3](./niri/.config/niri/.screenshots/niri-launcher.png)
 
-### [Neovim](https://github.com/greed-d/nvim)
-
-![hypr3](./niri/.config/niri/.screenshots/niri-nvim.png)
-
-### Discord
-
-![vesktop](./niri/.config/niri/.screenshots/niri-discord.png)
-
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=greed-d/.dotfiles&type=Date)](https://star-history.com/#greed-d/.dotfiles&Date)
