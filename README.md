@@ -14,7 +14,7 @@
 > Click on WM name for more screenshots and installation process
 
 
-## Screenshots
+## [Screenshots](https://github.com/greed-d/.dotfiles/tree/niri-noctilia/niri/.config/niri) <-- Click here for more screenshots
 
 ### Wallpaper
 
