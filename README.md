@@ -1,52 +1,40 @@
 # Dotfiles
 
+## A tokyonight rice
+
 ## Niri Branch for my dotfiles:
 
 > [!NOTE]  
 > `wallpapers` moved to [wallpapers](https://www.github.com/greeid/wallpapers) repository
 
 > [!NOTE]
-> Neovim config is in [nvim-minimal](https://github.com/greed-d/nvim-minimal) repo
+> Neovim config is in [nvim](https://github.com/greed-d/nvim) repo
 
 > [!NOTE]
 > Click on WM name for more screenshots and installation process
 
-## 🛠️ Stuffs used
-
-|  Stuffs used   |                           Links                           |
-| :------------: | :-------------------------------------------------------: |
-|   AUR Helper   |        [paru](https://github.com/Morganamilo/paru)        |
-|    Browser     |              [Zen Browser](zen-browser.app)               |
-|    Terminal    |              [ghostty](https://ghostty.org/)              |
-|     Panel      |        [waybar](https://github.com/Alexays/Waybar)        |
-| Discord Client |       [vesktop](https://github.com/Vencord/Vesktop)       |
-|     Fetch      |  [fastfetch](https://github.com/fastfetch-cli/fastfetch)  |
-| Music Streamer |                          Spotify                          |
-| File Explorer  |                         nautilus                          |
-|      Rofi      | [lbonn's fork for wayland](https://github.com/lbonn/rofi) |
-|   GTK theme    |      [tokyonight](https://github.com/catppuccin/gtk)      |
 
 ## Screenshots
 
 ### Wallpaper
 
-![hypr1](./niri/.config/niri/.screenshots/wallpaper.png)
+![niri1](./niri/.config/niri/.screenshots/wallpaper.png)
 
 ### Fetch
 
-![hypr2](./niri/.config/niri/.screenshots/fetch.png)
+![niri2](./niri/.config/niri/.screenshots/fetch.png)
 
 ### Rofi
 
-![hypr2](./niri/.config/niri/.screenshots/rofi.png)
+![niri3](./niri/.config/niri/.screenshots/niri-launcher.png)
 
-### [Neovim](https://github.com/greed-d/nvim-minimal)
+### [Neovim](https://github.com/greed-d/nvim)
 
-![hypr3](./niri/.config/niri/.screenshots/nvim.png)
+![hypr3](./niri/.config/niri/.screenshots/niri-nvim.png)
 
 ### Discord
 
-![vesktop](./niri/.config/niri/.screenshots/discord.png)
+![vesktop](./niri/.config/niri/.screenshots/niri-discord.png)
 
 ## Star History
 
