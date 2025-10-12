@@ -23,10 +23,10 @@
         "density": "comfortable",
         "floating": true,
         "marginHorizontal": 0.25,
-        "marginVertical": 0.1,
+        "marginVertical": 0.25,
         "monitors": [
         ],
-        "position": "bottom",
+        "position": "top",
         "showCapsule": true,
         "widgets": {
             "center": [
@@ -36,10 +36,7 @@
                     "showUnreadBadge": true
                 },
                 {
-                    "customIconPath": "",
-                    "icon": "noctalia",
-                    "id": "ControlCenter",
-                    "useDistroLogo": false
+                    "id": "PowerProfile"
                 },
                 {
                     "customFont": "",
@@ -85,6 +82,8 @@
                     "showNetworkStats": false
                 },
                 {
+                    "blacklist": [
+                    ],
                     "id": "Tray"
                 }
             ],
@@ -142,11 +141,34 @@
         "darkMode": true,
         "generateTemplatesForPredefined": true,
         "matugenSchemeType": "scheme-expressive",
-        "predefinedScheme": "TokyoNight-Night",
+        "predefinedScheme": "Tokyo Night",
         "useWallpaperColors": false
     },
     "controlCenter": {
-        "position": "close_to_bar_button"
+        "position": "close_to_bar_button",
+        "quickSettingsStyle": "compact",
+        "widgets": {
+            "quickSettings": [
+                {
+                    "id": "WiFi"
+                },
+                {
+                    "id": "Bluetooth"
+                },
+                {
+                    "id": "Notifications"
+                },
+                {
+                    "id": "ScreenRecorder"
+                },
+                {
+                    "id": "PowerProfile"
+                },
+                {
+                    "id": "WallpaperSelector"
+                }
+            ]
+        }
     },
     "dock": {
         "backgroundOpacity": 1,
@@ -159,9 +181,10 @@
         ]
     },
     "general": {
-        "animationDisabled": true,
-        "animationSpeed": 0.53,
+        "animationDisabled": false,
+        "animationSpeed": 0.8,
         "avatarImage": "/home/greed/.face",
+        "compactLockScreen": false,
         "dimDesktop": true,
         "forceBlackScreenCorners": false,
         "radiusRatio": 0.22,
@@ -195,7 +218,7 @@
         "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1759978039000,
+        "lastSeenTs": 1760289465000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
@@ -204,6 +227,7 @@
         "respectExpireTimeout": false
     },
     "osd": {
+        "alwaysOnTop": false,
         "autoHideMs": 2000,
         "enabled": true,
         "location": "top",
@@ -214,7 +238,7 @@
         "audioCodec": "opus",
         "audioSource": "default_output",
         "colorRange": "limited",
-        "directory": "/home/greed/Videos",
+        "directory": "/home/greed/Videos/screenrecord",
         "frameRate": 60,
         "quality": "very_high",
         "showCursor": true,
@@ -223,15 +247,22 @@
     },
     "settingsVersion": 15,
     "templates": {
+        "discord": false,
+        "discord_armcord": false,
+        "discord_dorion": false,
+        "discord_equibop": false,
+        "discord_lightcord": false,
+        "discord_vesktop": false,
+        "discord_webcord": false,
         "enableUserTemplates": false,
         "foot": false,
         "fuzzel": false,
         "ghostty": false,
         "gtk": false,
+        "kcolorscheme": false,
         "kitty": false,
         "pywalfox": false,
-        "qt": false,
-        "vesktop": false
+        "qt": false
     },
     "ui": {
         "fontDefault": "Google Sans",
@@ -254,7 +285,7 @@
             {
                 "directory": "/home/greed/Pictures/walls-catppuccin-mocha",
                 "name": "eDP-1",
-                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/black-hole.png"
+                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/basement.jpg"
             }
         ],
         "randomEnabled": false,
