@@ -18,13 +18,13 @@
 
 ### Wallpaper
 
-![niri1](./niri/.config/niri/.screenshots/wallpaper.png)
+![niri1](./niri/.config/niri/.screenshots/niri-desktop.png)
 
 ### Fetch
 
-![niri2](./niri/.config/niri/.screenshots/fetch.png)
+![niri2](./niri/.config/niri/.screenshots/niri-fetch.png)
 
-### Rofi
+### Launcher
 
 ![niri3](./niri/.config/niri/.screenshots/niri-launcher.png)
 
