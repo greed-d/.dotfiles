@@ -78,6 +78,7 @@ window-rule {
     match app-id="^org.qbittorrent.qBittorrent$"
     match app-id="^org.pulseaudio.pavucontrol$"
     match app-id="^net.davidotek.pupgui2$"
+    match app-id="^com.github.th_ch.youtube_music$"
     open-floating true
 }
 window-rule {
@@ -95,9 +96,14 @@ window-rule {
 
     }
 }
+window-rule {
+    match app-id="com.github.th_ch.youtube_music" 
+    default-floating-position x=95 y=30 
+}
 // Needed for steam, read wiki for more
 window-rule {
     match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
+    match app-id="com.viber.Viber" title="^notificationtoasts_\\d+_desktop$"
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 window-rule {

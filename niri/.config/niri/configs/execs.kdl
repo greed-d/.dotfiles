@@ -1,1 +1,1 @@
-spawn-at-startup "/usr/lib/hyprpolkitagent/hyprpolkitagent"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
