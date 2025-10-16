@@ -19,15 +19,15 @@
         "volumeStep": 3
     },
     "bar": {
-        "backgroundOpacity": 0.7000000000000001,
+        "backgroundOpacity": 1,
         "density": "comfortable",
-        "floating": true,
+        "floating": false,
         "marginHorizontal": 0.25,
         "marginVertical": 0.25,
         "monitors": [
         ],
         "position": "top",
-        "showCapsule": true,
+        "showCapsule": false,
         "widgets": {
             "center": [
                 {
@@ -66,7 +66,8 @@
                     "labelMode": "index"
                 },
                 {
-                    "autoHide": false,
+                    "colorizeIcons": false,
+                    "hideMode": "hidden",
                     "id": "ActiveWindow",
                     "scrollingMode": "hover",
                     "showIcon": true,
@@ -84,12 +85,13 @@
                 {
                     "blacklist": [
                     ],
+                    "colorizeIcons": false,
                     "id": "Tray"
                 }
             ],
             "right": [
                 {
-                    "autoHide": false,
+                    "hideMode": "hidden",
                     "id": "MediaMini",
                     "scrollingMode": "hover",
                     "showAlbumArt": false,
@@ -141,14 +143,35 @@
         "darkMode": true,
         "generateTemplatesForPredefined": true,
         "matugenSchemeType": "scheme-expressive",
-        "predefinedScheme": "Tokyo Night",
+        "predefinedScheme": "Catppuccin",
         "useWallpaperColors": false
     },
     "controlCenter": {
+        "cards": [
+            {
+                "enabled": true,
+                "id": "profile-card"
+            },
+            {
+                "enabled": true,
+                "id": "shortcuts-card"
+            },
+            {
+                "enabled": true,
+                "id": "weather-card"
+            },
+            {
+                "enabled": true,
+                "id": "audio-card"
+            },
+            {
+                "enabled": true,
+                "id": "media-sysmon-card"
+            }
+        ],
         "position": "close_to_bar_button",
-        "quickSettingsStyle": "compact",
-        "widgets": {
-            "quickSettings": [
+        "shortcuts": {
+            "left": [
                 {
                     "id": "WiFi"
                 },
@@ -156,22 +179,31 @@
                     "id": "Bluetooth"
                 },
                 {
-                    "id": "Notifications"
+                    "id": "ScreenRecorder"
                 },
                 {
-                    "id": "ScreenRecorder"
+                    "id": "WallpaperSelector"
+                }
+            ],
+            "right": [
+                {
+                    "id": "Notifications"
                 },
                 {
                     "id": "PowerProfile"
                 },
                 {
-                    "id": "WallpaperSelector"
+                    "id": "KeepAwake"
+                },
+                {
+                    "id": "NightLight"
                 }
             ]
         }
     },
     "dock": {
         "backgroundOpacity": 1,
+        "colorizeIcons": false,
         "displayMode": "always_visible",
         "floatingRatio": 1,
         "monitors": [
@@ -182,14 +214,15 @@
     },
     "general": {
         "animationDisabled": false,
-        "animationSpeed": 0.8,
+        "animationSpeed": 1.1,
         "avatarImage": "/home/greed/.face",
         "compactLockScreen": false,
         "dimDesktop": true,
         "forceBlackScreenCorners": false,
-        "radiusRatio": 0.22,
+        "radiusRatio": 1,
+        "scaleRatio": 1,
         "screenRadiusRatio": 1,
-        "showScreenCorners": false
+        "showScreenCorners": true
     },
     "hooks": {
         "darkModeChange": "",
@@ -197,8 +230,8 @@
         "wallpaperChange": "notify-send \"Wallpaper Changed\" \"Wallpaper applied\""
     },
     "location": {
-        "name": "Surunga",
-        "showWeekNumberInCalendar": false,
+        "name": "Satdobato",
+        "showWeekNumberInCalendar": true,
         "use12hourFormat": false,
         "useFahrenheit": false
     },
@@ -218,7 +251,7 @@
         "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1760289465000,
+        "lastSeenTs": 1760633241000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
@@ -227,7 +260,7 @@
         "respectExpireTimeout": false
     },
     "osd": {
-        "alwaysOnTop": false,
+        "alwaysOnTop": true,
         "autoHideMs": 2000,
         "enabled": true,
         "location": "top",
@@ -266,12 +299,10 @@
     },
     "ui": {
         "fontDefault": "Google Sans",
-        "fontDefaultScale": 1,
+        "fontDefaultScale": 0.95,
         "fontFixed": "JetBrainsMono NF",
         "fontFixedScale": 1,
         "idleInhibitorEnabled": false,
-        "monitorsScaling": [
-        ],
         "tooltipsEnabled": true
     },
     "wallpaper": {
@@ -285,13 +316,13 @@
             {
                 "directory": "/home/greed/Pictures/walls-catppuccin-mocha",
                 "name": "eDP-1",
-                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/basement.jpg"
+                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/blue-landscape.png"
             }
         ],
         "randomEnabled": false,
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,
-        "transitionDuration": 1500,
+        "transitionDuration": 1300,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "random"
     }
