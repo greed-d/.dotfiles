@@ -1,0 +1,62 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "terminal": {
+    "cursor_shape": "bar",
+    "scrollbar": {
+      "show": "never"
+    },
+    "toolbar": {
+      "breadcrumbs": true
+    }
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  "disable_ai": true,
+  "project_panel": {
+    "scrollbar": {
+      "show": "never"
+    },
+    "entry_spacing": "comfortable",
+    "default_width": 246.0,
+    "dock": "right"
+  },
+  "bottom_dock_layout": "contained",
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true
+  },
+  "tab_bar": {
+    "show": true
+  },
+  "use_smartcase_search": true,
+  "base_keymap": "VSCode",
+  "cursor_shape": "bar",
+  "cursor_blink": true,
+  "ui_font_family": "IBM Plex Sans",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": true,
+  "relative_line_numbers": true,
+  "icon_theme": "Material Icon Theme",
+  "ui_font_size": 16.0,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  }
+}
