@@ -7,7 +7,7 @@
 ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝
 */
 layout {
-    gaps 9
+    gaps 5
     center-focused-column "never"
     preset-column-widths {
         proportion 0.25
@@ -21,6 +21,7 @@ layout {
         proportion 0.5
         proportion 0.6
         proportion 0.8
+        proportion 1.0
     }
     default-column-width {
         proportion 0.5

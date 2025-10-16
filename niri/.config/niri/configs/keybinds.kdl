@@ -82,7 +82,7 @@ binds {
         spawn "app2unit" "--" "youtube-music"
     }
     Mod+A {
-        spawn "app2unit" "--" "postman"
+        spawn "$HOME/.local/scripts/toggle-sticky"
     }
     Mod+O {
         toggle-overview
@@ -378,3 +378,4 @@ binds {
         toggle-keyboard-shortcuts-inhibit
     }
 }
+
