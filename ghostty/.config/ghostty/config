@@ -44,10 +44,11 @@ font-style-bold-italic = Bold Italic
 # font-family = CaskaydiaMono Nerd Font
 # font-family = JetBrainsMono Nerd Font
 # font-family = InputMono Nerd Font
-font-size = 13
+font-size = 11
 font-feature = -calt
 cursor-text = #000000
 
 window-decoration = false
+adjust-cell-height = 4
 
-theme = "TokyoNight Night"
+theme = "Catppuccin Mocha"
