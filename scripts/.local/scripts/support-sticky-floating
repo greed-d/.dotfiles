@@ -1,0 +1,277 @@
+#!/usr/bin/env scriptisto
+// vim: ft=rust shiftwidth=2 softtabstop=2
+
+// TASK:
+// #region meta
+// scriptisto-begin
+// script_src: src/main.rs
+// build_cmd: >
+//  cargo clippy --color=always &&
+//  cargo build --release --color=always && strip ./target/release/niri_sticky
+// target_bin: ./target/release/niri_sticky
+// files:
+//  - path: Cargo.toml
+//    content: |
+//     package = { name = "niri_sticky", version = "0.1.0", edition = "2024"}
+//     [dependencies]
+//     serde = { version = "1.0.219", features = [ "derive" ] }
+//     serde_json = "1.0.140"
+// scriptisto-end
+// #endregion
+
+#![deny(clippy::unwrap_used)]
+
+use std::collections::HashMap;
+use std::io::{
+	BufRead,
+	BufReader,
+	Write,
+};
+use std::os::unix::net::{
+	UnixListener,
+	UnixStream,
+};
+use std::process::{
+	Command,
+	Stdio,
+};
+use std::sync::{
+	LazyLock,
+	RwLock,
+};
+
+type Result<T> = std::result::Result<T, Box<dyn std::error::Error>>;
+
+static STICKY_WINDOWS: LazyLock<RwLock<HashMap<u64, FloatingWindow>>> = LazyLock::new(|| RwLock::new(HashMap::new()));
+const IPC_FILE: &str = "/tmp/niri-floating.sock";
+
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+struct FloatingWindow {
+	id: u64,
+	workspace_id: u64,
+	output: Option<String>,
+}
+
+#[allow(dead_code)]
+#[derive(Debug, serde::Deserialize)]
+struct WindowOpenedOrChanged {
+	id: u64,
+	workspace_id: u64,
+	is_floating: bool,
+}
+
+#[derive(Debug, serde::Deserialize)]
+struct WorkspaceFocused {
+	id: u64,
+}
+
+#[derive(Debug, serde::Deserialize)]
+struct Workspace {
+	id: u64,
+	name: Option<String>,
+	output: Option<String>,
+}
+
+#[derive(Debug, serde::Deserialize)]
+enum Event {
+	WindowOpenedOrChanged {
+		#[allow(dead_code)]
+		window: WindowOpenedOrChanged,
+	},
+	WorkspaceActivated(WorkspaceFocused),
+	WindowClosed {
+		id: u64,
+	},
+}
+
+fn main() -> Result<()> {
+	if std::env::args().any(|e| e == "toggle-sticky") {
+		toggle_sticky();
+		return Ok(());
+	}
+
+	std::fs::remove_file(IPC_FILE).ok();
+
+	std::thread::spawn(socket_loop);
+
+	let mut child = Command::new("niri")
+		.arg("msg")
+		.arg("--json")
+		.arg("event-stream")
+		.stdout(Stdio::piped())
+		.spawn()?;
+
+	let stdout = child.stdout.take().expect("Failed to capture stdout");
+
+	let reader = BufReader::new(stdout);
+
+	for line in reader.lines() {
+		match line {
+			Ok(line_content) => {
+				let payload = serde_json::from_str::<Event>(&line_content);
+				match payload {
+					Ok(Event::WorkspaceActivated(workspace)) => {
+						on_workspace_activated(workspace);
+					}
+					Ok(Event::WindowClosed {
+						id,
+					}) => {
+						on_window_close(id);
+					}
+					_ => (),
+				}
+			}
+			Err(e) => {
+				eprintln!("Error reading output: {}", e);
+			}
+		}
+	}
+
+	child.wait()?;
+
+	Ok(())
+}
+
+fn toggle_sticky() {
+	let Ok(output) = Command::new("niri")
+		.args(["msg", "--json", "focused-window"])
+		.stdout(Stdio::piped())
+		.output()
+	else {
+		return;
+	};
+
+	#[derive(Debug, serde::Deserialize)]
+	struct WindowInfo {
+		id: u64,
+		workspace_id: u64,
+		#[allow(dead_code)]
+		is_focused: bool,
+	}
+
+	let output = String::from_utf8_lossy(&output.stdout);
+
+	let Ok(window_info) = serde_json::from_str::<WindowInfo>(&output) else {
+		return;
+	};
+
+	let mut unix = UnixStream::connect(IPC_FILE).expect("Failed to connect to socket");
+
+	unix
+		.write_all(format!("{}:{}", window_info.id, window_info.workspace_id).as_bytes())
+		.ok();
+}
+
+fn socket_loop() {
+	let listener = UnixListener::bind(IPC_FILE).expect("We couldn't make the listener");
+
+	for stream in listener.incoming().flatten() {
+		let mut reader = BufReader::new(stream);
+		let mut line = String::new();
+		if reader.read_line(&mut line).is_ok() {
+			let mut chunks = line.split(':');
+
+			let Some(window_id) = chunks.next().map(|e| e.trim()).and_then(|s| s.parse::<u64>().ok()) else {
+				continue;
+			};
+
+			let Some(workspace_id) = chunks.next().map(|e| e.trim()).and_then(|s| s.parse::<u64>().ok()) else {
+				continue;
+			};
+
+			let exist = {
+				let Ok(registery) = STICKY_WINDOWS.read() else {
+					continue;
+				};
+				registery.contains_key(&window_id)
+			};
+
+			if exist {
+				let Ok(mut registery) = STICKY_WINDOWS.write() else {
+					continue;
+				};
+
+				registery.remove(&window_id);
+				continue;
+			}
+
+			let Ok(workspace) = get_workspace_info(workspace_id) else {
+				return;
+			};
+
+			let window = FloatingWindow {
+				id: window_id,
+				workspace_id: workspace.id,
+				output: workspace.output,
+			};
+
+      if let Ok(mut registery) = STICKY_WINDOWS.write() {
+        registery.insert(window_id, window);
+      }
+		}
+	}
+}
+
+fn move_window_to_workspace(workspace_id: &str, id: u64) -> Result<()> {
+	Command::new("niri")
+		.args(["msg", "action", "move-window-to-workspace", "--focus", "true"])
+		.arg("--window-id")
+		.arg(id.to_string())
+		.arg(workspace_id)
+		.output()?;
+
+	Ok(())
+}
+
+fn get_workspace_info(id: u64) -> Result<Workspace> {
+	let output = Command::new("niri")
+		.args(["msg", "--json", "workspaces"])
+		.stdout(Stdio::piped())
+		.spawn()?
+		.wait_with_output()?;
+
+	let output = String::from_utf8_lossy(&output.stdout);
+
+	let workspaces: Vec<Workspace> = serde_json::from_str(&output)?;
+
+	let workspace = workspaces
+		.into_iter()
+		.find(|it| it.id == id)
+		.ok_or("Workspace not found")?;
+
+	Ok(workspace)
+}
+
+fn on_workspace_activated(workspace: WorkspaceFocused) {
+  let windows = {
+    if let Ok(registery) = STICKY_WINDOWS.read() {
+      let registery = registery.clone();
+      registery.into_values().collect::<Vec<_>>()
+    } else {
+      vec![]
+    }
+  };
+
+	if windows.is_empty() {
+		return;
+	}
+
+	let Ok(workspace) = get_workspace_info(workspace.id) else {
+		return;
+	};
+
+	let target = workspace.name.unwrap_or(workspace.id.to_string());
+
+	for window_info in windows {
+		if workspace.output.as_ref() != window_info.output.as_ref() {
+			continue;
+		}
+		move_window_to_workspace(target.as_str(), window_info.id).ok();
+	}
+}
+
+fn on_window_close(window_id: u64) {
+  if let Ok(mut registery) = STICKY_WINDOWS.write() {
+    registery.remove(&window_id);
+  }
+}

@@ -59,5 +59,11 @@
     "bindings": {
       "ctrl-y": "editor::ConfirmCodeAction"
     }
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "space c a": "editor::ToggleCodeActions"
+    }
   }
 ]

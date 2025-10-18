@@ -1,0 +1,4 @@
+#!/bin/sh
+# set ft=bash
+
+/home/greed/.local/scripts/support-sticky-floating toggle-sticky

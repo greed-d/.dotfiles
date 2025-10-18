@@ -1,4 +1,4 @@
-workspace "1"
+workspace "1" 
 workspace "2"
 workspace "3"
 workspace "4"
@@ -117,6 +117,7 @@ window-rule {
     match app-id="Postman"
     match app-id="Spotify"
     match app-id="Element"
+    match app-id="vivaldi-stable"
     open-maximized true
 }
 window-rule {

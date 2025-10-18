@@ -75,7 +75,7 @@
                 },
                 {
                     "id": "SystemMonitor",
-                    "showCpuTemp": false,
+                    "showCpuTemp": true,
                     "showCpuUsage": true,
                     "showDiskUsage": false,
                     "showMemoryAsPercent": true,

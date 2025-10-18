@@ -60,7 +60,7 @@ SETUVAR fish_pager_color_selected_background:\x1d
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/home/greed/\x2espicetify
+SETUVAR fish_user_paths:/home/greed/\x2espicetify\x1e/usr/bin
 SETUVAR mirage:\x1d
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:false
