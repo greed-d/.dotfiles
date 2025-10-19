@@ -27,7 +27,7 @@
         "monitors": [
         ],
         "position": "top",
-        "showCapsule": false,
+        "showCapsule": true,
         "widgets": {
             "center": [
                 {
@@ -316,7 +316,7 @@
             {
                 "directory": "/home/greed/Pictures/walls-catppuccin-mocha",
                 "name": "eDP-1",
-                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/blue-landscape.png"
+                "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/blueprint.png"
             }
         ],
         "randomEnabled": false,
