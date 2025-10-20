@@ -56,9 +56,9 @@
             "left": [
                 {
                     "customIconPath": "",
-                    "icon": "",
+                    "icon": "niri",
                     "id": "ControlCenter",
-                    "useDistroLogo": true
+                    "useDistroLogo": false
                 },
                 {
                     "hideUnoccupied": true,
@@ -251,7 +251,7 @@
         "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1760633241000,
+        "lastSeenTs": 1760938345000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
