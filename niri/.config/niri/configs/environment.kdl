@@ -18,7 +18,7 @@ hotkey-overlay {
 // One day I hope my laptop shows this event
 switch-events {
     lid-close {
-        spawn "notify-send" "The laptop lid is closed!"
+        spawn "systemctl" "suspend"
     }
     lid-open {
         spawn "notify-send" "The laptop lid is open!"

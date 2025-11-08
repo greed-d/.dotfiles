@@ -27,23 +27,30 @@ layout {
         proportion 0.5
     }
     focus-ring {
+    on
         width 1
         active-color "#cba6f7"
-        inactive-color "#45475A"
+        inactive-color "#7f849c"
     }
     border {
         off
+        width 1
+        active-color "#cba6f7"
+        inactive-color "#7f849c"
+
     }
     shadow {
         on
         softness 20
-        spread 7
+        spread 3
         offset x=-1 y=-5
         color "#0009"
     }
     struts {
-      // left 2
-      // right 
+      // left 6
+      // right 6
+      // top 6
+      // bottom 6
         // left 625
     }
 }

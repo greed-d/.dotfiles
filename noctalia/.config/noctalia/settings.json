@@ -1,10 +1,12 @@
 {
     "appLauncher": {
-        "backgroundOpacity": 0.78,
+        "backgroundOpacity": 0.8200000000000001,
+        "customLaunchPrefix": "",
+        "customLaunchPrefixEnabled": false,
         "enableClipboardHistory": true,
         "pinnedExecs": [
         ],
-        "position": "center",
+        "position": "bottom_center",
         "sortByMostUsed": true,
         "terminalCommand": "xterm -e",
         "useApp2Unit": false
@@ -21,13 +23,15 @@
     "bar": {
         "backgroundOpacity": 1,
         "density": "comfortable",
+        "exclusive": true,
         "floating": false,
         "marginHorizontal": 0.25,
         "marginVertical": 0.25,
         "monitors": [
         ],
+        "outerCorners": true,
         "position": "top",
-        "showCapsule": true,
+        "showCapsule": false,
         "widgets": {
             "center": [
                 {
@@ -40,7 +44,7 @@
                 },
                 {
                     "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
+                    "formatHorizontal": "HH:mm:ss ddd, MMM dd",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
                     "useCustomFont": false,
@@ -61,23 +65,25 @@
                     "useDistroLogo": false
                 },
                 {
+                    "characterCount": 10,
                     "hideUnoccupied": true,
                     "id": "Workspace",
-                    "labelMode": "index"
+                    "labelMode": "name"
                 },
                 {
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
+                    "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showIcon": true,
-                    "width": 120
+                    "useFixedWidth": false
                 },
                 {
                     "id": "SystemMonitor",
                     "showCpuTemp": true,
                     "showCpuUsage": true,
-                    "showDiskUsage": false,
+                    "showDiskUsage": true,
                     "showMemoryAsPercent": true,
                     "showMemoryUsage": false,
                     "showNetworkStats": false
@@ -86,22 +92,29 @@
                     "blacklist": [
                     ],
                     "colorizeIcons": false,
+                    "favorites": [
+                    ],
                     "id": "Tray"
                 }
             ],
             "right": [
                 {
                     "hideMode": "hidden",
+                    "hideWhenIdle": false,
                     "id": "MediaMini",
+                    "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showAlbumArt": false,
                     "showVisualizer": false,
+                    "useFixedWidth": false,
                     "visualizerType": "linear"
                 },
                 {
+                    "displayMode": "onhover",
                     "id": "WiFi"
                 },
                 {
+                    "displayMode": "onhover",
                     "id": "Bluetooth"
                 },
                 {
@@ -121,7 +134,7 @@
                     "showCpuTemp": false,
                     "showCpuUsage": false,
                     "showDiskUsage": false,
-                    "showMemoryAsPercent": false,
+                    "showMemoryAsPercent": true,
                     "showMemoryUsage": true,
                     "showNetworkStats": false
                 },
@@ -131,19 +144,30 @@
                     "warningThreshold": 25
                 },
                 {
+                    "id": "ScreenRecorder"
+                },
+                {
                     "id": "SessionMenu"
                 }
             ]
         }
     },
+    "battery": {
+        "chargingMode": 0
+    },
     "brightness": {
-        "brightnessStep": 3
+        "brightnessStep": 3,
+        "enableDdcSupport": false,
+        "enforceMinimum": true
     },
     "colorSchemes": {
         "darkMode": true,
         "generateTemplatesForPredefined": true,
+        "manualSunrise": "06:30",
+        "manualSunset": "18:30",
         "matugenSchemeType": "scheme-expressive",
         "predefinedScheme": "Catppuccin",
+        "schedulingMode": "off",
         "useWallpaperColors": false
     },
     "controlCenter": {
@@ -205,12 +229,14 @@
         "backgroundOpacity": 1,
         "colorizeIcons": false,
         "displayMode": "always_visible",
+        "enabled": false,
         "floatingRatio": 1,
         "monitors": [
         ],
         "onlySameOutput": true,
         "pinnedApps": [
-        ]
+        ],
+        "size": 1
     },
     "general": {
         "animationDisabled": false,
@@ -218,10 +244,16 @@
         "avatarImage": "/home/greed/.face",
         "compactLockScreen": false,
         "dimDesktop": true,
+        "enableShadows": true,
         "forceBlackScreenCorners": false,
+        "language": "",
+        "lockOnSuspend": true,
         "radiusRatio": 1,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
+        "shadowDirection": "bottom_right",
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 3,
         "showScreenCorners": true
     },
     "hooks": {
@@ -230,10 +262,15 @@
         "wallpaperChange": "notify-send \"Wallpaper Changed\" \"Wallpaper applied\""
     },
     "location": {
+        "analogClockInCalendar": false,
+        "firstDayOfWeek": -1,
         "name": "Satdobato",
+        "showCalendarEvents": true,
+        "showCalendarWeather": true,
         "showWeekNumberInCalendar": true,
         "use12hourFormat": false,
-        "useFahrenheit": false
+        "useFahrenheit": false,
+        "weatherEnabled": true
     },
     "network": {
         "wifiEnabled": true
@@ -248,24 +285,24 @@
         "nightTemp": "4000"
     },
     "notifications": {
-        "alwaysOnTop": false,
+        "backgroundOpacity": 1,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1760938345000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
         ],
         "normalUrgencyDuration": 8,
+        "overlayLayer": true,
         "respectExpireTimeout": false
     },
     "osd": {
-        "alwaysOnTop": true,
         "autoHideMs": 2000,
         "enabled": true,
         "location": "top",
         "monitors": [
-        ]
+        ],
+        "overlayLayer": true
     },
     "screenRecorder": {
         "audioCodec": "opus",
@@ -278,8 +315,11 @@
         "videoCodec": "h264",
         "videoSource": "portal"
     },
-    "settingsVersion": 15,
+    "settingsVersion": 18,
+    "setupCompleted": true,
     "templates": {
+        "alacritty": false,
+        "code": false,
         "discord": false,
         "discord_armcord": false,
         "discord_dorion": false,
@@ -295,14 +335,18 @@
         "kcolorscheme": false,
         "kitty": false,
         "pywalfox": false,
-        "qt": false
+        "qt": false,
+        "vicinae": false,
+        "walker": false,
+        "wezterm": false
     },
     "ui": {
         "fontDefault": "Google Sans",
         "fontDefaultScale": 0.95,
         "fontFixed": "JetBrainsMono NF",
         "fontFixedScale": 1,
-        "idleInhibitorEnabled": false,
+        "panelsAttachedToBar": true,
+        "panelsOverlayLayer": false,
         "tooltipsEnabled": true
     },
     "wallpaper": {
@@ -319,8 +363,11 @@
                 "wallpaper": "/home/greed/Pictures/walls-catppuccin-mocha/blueprint.png"
             }
         ],
+        "overviewEnabled": true,
+        "panelPosition": "follow_bar",
         "randomEnabled": false,
         "randomIntervalSec": 300,
+        "recursiveSearch": false,
         "setWallpaperOnAllMonitors": true,
         "transitionDuration": 1300,
         "transitionEdgeSmoothness": 0.05,

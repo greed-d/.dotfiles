@@ -1,12 +1,12 @@
-workspace "1" 
-workspace "2"
-workspace "3"
+workspace "🌍 WWW" 
+workspace "🖳TERM"
+workspace "🗒️ JOT"
 workspace "4"
 workspace "5"
-workspace "6"
-workspace "7"
-workspace "8"
-workspace "9"
+workspace "📂 FILE"
+workspace "📓 NOTE"
+workspace "🎵 SONG"
+workspace "💬 CHAT"
 workspace "0"
 /*
 [[ Layer Rule ]]
@@ -103,7 +103,7 @@ window-rule {
 // Needed for steam, read wiki for more
 window-rule {
     match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
-    match app-id="com.viber.Viber" title="^notificationtoasts_\\d+_desktop$"
+    match app-id="com.viber.Viber" title="ViberPC"
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 window-rule {
@@ -117,6 +117,7 @@ window-rule {
     match app-id="Postman"
     match app-id="Spotify"
     match app-id="Element"
+    match app-id="steam"
     match app-id="vivaldi-stable"
     open-maximized true
 }
@@ -139,28 +140,28 @@ window-rule {
 }
 window-rule {
     match app-id="zen$"
-    open-on-workspace "1"
+    open-on-workspace "🌍 WWW"
 }
 window-rule {
     match app-id="Postman$"
-    open-on-workspace "2"
+    open-on-workspace "🖳TERM"
 }
 window-rule {
     match app-id="^org.kde.dolphin$"
-    open-on-workspace "6"
+    open-on-workspace "📂 FILE"
 }
 window-rule {
     match app-id="^obsidian$"
-    open-on-workspace "7"
+    open-on-workspace "📓 NOTE"
 }
 window-rule {
     match app-id="com.github.th_ch.youtube_music$"
     match app-id="Spotify"
-    open-on-workspace "8"
+    open-on-workspace "🎵 SONG"
 }
 window-rule {
     match app-id="^vesktop$"
-    open-on-workspace "9"
+    open-on-workspace "💬 CHAT"
 }
 window-rule {
     match app-id="^org.telegram.desktop$"

@@ -45,8 +45,11 @@ binds {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
     // }
     Mod+Space {
-        spawn "vicinae" "toggle"
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
     }
+    // Mod+Space {
+    //     spawn "vicinae" "toggle"
+    // }
     Alt+Space {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
     }
@@ -64,7 +67,7 @@ binds {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
     }
     Mod+Alt+L {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "toggle"
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
     }
     Mod+Return {
         spawn "app2unit" "--" "ghostty"
@@ -267,13 +270,13 @@ binds {
     }
     //Workspace binds
     Mod+1 {
-        focus-workspace "1"
+        focus-workspace "🌍 WWW"
     }
     Mod+2 {
-        focus-workspace "2"
+        focus-workspace "🖳TERM"
     }
     Mod+3 {
-        focus-workspace "3"
+        focus-workspace "🗒️ JOT"
     }
     Mod+4 {
         focus-workspace "4"
@@ -282,28 +285,28 @@ binds {
         focus-workspace "5"
     }
     Mod+6 {
-        focus-workspace "6"
+        focus-workspace "📂 FILE"
     }
     Mod+7 {
-        focus-workspace "7"
+        focus-workspace "📓 NOTE"
     }
     Mod+8 {
-        focus-workspace "8"
+        focus-workspace "🎵 SONG"
     }
     Mod+9 {
-        focus-workspace "9"
+        focus-workspace "💬 CHAT"
     }
     Mod+0 {
         focus-workspace "0"
     }
     Mod+Shift+1 {
-        move-column-to-workspace "1"
+        move-column-to-workspace "🌍 WWW"
     }
     Mod+Shift+2 {
-        move-column-to-workspace "2"
+        move-column-to-workspace "🖳TERM"
     }
     Mod+Shift+3 {
-        move-column-to-workspace "3"
+        move-column-to-workspace "🗒️ JOT"
     }
     Mod+Shift+4 {
         move-column-to-workspace "4"
@@ -312,16 +315,16 @@ binds {
         move-column-to-workspace "5"
     }
     Mod+Shift+6 {
-        move-column-to-workspace "6"
+        move-column-to-workspace "📂 FILE"
     }
     Mod+Shift+7 {
-        move-column-to-workspace "7"
+        move-column-to-workspace "📓 NOTE"
     }
     Mod+Shift+8 {
-        move-column-to-workspace "8"
+        move-column-to-workspace "🎵 SONG"
     }
     Mod+Shift+9 {
-        move-column-to-workspace "9"
+        move-column-to-workspace "💬 CHAT"
     }
     Mod+Shift+0 {
         move-column-to-workspace "0"
