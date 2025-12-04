@@ -59,7 +59,7 @@
 //     }
 // }
 animations {
-    on
+    off
     slowdown 0.75
     window-open {
         duration-ms 200

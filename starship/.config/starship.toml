@@ -57,7 +57,7 @@ error_symbol = '[](fg:bold red)'
 
 [directory]
 # style = "fg:color_fg0 bg:color_bg0"
-format = '[$path](fg:bold teal)'
+format = 'in [$path](fg:bold teal)'
 truncation_length = 3
 truncation_symbol = "·/"
 fish_style_pwd_dir_length = 1

@@ -11,6 +11,42 @@ workspace "0"
 /*
 [[ Layer Rule ]]
 */
+// Set the overview wallpaper on the backdrop.
+
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 100
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        Alt+grave       { next-window     filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
 layer-rule {
     match namespace="^launcher$"
     opacity 1.0
@@ -119,6 +155,7 @@ window-rule {
     match app-id="Element"
     match app-id="steam"
     match app-id="vivaldi-stable"
+    match app-id="Emacs"
     open-maximized true
 }
 window-rule {
@@ -129,6 +166,11 @@ window-rule {
     geometry-corner-radius 18
     clip-to-geometry true
 }
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
 /*
 [[ App Rules ]]
 */
@@ -136,7 +178,7 @@ window-rule {
     draw-border-with-background false
     match app-id="kitty$"
     match app-id="com.mitchellh.ghostty$"
- // opacity 0.70
+ // opacity 0.93
 }
 window-rule {
     match app-id="zen$"
@@ -158,6 +200,11 @@ window-rule {
     match app-id="com.github.th_ch.youtube_music$"
     match app-id="Spotify"
     open-on-workspace "🎵 SONG"
+}
+
+window-rule {
+    match app-id="sioyek"
+    open-on-workspace "📓 NOTE"
 }
 window-rule {
     match app-id="^vesktop$"

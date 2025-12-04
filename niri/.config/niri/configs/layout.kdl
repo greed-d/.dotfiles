@@ -27,13 +27,13 @@ layout {
         proportion 0.5
     }
     focus-ring {
-    on
+        off
         width 1
         active-color "#cba6f7"
-        inactive-color "#7f849c"
+        inactive-color "#fff"
     }
     border {
-        off
+        on
         width 1
         active-color "#cba6f7"
         inactive-color "#7f849c"
@@ -47,10 +47,9 @@ layout {
         color "#0009"
     }
     struts {
-      // left 6
-      // right 6
-      // top 6
-      // bottom 6
-        // left 625
+      left 10
+      right 10
+      top 10
+      bottom 10
     }
 }

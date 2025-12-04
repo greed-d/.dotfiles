@@ -78,6 +78,9 @@ alias lf yazi
 #--------------------------------------> userful alias <--------------------------------------
 
 alias lvim "env NVIM_APPNAME=lazyvim nvim"
+alias ivim "env NVIM_APPNAME=interview nvim"
+alias i "paru -S --noconfirm"
+alias v "nvim"
 alias tvim "env NVIM_APPNAME=testvim nvim"
 alias kvim "env NVIM_APPNAME=nvim-bak nvim"
 alias .. "cd .."
@@ -130,6 +133,7 @@ set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.local/share/nvim/mason/bin"
 set PATH "$PATH":"$HOME/ghostty/zig-out/bin/"
 set PATH "$PATH":"$HOME/.local/bin/"
+set PATH "$PATH":"$HOME/.config/emacs/bin/"
 set PATH "$PATH":"$HOME/.local/colorscripts/"
 # set PATH "$PATH":"$HOME/.sdkman/candidates/gradle/current/bin/"
 set PATH "$PATH":"/usr/local/bin"

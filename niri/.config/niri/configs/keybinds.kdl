@@ -44,12 +44,12 @@ binds {
     // Mod+Space {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
     // }
-    Mod+Space {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
-    }
     // Mod+Space {
-    //     spawn "vicinae" "toggle"
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
     // }
+    Mod+Space {
+        spawn "vicinae" "toggle"
+    }
     Alt+Space {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
     }
@@ -105,6 +105,12 @@ binds {
     XF86AudioLowerVolume {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
     }
+    Mod+Up {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
+    }
+    Mod+Down {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
+    }
     XF86AudioMute {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"
     }
@@ -113,6 +119,12 @@ binds {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
     }
     XF86MonBrightnessDown {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
+    }
+    Mod+Right {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
+    }
+    Mod+Left {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
     }
     // Window Movement and focus

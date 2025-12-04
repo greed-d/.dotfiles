@@ -4,6 +4,7 @@
     "useQuickCss": true,
     "themeLinks": [],
     "enabledThemes": [
+        "gruvbox.css",
         "catppuccin-mocha.css"
     ],
     "enableReactDevtools": false,
@@ -591,7 +592,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1760637036495
+        "settingsSyncVersion": 1762618733799
     },
     "eagerPatches": false
 }
