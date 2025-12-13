@@ -48,10 +48,10 @@ binds {
         spawn "vicinae" "toggle"
     }
     Alt+Space {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
+        spawn "dms" "ipc" "call" "dankdash" "wallpaper"
     }
     Mod+Comma {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
+        spawn "dms" "ipc" "call" "settings" "toggle"
     }
     // Utility shortcuts
     Mod+V {
@@ -61,10 +61,10 @@ binds {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
     }
     Mod+T {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
+        spawn "dms" "ipc" "call" "notifications" "open"
     }
     Mod+Alt+L {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "toggle"
+        spawn "dms" "ipc" "call" "lock" "lock"
     }
     Mod+Return {
         spawn "app2unit" "--" "ghostty"
@@ -91,26 +91,29 @@ binds {
         spawn "vicinae" "vicinae://extensions/vicinae/vicinae/search-emojis"
     }
     Mod+Shift+M {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"
+        spawn "dms" "ipc" "call" "audio" "micmute"
     }
     // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
     // Special Keys
     // Audio controls
     XF86AudioRaiseVolume {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
+        spawn "dms" "ipc" "call" "audio" "increment" "5"
     }
     XF86AudioLowerVolume {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
+        spawn "dms" "ipc" "call" "audio" "decrement" "5"
     }
     XF86AudioMute {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"
+        spawn "dms" "ipc" "call" "audio" "mute"
+    }
+    XF86AudioMicMute {
+        spawn "dms" "ipc" "call" "audio" "micmute"
     }
     // Brightness controls
     XF86MonBrightnessUp {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
+        spawn "dms" "ipc" "call" "brightness" "increment" "5" "backlight:amdgpu_bl2"
     }
     XF86MonBrightnessDown {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
+        spawn "dms" "ipc" "call" "brightness" "decrement" "5" "backlight:amdgpu_bl2"
     }
     // Window Movement and focus
     Mod+H {
