@@ -60,7 +60,7 @@
 // }
 animations {
     on
-    slowdown 0.75
+    slowdown 0.5
     window-open {
         duration-ms 200
         curve "linear"
