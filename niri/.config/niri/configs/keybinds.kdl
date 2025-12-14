@@ -102,6 +102,15 @@ binds {
     XF86AudioLowerVolume {
         spawn "dms" "ipc" "call" "audio" "decrement" "5"
     }
+    XF86AudioPlay {
+        spawn "dms" "ipc" "call" "mpris" "playPause"
+    }
+    XF86AudioPrev {
+        spawn "dms" "ipc" "call" "mpris" "previous"
+    }
+    XF86AudioNext {
+        spawn "dms" "ipc" "call" "mpris" "next"
+    }
     XF86AudioMute {
         spawn "dms" "ipc" "call" "audio" "mute"
     }
