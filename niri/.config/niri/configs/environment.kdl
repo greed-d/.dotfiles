@@ -2,6 +2,7 @@
 environment {
     QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME "qt6ct"
+    XDG_SESSION_TYPE "wayland"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     EDITOR "nvim"
     MOZ_ENABLE_WAYLAND "1"

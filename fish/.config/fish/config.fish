@@ -78,7 +78,7 @@ alias lf yazi
 #--------------------------------------> userful alias <--------------------------------------
 
 alias lvim "env NVIM_APPNAME=lazyvim nvim"
-alias ivim "env NVIM_APPNAME=interview nvim"
+alias ivim "env NVIM_APPNAME=ivim nvim"
 alias i "paru -S --noconfirm"
 alias v "nvim"
 alias tvim "env NVIM_APPNAME=testvim nvim"

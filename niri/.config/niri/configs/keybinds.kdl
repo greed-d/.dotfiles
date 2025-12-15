@@ -285,7 +285,7 @@ binds {
         focus-workspace "🌍 WWW"
     }
     Mod+2 {
-        focus-workspace "🖳TERM"
+        focus-workspace "⚙️ DEV"
     }
     Mod+3 {
         focus-workspace "🗒️ JOT"
@@ -315,7 +315,7 @@ binds {
         move-column-to-workspace "🌍 WWW"
     }
     Mod+Shift+2 {
-        move-column-to-workspace "🖳TERM"
+        move-column-to-workspace "⚙️ DEV"
     }
     Mod+Shift+3 {
         move-column-to-workspace "🗒️ JOT"

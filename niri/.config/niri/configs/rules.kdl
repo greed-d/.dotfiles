@@ -1,12 +1,22 @@
-workspace "🌍 WWW" 
-workspace "🖳TERM"
+workspace "🌍 WWW" {
+  open-on-output "HDMI-A-1"
+}
+workspace "⚙️ DEV" {
+  open-on-output "DP-2"
+}
 workspace "🗒️ JOT"
 workspace "4"
 workspace "5"
-workspace "📂 FILE"
+workspace "📂 FILE" {
+  open-on-output "HDMI-A-1"
+}
 workspace "📓 NOTE"
-workspace "🎵 SONG"
-workspace "💬 CHAT"
+workspace "🎵 SONG" {
+  open-on-output "DP-2"
+}
+workspace "💬 CHAT" {
+  open-on-output "HDMI-A-1"
+}
 workspace "0"
 /*
 [[ Layer Rule ]]
@@ -133,14 +143,15 @@ window-rule {
     }
 }
 window-rule {
-    match app-id="com.github.th_ch.youtube_music" 
-    default-floating-position x=95 y=30 
+    match app-id="com.github.th_ch.youtube_music"
+    default-floating-position x=95 y=30
 }
 // Needed for steam, read wiki for more
 window-rule {
     match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
     match app-id="com.viber.Viber" title="ViberPC"
     default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
 }
 window-rule {
     match app-id="org.telegram.desktop$"

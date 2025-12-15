@@ -26,7 +26,7 @@
     "bar": {
         "backgroundOpacity": 1,
         "capsuleOpacity": 0.7000000000000001,
-        "density": "comfortable",
+        "density": "default",
         "exclusive": true,
         "floating": false,
         "marginHorizontal": 0.25,
@@ -35,7 +35,7 @@
         ],
         "outerCorners": true,
         "position": "top",
-        "showCapsule": false,
+        "showCapsule": true,
         "widgets": {
             "center": [
                 {
@@ -45,7 +45,7 @@
                 },
                 {
                     "customFont": "",
-                    "formatHorizontal": "ddd, MMM dd, HH:mm",
+                    "formatHorizontal": "ddd, MMM dd, HH:mm:ss",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
                     "useCustomFont": false,
@@ -60,6 +60,7 @@
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
                     "customIconPath": "",
+                    "enableColorization": false,
                     "icon": "niri",
                     "id": "ControlCenter",
                     "useDistroLogo": false
@@ -69,7 +70,7 @@
                     "followFocusedScreen": false,
                     "hideUnoccupied": true,
                     "id": "Workspace",
-                    "labelMode": "index"
+                    "labelMode": "name"
                 },
                 {
                     "colorizeIcons": false,
@@ -127,12 +128,6 @@
                     "usePrimaryColor": false
                 },
                 {
-                    "deviceNativePath": "",
-                    "displayMode": "onhover",
-                    "id": "Battery",
-                    "warningThreshold": 30
-                },
-                {
                     "displayMode": "onhover",
                     "id": "WiFi"
                 },
@@ -156,11 +151,11 @@
         "cards": [
             {
                 "enabled": true,
-                "id": "banner-card"
+                "id": "calendar-header-card"
             },
             {
                 "enabled": true,
-                "id": "calendar-card"
+                "id": "calendar-month-card"
             },
             {
                 "enabled": true,
@@ -251,7 +246,6 @@
         "onlySameOutput": true,
         "pinnedApps": [
         ],
-        "radiusRatio": 0.1,
         "size": 1
     },
     "general": {
@@ -259,18 +253,20 @@
         "animationDisabled": true,
         "animationSpeed": 1.1,
         "avatarImage": "/home/greed/.face",
+        "boxRadiusRatio": 1,
         "compactLockScreen": false,
-        "dimmerOpacity": 0.8,
+        "dimmerOpacity": 0.6900000000000001,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
+        "iRadiusRatio": 1,
         "language": "",
         "lockOnSuspend": true,
         "radiusRatio": 1.26,
-        "scaleRatio": 1,
+        "scaleRatio": 0.8,
         "screenRadiusRatio": 1.1,
-        "shadowDirection": "bottom_right",
-        "shadowOffsetX": 2,
-        "shadowOffsetY": 3,
+        "shadowDirection": "right",
+        "shadowOffsetX": 3,
+        "shadowOffsetY": 0,
         "showHibernateOnLockScreen": true,
         "showScreenCorners": true
     },
@@ -380,7 +376,7 @@
         ],
         "showHeader": true
     },
-    "settingsVersion": 25,
+    "settingsVersion": 26,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
@@ -423,9 +419,9 @@
     },
     "ui": {
         "fontDefault": "Google Sans",
-        "fontDefaultScale": 1,
-        "fontFixed": "CaskaydiaMono NF",
-        "fontFixedScale": 1.03,
+        "fontDefaultScale": 0.88,
+        "fontFixed": "JetBrainsMono Nerd Font",
+        "fontFixedScale": 0.93,
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
         "settingsPanelAttachToBar": true,

@@ -7,8 +7,16 @@
 ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
 */
 // HACK: Check `niri msg outputs` to see all about monitors
-output "eDP-1" {
-    mode "1920x1080@165.000"
+output "HDMI-A-1" {
+    mode "1366x768"
     scale 1
- // [Possible choices are "1.5" or "150%" too]    transform "normal"
 }
+output "DP-2" {
+    mode "1440x900@59.901"
+    scale 1
+}
+// output "eDP-1" {
+//     mode "1920x1080@165.000"
+//     scale 1
+//  // [Possible choices are "1.5" or "150%" too]    transform "normal"
+// }
