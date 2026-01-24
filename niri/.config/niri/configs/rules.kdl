@@ -1,4 +1,4 @@
-workspace "1" 
+workspace "1"
 workspace "2"
 workspace "3"
 workspace "4"
@@ -97,14 +97,15 @@ window-rule {
     }
 }
 window-rule {
-    match app-id="com.github.th_ch.youtube_music" 
-    default-floating-position x=95 y=30 
+    match app-id="com.github.th_ch.youtube_music"
+    default-floating-position x=95 y=30
 }
 // Needed for steam, read wiki for more
 window-rule {
     match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
-    match app-id="com.viber.Viber" title="^notificationtoasts_\\d+_desktop$"
-    default-floating-position x=10 y=10 relative-to="bottom-right"
+    match app-id="com.viber.Viber" title="ViberPC"
+    default-floating-position x=10 y=10 relative-to="top-right"
+    open-focused false
 }
 window-rule {
     match app-id="org.telegram.desktop$"
