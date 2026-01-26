@@ -70,7 +70,7 @@ binds {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
     }
     Mod+Return {
-        spawn "app2unit" "--" "ghostty"
+        spawn "app2unit" "--" "kitty"
     }
     Mod+B {
         spawn "app2unit" "--" "zen-browser"
@@ -99,6 +99,9 @@ binds {
     // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
     // Special Keys
     // Audio controls
+    XF86PlayPause {
+      spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media"  "playPause"
+  }
     XF86AudioRaiseVolume {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
     }
