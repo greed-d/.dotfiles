@@ -7,7 +7,7 @@ SETUVAR --export CM_DIR:/home/greed/\x2elocal/clipboard
 SETUVAR --export CM_LAUNCHER:rofi
 SETUVAR --export JAVA_HOME:\x1d
 SETUVAR --export TERM:tmux\x2d256color
-SETUVAR __fish_initialized:3800
+SETUVAR __fish_initialized:4300
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/themes/Catppuccin\x20Frappe\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Latte\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Macchiato\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Mocha\x2etheme
 SETUVAR _fisher_edouard_2D_lopez_2F_ayu_2D_theme_2E_fish_files:\x7e/\x2econfig/fish/conf\x2ed/ayu\x2ddark\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2dlight\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2dmirage\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/ayu\x2efish
 SETUVAR _fisher_jomik_2F_fish_2D_gruvbox_files:\x7e/\x2econfig/fish/functions/theme_gruvbox\x2efish
@@ -19,47 +19,7 @@ SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v2_2E_31_2E_30__files:\x7e/\
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR ayu_mirage:\x1d
 SETUVAR ayu_variant:mirage
-SETUVAR fish_color_autosuggestion:6c7086
-SETUVAR fish_color_cancel:f38ba8
-SETUVAR fish_color_command:89b4fa
-SETUVAR fish_color_comment:7f849c
-SETUVAR fish_color_cwd:f9e2af
-SETUVAR fish_color_cwd_root:red
-SETUVAR fish_color_end:fab387
-SETUVAR fish_color_error:f38ba8
-SETUVAR fish_color_escape:eba0ac
-SETUVAR fish_color_gray:6c7086
-SETUVAR fish_color_history_current:\x2d\x2dbold
-SETUVAR fish_color_host:89b4fa
-SETUVAR fish_color_host_remote:a6e3a1
-SETUVAR fish_color_keyword:f38ba8
-SETUVAR fish_color_match:F28779
-SETUVAR fish_color_normal:cdd6f4
-SETUVAR fish_color_operator:f5c2e7
-SETUVAR fish_color_option:a6e3a1
-SETUVAR fish_color_param:f2cdcd
-SETUVAR fish_color_quote:a6e3a1
-SETUVAR fish_color_redirection:f5c2e7
-SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d313244
-SETUVAR fish_color_selection:\x2d\x2dbackground\x3d313244
-SETUVAR fish_color_status:f38ba8
-SETUVAR fish_color_user:94e2d5
-SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_greeting:\x1d
-SETUVAR fish_key_bindings:fish_vi_key_bindings
-SETUVAR fish_pager_color_background:\x1d
-SETUVAR fish_pager_color_completion:cdd6f4
-SETUVAR fish_pager_color_description:6c7086
-SETUVAR fish_pager_color_prefix:f5c2e7
-SETUVAR fish_pager_color_progress:6c7086
-SETUVAR fish_pager_color_secondary_background:\x1d
-SETUVAR fish_pager_color_secondary_completion:\x1d
-SETUVAR fish_pager_color_secondary_description:\x1d
-SETUVAR fish_pager_color_secondary_prefix:\x1d
-SETUVAR fish_pager_color_selected_background:\x1d
-SETUVAR fish_pager_color_selected_completion:\x1d
-SETUVAR fish_pager_color_selected_description:\x1d
-SETUVAR fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_user_paths:/home/greed/\x2espicetify\x1e/usr/bin
 SETUVAR mirage:\x1d
 SETUVAR pure_begin_prompt_with_current_directory:true
@@ -108,6 +68,7 @@ SETUVAR pure_separate_prompt_on_error:false
 SETUVAR pure_shorten_prompt_current_directory_length:0
 SETUVAR pure_shorten_window_title_current_directory_length:0
 SETUVAR pure_show_jobs:false
+SETUVAR pure_show_numbered_git_indicator:false
 SETUVAR pure_show_prefix_root_prompt:false
 SETUVAR pure_show_subsecond_command_duration:false
 SETUVAR pure_show_system_time:false
