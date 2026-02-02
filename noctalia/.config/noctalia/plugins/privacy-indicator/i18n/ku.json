@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "hideInactive": {
+      "desc": "Îkonên mîkrofon, kamera û ekranê dema ku neçalak bin veşêre.",
+      "label": "Rewşa neçalak veşêre"
+    },
+    "iconSpacing": {
+      "desc": "Cihê di navbera îkonan de diyar bike.",
+      "label": "Dûrahiya îkonan"
+    },
+    "removeMargins": {
+      "desc": "Hemû marjînalên derveyî yên widgetê rake.",
+      "label": "Derdestên derxînin"
+    }
+  },
+  "tooltip": {
+    "cam-on": "Kamera: {apps}",
+    "mic-on": "Mîkrofon: {apps}",
+    "screen-on": "Parvekirina ekranê: {apps}"
+  }
+}

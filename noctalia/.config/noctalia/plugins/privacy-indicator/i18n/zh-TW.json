@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "hideInactive": {
+      "desc": "當麥克風, 攝影機及螢幕分享沒有啟動時就直接隱藏",
+      "label": "隱藏未啟動的狀態"
+    },
+    "iconSpacing": {
+      "desc": "設定圖示之間的留空",
+      "label": "圖示間距"
+    },
+    "removeMargins": {
+      "desc": "移除小工具外面的所有邊距",
+      "label": "移除邊距"
+    }
+  },
+  "tooltip": {
+    "cam-on": "攝影機: {apps}",
+    "mic-on": "麥克風: {apps}",
+    "screen-on": "螢幕分享: {apps}"
+  }
+}

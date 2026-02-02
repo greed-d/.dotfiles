@@ -163,7 +163,7 @@ window-rule {
     open-fullscreen true
 }
 window-rule {
-    geometry-corner-radius 18
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 debug {

@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "hideInactive": {
+      "desc": "Oculta os ícones de microfone, câmera e tela quando estiverem inativos.",
+      "label": "Ocultar estados inativos"
+    },
+    "iconSpacing": {
+      "desc": "Define o espaçamento entre os ícones.",
+      "label": "Espaçamento dos ícones"
+    },
+    "removeMargins": {
+      "desc": "Remove todas as margens externas do widget.",
+      "label": "Remover margens"
+    }
+  },
+  "tooltip": {
+    "cam-on": "Câmera: {apps}",
+    "mic-on": "Microfone: {apps}",
+    "screen-on": "Compartilhamento de tela: {apps}"
+  }
+}

@@ -50,9 +50,14 @@ binds {
     Mod+Space {
         spawn "vicinae" "toggle"
     }
+    // Alt+Space {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
+    // }
     Alt+Space {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
+        spawn "bash" "-c" "$HOME/.config/colorschemes/theme-switcher.sh"
     }
+
+
     Mod+Comma {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
     }
@@ -70,7 +75,7 @@ binds {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
     }
     Mod+Return {
-        spawn "app2unit" "--" "ghostty"
+        spawn "app2unit" "--" "kitty"
     }
     Mod+B {
         spawn "app2unit" "--" "zen-browser"

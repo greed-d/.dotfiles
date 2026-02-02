@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "hideInactive": {
+      "desc": "マイク・カメラ・画面共有のアイコンを、非アクティブなときは非表示にします。",
+      "label": "非アクティブ状態を非表示"
+    },
+    "iconSpacing": {
+      "desc": "アイコン同士の間隔を設定します。",
+      "label": "アイコン間隔"
+    },
+    "removeMargins": {
+      "desc": "ウィジェットの外側の余白をすべて削除します。",
+      "label": "余白を削除"
+    }
+  },
+  "tooltip": {
+    "cam-on": "カメラ: {apps}",
+    "mic-on": "マイク: {apps}",
+    "screen-on": "画面共有: {apps}"
+  }
+}

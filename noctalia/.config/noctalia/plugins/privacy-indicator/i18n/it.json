@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "hideInactive": {
+      "desc": "Nascondi le icone di microfono, fotocamera e schermo quando sono inattive.",
+      "label": "Nascondi stati inattivi"
+    },
+    "iconSpacing": {
+      "desc": "Imposta la distanza tra le icone.",
+      "label": "Spaziatura delle icone"
+    },
+    "removeMargins": {
+      "desc": "Rimuove tutti i margini esterni del widget.",
+      "label": "Rimuovi margini"
+    }
+  },
+  "tooltip": {
+    "cam-on": "Kamera: {apps}",
+    "mic-on": "Mikrofonoa: {apps}",
+    "screen-on": "Ekran-partaĝado: {apps}"
+  }
+}

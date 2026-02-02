@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "hideInactive": {
+      "desc": "Ukryj ikony mikrofonu, kamery i ekranu, gdy są nieaktywne.",
+      "label": "Ukryj nieaktywne stany"
+    },
+    "iconSpacing": {
+      "desc": "Ustaw odstęp między ikonami.",
+      "label": "Odstępy ikon"
+    },
+    "removeMargins": {
+      "desc": "Usuń wszystkie zewnętrzne marginesy widżetu.",
+      "label": "Usuń marginesy"
+    }
+  },
+  "tooltip": {
+    "cam-on": "Kamera: {apps}",
+    "mic-on": "Mikrofon: {apps}",
+    "screen-on": "Udostępnianie ekranu: {apps}"
+  }
+}

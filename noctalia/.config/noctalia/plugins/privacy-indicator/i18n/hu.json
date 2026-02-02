@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "hideInactive": {
+      "desc": "Mikrofon, kamera és képernyő ikonok elrejtése, ha éppen nincsenek használatban.",
+      "label": "Inaktív állapotok elrejtése"
+    },
+    "iconSpacing": {
+      "desc": "Állítsa be az ikonok közötti távolságot.",
+      "label": "Ikon távolság"
+    },
+    "removeMargins": {
+      "desc": "Távolítsd el a widget összes külső margóját.",
+      "label": "Margók eltávolítása"
+    }
+  },
+  "tooltip": {
+    "cam-on": "Kamera: {apps}",
+    "mic-on": "Mikrofon: {apps}",
+    "screen-on": "Képernyőmegosztás: {apps}"
+  }
+}

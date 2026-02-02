@@ -32,13 +32,6 @@ layout {
         active-color "#cba6f7"
         inactive-color "#fff"
     }
-    border {
-        on
-        width 1
-        active-color "#cba6f7"
-        inactive-color "#7f849c"
-
-    }
     shadow {
         on
         softness 20
@@ -47,9 +40,9 @@ layout {
         color "#0009"
     }
     struts {
-      left 10
-      right 10
-      top 10
-      bottom 10
+      // left 10
+      // right 10
+      // top 10
+      // bottom 10
     }
 }

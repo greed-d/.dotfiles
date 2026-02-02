@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "hideInactive": {
+      "desc": "Mikrofon-, Kamera- und Bildschirmsymbole ausblenden, wenn sie inaktiv sind.",
+      "label": "Inaktive Zustände ausblenden"
+    },
+    "iconSpacing": {
+      "desc": "Den Abstand zwischen den Symbolen festlegen.",
+      "label": "Symbolabstand"
+    },
+    "removeMargins": {
+      "desc": "Alle äußeren Ränder des Widgets entfernen.",
+      "label": "Ränder entfernen"
+    }
+  },
+  "tooltip": {
+    "cam-on": "Kamera: {apps}",
+    "mic-on": "Mikrofon: {apps}",
+    "screen-on": "Bildschirmfreigabe: {apps}"
+  }
+}
