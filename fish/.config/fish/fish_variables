@@ -30,6 +30,7 @@ SETUVAR pure_color_command_duration:pure_color_warning
 SETUVAR pure_color_current_directory:pure_color_primary
 SETUVAR pure_color_danger:red
 SETUVAR pure_color_dark:black
+SETUVAR pure_color_exit_status:pure_color_danger
 SETUVAR pure_color_git_branch:pure_color_mute
 SETUVAR pure_color_git_dirty:pure_color_mute
 SETUVAR pure_color_git_stash:pure_color_info
@@ -56,6 +57,7 @@ SETUVAR pure_color_username_normal:pure_color_mute
 SETUVAR pure_color_username_root:pure_color_light
 SETUVAR pure_color_virtualenv:pure_color_mute
 SETUVAR pure_color_warning:yellow
+SETUVAR pure_convert_exit_status_to_signal:false
 SETUVAR pure_enable_aws_profile:true
 SETUVAR pure_enable_container_detection:true
 SETUVAR pure_enable_git:true
@@ -67,6 +69,7 @@ SETUVAR pure_reverse_prompt_symbol_in_vimode:true
 SETUVAR pure_separate_prompt_on_error:false
 SETUVAR pure_shorten_prompt_current_directory_length:0
 SETUVAR pure_shorten_window_title_current_directory_length:0
+SETUVAR pure_show_exit_status:false
 SETUVAR pure_show_jobs:false
 SETUVAR pure_show_numbered_git_indicator:false
 SETUVAR pure_show_prefix_root_prompt:false
@@ -74,6 +77,8 @@ SETUVAR pure_show_subsecond_command_duration:false
 SETUVAR pure_show_system_time:false
 SETUVAR pure_symbol_aws_profile_prefix:
 SETUVAR pure_symbol_container_prefix:
+SETUVAR pure_symbol_exit_status_prefix:\x7c
+SETUVAR pure_symbol_exit_status_separator:\x7c
 SETUVAR pure_symbol_git_dirty:\x2a
 SETUVAR pure_symbol_git_stash:\u2261
 SETUVAR pure_symbol_git_unpulled_commits:\u21e3
