@@ -7,7 +7,7 @@
 ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝
 */
 layout {
-    gaps 8
+    gaps 5
     center-focused-column "never"
     preset-column-widths {
         proportion 0.25
@@ -47,9 +47,9 @@ layout {
         color "#0009"
     }
     struts {
-      left 5
-      right 5
-      top 5
-      bottom 5
+      // left 5
+      // right 5
+      // top 5
+      // bottom 5
     }
 }

@@ -1,65 +1,87 @@
 workspace "🌍 WWW" {
-  open-on-output "HDMI-A-1"
+    open-on-output "HDMI-A-1"
 }
 workspace "⚙️ DEV" {
-  open-on-output "DP-2"
+    open-on-output "DP-2"
 }
 workspace "🗒️ JOT"
 workspace "4"
 workspace "5"
 workspace "📂 FILE" {
-  open-on-output "HDMI-A-1"
+    open-on-output "HDMI-A-1"
 }
 workspace "📓 NOTE"
 workspace "🎵 SONG" {
-  open-on-output "DP-2"
+    open-on-output "DP-2"
 }
 workspace "💬 CHAT" {
-  open-on-output "HDMI-A-1"
+    open-on-output "HDMI-A-1"
 }
 workspace "0"
 /*
 [[ Layer Rule ]]
 */
 // Set the overview wallpaper on the backdrop.
-
+blur {
+    on
+    passes 3
+    offset 2
+    noise 0.01
+    saturation 1.5
+}
 recent-windows {
     // off
     debounce-ms 750
-
     open-delay-ms 100
-
     highlight {
         active-color "#999999ff"
         urgent-color "#ff9999ff"
         padding 30
         corner-radius 0
     }
-
     previews {
         max-height 480
         max-scale 0.5
     }
-
     binds {
-        Alt+Tab         { next-window; }
-        Alt+Shift+Tab   { previous-window; }
-        Alt+grave       { next-window     filter="app-id"; }
-        Alt+Shift+grave { previous-window filter="app-id"; }
-
-        Mod+Tab         { next-window; }
-        Mod+Shift+Tab   { previous-window; }
-        Mod+grave       { next-window     filter="app-id"; }
-        Mod+Shift+grave { previous-window filter="app-id"; }
+        Alt+Tab {
+            next-window
+        }
+        Alt+Shift+Tab {
+            previous-window
+        }
+        Alt+grave {
+            next-window filter="app-id"
+        }
+        Alt+Shift+grave {
+            previous-window filter="app-id"
+        }
+        Mod+Tab {
+            next-window
+        }
+        Mod+Shift+Tab {
+            previous-window
+        }
+        Mod+grave {
+            next-window filter="app-id"
+        }
+        Mod+Shift+grave {
+            previous-window filter="app-id"
+        }
     }
 }
 layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
 }
 layer-rule {
     match namespace="^launcher$"
-    opacity 1.0
+    match namespace="^vicinae$"
+    match namespace="^noctalia-background-.*$"
+    opacity 0.85
+    background-effect {
+        blur true
+    }
 }
 layer-rule {
     //  eww
@@ -150,7 +172,7 @@ window-rule {
 window-rule {
     match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
     match app-id="com.viber.Viber" title="ViberPC"
-    default-floating-position x=10 y=10 relative-to="bottom-right"
+    default-floating-position x=10 y=10 relative-to="top-right"
     open-focused false
 }
 window-rule {
@@ -174,14 +196,13 @@ window-rule {
     open-fullscreen true
 }
 window-rule {
-    geometry-corner-radius 18
+    geometry-corner-radius 7
     clip-to-geometry true
 }
 debug {
-  // Allows notification actions and window activation from Noctalia.
-  honor-xdg-activation-with-invalid-serial
+    // Allows notification actions and window activation from Noctalia.
+    honor-xdg-activation-with-invalid-serial
 }
-
 /*
 [[ App Rules ]]
 */
@@ -189,7 +210,10 @@ window-rule {
     draw-border-with-background false
     match app-id="kitty$"
     match app-id="com.mitchellh.ghostty$"
- // opacity 0.93
+    background-effect {
+        blur true
+    }
+    opacity 0.93
 }
 window-rule {
     match app-id="zen$"
@@ -198,6 +222,10 @@ window-rule {
 window-rule {
     match app-id="Postman$"
     open-on-workspace "🖳TERM"
+    background-effect {
+        blur true
+    }
+    opacity 0.93
 }
 window-rule {
     match app-id="^org.kde.dolphin$"
@@ -210,18 +238,32 @@ window-rule {
 window-rule {
     match app-id="com.github.th_ch.youtube_music$"
     match app-id="Spotify"
+    match app-id="spotify"
     open-on-workspace "🎵 SONG"
+    background-effect {
+        blur true
+    }
+    opacity 0.89
 }
-
 window-rule {
     match app-id="sioyek"
     open-on-workspace "📓 NOTE"
+    background-effect {
+        blur true
+    }
+    opacity 0.93
 }
 window-rule {
     match app-id="^vesktop$"
+    match app-id="^com.viber.Viber$"
     open-on-workspace "💬 CHAT"
+    background-effect {
+        blur true
+    }
+    opacity 0.91
 }
 window-rule {
     match app-id="^org.telegram.desktop$"
     open-on-workspace "0"
 }
+

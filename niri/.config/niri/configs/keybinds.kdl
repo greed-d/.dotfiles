@@ -44,9 +44,6 @@ binds {
     // Mod+Space {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
     // }
-    // Mod+Space {
-    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
-    // }
     Mod+Space {
         spawn "vicinae" "toggle"
     }
@@ -60,12 +57,23 @@ binds {
     Mod+V {
         spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
     }
+
+    // Mod+V {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"
+    // }
+    Mod+slash {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"
+    }
     Mod+C {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
     }
     Mod+T {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
     }
+
+    // Mod+Alt+L {
+    //     spawn "hyprlock"
+    // }
     Mod+Alt+L {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
     }
@@ -90,31 +98,37 @@ binds {
     Mod+O {
         toggle-overview
     }
-    Mod+slash {
-        spawn "vicinae" "vicinae://extensions/vicinae/vicinae/search-emojis"
-    }
+    // Mod+slash {
+    //     spawn "vicinae" "vicinae://extensions/vicinae/vicinae/search-emojis"
+    // }
     Mod+Shift+M {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"
     }
     // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
     // Special Keys
     // Audio controls
-    XF86PlayPause {
+    XF86AudioPlay allow-when-locked=true  {
       spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media"  "playPause"
   }
-    XF86AudioRaiseVolume {
+    XF86AudioRaiseVolume allow-when-locked=true {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
     }
-    XF86AudioLowerVolume {
+    XF86AudioLowerVolume allow-when-locked=true {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
     }
-    Mod+Up {
+    XF86AudioNext allow-when-locked=true {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "next"
+    }
+    XF86AudioPrev  allow-when-locked=true {
+        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "media" "previous"
+    }
+    Mod+Up allow-when-locked=true {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
     }
-    Mod+Down {
+    Mod+Down allow-when-locked=true {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
     }
-    XF86AudioMute {
+    XF86AudioMute allow-when-locked=true {
         spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"
     }
     // Brightness controls
