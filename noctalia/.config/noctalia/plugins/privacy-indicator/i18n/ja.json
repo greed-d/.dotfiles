@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "ウィジェットの外側の余白をすべて削除します。",
       "label": "余白を削除"
+    },
+    "activeColor": {
+      "desc": "アクティブ時のアイコンの色。",
+      "label": "アクティブ時の色"
+    },
+    "inactiveColor": {
+      "desc": "非アクティブ時のアイコンの色。",
+      "label": "非アクティブ時の色"
     }
   },
   "tooltip": {
     "cam-on": "カメラ: {apps}",
     "mic-on": "マイク: {apps}",
     "screen-on": "画面共有: {apps}"
+  },
+  "toast": {
+    "cam-on": "カメラがアクティブです",
+    "mic-on": "マイクがアクティブです",
+    "screen-on": "画面共有がアクティブです"
+  },
+  "menu": {
+    "settings": "ウィジェット設定"
+  },
+  "history": {
+    "title": "アクセス履歴",
+    "empty": "最近のアクセスはありません",
+    "clear": "クリア",
+    "action": {
+      "started": "開始",
+      "stopped": "停止"
+    }
   }
 }

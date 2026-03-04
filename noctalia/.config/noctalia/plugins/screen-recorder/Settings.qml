@@ -16,6 +16,11 @@ ColumnLayout {
         pluginApi?.manifest?.metadata?.defaultSettings?.hideInactive ??
         false
 
+    property string editIconColor:
+        pluginApi?.pluginSettings?.iconColor ??
+        pluginApi?.manifest?.metadata?.defaultSettings?.iconColor ??
+        "none"
+
     property string editDirectory: 
         pluginApi?.pluginSettings?.directory || 
         pluginApi?.manifest?.metadata?.defaultSettings?.directory || 
@@ -83,6 +88,7 @@ ColumnLayout {
         }
 
         pluginApi.pluginSettings.hideInactive = root.editHideInactive
+        pluginApi.pluginSettings.iconColor = root.editIconColor
         pluginApi.pluginSettings.directory = root.editDirectory
         pluginApi.pluginSettings.filenamePattern = root.editFilenamePattern
         pluginApi.pluginSettings.frameRate = root.editFrameRate
@@ -100,6 +106,16 @@ ColumnLayout {
 
         Logger.i("ScreenRecorder", "Settings saved successfully")
     }
+    // Icon Color
+    NComboBox {
+        label: I18n.tr("common.select-icon-color")
+        description: I18n.tr("common.select-color-description")
+        model: Color.colorKeyModel
+        currentKey: root.editIconColor
+        onSelected: key => root.editIconColor = key
+        minimumWidth: 200
+    }
+
     NTextInputButton {
         label: pluginApi.tr("settings.general.output-folder")
         description: pluginApi.tr("settings.general.output-folder-description")
@@ -185,6 +201,22 @@ ColumnLayout {
             label: pluginApi.tr("settings.video.frame-rate")
             description: pluginApi.tr("settings.video.frame-rate-desc")
             model: [
+                {
+                    "key": "5",
+                    "name": "5 FPS"
+                },
+                {
+                    "key": "10",
+                    "name": "10 FPS"
+                },
+                {
+                    "key": "15",
+                    "name": "15 FPS"
+                },
+                {
+                    "key": "20",
+                    "name": "20 FPS"
+                },
                 {
                     "key": "30",
                     "name": "30 FPS"

@@ -1,8 +1,23 @@
 {
+  "menu": {
+    "settings": "Widget settings"
+  },
   "settings": {
+    "activeColor": {
+      "desc": "Color of the icons when active.",
+      "label": "Active icon color"
+    },  
     "hideInactive": {
       "desc": "Hide microphone, camera, and screen icons when there are inactive.",
       "label": "Hide inactive states"
+    },
+    "enableToast": {
+      "desc": "Show toast messages when one of the states changes.",
+      "label": "Enable toast notifications"
+    },
+    "inactiveColor": {
+      "desc": "Color of the icons when inactive.",
+      "label": "Inactive icon color"
     },
     "iconSpacing": {
       "desc": "Set the spacing between the icons.",
@@ -17,5 +32,19 @@
     "cam-on": "Camera: {apps}",
     "mic-on": "Microphone: {apps}",
     "screen-on": "Screen sharing: {apps}"
+  },
+  "toast": {
+    "cam-on": "Camera is active",
+    "mic-on": "Microphone is active",
+    "screen-on": "Screen sharing is active"
+  },
+  "history": {
+    "title": "Access History",
+    "empty": "No recent access",
+    "clear": "Clear",
+    "action": {
+      "started": "Started",
+      "stopped": "Stopped"
+    }
   }
 }

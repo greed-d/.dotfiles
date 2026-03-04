@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "移除小工具外面的所有邊距",
       "label": "移除邊距"
+    },
+    "activeColor": {
+      "desc": "圖示啟用時的顏色。",
+      "label": "啟用圖示顏色"
+    },
+    "inactiveColor": {
+      "desc": "圖示未啟用時的顏色。",
+      "label": "未啟用圖示顏色"
     }
   },
   "tooltip": {
     "cam-on": "攝影機: {apps}",
     "mic-on": "麥克風: {apps}",
     "screen-on": "螢幕分享: {apps}"
+  },
+  "toast": {
+    "cam-on": "攝影機已啟用",
+    "mic-on": "麥克風已啟用",
+    "screen-on": "螢幕分享已啟用"
+  },
+  "menu": {
+    "settings": "小工具設定"
+  },
+  "history": {
+    "title": "存取紀錄",
+    "empty": "無最近存取",
+    "clear": "清除",
+    "action": {
+      "started": "已開始",
+      "stopped": "已停止"
+    }
   }
 }

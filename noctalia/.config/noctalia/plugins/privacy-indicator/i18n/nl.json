@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "Verwijdert alle buitenste marges van de widget.",
       "label": "Marges verwijderen"
+    },
+    "activeColor": {
+      "desc": "Kleur van de pictogrammen wanneer ze actief zijn.",
+      "label": "Actieve pictogramkleur"
+    },
+    "inactiveColor": {
+      "desc": "Kleur van de pictogrammen wanneer ze inactief zijn.",
+      "label": "Inactieve pictogramkleur"
     }
   },
   "tooltip": {
     "cam-on": "Camera: {apps}",
     "mic-on": "Microfoon: {apps}",
     "screen-on": "Schermdeling: {apps}"
+  },
+  "toast": {
+    "cam-on": "Camera is actief",
+    "mic-on": "Microfoon is actief",
+    "screen-on": "Scherm delen is actief"
+  },
+  "menu": {
+    "settings": "Widget instellingen"
+  },
+  "history": {
+    "title": "Toegangsgeschiedenis",
+    "empty": "Geen recente toegang",
+    "clear": "Wissen",
+    "action": {
+      "started": "Gestart",
+      "stopped": "Gestopt"
+    }
   }
 }

@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "Supprime toutes les marges extérieures du widget.",
       "label": "Supprimer les marges"
+    },
+    "activeColor": {
+      "desc": "Couleur des icônes lorsqu'elles sont actives.",
+      "label": "Couleur d'icône active"
+    },
+    "inactiveColor": {
+      "desc": "Couleur des icônes lorsqu'elles sont inactives.",
+      "label": "Couleur d'icône inactive"
     }
   },
   "tooltip": {
     "cam-on": "Caméra: {apps}",
     "mic-on": "Microphone: {apps}",
     "screen-on": "Partage d'écran: {apps}"
+  },
+  "toast": {
+    "cam-on": "La caméra est active",
+    "mic-on": "Le microphone est actif",
+    "screen-on": "Le partage d'écran est actif"
+  },
+  "menu": {
+    "settings": "Paramètres du widget"
+  },
+  "history": {
+    "title": "Historique d'accès",
+    "empty": "Aucun accès récent",
+    "clear": "Effacer",
+    "action": {
+      "started": "Démarré",
+      "stopped": "Arrêté"
+    }
   }
 }

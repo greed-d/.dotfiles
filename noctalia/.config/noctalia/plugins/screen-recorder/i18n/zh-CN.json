@@ -39,6 +39,8 @@
       "output-folder-description": "屏幕录制将保存到的文件夹",
       "show-cursor": "显示光标",
       "show-cursor-description": "在视频中录制鼠标光标",
+      "hide-when-inactive": "非活动时隐藏",
+      "hide-when-inactive-description": "未录制时隐藏栏指示器",
       "title": "常规"
     },
     "title": "屏幕录制器设置",

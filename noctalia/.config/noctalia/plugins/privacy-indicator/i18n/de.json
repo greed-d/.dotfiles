@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "Alle äußeren Ränder des Widgets entfernen.",
       "label": "Ränder entfernen"
+    },
+    "activeColor": {
+      "desc": "Farbe der Symbole, wenn sie aktiv sind.",
+      "label": "Aktive Farbsymbol"
+    },
+    "inactiveColor": {
+      "desc": "Farbe der Symbole, wenn sie inaktiv sind.",
+      "label": "Inaktive Farbsymbol"
     }
   },
   "tooltip": {
     "cam-on": "Kamera: {apps}",
     "mic-on": "Mikrofon: {apps}",
     "screen-on": "Bildschirmfreigabe: {apps}"
+  },
+  "toast": {
+    "cam-on": "Kamera ist aktiv",
+    "mic-on": "Mikrofon ist aktiv",
+    "screen-on": "Bildschirmfreigabe ist aktiv"
+  },
+  "menu": {
+    "settings": "Widget-Einstellungen"
+  },
+  "history": {
+    "title": "Zugriffsverlauf",
+    "empty": "Kein kürzlicher Zugriff",
+    "clear": "Leeren",
+    "action": {
+      "started": "Gestartet",
+      "stopped": "Beendet"
+    }
   }
 }

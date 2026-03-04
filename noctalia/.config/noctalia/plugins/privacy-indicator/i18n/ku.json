@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "Hemû marjînalên derveyî yên widgetê rake.",
       "label": "Derdestên derxînin"
+    },
+    "activeColor": {
+      "desc": "Color of the icons when active.",
+      "label": "Active icon color"
+    },
+    "inactiveColor": {
+      "desc": "Color of the icons when inactive.",
+      "label": "Inactive icon color"
     }
   },
   "tooltip": {
     "cam-on": "Kamera: {apps}",
     "mic-on": "Mîkrofon: {apps}",
     "screen-on": "Parvekirina ekranê: {apps}"
+  },
+  "toast": {
+    "cam-on": "Kamera çalak e",
+    "mic-on": "Mîkrofon çalak e",
+    "screen-on": "Parvekirina ekranê çalak e"
+  },
+  "menu": {
+    "settings": "Widget settings"
+  },
+  "history": {
+    "title": "Access History",
+    "empty": "No recent access",
+    "clear": "Clear",
+    "action": {
+      "started": "Started",
+      "stopped": "Stopped"
+    }
   }
 }

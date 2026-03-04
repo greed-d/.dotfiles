@@ -11,9 +11,12 @@ ColumnLayout {
   property var cfg: pluginApi?.pluginSettings || ({})
   property var defaults: pluginApi?.manifest?.metadata?.defaultSettings || ({})
 
-  property bool hideInactive: cfg.hideInactive ?? defaults.hideInactive
-  property bool removeMargins: cfg.removeMargins ?? defaults.removeMargins
-  property int iconSpacing: cfg.iconSpacing || Style.marginXS
+  property bool hideInactive: cfg.hideInactive ?? defaults.hideInactive ?? false
+  property bool enableToast: cfg.enableToast ?? defaults.enableToast ?? true
+  property bool removeMargins: cfg.removeMargins ?? defaults.removeMargins ?? false
+  property int iconSpacing: cfg.iconSpacing ?? defaults.iconSpacing ?? 4
+  property string activeColor: cfg.activeColor ?? defaults.activeColor ?? "primary"
+  property string inactiveColor: cfg.inactiveColor ?? defaults.inactiveColor ?? "none"
 
   spacing: Style.marginL
 
@@ -30,19 +33,45 @@ ColumnLayout {
       description: pluginApi?.tr("settings.hideInactive.desc")
 
       checked: root.hideInactive
-      onToggled: function (checked) {
+      onToggled: checked =>  {
         root.hideInactive = checked;
       }
     }
+
+    NToggle {
+      label: pluginApi?.tr("settings.enableToast.label")
+      description: pluginApi?.tr("settings.enableToast.desc")
+
+      checked: root.enableToast
+      onToggled: checked => {
+        root.enableToast = checked;
+      }
+    }    
 
     NToggle {
       label: pluginApi?.tr("settings.removeMargins.label")
       description: pluginApi?.tr("settings.removeMargins.desc")
 
       checked: root.removeMargins
-      onToggled: function (checked) {
+      onToggled: checked =>  {
         root.removeMargins = checked;
       }
+    }
+
+    NColorChoice {
+      label: pluginApi?.tr("settings.activeColor.label")
+      description: pluginApi?.tr("settings.activeColor.desc")
+      currentKey: root.activeColor
+      onSelected: key => root.activeColor = key
+    }
+
+    NColorChoice {
+      label: pluginApi?.tr("settings.inactiveColor.label")
+      description: pluginApi?.tr("settings.inactiveColor.desc")
+      currentKey: root.inactiveColor
+      onSelected: key => root.inactiveColor = key
+      noneColor: Qt.alpha(Color.mOnSurfaceVariant, 0.3)
+      noneOnColor: Qt.alpha(Color.mOnSurface, 0.7)
     }
 
     NComboBox {
@@ -78,8 +107,11 @@ ColumnLayout {
     }
 
     pluginApi.pluginSettings.hideInactive = root.hideInactive;
+    pluginApi.pluginSettings.enableToast = root.enableToast;
     pluginApi.pluginSettings.iconSpacing = root.iconSpacing;
     pluginApi.pluginSettings.removeMargins = root.removeMargins;
+    pluginApi.pluginSettings.activeColor = root.activeColor;
+    pluginApi.pluginSettings.inactiveColor = root.inactiveColor;
 
     pluginApi.saveSettings();
 

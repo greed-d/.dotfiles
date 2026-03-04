@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "Távolítsd el a widget összes külső margóját.",
       "label": "Margók eltávolítása"
+    },
+    "activeColor": {
+      "desc": "Az ikonok színe, amikor aktívak.",
+      "label": "Aktív ikon színe"
+    },
+    "inactiveColor": {
+      "desc": "Az ikonok színe, amikor inaktívak.",
+      "label": "Inaktív ikon színe"
     }
   },
   "tooltip": {
     "cam-on": "Kamera: {apps}",
     "mic-on": "Mikrofon: {apps}",
     "screen-on": "Képernyőmegosztás: {apps}"
+  },
+  "toast": {
+    "cam-on": "A kamera aktív",
+    "mic-on": "A mikrofon aktív",
+    "screen-on": "Képernyőmegosztás aktív"
+  },
+  "menu": {
+    "settings": "Widget beállítások"
+  },
+  "history": {
+    "title": "Hozzáférési előzmények",
+    "empty": "Nincs nemrégiben történt hozzáférés",
+    "clear": "Törlés",
+    "action": {
+      "started": "Elindítva",
+      "stopped": "Leállítva"
+    }
   }
 }

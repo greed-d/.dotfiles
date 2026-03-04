@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "Widget’ın tüm dış kenar boşluklarını kaldırır.",
       "label": "Kenarlıkları kaldır"
+    },
+    "activeColor": {
+      "desc": "Aktif olduğunda simgelerin rengi.",
+      "label": "Aktif simge rengi"
+    },
+    "inactiveColor": {
+      "desc": "Devre dışı olduğunda simgelerin rengi.",
+      "label": "Pasif simge rengi"
     }
   },
   "tooltip": {
     "cam-on": "Kamera: {apps}",
     "mic-on": "Mikrofon: {apps}",
     "screen-on": "Ekran paylaşımı: {apps}"
+  },
+  "toast": {
+    "cam-on": "Kamera aktif",
+    "mic-on": "Mikrofon aktif",
+    "screen-on": "Ekran paylaşımı aktif"
+  },
+  "menu": {
+    "settings": "Bileşen ayarları"
+  },
+  "history": {
+    "title": "Erişim Geçmişi",
+    "empty": "Yakın zamanda erişim yok",
+    "clear": "Temizle",
+    "action": {
+      "started": "Başlatıldı",
+      "stopped": "Durduruldu"
+    }
   }
 }

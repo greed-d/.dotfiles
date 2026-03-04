@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "移除小部件所有外部边距。",
       "label": "移除边距"
+    },
+    "activeColor": {
+      "desc": "激活图标的颜色。",
+      "label": "激活图标颜色"
+    },
+    "inactiveColor": {
+      "desc": "未激活图标的颜色。",
+      "label": "未激活图标颜色"
     }
   },
   "tooltip": {
     "cam-on": "摄像头: {apps}",
     "mic-on": "麦克风: {apps}",
     "screen-on": "屏幕共享: {apps}"
+  },
+  "toast": {
+    "cam-on": "摄像头已激活",
+    "mic-on": "麦克风已激活",
+    "screen-on": "屏幕共享已激活"
+  },
+  "menu": {
+    "settings": "小部件设置"
+  },
+  "history": {
+    "title": "访问历史",
+    "empty": "无最近访问",
+    "clear": "清除",
+    "action": {
+      "started": "已开始",
+      "stopped": "已停止"
+    }
   }
 }

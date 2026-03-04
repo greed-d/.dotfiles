@@ -11,11 +11,36 @@
     "removeMargins": {
       "desc": "Rimuove tutti i margini esterni del widget.",
       "label": "Rimuovi margini"
+    },
+    "activeColor": {
+      "desc": "Colore delle icone quando sono attive.",
+      "label": "Colore icona attiva"
+    },
+    "inactiveColor": {
+      "desc": "Colore delle icone quando sono inattive.",
+      "label": "Colore icona inattiva"
     }
   },
   "tooltip": {
     "cam-on": "Kamera: {apps}",
     "mic-on": "Mikrofonoa: {apps}",
     "screen-on": "Ekran-partaĝado: {apps}"
+  },
+  "toast": {
+    "cam-on": "La fotocamera è attiva",
+    "mic-on": "Il microfono è attivo",
+    "screen-on": "La condivisione dello schermo è attiva"
+  },
+  "menu": {
+    "settings": "Impostazioni widget"
+  },
+  "history": {
+    "title": "Cronologia accessi",
+    "empty": "Nessun accesso recente",
+    "clear": "Pulisci",
+    "action": {
+      "started": "Iniziato",
+      "stopped": "Terminato"
+    }
   }
 }
