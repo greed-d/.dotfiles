@@ -1,4 +1,4 @@
-workspace "🌍 WWW" 
+workspace "🌍 WWW"
 workspace "🖳TERM"
 workspace "🗒️ JOT"
 workspace "4"
@@ -12,6 +12,14 @@ workspace "0"
 [[ Layer Rule ]]
 */
 // Set the overview wallpaper on the backdrop.
+
+blur {
+  on
+  passes 2        // more passes = stronger blur (default: 3)
+  offset 5.0      // sample distance per pass (default: 3.0)
+  noise 0.03      // grain overlay (default: 0.02)
+  saturation 1.9  // color saturation boost (default: 1.5)
+}
 
 recent-windows {
     // off
@@ -48,8 +56,21 @@ layer-rule {
   place-within-backdrop true
 }
 layer-rule {
+  match namespace="^noctalia-background-.*$"
+  // opacity 0.8
+  background-effect {
+    blur true
+    xray false
+  }
+}
+layer-rule {
     match namespace="^launcher$"
-    opacity 1.0
+    match namespace="^vicinae$"
+    opacity 0.7
+    background-effect {
+      blur true
+      xray false
+    }
 }
 layer-rule {
     //  eww
@@ -133,8 +154,8 @@ window-rule {
     }
 }
 window-rule {
-    match app-id="com.github.th_ch.youtube_music" 
-    default-floating-position x=95 y=30 
+    match app-id="com.github.th_ch.youtube_music"
+    default-floating-position x=95 y=30
 }
 // Needed for steam, read wiki for more
 window-rule {
@@ -178,7 +199,10 @@ window-rule {
     draw-border-with-background false
     match app-id="kitty$"
     match app-id="com.mitchellh.ghostty$"
- // opacity 0.93
+    background-effect {
+      blur true
+    }
+ opacity 0.90
 }
 window-rule {
     match app-id="zen$"
@@ -199,7 +223,12 @@ window-rule {
 window-rule {
     match app-id="com.github.th_ch.youtube_music$"
     match app-id="Spotify"
+    match app-id="spotify"
     open-on-workspace "🎵 SONG"
+    background-effect {
+      blur true
+    }
+ opacity 0.90
 }
 
 window-rule {
@@ -209,8 +238,18 @@ window-rule {
 window-rule {
     match app-id="^vesktop$"
     open-on-workspace "💬 CHAT"
+
+    background-effect {
+      blur true
+    }
+ opacity 0.90
 }
 window-rule {
     match app-id="^org.telegram.desktop$"
     open-on-workspace "0"
+
+    background-effect {
+      blur true
+    }
+ opacity 0.90
 }
