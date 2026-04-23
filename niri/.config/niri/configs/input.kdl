@@ -1,6 +1,4 @@
-
 /*
-
 ██╗███╗   ██╗██████╗ ██╗   ██╗████████╗
 ██║████╗  ██║██╔══██╗██║   ██║╚══██╔══╝
 ██║██╔██╗ ██║██████╔╝██║   ██║   ██║
@@ -10,8 +8,7 @@
 */
 input {
     keyboard {
-        xkb {
- // URGENT : Put xkb options and layout here
+        xkb {// URGENT : Put xkb options and layout here
 
         }
     }
@@ -25,11 +22,24 @@ input {
         accel-speed 0.2
     }
     workspace-auto-back-and-forth
-    focus-follows-mouse max-scroll-amount="0%"
+    // focus-follows-mouse max-scroll-amount="100%"
+    focus-follows-mouse
+    //NOTE Stop niri from hijacking the power button
+    disable-power-key-handling
 }
 gestures {
-    hot-corners {
- // off
+    dnd-edge-view-scroll {
+        trigger-width 30
+        delay-ms 100
+        max-speed 1500
+    }
+    dnd-edge-workspace-switch {
+        trigger-height 50
+        delay-ms 100
+        max-speed 1500
+    }
+    hot-corners {// off
 
     }
 }
+
