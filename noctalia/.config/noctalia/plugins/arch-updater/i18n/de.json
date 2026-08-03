@@ -1,0 +1,74 @@
+{
+    "tooltip": {
+        "availableUpdates": "Verfügbare Updates",
+        "noctaliaUpdates": "Noctalia Updates verfügbar"
+    },
+    "context": {
+        "refresh": "Aktualisieren",
+        "update": "Update",
+        "settings": "Einstellungen"
+    },
+    "panel": {
+        "name": "Name",
+        "oldVer": "Alte Version",
+        "newVer": "Neue Version",
+        "refresh": "Aktualisieren",
+        "update": "Update",
+        "settings": "Einstellungen"
+    },
+    "toast": {
+        "refreshed": "Verfügbare Updates aktualisiert!"
+    },
+    "settings": {
+        "commands": "Befehle",
+        "checkCmd": "Check Befehl",
+        "checkCmdDesc": "Befehl zum Suchen nach Updates (Ausgabeformat: Name oldver -> newver)",
+        "updateCmd": "Update Befehl",
+        "updateCmdDesc": "Befehl zum Aktualisieren",
+        "flatpak": "Flatpak",
+        "flatpakDesc": "Aktiviere die Überprüfung von Flatpak Updates",
+        "noctalia": "Noctalia",
+        "noctaliaDesc": "Hervorhebung aktivieren, wenn Noctalia-Komponenten ein Update haben",
+        "toast": "Toast",
+        "toastDesc": "Aktualisierungen für Toast-Meldungen aktivieren",
+        "desktopTip": "Desktop Hover Hinweis",
+        "desktopTipDesc": "Hover-Hinweis für Desktop-Widget aktivieren",
+        "hideOnEmpty": "Ausblenden wenn leer",
+        "hideOnEmptyDesc": "Ausblenden, wenn keine Aktualisierungen verfügbar sind",
+        "refreshTimer": "Aktualisierungs-Timer",
+        "refreshTimerDesc": "Nach einer bestimmten Zeit aktualisieren",
+        "interval": "Aktualisierungsintervall",
+        "intervalDesc": "Aktualisierungsintervall in Minuten: ",
+        "appearance": "Aussehen",
+        "boldText": "Fettgedruckter Text",
+        "boldTextDesc": "Die Anzahl der Aktualisierungen fett darstellen",
+        "useDistroLogo": "Distro-Logo verwenden",
+        "useDistroLogoDesc": "Verwende das Logo deiner Distribution als Widget-Symbol",
+        "enableColorization": "Farbgebung aktivieren",
+        "enableColorizationDesc": "Das Symbol mit einer benutzerdefinierten Farbe einfärben",
+        "iconColor": "Icon Farbe",
+        "iconColorDesc": "Wähle die Icon Farbe",
+        "iconName": "Icon",
+        "iconNameDesc": "Wähle das Icon für das Bar Widget aus",
+        "browseLibrary": "Bibliothek durchsuchen",
+        "browseFile": "Datei durchsuchen",
+        "selectCustomIcon": "Benutzerdefiniertes Icon auswählen"
+    },
+    "launcher": {
+        "refreshDesc": "Verfügbare Updates abrufen",
+        "updateDesc": "System aktualisieren"
+    },
+    "ccw": {
+        "tooltip": "Updates Panel öffnen"
+    },
+    "desktop": {
+        "header": "Update verfügbar",
+        "header-plural": "Updates verfügbar",
+        "name": "Name",
+        "oldVer": "Alte Version",
+        "newVer": "Neue Version",
+        "tipLeft": "Zum Aktualisieren linksklicken",
+        "tipMiddle": "Mittelklick zum Updaten",
+        "tipRight": "Mit Rechtsklick die Einstellungen öffnen"
+    }
+}

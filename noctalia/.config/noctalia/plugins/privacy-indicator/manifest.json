@@ -1,7 +1,7 @@
 {
   "id": "privacy-indicator",
   "name": "Privacy Indicator",
-  "version": "1.2.5",
+  "version": "1.2.12",
   "minNoctaliaVersion": "3.6.0",
   "author": "Noctalia Team",
   "official": true,
@@ -29,7 +29,9 @@
       "removeMargins": false,
       "iconSpacing": 4,
       "activeColor": "primary",
-      "inactiveColor": "none"
+      "inactiveColor": "none",
+      "micFilterRegex": "",
+      "camFilterRegex": ""
     }
   }
 }

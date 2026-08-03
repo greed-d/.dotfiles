@@ -53,4 +53,5 @@ window-decoration = false
 adjust-cell-height = 4
 
 shell-integration = fish
-theme = "current-theme"
+# theme = "current-theme"
+theme = "Catppuccin Mocha"

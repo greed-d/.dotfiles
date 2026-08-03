@@ -58,27 +58,27 @@ binds {
     }
 
 
-    Mod+Comma {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
-    }
+    // Mod+Comma {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
+    // }
     // Utility shortcuts
     Mod+V {
-        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
+        spawn "vicinae" "vicinae://launch/clipboard/history"
     }
-    Mod+C {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
-    }
-    Mod+T {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
-    }
-    Mod+Alt+L {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
-    }
+    // Mod+C {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
+    // }
+    // Mod+T {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
+    // }
+    // Mod+Alt+L {
+    //     spawn "bash" "-c" "$HOME/.local/share/quickshell-lockscreen/lock.sh"
+    // }
     Mod+Return {
-        spawn "app2unit" "--" "kitty"
+        spawn "app2unit" "--" "ghostty"
     }
     Mod+B {
-        spawn "app2unit" "--" "zen-browser"
+        spawn "app2unit" "--" "helium-browser"
     }
     Mod+E {
         spawn "app2unit" "--" "dolphin"
@@ -87,7 +87,7 @@ binds {
         spawn "app2unit" "--" "vesktop"
     }
     Mod+M {
-        spawn "app2unit" "--" "youtube-music"
+        spawn "app2unit" "--" "spotify-launcher"
     }
     Mod+A {
         spawn "$HOME/.local/scripts/toggle-sticky"
@@ -96,42 +96,42 @@ binds {
         toggle-overview
     }
     Mod+slash {
-        spawn "vicinae" "vicinae://extensions/vicinae/vicinae/search-emojis"
+        spawn "vicinae" "vicinae://launch/core/search-emojis"
     }
-    Mod+Shift+M {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"
-    }
+    // Mod+Shift+M {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"
+    // }
     // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
     // Special Keys
     // Audio controls
-    XF86AudioRaiseVolume {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
-    }
-    XF86AudioLowerVolume {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
-    }
-    Mod+Up {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
-    }
-    Mod+Down {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
-    }
-    XF86AudioMute {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"
-    }
-    // Brightness controls
-    XF86MonBrightnessUp {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
-    }
-    XF86MonBrightnessDown {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
-    }
-    Mod+Right {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
-    }
-    Mod+Left {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
-    }
+    // XF86AudioRaiseVolume {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
+    // }
+    // XF86AudioLowerVolume {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
+    // }
+    // Mod+Up {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
+    // }
+    // Mod+Down {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
+    // }
+    // XF86AudioMute {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"
+    // }
+    // // Brightness controls
+    // XF86MonBrightnessUp {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
+    // }
+    // XF86MonBrightnessDown {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
+    // }
+    // Mod+Right {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"
+    // }
+    // Mod+Left {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"
+    // }
     // Window Movement and focus
     Mod+H {
         focus-column-left

@@ -12,7 +12,16 @@
     "start-recording": "Ekran kaydedici (kayda başla)",
     "started": "Kayıt başladı.",
     "stop-recording": "Ekran kaydedici (kaydı durdur)",
-    "stopping": "Kaydı durdurma…"
+    "stopping": "Kaydı durdurma…",
+    "monitor-not-found": "İmleç altındaki monitör algılanamadı.",
+    "replay-saved": "Tekrar kaydedildi.",
+    "replay-started": "Tekrar arabelleği başlatıldı.",
+    "replay-stopped": "Tekrar arabelleği durduruldu.",
+    "replay-failed": "Tekrar arabelleği başlatılamadı.",
+    "replay-active": "Ekran Kaydedici (tekrar etkin)",
+    "save-replay": "Tekrar arabelleğini kaydet",
+    "start-replay": "Tekrar arabelleğini başlat",
+    "stop-replay": "Tekrar arabelleğini durdur"
   },
   "name": "Ekran Kaydedici",
   "settings": {
@@ -36,9 +45,23 @@
       "copy-to-clipboard-description": "Kayıt bittikten sonra dosyayı panoya kopyala.",
       "output-folder": "Çıktı klasörü",
       "output-folder-description": "Ekran kayıtlarının kaydedileceği klasör",
+      "restore-portal-session": "Portal oturumunu geri yükle",
+      "restore-portal-session-description": "Sonraki kayıtlar için önceki portal oturumunu otomatik olarak geri yükle (seçim penceresini devre dışı bırakır)",
       "show-cursor": "İmleci göster",
       "show-cursor-description": "Videoda fare imlecini kaydet",
       "title": "Genel"
+    },
+    "replay": {
+      "enable": "Tekrar arabelleğini etkinleştir",
+      "enable-desc": "İsteğe bağlı olarak kaydedilebilen son ekran etkinliğinin döngüsel bir arabelleğini tutun",
+      "duration": "Tekrar süresi",
+      "duration-desc": "Saniye cinsinden tekrar arabelleğinin uzunluğu",
+      "custom-duration": "Özel tekrar süresi",
+      "custom-duration-desc": "Saniye cinsinden özel bir tekrar arabelleği süresi girin",
+      "storage": "Tekrar depolama",
+      "storage-desc": "Tekrar arabelleğinin nerede saklanacağı",
+      "storage-ram": "RAM (önerilir)",
+      "storage-disk": "Disk"
     },
     "title": "Ekran Kaydedici Ayarları",
     "video": {
@@ -49,7 +72,10 @@
       "color-range-full": "Tam",
       "color-range-limited": "Sınırlı",
       "frame-rate": "Kare hızı",
+      "frame-rate-custom": "Özel",
       "frame-rate-desc": "Ekran kayıtları için hedef kare hızı",
+      "custom-frame-rate": "Özel kare hızı",
+      "custom-frame-rate-desc": "Özel bir kare hızı değeri girin (FPS)",
       "quality": "Video kalitesi",
       "quality-desc": "Daha yüksek kalite daha büyük dosya boyutlarına yol açar",
       "quality-high": "Yüksek",
@@ -63,7 +89,8 @@
       "source-desc": "Portal önerilir, artefaktlar alırsanız Ekran'ı deneyin",
       "sources-portal": "Portal",
       "sources-screen": "Ekran",
-      "title": "Video Ayarları"
+      "title": "Video Ayarları",
+      "sources-focused-monitor": "Focused monitor (Hyprland)"
     }
   }
 }

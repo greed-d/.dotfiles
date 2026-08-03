@@ -7,8 +7,9 @@
 ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝
 */
 layout {
-    gaps 8
-    center-focused-column "never"
+    gaps 4
+    center-focused-column "always"
+    always-center-single-column
     preset-column-widths {
         proportion 0.25
         proportion 0.5
@@ -23,6 +24,7 @@ layout {
         proportion 0.8
         proportion 1.0
     }
+    default-column-display "normal"
     default-column-width {
         proportion 0.5
     }
@@ -38,6 +40,17 @@ layout {
         spread 3
         offset x=-1 y=-5
         color "#0009"
+    }
+    border {
+        on
+        // on
+        width 1
+        active-color "#cba6f7"
+        inactive-color "#585b70"
+        urgent-color "#9b0000"
+        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view" in="srgb-linear"
+        // urgent-gradient from="#800" to="#a33" angle=45
     }
     struts {
       // left 10

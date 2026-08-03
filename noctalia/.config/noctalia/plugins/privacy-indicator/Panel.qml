@@ -16,6 +16,7 @@ Item {
   property real contentPreferredHeight: 450 * Style.uiScaleRatio
   
   readonly property var mainInstance: pluginApi?.mainInstance
+  readonly property bool allowAttach: true
 
   Rectangle {
     id: panelContainer
@@ -46,7 +47,7 @@ Item {
 
            NText {
              Layout.fillWidth: true
-             text: pluginApi?.tr("history.title") || "Access History"
+             text: pluginApi?.tr("history.title")
              font.weight: Style.fontWeightBold
              pointSize: Style.fontSizeL
              color: Color.mOnSurface
@@ -154,7 +155,7 @@ Item {
                 NText {
                     Layout.alignment: Qt.AlignHCenter
                     visible: (!mainInstance || mainInstance.accessHistory.length === 0)
-                    text: pluginApi?.tr("history.empty") || "No recent access"
+                    text: pluginApi?.tr("history.empty")
                     color: Qt.alpha(Color.mOnSurface, 0.5)
                     pointSize: Style.fontSizeM
                     Layout.topMargin: Style.marginL

@@ -17,6 +17,8 @@ ColumnLayout {
   property int iconSpacing: cfg.iconSpacing ?? defaults.iconSpacing ?? 4
   property string activeColor: cfg.activeColor ?? defaults.activeColor ?? "primary"
   property string inactiveColor: cfg.inactiveColor ?? defaults.inactiveColor ?? "none"
+  property string micFilterRegex: cfg.micFilterRegex ?? defaults.micFilterRegex
+  property string camFilterRegex: cfg.camFilterRegex ?? defaults.camFilterRegex
 
   spacing: Style.marginL
 
@@ -46,7 +48,7 @@ ColumnLayout {
       onToggled: checked => {
         root.enableToast = checked;
       }
-    }    
+    }
 
     NToggle {
       label: pluginApi?.tr("settings.removeMargins.label")
@@ -98,6 +100,24 @@ ColumnLayout {
       currentKey: root.iconSpacing.toFixed(0)
       onSelected: key => root.iconSpacing = key
     }
+
+    NTextInput {
+      Layout.fillWidth: true
+      label: pluginApi?.tr("settings.micFilterRegex.label")
+      description: pluginApi?.tr("settings.micFilterRegex.desc")
+      placeholderText: "effect_input.rnnoise|easyeffects"
+      text: root.micFilterRegex
+      onTextChanged: root.micFilterRegex = text
+    }
+
+    NTextInput {
+      Layout.fillWidth: true
+      label: pluginApi?.tr("settings.camFilterRegex.label")
+      description: pluginApi?.tr("settings.camFilterRegex.desc")
+      placeholderText: "droidcam"
+      text: root.camFilterRegex
+      onTextChanged: root.camFilterRegex = text
+    }
   }
 
   function saveSettings() {
@@ -112,6 +132,8 @@ ColumnLayout {
     pluginApi.pluginSettings.removeMargins = root.removeMargins;
     pluginApi.pluginSettings.activeColor = root.activeColor;
     pluginApi.pluginSettings.inactiveColor = root.inactiveColor;
+    pluginApi.pluginSettings.micFilterRegex = root.micFilterRegex;
+    pluginApi.pluginSettings.camFilterRegex = root.camFilterRegex;
 
     pluginApi.saveSettings();
 

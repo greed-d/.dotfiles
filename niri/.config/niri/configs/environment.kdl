@@ -8,6 +8,7 @@ environment {
     DISPLAY ":1"
     GTK_THEME "adw-gtk3-dark"
     XDG_MENU_PREFIX "arch-"
+    BROWSER "helium-browser"
 }
 // Miscellaneous Settings
 prefer-no-csd

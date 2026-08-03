@@ -12,7 +12,16 @@
     "start-recording": "Grabador de pantalla (empezar a grabar)",
     "started": "Grabación iniciada.",
     "stop-recording": "Grabador de pantalla (detener grabación)",
-    "stopping": "Deteniendo la grabación…"
+    "stopping": "Deteniendo la grabación…",
+    "monitor-not-found": "No se pudo detectar el monitor bajo el cursor.",
+    "replay-saved": "Replay guardado.",
+    "replay-started": "Búfer de replay iniciado.",
+    "replay-stopped": "Búfer de replay detenido.",
+    "replay-failed": "Error al iniciar el búfer de replay.",
+    "replay-active": "Grabador de pantalla (replay activo)",
+    "save-replay": "Guardar búfer de replay",
+    "start-replay": "Iniciar búfer de replay",
+    "stop-replay": "Detener búfer de replay"
   },
   "name": "Grabadora de Pantalla",
   "settings": {
@@ -36,9 +45,23 @@
       "copy-to-clipboard-description": "Copia el archivo al portapapeles después de que termine la grabación.",
       "output-folder": "Carpeta de salida",
       "output-folder-description": "Carpeta donde se guardarán las grabaciones de pantalla",
+      "restore-portal-session": "Restaurar sesión del portal",
+      "restore-portal-session-description": "Restaurar automáticamente la sesión anterior del portal para grabaciones posteriores (desactiva el aviso de selección)",
       "show-cursor": "Mostrar cursor",
       "show-cursor-description": "Grabar el cursor del ratón en el video",
       "title": "General"
+    },
+    "replay": {
+      "enable": "Activar búfer de replay",
+      "enable-desc": "Mantener un búfer rodante de la actividad reciente de la pantalla que se puede guardar a pedido",
+      "duration": "Duración del replay",
+      "duration-desc": "Longitud del búfer de replay en segundos",
+      "custom-duration": "Duración de replay personalizada",
+      "custom-duration-desc": "Ingrese una duración de búfer de replay personalizada en segundos",
+      "storage": "Almacenamiento de replay",
+      "storage-desc": "Dónde almacenar el búfer de replay",
+      "storage-ram": "RAM (recomendado)",
+      "storage-disk": "Disco"
     },
     "title": "Configuración de Grabadora de Pantalla",
     "video": {
@@ -49,7 +72,10 @@
       "color-range-full": "Completo",
       "color-range-limited": "Limitado",
       "frame-rate": "Tasa de fotogramas",
+      "frame-rate-custom": "Personalizado",
       "frame-rate-desc": "Tasa de fotogramas objetivo para grabaciones de pantalla",
+      "custom-frame-rate": "Tasa de fotogramas personalizada",
+      "custom-frame-rate-desc": "Ingrese un valor de tasa de fotogramas personalizado (FPS)",
       "quality": "Calidad de video",
       "quality-desc": "Mayor calidad resulta en archivos más grandes",
       "quality-high": "Alto",
@@ -63,7 +89,8 @@
       "source-desc": "Se recomienda Portal, si obtiene artefactos intente Pantalla",
       "sources-portal": "Portal",
       "sources-screen": "Pantalla",
-      "title": "Configuración de Video"
+      "title": "Configuración de Video",
+      "sources-focused-monitor": "Focused monitor (Hyprland)"
     }
   }
 }

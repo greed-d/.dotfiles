@@ -12,7 +12,16 @@
     "start-recording": "Qeydkerê ekranê (dest bi qeydkirinê bike)",
     "started": "Qeydkirin dest pê kir.",
     "stop-recording": "Tomarkera dîmenderê (tomarkirinê bide sekinandin)",
-    "stopping": "Qeydkirin radiweste…"
+    "stopping": "Qeydkirin radiweste…",
+    "monitor-not-found": "Monitora bin nîşanderê nehat dîtin.",
+    "replay-saved": "Vegerandin hat qeydkirin.",
+    "replay-started": "Depo vegerandinê dest pê kir.",
+    "replay-stopped": "Depo vegerandinê sekinî.",
+    "replay-failed": "Destpêkirina depo vegerandinê bi ser neket.",
+    "replay-active": "Qeydkerê dîmenderê (vegerandin çalak e)",
+    "save-replay": "Depo vegerandinê qeyd bike",
+    "start-replay": "Depo vegerandinê bide destpêkirin",
+    "stop-replay": "Depo vegerandinê bide sekinandin"
   },
   "name": "Qeydkerê Ekranê",
   "settings": {
@@ -35,10 +44,24 @@
       "copy-to-clipboard": "Kopyayî ser clipboardê bike",
       "copy-to-clipboard-description": "Piştî qedandina tomarkirinê pelê kopî klîpbordê bike.",
       "output-folder": "Cilda peldanka ya derketinê",
-      "output-folder-description": "Cihê ku tomarên ekranê dê lê bên tomarkirin",
-      "show-cursor": "Nîşan bide mişk",
+      "output-folder-description": "Peldanka ku qeydên ekranê lê werên rizgarkirin",
+      "restore-portal-session": "Vegerandina rûniştina portalê",
+      "restore-portal-session-description": "Ji bo qeydên paşê bixweber rûniştina portalê ya berê vedigerîne (pêşniyara hilbijartinê neçalak dike)",
+      "show-cursor": "Nîşanderê nîşan bide",
       "show-cursor-description": "Qeydê nîşankerê mişkê di vîdeoyê de",
       "title": "Giştî"
+    },
+    "replay": {
+      "enable": "Depo vegerandinê çalak bike",
+      "enable-desc": "Depoyek gerok a çalakiyên dîmenderê bihêle ku dikare li ser daxwazê were qeydkirin",
+      "duration": "Dama vegerandinê",
+      "duration-desc": "Dirêjahiya depo vegerandinê bi çirkeyan",
+      "custom-duration": "Dama vegerandinê ya xwerû",
+      "custom-duration-desc": "Dama depo vegerandinê ya xwerû bi çirkeyan binivîse",
+      "storage": "Depoya vegerandinê",
+      "storage-desc": "Depo vegerandinê li ku were hilanîn",
+      "storage-ram": "RAM (tê pêşniyarkirin)",
+      "storage-disk": "Dîsk"
     },
     "title": "Mîhengên Qeydkerê Dîmenderê",
     "video": {
@@ -49,7 +72,10 @@
       "color-range-full": "Tije",
       "color-range-limited": "Sînorkirî",
       "frame-rate": "Rêjeya çarçoveyê",
+      "frame-rate-custom": "Kesane",
       "frame-rate-desc": "Rêjeya çarçoveya hedefê ji bo qeydên ekranê",
+      "custom-frame-rate": "Rêjeya çarçoveya kesane",
+      "custom-frame-rate-desc": "Nirxek rêjeya çarçoveya kesane binivîse (FPS)",
       "quality": "Kalîteya vîdyoyê",
       "quality-desc": "Encamên bi kalîte bilindtir dibin sedema mezinahiyên pelan ên mezintir",
       "quality-high": "Bilind",
@@ -63,7 +89,8 @@
       "source-desc": "Portal tê pêşniyarkirin, eger tu artefaktan bibînî Screen biceribîne",
       "sources-portal": "Portal",
       "sources-screen": "Dîmende",
-      "title": "Mîhengên Vîdeoyê"
+      "title": "Mîhengên Vîdeoyê",
+      "sources-focused-monitor": "Focused monitor (Hyprland)"
     }
   }
 }

@@ -1,0 +1,166 @@
+{
+    "tooltip": {
+        "availableUpdates": "Available Updates",
+        "noctaliaUpdates": "Noctalia Updates available"
+    },
+    "context": {
+        "refresh": "Refresh",
+        "update": "Update",
+        "settings": "Settings"
+    },
+    "panel": {
+        "context": {
+            "copy": "Copy",
+            "open": "Open",
+            "repo": "Repository",
+            "homepage": "Homepage"
+        },
+        "title": "Arch Updater",
+        "name": "Name",
+        "oldVer": "Old Version",
+        "newVer": "New Version",
+        "refresh": "Refresh",
+        "update": "Update",
+        "settings": "Settings"
+    },
+    "toast": {
+        "refreshed": "Available updates refreshed!"
+    },
+    "settings": {
+        "tabs": {
+            "general": "General",
+            "bar": "Bar",
+            "panel": "Panel",
+            "desktop": "Desktop"
+        },
+        "general": {
+            "title": "General",
+            "desc": "Settings affecting the whole plugin",
+            "systemCmd": {
+                "text": "System Command",
+                "desc": "Command to check for system updates (output format: name oldver -> newver)"
+            },
+            "aurCmd": {
+                "text": "AUR Command",
+                "desc": "Command to check for AUR updates (output format: name oldver -> newver) leave blank to disable"
+            },
+            "updateCmd": {
+                "text": "Update Command",
+                "desc": "Command to update system"
+            },
+            "aurHomepageCmd": {
+                "text": "AUR Homepage Command",
+                "desc": "Command to get homepage for AUR packages (use {id} as package name placeholder)"
+            },
+            "flatpak": {
+                "text": "Flatpak",
+                "desc": "Enable Flatpak update checking"
+            },
+            "toast": {
+                "text": "Refresh Toast",
+                "desc": "Enable update refresh toast"
+            },
+            "refresh": {
+                "text": "Refresh timer",
+                "desc": "Refresh updates on a timer"
+            },
+            "interval": {
+                "text": "Refresh Interval",
+                "desc": "Update refresh interval in minutes: "
+            }
+        },
+        "bar": {
+            "title": "Bar",
+            "desc": "Settings affecting the bar widget",
+            "noctalia": {
+                "text": "Noctalia",
+                "desc": "Enable widget highlight if Noctalia components have an update"
+            },
+            "tooltip": {
+                "text": "Tooltip",
+                "desc": "Display the tooltip when hovering over the widget"
+            },
+            "hideOnEmpty": {
+                "text": "Hide on empty",
+                "desc": "Hide widget if no updates are available"
+            },
+            "boldCount": {
+                "text": "Bold count",
+                "desc": "Display the update count in bold"
+            },
+            "useDistroLogo": {
+                "text": "Use distro logo",
+                "desc": "Use your distribution logo as the widget icon"
+            },
+            "enableColorization": {
+                "text": "Enable colorization",
+                "desc": "Colorize the icon with a custom color"
+            },
+            "iconColor": {
+                "text": "Icon color",
+                "desc": "Choose the icon color"
+            },
+            "iconName": {
+                "text": "Icon",
+                "desc": "Choose the bar widget icon",
+                "browseLibrary": "Browse library",
+                "browseFile": "Browse file",
+                "selectCustomIcon": "Select custom icon"
+            }
+        },
+        "panel": {
+            "title": "Panel",
+            "desc": "Settings affecting the panel",
+            "boldVer": {
+                "text": "Bold New Version",
+                "desc": "Make the new version column bold"
+            },
+            "tooltip": {
+                "text": "Tooltip",
+                "desc": "Show a tooltip when hovering over text in the table"
+            },
+            "context": {
+                "text": "Context Menu",
+                "desc": "Show context menu when right clicking in the table"
+            },
+            "closeButton": {
+                "text": "Close Button",
+                "desc": "Show close button in the panel"
+            },
+            "closeOnSettings": {
+                "text": "Close On Opening Settings",
+                "desc": "Closes the panel when pressing the settings button<br>(May fix issues with on-screen keyboards)"
+            }
+        },
+        "desktop": {
+            "title": "Desktop Widget",
+            "desc": "Settings affecting the desktop widget",
+            "boldVer": {
+                "text": "Bold New Version",
+                "desc": "Make the new version column bold"
+            },
+            "hoverTip": {
+                "text": "Desktop Hover Tip",
+                "desc": "Enable hover tip for desktop widget"
+            }
+        }
+    },
+    "launcher": {
+        "refresh": "Refresh available updates",
+        "update": "Update system",
+        "search": "Search available updates"
+    },
+    "ccw": {
+        "tooltip": "Open Updates panel"
+    },
+    "desktop": {
+        "header": "update available",
+        "header-plural": "updates available",
+        "name": "Name",
+        "oldVer": "Old Version",
+        "newVer": "New Version",
+        "tipLeft": "Left click to refresh",
+        "tipMiddle": "Middle click to update",
+        "tipRight": "Right click to open settings"
+    }
+}

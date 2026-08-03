@@ -22,8 +22,8 @@ input {
         accel-speed 0.2
     }
     workspace-auto-back-and-forth
-    // focus-follows-mouse max-scroll-amount="100%"
-    focus-follows-mouse
+    // focus-follows-mouse max-scroll-amount="50%"
+    // focus-follows-mouse
     //NOTE Stop niri from hijacking the power button
     disable-power-key-handling
 }

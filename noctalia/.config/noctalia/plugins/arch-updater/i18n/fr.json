@@ -1,0 +1,81 @@
+{
+    "tooltip": {
+        "availableUpdates": "Mises à jour disponibles",
+        "noctaliaUpdates": "Mises à jour Noctalia disponibles"
+    },
+    "context": {
+        "refresh": "Actualiser",
+        "update": "Mettre à jour",
+        "settings": "Paramètres"
+    },
+    "panel": {
+        "title": "Arch Updater",
+        "name": "Nom",
+        "oldVer": "Ancienne version",
+        "newVer": "Nouvelle version",
+        "refresh": "Actualiser",
+        "update": "Mettre à jour",
+        "settings": "Paramètres"
+    },
+    "toast": {
+        "refreshed": "Mises à jour disponibles actualisées !"
+    },
+    "settings": {
+        "commands": "Commandes",
+        "checkCmd": "Commande de vérification",
+        "checkCmdDesc": "Commande pour vérifier les mises à jour (format de sortie : nom oldver -> newver)",
+        "updateCmd": "Commande de mise à jour",
+        "updateCmdDesc": "Commande pour mettre à jour",
+        "flatpak": "Flatpak",
+        "flatpakDesc": "Activer la vérification des mises à jour Flatpak",
+        "noctalia": "Noctalia",
+        "noctaliaDesc": "Activer la mise en évidence si les composants Noctalia ont une mise à jour",
+        "boldVer": "Nouvelle version en gras",
+        "boldVerDesc": "Mettre en gras la colonne de la nouvelle version",
+        "toast": "Notification",
+        "toastDesc": "Activer la notification d'actualisation des mises à jour",
+        "desktopTip": "Astuce au survol du bureau",
+        "desktopTipDesc": "Activer l'astuce au survol pour le widget de bureau",
+        "hideOnEmpty": "Masquer si vide",
+        "hideOnEmptyDesc": "Masquer s'il n'y a pas de mises à jour disponibles",
+        "closeButton": "Bouton de fermeture",
+        "closeButtonDesc": "Afficher le bouton de fermeture dans le panneau",
+        "refreshTimer": "Actualisation périodique",
+        "refreshTimerDesc": "Actualiser selon une minuterie",
+        "interval": "Intervalle d'actualisation",
+        "intervalDesc": "Intervalle d'actualisation en minutes : ",
+        "appearance": "Apparence",
+        "boldText": "Texte en gras",
+        "boldTextDesc": "Afficher le nombre de mises à jour en gras",
+        "tooltip": "Bulle d'aide",
+        "tooltipDesc": "Afficher la bulle d'aide au survol du widget",
+        "useDistroLogo": "Utiliser le logo de la distro",
+        "useDistroLogoDesc": "Utiliser le logo de votre distribution comme icône du widget",
+        "enableColorization": "Activer la colorisation",
+        "enableColorizationDesc": "Coloriser l'icône avec une couleur personnalisée",
+        "iconColor": "Couleur de l'icône",
+        "iconColorDesc": "Choisir la couleur de l'icône",
+        "iconName": "Icône",
+        "iconNameDesc": "Choisir l'icône du widget de la barre",
+        "browseLibrary": "Parcourir la bibliothèque",
+        "browseFile": "Parcourir le fichier",
+        "selectCustomIcon": "Sélectionner une icône personnalisée"
+    },
+    "launcher": {
+        "refreshDesc": "Actualiser les mises à jour disponibles",
+        "updateDesc": "Mettre à jour le système"
+    },
+    "ccw": {
+        "tooltip": "Ouvrir le panneau des mises à jour"
+    },
+    "desktop": {
+        "header": "mise à jour disponible",
+        "header-plural": "mises à jour disponibles",
+        "name": "Nom",
+        "oldVer": "Ancienne version",
+        "newVer": "Nouvelle version",
+        "tipLeft": "Clic gauche pour actualiser",
+        "tipMiddle": "Clic milieu pour mettre à jour",
+        "tipRight": "Clic droit pour ouvrir les paramètres"
+    }
+}

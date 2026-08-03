@@ -5,10 +5,11 @@ Hardware-accelerated screen recording for Noctalia using [gpu-screen-recorder](h
 ## Features
 
 - Hardware-accelerated screen recording
+- **Replay buffer** — continuously capture and save the last N seconds on demand
 - Customizable video codecs (H264, HEVC, AV1, VP8, VP9, HDR variants)
 - Audio recording with multiple sources (system output, microphone, both, or none)
 - Adjustable frame rates (30-240 FPS)
-- Configurable output resolution (Full HD, 4K, QHD, HD, or original)
+- Configurable output resolution (Full HD, WUXGA, 4K, QHD, HD, or original)
 - Configurable output directory
 - Optional clipboard copy after recording
 - Optional cursor recording
@@ -47,11 +48,17 @@ Configure the plugin through the settings panel:
 - **Video Quality**: Medium, High, Very High, or Ultra
 - **Video Codec**: H264, HEVC, AV1, VP8, VP9 (+ HDR variants for screen source)
 - **Color Range**: Limited (recommended) or Full
-- **Resolution**: Output resolution limit (1920x1080, 2560x1440, 3840x2160, 1280x720, or Original)
+- **Resolution**: Output resolution limit (1920x1080, 1920x1200, 2560x1440, 3840x2160, 1280x720, or Original)
 - **Audio Source**: None, System Output, Microphone, or Both
 - **Audio Codec**: Opus (recommended) or AAC
 - **Show Cursor**: Include mouse cursor in recording
 - **Copy to Clipboard**: Automatically copy file after recording
+
+#### Replay
+
+- **Enable Replay Buffer**: Toggle the replay buffer feature on/off
+- **Replay Duration**: Buffer length (15s, 30s, 60s, 2 min, 5 min, or custom)
+- **Replay Storage**: Store buffer in RAM (faster, recommended) or Disk
 
 ### IPC Commands
 
@@ -66,6 +73,18 @@ qs -c noctalia-shell ipc call plugin:screen-recorder start
 
 # Explicitly stop recording
 qs -c noctalia-shell ipc call plugin:screen-recorder stop
+
+# Start the replay buffer
+qs -c noctalia-shell ipc call plugin:screen-recorder startReplay
+
+# Save the replay buffer (last N seconds)
+qs -c noctalia-shell ipc call plugin:screen-recorder saveReplay
+
+# Stop the replay buffer
+qs -c noctalia-shell ipc call plugin:screen-recorder stopReplay
+
+# Toggle replay buffer on/off
+qs -c noctalia-shell ipc call plugin:screen-recorder toggleReplay
 ```
 
 ## Video Codecs

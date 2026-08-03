@@ -26,6 +26,14 @@
     "removeMargins": {
       "desc": "Remove all outer margins of the widget.",
       "label": "Remove margins"
+    },
+    "micFilterRegex": {
+      "desc": "Regex pattern to filter out microphone applications. Matching apps are completely excluded from detection.",
+      "label": "Microphone filter regex"
+    },
+    "camFilterRegex": {
+      "desc": "Regex pattern to filter out camera applications. Matching apps are completely excluded from detection.",
+      "label": "Camera filter regex"
     }
   },
   "tooltip": {

@@ -1,8 +1,23 @@
 {
+  "menu": {
+    "settings": "Widget Einstellungen"
+  },
   "settings": {
+    "activeColor": {
+      "desc": "Farbe der Symbole, wenn sie aktiv sind.",
+      "label": "Aktive Farbsymbol"
+    },
     "hideInactive": {
       "desc": "Mikrofon-, Kamera- und Bildschirmsymbole ausblenden, wenn sie inaktiv sind.",
       "label": "Inaktive Zustände ausblenden"
+    },
+    "enableToast": {
+      "desc": "Zeige Toast Mitteilungen an, wenn sich einer der Zustände ändert.",
+      "label": "Aktiviere Toast Mitteilungen"
+    },
+    "inactiveColor": {
+      "desc": "Farbe der Symbole, wenn sie inaktiv sind.",
+      "label": "Inaktive Farbsymbol"
     },
     "iconSpacing": {
       "desc": "Den Abstand zwischen den Symbolen festlegen.",
@@ -12,13 +27,9 @@
       "desc": "Alle äußeren Ränder des Widgets entfernen.",
       "label": "Ränder entfernen"
     },
-    "activeColor": {
-      "desc": "Farbe der Symbole, wenn sie aktiv sind.",
-      "label": "Aktive Farbsymbol"
-    },
-    "inactiveColor": {
-      "desc": "Farbe der Symbole, wenn sie inaktiv sind.",
-      "label": "Inaktive Farbsymbol"
+    "micFilterRegex": {
+      "desc": "Regex Muster zum Herausfiltern von Mikrofon-Apps. Entsprechende Apps werden vollständig von der Erkennung ausgeschlossen.",
+      "label": "Regex für Mikrofonfilter"
     }
   },
   "tooltip": {
@@ -30,9 +41,6 @@
     "cam-on": "Kamera ist aktiv",
     "mic-on": "Mikrofon ist aktiv",
     "screen-on": "Bildschirmfreigabe ist aktiv"
-  },
-  "menu": {
-    "settings": "Widget-Einstellungen"
   },
   "history": {
     "title": "Zugriffsverlauf",

@@ -79,6 +79,7 @@ alias lf yazi
 
 alias lvim "env NVIM_APPNAME=lazyvim nvim"
 alias ivim "env NVIM_APPNAME=interview nvim"
+alias chad "env NVIM_APPNAME=chad nvim"
 alias i "paru -S --noconfirm"
 alias v "nvim"
 alias tvim "env NVIM_APPNAME=testvim nvim"
@@ -139,7 +140,7 @@ set PATH "$PATH":"$HOME/.local/colorscripts/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
 set PATH "$PATH":"$HOME/.local/share/bob/nvim-bin"
-set -gx BROWSER floorp
+set -gx BROWSER helium-browser
 # set -gx GRIMBLAST_HIDE_CURSOR 0
 fish_add_path -g -p $HOME/flutter/bin
 #set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]

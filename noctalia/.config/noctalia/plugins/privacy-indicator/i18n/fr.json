@@ -1,8 +1,23 @@
 {
+  "menu": {
+    "settings": "Paramètres du widget"
+  },
   "settings": {
+    "activeColor": {
+      "desc": "Couleur des icônes lorsqu'elles sont actives.",
+      "label": "Couleur d'icône active"
+    },  
     "hideInactive": {
       "desc": "Masquer les icônes du micro, de la caméra et de l’écran lorsqu’ils sont inactifs.",
       "label": "Masquer les états inactifs"
+    },
+    "enableToast": {
+      "desc": "Afficher des messages toast lorsque l'un des états change.",
+      "label": "Activer les notifications toast"
+    },
+    "inactiveColor": {
+      "desc": "Couleur des icônes lorsqu'elles sont inactives.",
+      "label": "Couleur d'icône inactive"
     },
     "iconSpacing": {
       "desc": "Définir l’espacement entre les icônes.",
@@ -12,13 +27,13 @@
       "desc": "Supprime toutes les marges extérieures du widget.",
       "label": "Supprimer les marges"
     },
-    "activeColor": {
-      "desc": "Couleur des icônes lorsqu'elles sont actives.",
-      "label": "Couleur d'icône active"
+    "micFilterRegex": {
+      "desc": "Motif Regex pour filtrer les applications de microphone. Les applications correspondantes sont complètement exclues de la détection.",
+      "label": "Regex de filtrage du microphone"
     },
-    "inactiveColor": {
-      "desc": "Couleur des icônes lorsqu'elles sont inactives.",
-      "label": "Couleur d'icône inactive"
+    "camFilterRegex": {
+      "desc": "Motif Regex pour filtrer les applications de caméra. Les applications correspondantes sont complètement exclues de la détection.",
+      "label": "Regex de filtrage de la caméra"
     }
   },
   "tooltip": {
@@ -30,9 +45,6 @@
     "cam-on": "La caméra est active",
     "mic-on": "Le microphone est actif",
     "screen-on": "Le partage d'écran est actif"
-  },
-  "menu": {
-    "settings": "Paramètres du widget"
   },
   "history": {
     "title": "Historique d'accès",

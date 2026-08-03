@@ -18,8 +18,10 @@ A privacy indicator widget that monitors and displays when microphone, camera, o
 Access the plugin settings in Noctalia to configure the following options:
 
 - **Hide Inactive States**: If enabled, microphone, camera, and screen icons are hidden whenever they are inactive. Only active states are shown.
-- **RemoveMargins**: If enabled, removes all outer margins of the widget.
+- **Remove Margins**: If enabled, removes all outer margins of the widget.
 - **Icon Spacing**: Controls the horizontal/vertical spacing between the icons.
+- **Active/Inactive Icon Color**: Customize the colors for active and inactive states.
+- **Microphone Filter Regex**: Regex pattern to filter out specific microphone applications. Matching apps are completely excluded from detection (they won't trigger the indicator or appear in tooltips). Use `|` to specify multiple patterns, e.g., `effect_input.rnnoise|easyeffects`.
 
 
 ## Usage

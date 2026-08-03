@@ -15,9 +15,9 @@ workspace "0"
 
 blur {
   on
-  passes 2        // more passes = stronger blur (default: 3)
-  offset 5.0      // sample distance per pass (default: 3.0)
-  noise 0.03      // grain overlay (default: 0.02)
+  passes 3        // more passes = stronger blur (default: 3)
+  offset 6.0      // sample distance per pass (default: 3.0)
+  noise 0.07      // grain overlay (default: 0.02)
   saturation 1.9  // color saturation boost (default: 1.5)
 }
 
@@ -177,6 +177,7 @@ window-rule {
     match app-id="steam"
     match app-id="vivaldi-stable"
     match app-id="Emacs"
+    match app-id="helium"
     open-maximized true
 }
 window-rule {
@@ -206,6 +207,7 @@ window-rule {
 }
 window-rule {
     match app-id="zen$"
+    match app-id="helium$"
     open-on-workspace "🌍 WWW"
 }
 window-rule {
