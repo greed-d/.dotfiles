@@ -12,7 +12,8 @@
 ![nirinvim](./.screenshots/niri-nvim.png)
 ## 🛠️ Stuffs used
 
-- **Bar** : [Noctalia](https://github.com/noctalia-dev/noctalia-shell)
+- **Shell** : [Noctalia](https://github.com/noctalia-dev/noctalia-shell)
+- **Lockscreen** : [Made with Noctalia Widgets](https://github.com/noctalia-dev/noctalia-shell)
 - **App Launcher** : [Vicinae](https://github.com/vicinaehq/vicinae)
 - **Terminal** :
     - Emulator : [ghostty](https://ghostty.org/)
@@ -24,7 +25,7 @@
 - **Discord Client** : [vesktop](https://github.com/Vencord/Vesktop)
 - **AUR Helper** : [paru](https://github.com/Morganamilo/paru)
 - **File Browser** : Dolphin
-- **Music Stream** : Youtube Music
+- **Music Stream** : Spotify with spicetify
 
 ## ⚙️ Installation
 > [!WARNING]
@@ -40,7 +41,7 @@ paru -S xdg-desktop-portal-gtk xdg-desktop-portal --noconfirm
 ```
 - Install required stuff :
 ```bash
-paru -S niri-git quickshell-git noctalia-shell-git ghostty vicinae-bin wlsunset app2unit zoxide starship youtube-music-bin polkit-gnome webkit2gtk --noconfirm
+paru -S niri-git noctalia-git ghostty vicinae-bin app2unit zoxide starship polkit-gnome webkit2gtk plasma-integration --noconfirm
 ```
 - Install cursor theme :
 ```bash
