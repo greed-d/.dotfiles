@@ -1,10 +1,10 @@
 # Dotfiles
 
-## A tokyonight rice
+## A catppuccin rice
 
 ## Niri Branch for my dotfiles:
 
-> [!NOTE]  
+> [!NOTE]
 > `wallpapers` moved to [wallpapers](https://www.github.com/greed-d/wallpapers) repository
 
 > [!NOTE]
@@ -15,6 +15,9 @@
 
 
 ## [Screenshots](https://github.com/greed-d/.dotfiles/tree/niri-multi-theme/niri/.config/niri) <-- Click here for more screenshots
+
+### Video Showcase:
+![](./rice-hd.mp4)
 
 ### Wallpaper
 
