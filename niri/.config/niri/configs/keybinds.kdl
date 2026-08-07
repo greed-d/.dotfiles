@@ -26,8 +26,11 @@ binds {
     Mod+Alt+S {
         screenshot-screen
     }
-    Mod+Shift+S {
-        screenshot
+    // Mod+Shift+S {
+    //     screenshot
+    // }
+    Mod+Shift+S allow-when-locked=true {
+         spawn "flameshot" "gui"
     }
     // Power stuff
     Mod+Shift+Q {

@@ -29,6 +29,7 @@ animations {
 */
 
 //Original code; https://github/XansiVA
+// NOTE: Swipe animations
 
 animations {
   slowdown 0.8
@@ -176,3 +177,109 @@ animations {
         spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
     }
 }
+
+
+// animations {
+//   slowdown 0.8
+//   workspace-switch {
+//     duration-ms 300
+//     spring damping-ratio=0.80 stiffness=523 epsilon=0.0001
+//
+//   }
+//   window-open {
+//     duration-ms 700
+//     curve "linear"
+//     custom-shader r"
+//       vec4 pixelate_open(vec3 coords_geo, vec3 size_geo) {
+//           // Discard pixels outside window bounds
+//           if (coords_geo.x < 0.0 || coords_geo.x > 1.0 || coords_geo.y < 0.0 || coords_geo.y > 1.0) {
+//               return vec4(0.0);
+//           }
+//           float progress = niri_clamped_progress;
+//           float border_width = 0.008; // Adjust based on your border size
+//           vec2 coords = coords_geo.xy;
+//           // Check if we're in the border region
+//           bool in_border = coords.x < border_width || coords.x > (1.0 - border_width) ||
+//                           coords.y < border_width || coords.y > (1.0 - border_width);
+//           // Only pixelate the inner content, not the border
+//           if (!in_border) {
+//               float pixel_size = (1.0 - progress) * 0.1;
+//               if (pixel_size > 0.0) {
+//                   coords = floor(coords / pixel_size) * pixel_size + pixel_size * 0.5;
+//               }
+//               // Clamp sampling to avoid border area
+//               coords = clamp(coords, border_width, 1.0 - border_width);
+//           }
+//           vec3 new_coords = vec3(coords, 1.0);
+//           vec3 coords_tex = niri_geo_to_tex * new_coords;
+//           vec4 color = texture2D(niri_tex, coords_tex.st);
+//           color.a *= progress;
+//           return color;
+//       }
+//       vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+//         return pixelate_open(coords_geo, size_geo);
+//       }
+//     "
+//   }
+//   window-close {
+//     duration-ms 700
+//     curve "linear"
+//     custom-shader r"
+//       vec4 pixelate_close(vec3 coords_geo, vec3 size_geo) {
+//           // Discard pixels outside window bounds
+//           if (coords_geo.x < 0.0 || coords_geo.x > 1.0 || coords_geo.y < 0.0 || coords_geo.y > 1.0) {
+//               return vec4(0.0);
+//           }
+//           float progress = niri_clamped_progress;
+//           float border_width = 0.008;
+//           vec2 coords = coords_geo.xy;
+//           // Check if we're in the border region
+//           bool in_border = coords.x < border_width || coords.x > (1.0 - border_width) ||
+//                           coords.y < border_width || coords.y > (1.0 - border_width);
+//           // Only pixelate the inner content, not the border
+//           if (!in_border) {
+//               float pixel_size = progress * 0.1;
+//               if (pixel_size > 0.0) {
+//                   coords = floor(coords / pixel_size) * pixel_size + pixel_size * 0.5;
+//               }
+//               // Clamp sampling to avoid border area
+//               coords = clamp(coords, border_width, 1.0 - border_width);
+//           }
+//           vec3 new_coords = vec3(coords, 1.0);
+//           vec3 coords_tex = niri_geo_to_tex * new_coords;
+//           vec4 color = texture2D(niri_tex, coords_tex.st);
+//           color.a *= (1.0 - progress);
+//           return color;
+//       }
+//       vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+//         return pixelate_close(coords_geo, size_geo);
+//       }
+//     "
+//   }
+//
+//     horizontal-view-movement {
+//         spring damping-ratio=0.85 stiffness=423 epsilon=0.0001
+//     }
+//     window-movement {
+//         spring damping-ratio=0.75 stiffness=323 epsilon=0.0001
+//     }
+//     window-resize {
+//         custom-shader r"
+//             vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {
+//                 vec3 coords_tex_next = niri_geo_to_tex_next * coords_curr_geo;
+//                 vec4 color = texture2D(niri_tex_next, coords_tex_next.st);
+//                 return color;
+//             }
+//         "
+//     }
+//     config-notification-open-close {
+//         spring damping-ratio=0.65 stiffness=923 epsilon=0.001
+//     }
+//     screenshot-ui-open {
+//         duration-ms 200
+//         curve "ease-out-quad"
+//     }
+//     overview-open-close {
+//         spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
+//     }
+// }

@@ -1,7 +1,7 @@
 
 environment {
     QT_QPA_PLATFORM "wayland"
-    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QPA_PLATFORMTHEME "kde"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     EDITOR "nvim"
     MOZ_ENABLE_WAYLAND "1"
@@ -19,8 +19,8 @@ hotkey-overlay {
 // One day I hope my laptop shows this event
 switch-events {
     lid-close {
-        spawn "systemctl" "suspend"
-    }
+        spawn "notify-send" "The laptop lid is closed!"
+      }
     lid-open {
         spawn "notify-send" "The laptop lid is open!"
     }

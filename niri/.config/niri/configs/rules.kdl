@@ -24,7 +24,6 @@ blur {
 recent-windows {
     // off
     debounce-ms 750
-
     open-delay-ms 100
 
     highlight {
@@ -178,6 +177,8 @@ window-rule {
     match app-id="vivaldi-stable"
     match app-id="Emacs"
     match app-id="helium"
+    match app-id="md.Obsidian"
+    match app-id="neovide"
     open-maximized true
 }
 window-rule {
@@ -235,6 +236,7 @@ window-rule {
 
 window-rule {
     match app-id="sioyek"
+    match app-id="md.Obsidian"
     open-on-workspace "📓 NOTE"
 }
 window-rule {
