@@ -2,7 +2,7 @@
 ## 🖼️ Showcase
 ### 🖥️ Desktop :
 ![!niri1](./.screenshots/niri-desktop.png)
-### 🎵 Youtube Music :
+### 🎵 Spotify :
 ![!niri2](./.screenshots/niri-music.png)
 ### Fetch
 ![!niri2](./.screenshots/niri-fetch.png)
