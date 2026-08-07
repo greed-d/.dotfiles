@@ -201,6 +201,7 @@ window-rule {
     draw-border-with-background false
     match app-id="kitty$"
     match app-id="com.mitchellh.ghostty$"
+    match app-id="neovide"
     background-effect {
       blur true
     }
