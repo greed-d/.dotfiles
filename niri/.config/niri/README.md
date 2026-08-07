@@ -2,10 +2,10 @@
 ## 🖼️ Showcase
 ### 🖥️ Desktop :
 ![!niri1](./.screenshots/niri-desktop.png)
-### 🎵 Spotify :
-![!niri2](./.screenshots/niri-music.png)
 ### Fetch
 ![!niri2](./.screenshots/niri-fetch.png)
+### 🎵 Spotify :
+![!niri2](./.screenshots/niri-music.png)
 ### 💬 Discord :
 ![!niri3](./.screenshots/niri-discord.png)
 ### 🧑‍💻 Neovim :
