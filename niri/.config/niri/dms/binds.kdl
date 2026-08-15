@@ -1,0 +1,15 @@
+binds {
+    Alt+Space { spawn "dms" "ipc" "wallpaperCarousel" "toggle"; }
+    Mod+Alt+L { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+Comma { spawn "dms" "ipc" "call" "settings" "open"; }
+    Mod+Down allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
+    Mod+Shift+M { spawn-sh "dms ipc call mic mute"; }
+    Mod+Shift+S hotkey-overlay-title="Annotate Region" { spawn "sh" "-c" "dms ipc call quickCapture screenshot region edit"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
+    XF86AudioMute allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86AudioNext { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86AudioPrev { spawn "dms" "ipc" "call" "mpris" "previous"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
+    XF86MonBrightnessDown { spawn "dms" "ipc" "call" "brightness" "decrement" "5" "''"; }
+    XF86MonBrightnessUp { spawn "dms" "ipc" "call" "brightness" "increment" "5" "''"; }
+}

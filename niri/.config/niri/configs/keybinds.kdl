@@ -29,12 +29,15 @@ binds {
     // Mod+Shift+S {
     //     screenshot
     // }
-    Mod+Shift+S allow-when-locked=true {
-         spawn "flameshot" "gui"
-    }
+    // Mod+Shift+S allow-when-locked=true {
+    //      spawn "flameshot" "gui"
+    // }
     // Power stuff
     Mod+Shift+Q {
-        spawn "bash" "-c" "shutdown now"
+        spawn "bash" "-c" "systemctl poweroff"
+    }
+    Mod+Shift+R {
+        spawn "bash" "-c" "systemctl reboot"
     }
     Mod+Ctrl+Q {
         quit skip-confirmation=true
@@ -56,9 +59,6 @@ binds {
     // Alt+Space {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
     // }
-    Alt+Space {
-        spawn "bash" "-c" "$HOME/.config/colorschemes/theme-switcher.sh"
-    }
 
 
     // Mod+Comma {
@@ -113,9 +113,9 @@ binds {
     // XF86AudioLowerVolume {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
     // }
-    // Mod+Up {
-    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"
-    // }
+    Mod+Up hotkey-overlay-title="Increase sound beyond 100%" {
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+ -l 1.5"
+    }
     // Mod+Down {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"
     // }

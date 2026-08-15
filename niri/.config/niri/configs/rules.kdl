@@ -54,14 +54,14 @@ layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true
 }
-layer-rule {
-  match namespace="^noctalia-background-.*$"
-  // opacity 0.8
-  background-effect {
-    blur true
-    xray false
-  }
-}
+// layer-rule {
+//   match namespace="^noctalia-background-.*$"
+//   // opacity 0.8
+//   background-effect {
+//     blur true
+//     xray false
+//   }
+// }
 layer-rule {
     match namespace="^launcher$"
     match namespace="^vicinae$"
@@ -145,10 +145,14 @@ window-rule {
 window-rule {
   match app-id="Motrix"
   match app-id="motrix-next" title="Motrix Next"
+  match app-id="com-abdownloadmanager-desktop-AppKt"
+  match app-id="com-abdownloadmanager-desktop-AppKt" title="Settings"
   open-floating true
-  default-floating-position x=212 y=45
+  default-floating-position x=180 y=45
   // max-width 1515
   max-height 955
+  min-height 955
+  min-width 700
 }
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -201,6 +205,8 @@ window-rule {
 debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
+  wait-for-frame-completion-before-queueing
+  render-drm-device "/dev/dri/renderD129"
 }
 
 /*
