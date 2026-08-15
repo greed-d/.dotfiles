@@ -6,7 +6,7 @@ border = "surface"
 capsule_radius = 80
 capsule_thickness = 0.74999998696148396
 center = [ "power_profile", "clock", "caffeine" ]
-end = [ "media", "group:g1", "volume", "brightness", "battery", "session" ]
+end = [ "media", "group:g1", "volume", "brightness", "battery", "session", "cpu2" ]
 margin_ends = 0
 padding = 16
 radius_bottom_left = 11
@@ -91,7 +91,7 @@ auto_locate = true
 [lockscreen]
 blur_intensity = 0.29999999329447746
 tint_intensity = 0.0
-wallpaper = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/cabin-orig-2.png"
+wallpaper = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/tokyo-night23.png"
 
 [lockscreen_widgets]
 enabled = true
@@ -408,13 +408,13 @@ directory = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers"
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/lady_blug_bg.jpg"
+    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/tokyo-night23.png"
 
     [wallpaper.last]
-    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/lady_blug_bg.jpg"
+    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/tokyo-night23.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/lady_blug_bg.jpg"
+    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/tokyo-night23.png"
 
 [widget.active_window]
 max_length = 155
@@ -431,9 +431,6 @@ format = "{:%H:%M:%S - %b %d}"
 [widget.control-center]
 capsule = true
 
-[widget.cpu]
-display = "text"
-
 [widget.media]
 hide_when_no_media = true
 
@@ -444,6 +441,8 @@ capsule_padding = 8.0
 [widget.ram]
 display = "text"
 font_weight = 700
+stat = "ram_pct"
+visualization = "none"
 
 [widget.recorder]
 type = "noctalia/screen_recorder:recorder"
@@ -456,9 +455,6 @@ stat = "swap_pct"
 
 [widget.sysmon]
 stat = "swap_pct"
-
-[widget.temp]
-display = "text"
 
 [widget.tray]
 drawer = true
