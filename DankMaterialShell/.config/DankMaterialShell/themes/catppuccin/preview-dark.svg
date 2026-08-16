@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="240" viewBox="0 0 280 240">
+  <g transform="translate(0, 0)">
+  <rect width="280" height="240" fill="#1e1e2e"/>
+
+  <rect width="280" height="26" fill="#1e1e2e"/>
+  <rect x="12" y="9" width="20" height="8" rx="4" fill="#cba6f7"/>
+  <circle cx="40" cy="13" r="3" fill="#a6adc8"/>
+  <circle cx="50" cy="13" r="3" fill="#a6adc8"/>
+  <text x="140" y="17" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="#cba6f7">9:41</text>
+  <circle cx="238" cy="13" r="4" fill="#89b4fa"/>
+  <circle cx="252" cy="13" r="4" fill="#fab387"/>
+  <circle cx="266" cy="13" r="4" fill="#f38ba8"/>
+
+  <rect x="14" y="38" width="252" height="190" rx="12" fill="#1e1e2e" stroke="#6c7086" stroke-opacity="0.5"/>
+  <text x="28" y="61" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" font-weight="600" fill="#cdd6f4">Catppuccin Mocha Mauve (dark)</text>
+  <text x="28" y="77" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="9.5" fill="#a6adc8">Secondary text</text>
+
+  <rect x="26" y="87" width="228" height="50" rx="8" fill="#313244"/>
+  <text x="38" y="105" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="10" font-weight="500" fill="#cdd6f4">Nested card</text>
+  <text x="38" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#a6adc8">Body text on an elevated surface</text>
+
+  <rect x="26" y="145" width="228" height="22" rx="6" fill="#181825" stroke="#6c7086" stroke-opacity="0.4"/>
+  <text x="38" y="160" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="9" fill="#a6adc8">Search</text>
+
+  <rect x="26" y="175" width="78" height="22" rx="11" fill="#cba6f7"/>
+  <text x="65" y="190" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="9.5" font-weight="600" text-anchor="middle" fill="#1e1e2e">Button</text>
+  <rect x="112" y="175" width="70" height="22" rx="11" fill="#cba6f7" fill-opacity="0.15"/>
+  <text x="147" y="190" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="9.5" font-weight="500" text-anchor="middle" fill="#cba6f7">Accent</text>
+  <rect x="190" y="175" width="64" height="22" rx="11" fill="#45475a"/>
+  <text x="222" y="190" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="9.5" text-anchor="middle" fill="#cdd6f4">Chip</text>
+
+  <circle cx="34" cy="212" r="7" fill="#cba6f7"/>
+  <circle cx="54" cy="212" r="7" fill="#b4befe"/>
+  <circle cx="74" cy="212" r="7" fill="#f38ba8"/>
+  <circle cx="94" cy="212" r="7" fill="#fab387"/>
+  <circle cx="114" cy="212" r="7" fill="#89b4fa"/>
+</g>
+</svg>

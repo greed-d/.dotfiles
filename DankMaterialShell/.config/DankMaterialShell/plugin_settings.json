@@ -1,0 +1,13 @@
+{
+  "dankBatteryAlerts": {
+    "enabled": true,
+    "warningThreshold": 25
+  },
+  "bongoCat": {
+    "enabled": true,
+    "catColorMode": "primary"
+  },
+  "quickCapture": {
+    "enabled": true
+  }
+}
