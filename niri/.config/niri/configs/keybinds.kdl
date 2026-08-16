@@ -53,9 +53,9 @@ binds {
     // Mod+Space {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"
     // }
-    Mod+Space {
-        spawn "vicinae" "toggle"
-    }
+    // Mod+Space {
+    //     spawn "vicinae" "toggle"
+    // }
     // Alt+Space {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
     // }
@@ -65,9 +65,9 @@ binds {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
     // }
     // Utility shortcuts
-    Mod+V {
-        spawn "vicinae" "vicinae://launch/clipboard/history"
-    }
+    // Mod+V {
+    //     spawn "vicinae" "vicinae://launch/clipboard/history"
+    // }
     // Mod+C {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
     // }
@@ -81,10 +81,10 @@ binds {
         spawn "app2unit" "--" "ghostty"
     }
     Mod+B {
-        spawn "app2unit" "--" "helium-browser"
+        spawn "app2unit" "--" "helium-browser-bin"
     }
     Mod+E {
-        spawn "app2unit" "--" "dolphin"
+        spawn "app2unit" "--" "nautilus"
     }
     Mod+D {
         spawn "app2unit" "--" "vesktop"
