@@ -62,15 +62,15 @@ layer-rule {
 //     xray false
 //   }
 // }
-// layer-rule {
-//     match namespace="^launcher$"
-//     match namespace="^vicinae$"
-//     opacity 0.7
-//     background-effect {
-//       blur true
-//       xray false
-//     }
-// }
+layer-rule {
+    match namespace="^launcher$"
+    match namespace="^vicinae$"
+    opacity 0.7
+    background-effect {
+      blur true
+      xray false
+    }
+}
 layer-rule {
     //  eww
     match namespace="gtk-layer-shell"
