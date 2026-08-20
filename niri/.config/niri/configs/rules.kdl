@@ -62,15 +62,15 @@ layer-rule {
 //     xray false
 //   }
 // }
-layer-rule {
-    match namespace="^launcher$"
-    match namespace="^vicinae$"
-    opacity 0.7
-    background-effect {
-      blur true
-      xray false
-    }
-}
+// layer-rule {
+//     match namespace="^launcher$"
+//     match namespace="^vicinae$"
+//     opacity 0.7
+//     background-effect {
+//       blur true
+//       xray false
+//     }
+// }
 layer-rule {
     //  eww
     match namespace="gtk-layer-shell"
@@ -181,6 +181,7 @@ window-rule {
     match app-id="vesktop$"
     match app-id="thunar$"
     match app-id="dolphin$"
+    match app-id="^org.gnome.Nautilus$"
     match app-id="obsidian$"
     match app-id="com.github.th_ch.youtube_music"
     match app-id="Postman"
@@ -216,6 +217,7 @@ window-rule {
     draw-border-with-background false
     match app-id="kitty$"
     match app-id="com.mitchellh.ghostty$"
+    match app-id="footclient"
     match app-id="neovide"
     background-effect {
       blur true
@@ -237,6 +239,7 @@ window-rule {
 }
 window-rule {
     match app-id="^obsidian$"
+    match app-id="^md.obsidian.Obsidian$"
     open-on-workspace "📓 NOTE"
 }
 window-rule {
