@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#Sign the drivers
+sudo /usr/src/kernels/$(uname -r)/scripts/sign-file \
+            sha256 \
+            /etc/pki/akmods/private/private_key.priv \
+            /etc/pki/akmods/certs/public_key.der \
+            /lib/modules/$(uname -r)/kernel/drivers/platform/x86/linuwu_sense.ko
+
+sudo depmod -a
+sudo modprobe linuwu_sense
+cd /home/greed/Downloads/DAMX/DAMX-1.0.2
+./setup.sh
+cd -
