@@ -1,5 +1,7 @@
+add_newline = false
+
 format = """
-[╭](bold overlay1) \
+[╭](bold overlay1)\
 $python\
 $directory\
 $git_branch\
@@ -37,6 +39,7 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
+
 [palettes.gruvbox]
 color_fg0 = '#ebdbb2'   # text foreground
 color_bg0 = '#3C4841'
@@ -49,15 +52,17 @@ color_orange = '#d65d0e'
 color_red = '#cc241d'
 color_yellow = '#d79921'
 
+
 [character]
 format = """
 [╰─$symbol](fg:overlay1) """
-success_symbol = '[󰘧](fg:bold green)'
+success_symbol = '[](fg:bold green)'
 error_symbol = '[](fg:bold red)'
 
 [directory]
 # style = "fg:color_fg0 bg:color_bg0"
-format = 'in [$path](fg:bold teal)'
+format = '[](bold fg:surface1)[$path](bold bg:surface1 fg:pink)(fg:bold teal)[](bold fg:surface1)'
+# format = 'in [$path](fg:bold teal)'
 truncation_length = 3
 truncation_symbol = "·/"
 fish_style_pwd_dir_length = 1
@@ -79,23 +84,23 @@ time_format = "%R" # Hour:Minute Format
 format = '| $time'
 
 [git_branch]
-format = "[ | in [$symbol$branch](rosewater) with ](text)"
-symbol = " "
+format = " ~ [](bold fg:surface1)[in [$symbol$branch](bold bg:surface1 fg:rosewater) with ](bold bg:surface1 fg:text)"
+symbol = "[ ](bold bg:surface1 fg:green)"
 
 [git_status]
-format = "$all_status$ahead_behind"
+format = "[$all_status$ahead_behind](fg:text bg:surface1)[](fg:surface1)"
 conflicted = "="
 ahead = "[⇡${count} ](green)"
 behind = "⇣${count} "
 diverged = "[⇕⇡${ahead_count} ⇣${behind_count} ](teal)"
-up_to_date = "[󰄸 ](bold green)"
-untracked = "[?${count} ](maroon)"
+up_to_date = "[󰄸 ](fg:bold green bg:surface1)"
+untracked = "[?${count} ](fg:bold maroon bg:surface1)"
 stashed = "[󰏖  ](bold green)"
-modified = "[~${count} ](yellow)"
+modified = "[~${count} ](fg:bold yellow bg:surface1)"
 staged = "[+${count} ](green)"
 renamed = "[»${count} ](peach)"
 # deleted = "[ ${count} ](bold red)"
-deleted = "[-${count} ](bold red)"
+deleted = "[-${count} ](fg:bold red bg:surface1)"
 
 [git_commit]
 format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
@@ -114,7 +119,8 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
 [cmd_duration]
 min_time = 10
-format = '| 󰪢 [$duration](bold purple)'
+# format = '| 󰪢 [$duration](bold purple)'
+format = '~ [](bold fg:surface1)[󰪢 $duration](bold bg:surface1 fg:mauve)[](bold fg:surface1)'
 show_milliseconds = true
 
 # [python]
@@ -125,3 +131,5 @@ show_milliseconds = true
 [python]
 symbol = " "
 format = '[(\($virtualenv\) | )]($style)'
+
+
