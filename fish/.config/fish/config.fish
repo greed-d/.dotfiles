@@ -168,9 +168,21 @@ set -gx PATH $JAVA_HOME $PATH
 # neofetch --config ~/.config/neofetch/config.small.conf --ascii_distro arch_small
 # neofetch
 
+
+
 #--------------------------------------> starship <--------------------------------------
 
 starship init fish | source
+
+set -g __starship_first_prompt 1
+
+function __starship_newline --on-event fish_prompt
+    if test "$__starship_first_prompt" = "1"
+        set -g __starship_first_prompt 0
+    else
+        echo
+    end
+end
 
 #--------------------------------------> jump shell <--------------------------------------
 
