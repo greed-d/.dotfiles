@@ -9,5 +9,12 @@
   },
   "quickCapture": {
     "enabled": true
+  },
+  "wallpaperCarousel": {
+    "enabled": true
+  },
+  "emojiLauncher": {
+    "enabled": true,
+    "recentEmojis": "🤣,😢,🤔,😓,😡"
   }
 }
