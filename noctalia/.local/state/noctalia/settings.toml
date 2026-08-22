@@ -1,23 +1,29 @@
 config_version = 12
 
 [bar.default]
-background_opacity = 0.76999998278915882
+background_opacity = 0.61999998614192009
 border = "surface"
-capsule_radius = 80
-capsule_thickness = 0.74999998696148396
-center = [ "power_profile", "clock", "caffeine" ]
-end = [ "media", "group:g1", "volume", "brightness", "battery", "session", "cpu2" ]
+capsule = true
+capsule_padding = 12.0
+capsule_radius = 12
+capsule_thickness = 0.7799999862909317
+center = [ "active_window", "clock", "media" ]
+end = [ "recorder", "group:g1", "group:g3", "cat_2", "notifications" ]
 margin_ends = 0
-padding = 16
+panel_overlap = 0
 radius_bottom_left = 11
 radius_bottom_right = 11
 radius_top_left = 0
 radius_top_right = 0
 scale = 0.90000000596046448
-start = [ "notifications", "workspaces", "active_window", "group:g2", "recorder", "tray" ]
-widget_spacing = 13
+start = [ "session", "workspaces", "group:g2", "caffeine", "tray" ]
+thickness = 38
+widget_spacing = 10
 
     [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
     fill = "surface_variant"
     id = "g1"
     members = [ "ram", "sysmon" ]
@@ -26,12 +32,26 @@ widget_spacing = 13
     radius = 80.0
 
     [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
     fill = "surface_variant"
     id = "g2"
     members = [ "cpu", "temp" ]
     opacity = 1.0
     padding = 7.0
-    radius = 80.0
+    radius = 12.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g3"
+    members = [ "volume", "brightness", "battery" ]
+    opacity = 1.0
+    padding = 12.0
+    radius = 16.0
 
 [control_center.calendar]
 show_events_card = false
@@ -91,39 +111,29 @@ auto_locate = true
 [lockscreen]
 blur_intensity = 0.29999999329447746
 tint_intensity = 0.0
-wallpaper = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/tokyo-night23.png"
+wallpaper = "/home/greed/Pictures/Wallpapers/walls/waterfall.png"
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-widget-000000000000000c",
-    "lockscreen-widget-0000000000000005",
-    "lockscreen-widget-0000000000000006",
     "lockscreen-login-box@eDP-1",
-    "lockscreen-widget-0000000000000007",
-    "lockscreen-widget-0000000000000009",
-    "lockscreen-widget-000000000000000a",
-    "lockscreen-widget-000000000000000d",
-    "lockscreen-widget-000000000000000e",
-    "lockscreen-widget-000000000000000f",
-    "lockscreen-widget-0000000000000010",
-    "lockscreen-widget-0000000000000011",
-    "lockscreen-widget-0000000000000012",
-    "lockscreen-widget-0000000000000013",
-    "lockscreen-widget-0000000000000014"
+    "lockscreen-widget-0000000000000014",
+    "lockscreen-widget-0000000000000015",
+    "lockscreen-widget-0000000000000016",
+    "lockscreen-widget-0000000000000018"
 ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
-    visible = true
+    visible = false
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 196.0
-    box_width = 810.0
+    box_height = 70.0
+    box_width = 512.0
     cx = 960.0
-    cy = 940.0
+    cy = 716.0
     output = "eDP-1"
     rotation = 0.0
     type = "login_box"
@@ -135,223 +145,20 @@ widget_order = [
         center_password_text = true
         input_opacity = 1.0
         input_radius = 6.0
-        layout = "regular"
+        layout = "compact"
         show_caps_lock = true
         show_keyboard_layout = true
-        show_login_button = true
+        show_login_button = false
         show_media = false
         show_session_buttons = true
         show_unlock_hint = false
         show_weather = true
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
-    box_height = 112.0
-    box_width = 816.0
-    cx = 960.0
-    cy = 788.0
-    output = "eDP-1"
-    rotation = 0.0
-    type = "audio_visualizer"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
-        background = false
-        background_color = "outline"
-        bands = 32
-        centered = false
-        mirrored = true
-        show_when_idle = true
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
-    box_height = 192.0
-    box_width = 800.0
-    cx = 944.0
-    cy = 956.0
-    output = "eDP-1"
-    rotation = 0.0
-    type = "label"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
-        title = ""
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
-    box_height = 512.0
-    box_width = 592.0
-    cx = 952.0
-    cy = 444.0
-    output = "eDP-1"
-    rotation = -0.0
-    type = "label"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
-        background_opacity = 1.0
-        title = ""
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
-    box_height = 240.0
-    box_width = 379.07693481445312
-    cx = 946.4615478515625
-    cy = 263.29476928710938
-    output = "eDP-1"
-    rotation = 0.0
-    type = "clock"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000009.settings]
-        background_opacity = 0.0
-        center_text = true
-        format = "{:%H:%M} "
-
-    [lockscreen_widgets.widget.lockscreen-widget-000000000000000a]
-    box_height = 240.0
-    box_width = 512.0
-    cx = 928.0
-    cy = 580.0
-    output = "eDP-1"
-    rotation = -0.0
-    type = "media_player"
-
-        [lockscreen_widgets.widget.lockscreen-widget-000000000000000a.settings]
-        background_opacity = 0.0
-
-    [lockscreen_widgets.widget.lockscreen-widget-000000000000000c]
-    box_height = 464.0
-    box_width = 592.0
-    cx = 944.0
-    cy = 444.0
-    output = "eDP-1"
-    rotation = 0.2617993950843811
-    type = "label"
-
-        [lockscreen_widgets.widget.lockscreen-widget-000000000000000c.settings]
-        background_color = "outline"
-        title = ""
-
-    [lockscreen_widgets.widget.lockscreen-widget-000000000000000d]
-    box_height = 48.0
-    box_width = 128.0
-    cx = 928.0
-    cy = 340.0
-    output = "eDP-1"
-    rotation = 0.0
-    type = "clock"
-
-        [lockscreen_widgets.widget.lockscreen-widget-000000000000000d.settings]
-        background = false
-        center_text = true
-        format = "{:%b %d, %Y}"
-
-    [lockscreen_widgets.widget.lockscreen-widget-000000000000000e]
-    box_height = 80.0
-    box_width = 112.0
-    cx = 712.0
-    cy = 420.416015625
-    output = "eDP-1"
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-000000000000000e.settings]
-        background = false
-        display = "gauge"
-        gauge_layout = "vertical"
-        shadow = false
-        show_label = true
-        stat = "cpu_usage"
-        stat2 = "cpu_temp"
-
-    [lockscreen_widgets.widget.lockscreen-widget-000000000000000f]
-    box_height = 80.0
-    box_width = 112.0
-    cx = 808.0
-    cy = 420.416015625
-    output = "eDP-1"
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-000000000000000f.settings]
-        background = false
-        display = "gauge"
-        gauge_layout = "vertical"
-        shadow = false
-        show_label = true
-        stat = "cpu_temp"
-        stat2 = "cpu_temp"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000010]
-    box_height = 80.0
-    box_width = 112.0
-    cx = 904.0
-    cy = 420.416015625
-    output = "eDP-1"
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000010.settings]
-        background = false
-        display = "gauge"
-        gauge_layout = "vertical"
-        shadow = false
-        show_label = true
-        stat = "gpu_usage"
-        stat2 = "cpu_temp"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000011]
-    box_height = 80.0
-    box_width = 112.0
-    cx = 1000.0
-    cy = 420.416015625
-    output = "eDP-1"
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000011.settings]
-        background = false
-        display = "gauge"
-        gauge_layout = "vertical"
-        shadow = false
-        show_label = true
-        stat = "gpu_temp"
-        stat2 = "cpu_temp"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000012]
-    box_height = 80.0
-    box_width = 112.0
-    cx = 1096.0
-    cy = 420.416015625
-    output = "eDP-1"
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000012.settings]
-        background = false
-        display = "gauge"
-        gauge_layout = "vertical"
-        shadow = false
-        show_label = true
-        stat = "ram_pct"
-        stat2 = "cpu_temp"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000013]
-    box_height = 80.0
-    box_width = 112.0
-    cx = 1192.0
-    cy = 420.416015625
-    output = "eDP-1"
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000013.settings]
-        background = false
-        display = "gauge"
-        gauge_layout = "vertical"
-        shadow = false
-        show_label = true
-        stat = "swap_pct"
-        stat2 = "cpu_temp"
-
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000014]
     box_height = 80.0
     box_width = 368.0
     cx = 960.0
-    cy = 132.0
+    cy = 468.0
     output = "eDP-1"
     rotation = 0.0
     type = "label"
@@ -362,9 +169,58 @@ widget_order = [
         shadow = true
         title = "L O C K E D"
 
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000015]
+    box_height = 176.0
+    box_width = 480.0
+    cx = 960.0
+    cy = 593.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000015.settings]
+        background = false
+        format = "{:%H:%M:%S}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000016]
+    box_height = 128.0
+    box_width = 800.0
+    cx = 960.0
+    cy = 1020.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000016.settings]
+        background = false
+        bands = 80
+        centered = false
+        mirrored = false
+        show_when_idle = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000018]
+    box_height = 64.0
+    box_width = 64.0
+    cx = 32.0
+    cy = 1048.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000018.settings]
+        background = false
+        command = "systemctl poweroff"
+        glyph = "power"
+        variant = "default"
+
 [notification]
 border = false
-position = "top_left"
+offset_x = 8
+
+[osd]
+background_opacity = 0.99999997764825821
+orientation = "vertical"
+position_vertical = "center_right"
 
 [plugin_settings."noctalia/screen_recorder"]
 frame_rate = 165
@@ -383,6 +239,7 @@ telemetry_enabled = true
     speed = 0.70000001043081284
 
     [shell.panel]
+    launcher_placement = "attached"
     open_near_click_control_center = true
     open_near_click_session = true
     transparency_mode = "glass"
@@ -404,20 +261,24 @@ mode = "dark"
 source = "community"
 
 [wallpaper]
-directory = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers"
+directory = "/home/greed/Pictures/Wallpapers/walls"
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/tokyo-night23.png"
+    path = "/home/greed/Pictures/Wallpapers/walls/illustration-anime-city_catppuccin-mocha.jpg"
 
     [wallpaper.last]
-    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/tokyo-night23.png"
+    path = "/home/greed/Pictures/Wallpapers/walls/illustration-anime-city_catppuccin-mocha.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/greed/wallpapers/Wallpapers/Pictures/Wallpapers/tokyo-night23.png"
+    path = "/home/greed/Pictures/Wallpapers/walls/illustration-anime-city_catppuccin-mocha.jpg"
 
 [widget.active_window]
-max_length = 155
+capsule = true
+capsule_radius = 13
+icon_size = 21
+max_length = 256
+title_scroll = "on_hover"
 
 [widget.brightness]
 show_label = false
@@ -425,8 +286,14 @@ show_label = false
 [widget.cat]
 type = "noctalia/bongocat:cat"
 
+[widget.cat_2]
+input_devices = [ "/dev/input/event5" ]
+scale = 1.95
+type = "noctalia/bongocat:cat"
+
 [widget.clock]
-format = "{:%H:%M:%S - %b %d}"
+anchor = true
+format = "{:%H:%M:%S • %a, %b %d}"
 
 [widget.control-center]
 capsule = true
@@ -460,5 +327,7 @@ stat = "swap_pct"
 drawer = true
 
 [widget.workspaces]
+active_pill_size = 2.3999999999999999
+focused_output_only = true
 hide_when_empty = true
 max_label_chars = 2
