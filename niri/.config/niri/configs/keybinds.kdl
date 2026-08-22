@@ -77,8 +77,11 @@ binds {
     // Mod+Alt+L {
     //     spawn "bash" "-c" "$HOME/.local/share/quickshell-lockscreen/lock.sh"
     // }
+    // Mod+Return {
+    //     spawn "app2unit" "--" "footclient"
+    // }
     Mod+Return {
-        spawn "app2unit" "--" "ghostty"
+        spawn "app2unit" "--" "kitty"
     }
     Mod+B {
         spawn "app2unit" "--" "helium-browser-bin"

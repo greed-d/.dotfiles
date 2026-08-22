@@ -7,9 +7,16 @@ include "configs/keybinds.kdl"
 include "configs/execs.kdl"
 include "configs/environment.kdl"
 // include "noctalia/keybinds.kdl"
+// include "noctalia/alttab.kdl"
+// include "noctalia/colors.kdl"
+// include "noctalia/layout.kdl"
 // include "noctalia/configs.kdl"
 
 // DMS Include Configs
 include "dms/layout.kdl"
 include "dms/windowrules.kdl"
 include "dms/binds.kdl"
+include "dms/alttab.kdl"
+include "dms/colors.kdl"
+include "dms/wpblur.kdl"
+//

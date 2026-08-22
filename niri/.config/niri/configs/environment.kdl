@@ -1,4 +1,3 @@
-
 environment {
     QT_QPA_PLATFORM "wayland"
     // QT_QPA_PLATFORMTHEME "qt6ct"
@@ -7,9 +6,9 @@ environment {
     EDITOR "nvim"
     MOZ_ENABLE_WAYLAND "1"
     DISPLAY ":1"
-    GTK_THEME "adw-gtk3-dark"
+    GTK_THEME "Catppuccin-Mauve-Dark"
     XDG_MENU_PREFIX "plasma-"
-    BROWSER "helium-browser"
+    BROWSER "helium-browser-bin"
 }
 // Miscellaneous Settings
 prefer-no-csd

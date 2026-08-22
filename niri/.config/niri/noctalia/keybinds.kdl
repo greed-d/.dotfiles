@@ -24,4 +24,8 @@ binds {
     /* Control Center Stuff */
     Mod+Comma { spawn-sh "noctalia msg panel-toggle control-center"; }
 
+    /* Launcher Stuff */
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+V { spawn-sh "noctalia msg panel-toggle clipboard"; }
+
 }
