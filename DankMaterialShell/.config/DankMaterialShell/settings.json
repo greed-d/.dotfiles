@@ -56,6 +56,7 @@
   "batteryMonitorTimeout": 600,
   "batteryLockTimeout": 300,
   "batteryPostLockMonitorTimeout": 1800,
+  "lockBeforeSuspend": true,
   "lockScreenNotificationMode": 1,
   "osdAlwaysShowValue": true,
   "osdPosition": 4,
@@ -123,6 +124,10 @@
         "music"
       ],
       "rightWidgets": [
+        {
+          "id": "dankPomodoroTimer",
+          "enabled": true
+        },
         {
           "id": "quickCapture",
           "enabled": true
@@ -265,8 +270,30 @@
           "all"
         ]
       }
+    },
+    {
+      "id": "dw_1787489063178_qo0vq6rdi",
+      "widgetType": "dankDesktopWeather",
+      "name": "Dank Desktop Weather",
+      "enabled": true,
+      "config": {
+        "displayPreferences": [
+          "all"
+        ]
+      }
     }
   ],
+  "builtInPluginSettings": {
+    "dms_settings_search": {
+      "trigger": "?"
+    },
+    "dms_clipboard_search": {
+      "trigger": "cb"
+    },
+    "dms_qr_generator": {
+      "trigger": "qrg"
+    }
+  },
   "frameEnabled": true,
   "frameThickness": 2,
   "frameRounding": 16,

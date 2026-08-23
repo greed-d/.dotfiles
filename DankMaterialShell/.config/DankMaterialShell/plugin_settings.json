@@ -15,6 +15,11 @@
   },
   "emojiLauncher": {
     "enabled": true,
-    "recentEmojis": "🤣,😢,🤔,😓,😡"
+    "recentEmojis": "🤣,🫜,🤔,😢,😓,😡"
+  },
+  "dankPomodoroTimer": {
+    "enabled": true,
+    "autoSetDND": true,
+    "workDuration": "40"
   }
 }

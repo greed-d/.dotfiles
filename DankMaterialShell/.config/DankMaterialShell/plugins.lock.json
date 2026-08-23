@@ -1,0 +1,36 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "bongoCat": {
+      "repo": "https://github.com/hthienloc/dms-bongo-cat",
+      "commit": "237b1a34b2fb8d90e4f4c8656af758c3d7dab638"
+    },
+    "dankBatteryAlerts": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankBatteryAlerts",
+      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+    },
+    "dankDesktopWeather": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankDesktopWeather",
+      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+    },
+    "dankPomodoroTimer": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankPomodoroTimer",
+      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+    },
+    "emojiLauncher": {
+      "repo": "https://github.com/devnullvoid/dms-emoji-launcher",
+      "commit": "8ff394e3ddfcb2fd755ed2e7b4c6f01f3e26e596"
+    },
+    "quickCapture": {
+      "repo": "https://github.com/hthienloc/dms-quick-capture",
+      "commit": "d9a1a2141e2727c33c598bd06fdab5031655e965"
+    },
+    "wallpaperCarousel": {
+      "repo": "https://github.com/motor-dev/wallpaperCarousel",
+      "commit": "c08fbb92c39d4d778bb08e520cfd96e395594440"
+    }
+  }
+}
