@@ -22,7 +22,7 @@ binds {
     Alt+Space { spawn-sh "noctalia msg panel-toggle wallpaper"; }
 
     /* Control Center Stuff */
-    Mod+Comma { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
 
     /* Launcher Stuff */
     Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
