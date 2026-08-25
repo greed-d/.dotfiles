@@ -1,0 +1,55 @@
+local imports = {
+	"core.animation",
+	"core.blur",
+	"core.env",
+	"core.generalconfig",
+	"core.input",
+	"core.keybind",
+	"core.layerrule",
+	"core.monitor",
+	"core.startup",
+	"core.windowrule",
+
+	-- [[ DMS STUFF ]]
+	"dms.windowrules",
+	"dms.binds-user",
+	"dms.layout",
+}
+-- This is an example Hyprland Lua config file.
+-- Refer to the wiki for more information.
+-- https://wiki.hypr.land/Configuring/Start/
+
+-- Please note not all available settings / options are set here.
+-- For a full list, see the wiki
+
+-- You can (and should!!) split this configuration into multiple files
+-- Create your files separately and then require them like this:
+-- require("myColors")
+
+-- [[ CHECK FOR VALID CONFIG ]]
+for _, import in ipairs(imports) do
+	local status, value = pcall(require, import)
+	if status then
+		print("successfully loaded module.." .. import .. "it returned: ", value)
+	else
+		print("failed to load module.." .. import .. "it returned: ", value)
+	end
+end
+
+---------------------
+---- MY PROGRAMS ----
+---------------------
+
+-- Set programs that you use
+
+-- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
+
+-- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
+
+----------------
+----  MISC  ----
+----------------
+
+-- DMS Include Configs
+require("dms.binds")
+require("dms.binds-user")
