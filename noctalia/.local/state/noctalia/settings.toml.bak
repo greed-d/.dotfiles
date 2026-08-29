@@ -1,88 +1,65 @@
 config_version = 13
 
 [backdrop]
-enabled = true
+blur_intensity = 0.86999998055398464
 
-[bar]
-order = [ "normal" ]
+[bar.default]
+background_opacity = 0.64999998547136784
+border = "surface"
+capsule = true
+capsule_padding = 9.0
+capsule_radius = 17
+capsule_thickness = 0.7799999862909317
+center = [ "active_window", "clock", "media" ]
+contact_shadow = true
+end = [ "widget", "group:g1", "group:g3", "cat_2", "notifications" ]
+margin_ends = 0
+panel_overlap = 0
+radius_bottom_left = 11
+radius_bottom_right = 11
+radius_top_left = 0
+radius_top_right = 0
+scale = 0.90000000596046448
+start = [ "session", "workspaces", "group:g2", "caffeine", "tray" ]
+thickness = 42
 
-    [bar.normal]
-    background_opacity = 0.59999998658895493
-    capsule_thickness = 0.75999998673796654
-    center = [ "cat", "line", "clock", "line", "date", "line", "weather", "line", "widget" ]
-    concave_edge_corners = false
-    end = [
-        "media",
-        "line",
-        "group:g3",
-        "line",
-        "privacy",
-        "line",
-        "battery",
-        "volume",
-        "network",
-        "bluetooth",
-        "brightness",
-        "line",
-        "group:g2",
-        "notifications",
-        "widget_2"
-    ]
-    font_weight = 700
-    margin_ends = 0
-    padding = 16
-    panel_overlap = 0
-    position = "top"
-    radius = 0
-    radius_bottom_left = 0
-    radius_bottom_right = 0
-    scale = 0.90000000596046448
-    start = [ "session", "control-center", "taskbar", "line", "group:g4", "line", "group:g1" ]
-    thickness = 38
-    widget_spacing = 8
+    [bar.default.dead_zone.actions]
+    scroll_down = "workspace-switch next"
+    scroll_up = "workspace-switch prev"
 
-        [[bar.normal.capsule_group]]
-        accordion = true
-        accordion_direction = "end"
-        enabled = true
-        fill = "surface_variant"
-        id = "g1"
-        members = [ "tray", "notes_2", "clipboard", "wallpaper" ]
-        opacity = 0.0
-        padding = 6.0
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "ram", "sysmon" ]
+    opacity = 1.0
+    padding = 12.0
 
-        [[bar.normal.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        enabled = false
-        fill = "surface_variant"
-        id = "g2"
-        members = [ "headphonesymbol", "headphone_battery" ]
-        opacity = 0.0
-        padding = 6.0
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g2"
+    members = [ "cpu", "temp" ]
+    opacity = 1.0
+    padding = 12.0
 
-        [[bar.normal.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        enabled = true
-        fill = "surface_variant"
-        id = "g3"
-        members = [ "ram", "sysmon" ]
-        opacity = 0.0
-        padding = 6.0
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g3"
+    members = [ "volume", "brightness", "battery" ]
+    opacity = 1.0
+    padding = 12.0
+    radius = 16.0
 
-        [[bar.normal.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        enabled = true
-        fill = "surface_variant"
-        id = "g4"
-        members = [ "cpu", "temp" ]
-        opacity = 0.0
-        padding = 6.0
-
-[battery.device."/org/freedesktop/UPower/devices/headset_dev_80_99_E7_8E_80_47"]
-warning_threshold = 20
+[control_center.calendar]
+show_events_card = false
 
 [desktop_widgets]
 schema_version = 2
@@ -94,50 +71,51 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
     visible = true
 
     [desktop_widgets.widget.desktop-widget-0000000000000001]
-    box_height = 160.0
-    box_width = 304.0
-    cx = 1840.0
-    cy = 120.0
-    output = "DP-1"
+    box_height = 0.0
+    box_width = 0.0
+    cx = 112.5
+    cy = 142.5
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
-        background = false
-        color = "on_surface_variant"
-        font_family = "TeX Gyre Termes"
-        format = "{:%A}"
 
     [desktop_widgets.widget.desktop-widget-0000000000000002]
-    box_height = 48.0
-    box_width = 224.0
-    cx = 1840.0
-    cy = 184.0
-    output = "DP-1"
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1750.0
+    cy = 908.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
-    type = "clock"
+    type = "fancy_audio_visualizer"
 
         [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
         background = false
-        font_family = "TeX Gyre Schola"
-        format = "{:%d %b | %H:%M}"
 
 [dock]
-background_opacity = 0.39999999105930328
-border_width = 1.0
-cross_axis_padding = 0
-enabled = true
-icon_size = 36
-item_spacing = 4
-launcher_position = "start"
-layer = "overlay"
-main_axis_padding = 8
-margin_edge = 12
-pinned = [ "helium", "kitty", "org.gnome.Nautilus", "org.gnome.Papers", "org.telegram.desktop", "obsidian", "vesktop" ]
-reserve_space = false
-show_dots = true
-show_instance_count = false
-smart_auto_hide = true
+shadow = false
+
+[idle]
+behavior_order = [ "idle-behavior", "screen-off", "lock-and-suspend" ]
+pre_action_fade_seconds = 3
+
+    [idle.behavior.idle-behavior]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
 
 [location]
 auto_locate = true
@@ -928,66 +906,64 @@ widget_order = [
         stat = "swap_pct"
         stat2 = "cpu_temp"
 
-[osd.kinds]
-media = false
+[notification]
+border = false
+offset_x = 8
 
-[plugin_settings."alexander/screen-toolkit"]
-panel_open_near_click = true
-panel_placement = "attached"
+[osd]
+background_opacity = 0.99999997764825821
+orientation = "vertical"
+position_vertical = "center_right"
+
+[plugin_settings."noctalia/screen_recorder"]
+frame_rate = 165
+video_source = "portal"
+
+[plugin_settings."thepunkoff/pomodoro"]
+work-duration = 40
 
 [plugins]
-enabled = [ "noctalia/notes", "noctalia/timer", "alexander/screen-toolkit", "thepunkoff/pomodoro", "noctalia/bongocat" ]
-
-    [[plugins.source]]
-    kind = "git"
-    location = "https://github.com/noctalia-dev/official-plugins"
-    name = "official"
-
-    [[plugins.source]]
-    kind = "git"
-    location = "https://github.com/noctalia-dev/community-plugins"
-    name = "community"
+enabled = [ "noctalia/bongocat", "noctalia/screen_recorder", "thepunkoff/pomodoro", "alexander/screen-toolkit" ]
 
 [shell]
-app_icon_color = "primary"
-avatar_path = "/home/mischa/nixos-dotfiles/assets/images/NixOS.png"
+button_borders = false
 font_family = "Google Sans"
-polkit_agent = true
+password_style = "random"
+settings_show_advanced = true
+telemetry_enabled = true
 
-    [shell.launcher]
-    categories = false
+    [shell.animation]
+    speed = 0.70000001043081284
 
     [shell.panel]
-    clipboard_position = "auto"
+    clipboard_placement = "attached"
+    clipboard_position = "bottom_center"
     launcher_placement = "attached"
-    launcher_position = "auto"
-    open_near_click_clipboard = true
+    launcher_position = "bottom_center"
     open_near_click_control_center = true
     open_near_click_session = true
-    open_near_click_wallpaper = true
-    polkit_position = "auto"
     transparency_mode = "glass"
-    wallpaper_placement = "centered"
 
-    [shell.screenshot]
-    directory = "/home/mischa/Pictures/Screenshots"
-    pipe_command = "swash --stdin"
-    pipe_to_command = true
+    [shell.screen_corners]
+    enabled = true
+    size = 16
+
+    [shell.session]
+    grid = true
+
+    [shell.shadow]
+    alpha = 0.48999998904764652
+    direction = "up"
 
 [theme]
 builtin = "Catppuccin"
-community_palette = "Kanagawa Dragon"
-custom_palette = "OccultUmbraNew"
+community_palette = "Catppuccin Mocha Mauve"
 mode = "dark"
-source = "builtin"
-wallpaper_scheme = "m3-tonal-spot"
-
-    [theme.templates]
-    builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "sway" ]
-    community_ids = [ "vscode", "discord", "opencode", "papirus-icons" ]
+source = "community"
 
 [wallpaper]
 directory = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha"
+transition_on_startup = true
 
     [wallpaper.default]
     path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/waterfall.png"
@@ -995,145 +971,81 @@ directory = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha"
     [wallpaper.last]
     path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/waterfall.png"
 
-    [wallpaper.monitors.DP-1]
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
-
     [wallpaper.monitors.eDP-1]
     path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/waterfall.png"
 
-    [[wallpaper.favorite]]
-    builtin_palette = "Ayu"
-    palette_source = "builtin"
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/1-larvik-by-moonlight.jpg"
-    theme_mode = "dark"
-
-    [[wallpaper.favorite]]
-    community_palette = "Kanagawa Dragon"
-    palette_source = "community"
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-jx9kxp.jpg"
-    theme_mode = "dark"
-
-    [[wallpaper.favorite]]
-    custom_palette = "lofi-cat-ts"
-    palette_source = "custom"
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/moonrise-rolling-3840x2160-25877.jpg"
-    theme_mode = "dark"
-
-    [[wallpaper.favorite]]
-    community_palette = "Kanagawa Dragon"
-    palette_source = "community"
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/pexels-sheep-556180-1846422.jpg"
-    theme_mode = "dark"
-
-    [[wallpaper.favorite]]
-    community_palette = "Kanagawa Dragon"
-    palette_source = "community"
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/1608191897801.jpg"
-    theme_mode = "dark"
-
-    [[wallpaper.favorite]]
-    builtin_palette = "Catppuccin"
-    palette_source = "builtin"
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/waterfall.png"
-    theme_mode = "dark"
-
-[widget.battery]
-display_mode = "graphic"
-hide_when_plugged = true
+[widget.active_window]
+capsule = true
+capsule_radius = 13
+icon_size = 21
+max_length = 256
+title_scroll = "on_hover"
 
 [widget.brightness]
 show_label = false
 
 [widget.cat]
-input_devices = [ "/dev/input/by-id/usb-USB_usb_keyboard-event-kbd" ]
-scale = 1.6500000000000001
+type = "noctalia/bongocat:cat"
+
+[widget.cat_2]
+input_devices = [
+    "/dev/input/event3",
+    "/dev/input/event6",
+    "/dev/input/by-path/pci-0000:74:00.4-usb-0:2:1.0-event-kbd",
+    "/dev/input/by-path/pci-0000:74:00.4-usbv2-0:2:1.0-event-kbd"
+]
+scale = 1.95
 type = "noctalia/bongocat:cat"
 
 [widget.clock]
-capsule_fill = "surface"
-format = "{:%H:%M}"
+anchor = true
+format = "{:%H:%M:%S  •  %a, %b %d}"
 
 [widget.control-center]
-custom_image_colorize = true
-enabled = false
-glyph = "snowflake"
+capsule = true
 
 [widget.cpu]
 visualization = "none"
 
-[widget.date]
-anchor = true
-format = "{:%a, %d.%m}"
-scale = 1.0
+[widget.media]
+hide_when_no_media = true
 
-[widget.headphone_battery]
-device = "/org/freedesktop/UPower/devices/headset_dev_80_99_E7_8E_80_47"
-display_mode = "none"
-type = "battery"
-
-[widget.headphonesymbol]
-glyph = "bluetooth-device-headphones"
-interactive = false
-type = "custom_button"
-
-[widget.line]
-glyph = "minus-vertical"
-interactive = false
-type = "custom_button"
-
-[widget.network]
-show_label = false
-
-[widget.notes]
-type = "noctalia/notes:notes"
-
-[widget.notes_2]
-type = "noctalia/notes:notes"
-
-[widget.privacy]
-active_color = "tertiary"
-inactive_color = "on_surface"
+[widget.notifications]
+capsule = true
+capsule_padding = 8.0
 
 [widget.ram]
-label_show_units = false
+display = "text"
+font_weight = 700
+stat = "ram_pct"
 visualization = "none"
 
 [widget.session]
-glyph = "snowflake"
+capsule = true
+
+[widget.swap]
+stat = "swap_pct"
 
 [widget.sysmon]
 stat = "swap_pct"
 visualization = "none"
-
-[widget.taskbar]
-capsule_radius = 4
-focused_color = "tertiary"
-group_by_workspace = true
-hide_empty_workspaces = true
-inactive_opacity = 0.80000000000000004
-minimal = true
-scale = 1.5
-show_active_indicator = false
-show_window_title = false
-workspace_label_placement = "inside"
 
 [widget.temp]
 visualization = "none"
 
 [widget.tray]
 drawer = true
-
-[widget.weather]
-show_condition = false
+match_adjacent_spacing = true
 
 [widget.widget]
 type = "thepunkoff/pomodoro:widget"
-
-[widget.widget_2]
-enabled = false
-type = "alexander/screen-toolkit:widget"
+widget-glyph-main = "hourglass-empty"
 
 [widget.workspaces]
-active_pill_size = 1.1499999999999999
-capsule_radius = 3
-inactive_pill_size = 1.1499999999999999
+active_pill_size = 1.9500000000000002
+capsule_radius = 11
+focused_output_only = true
+font_scale = 0.88
+hide_when_empty = true
+max_label_chars = 2
+scale = 1.3

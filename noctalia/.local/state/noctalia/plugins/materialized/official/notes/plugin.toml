@@ -1,0 +1,49 @@
+id = "noctalia/notes"
+name = "Notes"
+version = "1.0.3"
+plugin_api = 9
+author = "noctalia"
+license = "MIT"
+dependencies = []
+tags = ["productivity"]
+icon = "notes"
+description = "Quick text notes in a full-height side panel."
+
+[[setting]]
+key = "notes_dir"
+type = "folder"
+label_key = "settings.notes_dir.label"
+description_key = "settings.notes_dir.description"
+default = "~/Documents/Notes"
+
+[[setting]]
+key = "extension"
+type = "string"
+label_key = "settings.extension.label"
+description_key = "settings.extension.description"
+default = "md"
+
+[[panel]]
+id = "panel"
+entry = "panel.luau"
+width = 420
+height = "fill"
+placement = "floating"
+position = "center_right"
+
+[[launcher_provider]]
+id = "launcher"
+entry = "launcher.luau"
+prefix = "nt"
+glyph = "notes"
+include_in_global_search = false
+
+[[widget]]
+id = "notes"
+entry = "notes.luau"
+
+  [[widget.setting]]
+  key = "glyph"
+  type = "glyph"
+  label_key = "settings.glyph.label"
+  default = "notes"

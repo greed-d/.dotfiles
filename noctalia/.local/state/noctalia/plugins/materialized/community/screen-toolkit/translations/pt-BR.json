@@ -1,0 +1,18 @@
+{
+  "panel": {
+    "copy_link": "Copiar link",
+    "share_url": "Link copiado"
+  },
+  "settings": {
+    "share_skip_popover": {
+      "description": "Ignore o popover de compartilhamento e copie o link diretamente para a área de transferência. Uma notificação confirma a ação.",
+      "label": "Copiar link diretamente"
+    },
+    "x02_api_key": {
+      "description": "Opcional. Obtenha uma chave gratuita em up.x02.me para links permanentes e arquivos maiores. Sem uma chave, os uploads utilizam o uguu.se (anônimo, 3h, máx. 128 MB)."
+    },
+    "x02_expiry": {
+      "label": "Expiração do link"
+    }
+  }
+}

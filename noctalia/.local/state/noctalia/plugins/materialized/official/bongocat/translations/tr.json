@@ -1,0 +1,23 @@
+{
+  "settings": {
+    "audio_spectrum": {
+      "label": "Sese tepki ver"
+    },
+    "executable_path": {
+      "label": "Alternatif evtest çalıştırılabilir dosyası"
+    },
+    "input_devices": {
+      "description": "/dev/input/by-id/*-event-* veya /dev/input/by-path/*-event-* terchih et; /dev/input/eventN kernel veya cihaz güncellemelerinden sonra değişebilir",
+      "label": "Giriş Cihazları"
+    },
+    "rave_mode": {
+      "label": "Ritime göre renkleri coştur"
+    },
+    "tappy_mode": {
+      "label": "Ritme göre dokun"
+    },
+    "use_mpris_filter": {
+      "label": "Sadece medya oynarken tepki ver"
+    }
+  }
+}

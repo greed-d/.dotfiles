@@ -1,0 +1,218 @@
+{
+  "messages": {
+    "capture_failed": "Screen capture failed.",
+    "color_picked": "Color {color} picked.",
+    "lens_failed": "Google Lens upload failed.",
+    "measure_copied": "Measurement copied.",
+    "measure_failed": "Measurement failed.",
+    "measure_result": "Measured: {width} × {height} px (copied)",
+    "missing_dep": "Missing dependency: {dep}",
+    "no_annotator": "No annotation tool found (install swappy or satty)",
+    "no_qr": "No QR code detected.",
+    "no_recorder": "No screen recorder found. Install wl-screenrec or wf-recorder.",
+    "no_text": "No text detected.",
+    "palette_failed": "Palette extraction failed.",
+    "picker_cancelled": "Color picker cancelled.",
+    "recording_failed": "Recording failed or cancelled.",
+    "recording_started": "Recording started. Use the red REC indicator or shortcut to stop.",
+    "recording_stopped": "Recording stopped. Preparing save options…",
+    "saved_to": "Saved: {path}",
+    "share_bad_args": "Share failed: no file specified.",
+    "share_file_not_found": "Share failed: file not found.",
+    "share_file_too_large": "File too large for anonymous upload (128 MB max). Add an X02 API key for larger files.",
+    "share_invalid_response": "Upload failed: unexpected server response.",
+    "share_missing_dep": "Share failed: missing dependency (curl/jq).",
+    "share_request_failed": "Upload request failed.",
+    "share_unknown_error": "Upload failed with unknown error.",
+    "translate_failed": "Translation failed."
+  },
+  "ocr": {
+    "exit_args": "Invalid capture arguments.",
+    "exit_capture": "Screen capture failed.",
+    "exit_dep": "Missing dependency: {dep}",
+    "exit_process": "Image processing failed.",
+    "exit_unknown": "Unknown OCR error (code {code})."
+  },
+  "panel": {
+    "clear": "Clear",
+    "clear_history": "Clear history",
+    "click_to_copy": "Click to copy",
+    "compose_mail": "Compose mail",
+    "copied_to_clipboard": "Saved and copied to clipboard",
+    "copy_all": "Copy all formats",
+    "copy_css_vars": "Copy as CSS vars",
+    "copy_hex_list": "Copy hex list",
+    "copy_link": "Copy link",
+    "copy_text": "Copy text",
+    "discard": "Discard",
+    "empty": "Pick a tool. Results appear here.",
+    "format_copied": "{label} copied.",
+    "history": "History",
+    "history_cleared": "History cleared",
+    "no_color": "Pick a color to get started",
+    "no_history": "No colors in history yet.",
+    "no_result": "No result yet.",
+    "no_text": "No text detected.",
+    "ocr_text": "Detected text",
+    "open_url": "Open URL",
+    "pick_again": "Pick again",
+    "ready": "Recording finished",
+    "ready_hint": "Preview the recording, then save or discard",
+    "rec": "REC",
+    "record_duration": "Time",
+    "record_ratio": "Ratio",
+    "record_size": "Size",
+    "recording_banner": "Recording…",
+    "recording_hint": "Recording — click the bar widget or this button to stop.",
+    "running": "Running…",
+    "save": "Save",
+    "saved_to": "Saved: {path}",
+    "search_text": "Search text",
+    "section_annotate": "Annotate",
+    "section_capture": "Capture",
+    "section_record": "Record",
+    "share": "Share",
+    "share_failed": "Upload failed",
+    "share_url": "Link copied",
+    "sharing": "Uploading…",
+    "stop": "Stop",
+    "subtitle": "Screen utilities",
+    "title": "Screen Toolkit",
+    "tools": "Tools",
+    "translate": "Translate",
+    "translate_label": "Translate to",
+    "translation": "Translation"
+  },
+  "plugin_name": "Screen Toolkit",
+  "settings": {
+    "filename_format": {
+      "description": "Template for generated filenames. Extension is added automatically. Tokens: %Y %m %d %H %M %S.",
+      "label": "Filename Format"
+    },
+    "gif_max_seconds": {
+      "description": "Maximum duration in seconds for GIF recordings.",
+      "label": "Max GIF Duration"
+    },
+    "hide_cursor": {
+      "description": "Exclude the cursor from recordings. Screenshots never include the cursor.",
+      "label": "Hide Cursor in Recordings"
+    },
+    "hide_when_unused": {
+      "description": "Hide the bar widget when no recording is active. It will appear only while recording.",
+      "label": "Hide When Unused"
+    },
+    "panel_mode": {
+      "description": "Layout of the main panel. Standard is the default dense grid; Legacy recreates the Noctalia-v4 layout.",
+      "label": "Panel Mode",
+      "options": {
+        "compact": "Compact",
+        "full": "Full",
+        "legacy": "Legacy",
+        "standard": "Standard"
+      }
+    },
+    "record_audio_in": {
+      "description": "Record the default microphone while recording.",
+      "label": "Record Microphone"
+    },
+    "record_audio_out": {
+      "description": "Record the desktop's audio output while recording.",
+      "label": "Record System Audio"
+    },
+    "record_codec": {
+      "description": "Video codec for gpu-screen-recorder fullscreen capture. h264 is the safest NVIDIA NVENC default; av1 needs a recent GPU.",
+      "label": "Fullscreen Codec",
+      "options": {
+        "av1": "AV1",
+        "h264": "H.264",
+        "hevc": "H.265 / HEVC"
+      }
+    },
+    "record_copy_to_clipboard": {
+      "description": "Copy the recording to clipboard when done instead of showing the save dialog.",
+      "label": "Copy to Clipboard"
+    },
+    "record_fps": {
+      "description": "Frame rate for gpu-screen-recorder fullscreen capture (15–240).",
+      "label": "Fullscreen Frame Rate"
+    },
+    "record_skip_confirmation": {
+      "description": "Automatically save to disk when recording finishes, without showing the save dialog.",
+      "label": "Skip Save Confirmation"
+    },
+    "screenshot_path": {
+      "description": "Where screenshots are saved. Leave empty for ~/Pictures/Screenshots.",
+      "label": "Screenshot Path"
+    },
+    "search_engine_url": {
+      "description": "URL used when searching OCR text. Leave empty to use Google. Examples: https://duckduckgo.com/?q= or https://search.brave.com/search?q=",
+      "label": "Search Engine URL"
+    },
+    "selected_ocr_lang": {
+      "description": "Tesseract language code (e.g. eng, deu, fra). Can be combined with + (e.g. eng+fra).",
+      "label": "OCR Language"
+    },
+    "share_skip_popover": {
+      "description": "Skip the share popover and copy the link straight to clipboard. A notification confirms.",
+      "label": "Copy Link Directly"
+    },
+    "video_path": {
+      "description": "Where recordings are saved. Leave empty for ~/Videos.",
+      "label": "Video Path"
+    },
+    "x02_api_key": {
+      "description": "Optional. Get a free key at up.x02.me for permanent links and larger files. Without a key, uploads use uguu.se (anonymous, 3h, 128 MB max).",
+      "label": "X02 API Key"
+    },
+    "x02_expiry": {
+      "description": "How long your shared links stay alive. Only applies when using an X02 API key.",
+      "label": "Link Expiry",
+      "options": {
+        "1d": "1 day",
+        "1h": "1 hour",
+        "30d": "30 days",
+        "7d": "7 days",
+        "permanent": "Permanent"
+      }
+    }
+  },
+  "shortcut": {
+    "label": "Screen Toolkit",
+    "recording": "Stop recording"
+  },
+  "tools": {
+    "annotate": "Markup",
+    "annotate_fullscreen": "Markup FS",
+    "annotate_window": "Window",
+    "colorpicker": "Color",
+    "fullscreen": "Fullscreen",
+    "lens": "Lens",
+    "measure": "Measure",
+    "ocr": "OCR",
+    "palette": "Palette",
+    "qr": "QR",
+    "record": "Record",
+    "record_fullscreen_gif": "GIF FS",
+    "record_fullscreen_mp4": "Rec FS",
+    "record_gif": "GIF",
+    "record_mp4": "Record",
+    "window": "Window"
+  },
+  "tooltips": {
+    "annotate": "Draw and annotate a region",
+    "annotate_fullscreen": "Annotate the entire screen",
+    "annotate_window": "Annotate the focused window",
+    "colorpicker": "Pick a color from screen",
+    "lens": "Search image with Google Lens",
+    "measure": "Measure region size in pixels",
+    "ocr": "Extract text from screen",
+    "palette": "Extract dominant colors from a region",
+    "qr": "Scan a QR or barcode",
+    "record": "Record a screen region as GIF or MP4",
+    "record_fullscreen": "Record the entire screen"
+  },
+  "widget": {
+    "recording": "Recording — click to stop",
+    "tooltip": "Screen Toolkit"
+  }
+}

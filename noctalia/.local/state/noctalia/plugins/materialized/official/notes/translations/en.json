@@ -1,0 +1,35 @@
+{
+  "bad_extension": "Invalid file extension setting – using md",
+  "confirm_delete": "Delete?",
+  "counts": "{words} words · {chars} chars",
+  "editing": "Editing…",
+  "editor_placeholder": "Write your note…",
+  "empty": "No notes yet – create one with +",
+  "launcher": {
+    "append_title": "Add to Scratchpad",
+    "appended": "Added to scratchpad",
+    "clip_title": "New Note From Clipboard",
+    "home_subtitle": "Browse All Notes",
+    "home_title": "Open Notes",
+    "new_title": "New Note",
+    "open_subtitle": "Open Note"
+  },
+  "rename_exists": "A note with that name already exists",
+  "save_failed": "Failed to save note",
+  "saved": "Saved",
+  "scratchpad": "Scratchpad",
+  "settings": {
+    "extension": {
+      "description": "Extension for note files (without the dot); only files with this extension are listed",
+      "label": "File Extension"
+    },
+    "glyph": {
+      "label": "Bar Glyph"
+    },
+    "notes_dir": {
+      "description": "Where note files are stored",
+      "label": "Notes Directory"
+    }
+  },
+  "title": "Notes"
+}

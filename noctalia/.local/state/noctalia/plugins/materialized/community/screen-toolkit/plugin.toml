@@ -1,0 +1,245 @@
+# Screen Toolkit — a unified set of screen utilities for the Noctalia shell.
+#
+# Port of the v4 "screen-toolkit" plugin to the v5 plugin API. All tool logic
+# (captures, OCR, palette, QR, lens, recording, sharing) lives in a headless
+# [[service]]; the bar [[widget]], control-center [[shortcut]], and the main
+# [[panel]] are thin clients that read the published state and drive the service
+# through the plugin's "command" state channel.
+
+id = "alexander/screen-toolkit"
+name = "Screen Toolkit"
+version = "1.4.0"
+plugin_api = 13
+author = "alexander"
+license = "MIT"
+icon = "crosshair"
+description = "Screen tools: color picker, OCR, QR, palette, lens, annotate, measure, and recording."
+tags = ["recording", "utility", "bar", "panel", "shortcut", "service", "hyprland", "niri", "sway"]
+dependencies = [
+  "slurp",
+  "grim",
+  "hyprpicker",
+  "tesseract",
+  "imagemagick",
+  "zbar",
+  "curl",
+  "ffmpeg",
+  "ffprobe",
+  "jq",
+  "translate-shell",
+  "bc",
+  "stat",
+  "pkill",
+  "xdg-open",
+  "hyprctl",
+  "niri",
+  "swappy",
+  "satty",
+  "gimp",
+  "gpu-screen-recorder",
+  "wl-screenrec",
+  "wf-recorder",
+  "mpv",
+]
+
+# ── Panel entries (host-injected placement/size settings appear here, first in the settings editor) ──
+
+# Main toolkit panel: tool grid + per-tool result views + recording controls.
+# Open with: noctalia msg panel-toggle alexander/screen-toolkit:panel
+# Compact layout (default). Full mode was removed; the bar widget / shortcut
+# open either the standard or legacy entry based on the "panel-mode" setting.
+[[panel]]
+id = "panel"
+entry = "panel.luau"
+width = 380
+height = 260
+placement = "floating"
+position = "center"
+keyboard_focus = "on_demand"
+capture_keys = ["Tab", "Backtab", "Shift+Tab", "Up", "Down", "Left", "Right", "Return", "Enter", "Space", "Escape"]
+
+# Legacy-mode layout: the original screen-toolkit v4 panel.
+[[panel]]
+id = "panel-legacy"
+entry = "panel.luau"
+width = 380
+height = 260
+placement = "floating"
+position = "center"
+keyboard_focus = "on_demand"
+capture_keys = ["Tab", "Backtab", "Shift+Tab", "Up", "Down", "Left", "Right", "Return", "Enter", "Space", "Escape"]
+
+# Result panel: opened by the service when a capture tool finishes.
+[[panel]]
+id = "result"
+entry = "result.luau"
+width = 560
+height = 520
+placement = "floating"
+position = "center"
+
+# ── Plugin-level settings (shared by every entry, edited in Settings → Plugins) ──
+
+[[setting]]
+key = "screenshot-path"
+type = "folder"
+label_key = "settings.screenshot_path.label"
+description_key = "settings.screenshot_path.description"
+default = "~/Pictures/Screenshots"
+
+[[setting]]
+key = "video-path"
+type = "folder"
+label_key = "settings.video_path.label"
+description_key = "settings.video_path.description"
+default = "~/Videos"
+
+[[setting]]
+key = "filename-format"
+type = "string"
+label_key = "settings.filename_format.label"
+description_key = "settings.filename_format.description"
+default = "%Y-%m-%d_%H-%M-%S"
+
+[[setting]]
+key = "selected-ocr-lang"
+type = "string"
+label_key = "settings.selected_ocr_lang.label"
+description_key = "settings.selected_ocr_lang.description"
+default = "eng"
+
+[[setting]]
+key = "search-engine-url"
+type = "string"
+label_key = "settings.search_engine_url.label"
+description_key = "settings.search_engine_url.description"
+default = ""
+
+[[setting]]
+key = "x02-api-key"
+type = "string"
+label_key = "settings.x02_api_key.label"
+description_key = "settings.x02_api_key.description"
+default = ""
+
+[[setting]]
+key = "x02-expiry"
+type = "select"
+label_key = "settings.x02_expiry.label"
+description_key = "settings.x02_expiry.description"
+default = "7d"
+options = [
+  { value = "1h", label_key = "settings.x02_expiry.options.1h" },
+  { value = "1d", label_key = "settings.x02_expiry.options.1d" },
+  { value = "7d", label_key = "settings.x02_expiry.options.7d" },
+  { value = "30d", label_key = "settings.x02_expiry.options.30d" },
+  { value = "permanent", label_key = "settings.x02_expiry.options.permanent" },
+]
+
+[[setting]]
+key = "share-skip-popover"
+type = "bool"
+label_key = "settings.share_skip_popover.label"
+description_key = "settings.share_skip_popover.description"
+default = false
+
+[[setting]]
+key = "record-audio-out"
+type = "bool"
+label_key = "settings.record_audio_out.label"
+description_key = "settings.record_audio_out.description"
+default = false
+
+[[setting]]
+key = "record-audio-in"
+type = "bool"
+label_key = "settings.record_audio_in.label"
+description_key = "settings.record_audio_in.description"
+default = false
+
+[[setting]]
+key = "hide-when-unused"
+type = "bool"
+label_key = "settings.hide_when_unused.label"
+description_key = "settings.hide_when_unused.description"
+default = false
+
+[[setting]]
+key = "hide-cursor"
+type = "bool"
+label_key = "settings.hide_cursor.label"
+description_key = "settings.hide_cursor.description"
+default = true
+
+[[setting]]
+key = "record-codec"
+type = "select"
+label_key = "settings.record_codec.label"
+description_key = "settings.record_codec.description"
+default = "h264"
+options = [
+  { value = "h264", label_key = "settings.record_codec.options.h264" },
+  { value = "hevc", label_key = "settings.record_codec.options.hevc" },
+  { value = "av1", label_key = "settings.record_codec.options.av1" },
+]
+
+[[setting]]
+key = "record-fps"
+type = "int"
+label_key = "settings.record_fps.label"
+description_key = "settings.record_fps.description"
+default = 60
+min = 15
+max = 240
+
+[[setting]]
+key = "record-skip-confirmation"
+type = "bool"
+label_key = "settings.record_skip_confirmation.label"
+description_key = "settings.record_skip_confirmation.description"
+default = false
+
+[[setting]]
+key = "record-copy-to-clipboard"
+type = "bool"
+label_key = "settings.record_copy_to_clipboard.label"
+description_key = "settings.record_copy_to_clipboard.description"
+default = false
+
+[[setting]]
+key = "gif-max-seconds"
+type = "int"
+label_key = "settings.gif_max_seconds.label"
+description_key = "settings.gif_max_seconds.description"
+default = 30
+min = 1
+max = 600
+
+[[setting]]
+key = "panel-mode"
+type = "select"
+label_key = "settings.panel_mode.label"
+description_key = "settings.panel_mode.description"
+default = "standard"
+options = [
+  { value = "standard", label_key = "settings.panel_mode.options.standard" },
+  { value = "legacy", label_key = "settings.panel_mode.options.legacy" },
+]
+
+# ── Entries ─────────────────────────────────────────────────────────────────
+
+# Bar widget: crosshair glyph; shows a pulsing red dot while recording.
+# Left click toggles the main panel (or stops a recording); right click quick-picks a color.
+[[widget]]
+id = "widget"
+entry = "widget.luau"
+
+# Control-center quick tile. Mirrors the bar widget.
+[[shortcut]]
+id = "toggle"
+entry = "shortcut.luau"
+
+# Headless engine: owns captures, tool pipelines, recording, and persistence.
+[[service]]
+id = "service"
+entry = "service.luau"

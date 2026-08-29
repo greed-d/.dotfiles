@@ -1,0 +1,28 @@
+{
+  "settings": {
+    "color": {
+      "description": "Cor de destaque para o tempo e a barra de progresso",
+      "label": "Cor"
+    },
+    "duration": {
+      "description": "Duração da contagem regressiva em segundos",
+      "label": "Duração (segundos)"
+    },
+    "show_idle": {
+      "description": "Exibir ou ocultar o widget quando o timer parar em zero",
+      "label": "Exibir contagem na barra horizontal quando inativo"
+    },
+    "show_progress": {
+      "label": "Mostrar Barra de Progresso"
+    }
+  },
+  "ui": {
+    "duration_label": "Duração do Timer",
+    "duration_placeholder": "ex.: 400 → 4:00",
+    "notify_body": "O tempo acabou!",
+    "notify_title": "Timer",
+    "pause": "Pausar",
+    "reset": "Redefinir",
+    "start": "Iniciar"
+  }
+}

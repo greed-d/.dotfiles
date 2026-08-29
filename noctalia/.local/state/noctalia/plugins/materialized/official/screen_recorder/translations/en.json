@@ -1,0 +1,115 @@
+{
+  "notify": {
+    "launch-failed": "Could not launch gpu-screen-recorder",
+    "no-monitor": "Could not detect focused monitor",
+    "portal-not-running": "xdg-desktop-portal is not running",
+    "recording-failed": "Recording failed",
+    "recording-saved": "Recording saved",
+    "recording-stopped-early": "gpu-screen-recorder exited without saving. Check the Noctalia log for details.",
+    "replay-active": "Replay buffer active",
+    "replay-failed": "Replay failed",
+    "replay-saved": "Replay saved",
+    "replay-stopped": "Replay buffer stopped"
+  },
+  "settings": {
+    "audio_bitrate": {
+      "description": "0 = automatic (128 for Opus/FLAC, 160 for AAC); lower it for smaller files",
+      "label": "Audio Bitrate (kbps)"
+    },
+    "audio_codec": {
+      "label": "Audio Codec",
+      "options": {
+        "aac": "AAC",
+        "flac": "FLAC",
+        "opus": "Opus"
+      }
+    },
+    "audio_source": {
+      "label": "Audio Source",
+      "options": {
+        "both": "Output + Microphone",
+        "default_input": "Microphone",
+        "default_output": "System Output",
+        "none": "No Audio"
+      }
+    },
+    "color_range": {
+      "label": "Color Range",
+      "options": {
+        "full": "Full",
+        "limited": "Limited"
+      }
+    },
+    "copy_to_clipboard": {
+      "label": "Copy Path to Clipboard"
+    },
+    "directory": {
+      "description": "Defaults to ~/Videos/Recordings when empty",
+      "label": "Output Directory"
+    },
+    "filename_pattern": {
+      "description": "Date-format pattern without extension; use %s for Unix timestamp",
+      "label": "Filename Pattern"
+    },
+    "frame_rate": {
+      "label": "Frame Rate"
+    },
+    "hide_inactive": {
+      "label": "Hide Widget When Idle"
+    },
+    "replay_duration": {
+      "label": "Replay Seconds"
+    },
+    "replay_enabled": {
+      "label": "Enable Replay Buffer"
+    },
+    "replay_filename_pattern": {
+      "description": "Date-format pattern for saved replays without extension; use %s for Unix timestamp",
+      "label": "Replay Filename Pattern"
+    },
+    "replay_storage": {
+      "label": "Replay Storage",
+      "options": {
+        "disk": "Disk",
+        "ram": "RAM"
+      }
+    },
+    "resolution": {
+      "description": "\"original\" or WIDTHxHEIGHT, e.g. 1920x1080",
+      "label": "Resolution"
+    },
+    "restore_portal": {
+      "label": "Restore Portal Session"
+    },
+    "show_cursor": {
+      "label": "Show Cursor"
+    },
+    "video_codec": {
+      "label": "Video Codec",
+      "options": {
+        "av1": "AV1",
+        "h264": "H.264",
+        "hevc": "HEVC",
+        "vp8": "VP8",
+        "vp9": "VP9"
+      }
+    },
+    "video_qp": {
+      "description": "Lower values produce higher quality and larger files",
+      "label": "Video Quality (QP)"
+    },
+    "video_source": {
+      "description": "GPU Screen Recorder capture mode; Focused records Noctalia's focused monitor",
+      "label": "Video Source",
+      "options": {
+        "focused": "Focused",
+        "portal": "Portal"
+      }
+    }
+  },
+  "shortcut": {
+    "record-screen": "Record Screen",
+    "recording": "Recording",
+    "replay-buffer": "Replay Buffer"
+  }
+}

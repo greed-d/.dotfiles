@@ -1,0 +1,28 @@
+{
+  "settings": {
+    "color": {
+      "description": "时间和进度条使用的强调色",
+      "label": "颜色"
+    },
+    "duration": {
+      "description": "倒计时时长（秒）",
+      "label": "时长（秒）"
+    },
+    "show_idle": {
+      "description": "计时器归零停止时显示或隐藏小组件",
+      "label": "水平状态栏空闲时显示计时数值"
+    },
+    "show_progress": {
+      "label": "显示进度条"
+    }
+  },
+  "ui": {
+    "duration_label": "计时时长",
+    "duration_placeholder": "例如：400 → 4:00",
+    "notify_body": "时间到！",
+    "notify_title": "计时器",
+    "pause": "暂停",
+    "reset": "重置",
+    "start": "开始"
+  }
+}

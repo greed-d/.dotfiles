@@ -1,0 +1,23 @@
+{
+  "settings": {
+    "audio_spectrum": {
+      "label": "响应音频"
+    },
+    "executable_path": {
+      "label": "自定义 evtest 程序"
+    },
+    "input_devices": {
+      "description": "优先使用 /dev/input/by-id/*-event-* 或 /dev/input/by-path/*-event-*；内核或设备更新后，/dev/input/eventN 可能会发生变化",
+      "label": "输入设备"
+    },
+    "rave_mode": {
+      "label": "跟随节拍炫彩"
+    },
+    "tappy_mode": {
+      "label": "跟随节拍敲击"
+    },
+    "use_mpris_filter": {
+      "label": "仅在媒体播放时响应"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "notify": {
+    "launch-failed": "Impossible de lancer gpu-screen-recorder",
+    "no-monitor": "Impossible de détecter l'écran actif",
+    "portal-not-running": "xdg-desktop-portal n'est pas en cours d'exécution",
+    "recording-failed": "Échec de l'enregistrement",
+    "recording-saved": "Enregistrement sauvegardé",
+    "replay-active": "Tampon de relecture actif",
+    "replay-failed": "Échec de la relecture",
+    "replay-saved": "Relecture sauvegardée",
+    "replay-stopped": "Tampon de relecture arrêté"
+  },
+  "settings": {
+    "audio_codec": {
+      "label": "Codec audio",
+      "options": {
+        "aac": "AAC",
+        "flac": "FLAC",
+        "opus": "Opus"
+      }
+    },
+    "audio_source": {
+      "label": "Source audio",
+      "options": {
+        "both": "Sortie + microphone",
+        "default_input": "Microphone",
+        "default_output": "Sortie système",
+        "none": "Aucun audio"
+      }
+    },
+    "color_range": {
+      "label": "Plage de couleurs",
+      "options": {
+        "full": "Complète",
+        "limited": "Limitée"
+      }
+    },
+    "copy_to_clipboard": {
+      "label": "Copier le chemin dans le presse-papiers"
+    },
+    "directory": {
+      "description": "Utilise ~/Videos/Recordings par défaut lorsque vide",
+      "label": "Dossier de sortie"
+    },
+    "filename_pattern": {
+      "description": "Modèle de date sans extension; utilisez %s pour l'horodatage Unix",
+      "label": "Modèle de nom de fichier"
+    },
+    "frame_rate": {
+      "label": "Images par seconde"
+    },
+    "hide_inactive": {
+      "label": "Masquer le widget au repos"
+    },
+    "quality": {
+      "label": "Qualité",
+      "options": {
+        "high": "Haute",
+        "medium": "Moyenne",
+        "ultra": "Ultra",
+        "very_high": "Très haute"
+      }
+    },
+    "replay_duration": {
+      "label": "Secondes de relecture"
+    },
+    "replay_enabled": {
+      "label": "Activer le tampon de relecture"
+    },
+    "replay_filename_pattern": {
+      "description": "Modèle de date pour les relectures sauvegardées sans extension; utilisez %s pour l'horodatage Unix",
+      "label": "Modèle de nom de fichier de relecture"
+    },
+    "replay_storage": {
+      "label": "Stockage de relecture",
+      "options": {
+        "disk": "Disque",
+        "ram": "RAM"
+      }
+    },
+    "resolution": {
+      "description": "\"original\" ou LARGEURxHAUTEUR, par exemple 1920x1080",
+      "label": "Résolution"
+    },
+    "restore_portal": {
+      "label": "Restaurer la session du portail"
+    },
+    "show_cursor": {
+      "label": "Afficher le curseur"
+    },
+    "video_codec": {
+      "label": "Codec vidéo",
+      "options": {
+        "av1": "AV1",
+        "h264": "H.264",
+        "hevc": "HEVC",
+        "vp8": "VP8",
+        "vp9": "VP9"
+      }
+    },
+    "video_source": {
+      "description": "Mode de capture de GPU Screen Recorder. Focused enregistre l'écran actif de Noctalia.",
+      "label": "Source vidéo",
+      "options": {
+        "focused": "Écran actif",
+        "portal": "Portail"
+      }
+    }
+  },
+  "shortcut": {
+    "record-screen": "Enregistrer l'écran",
+    "recording": "Enregistrement",
+    "replay-buffer": "Tampon de relecture"
+  }
+}

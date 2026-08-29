@@ -1,0 +1,61 @@
+# Bongo Cat — a cat that sits in your bar and slaps when you type or to the beat.
+#
+# Input reactivity needs `evtest` installed and your user in the `input` group;
+# set input devices in the widget settings. Prefer stable /dev/input/by-id/ or
+# /dev/input/by-path/ entries over /dev/input/eventN. Audio reactivity uses the
+# PipeWire spectrum.
+
+id = "noctalia/bongocat"
+name = "Bongo Cat"
+version = "1.1.4"
+plugin_api = 3
+author = "noctalia"
+license = "MIT"
+dependencies = []
+icon = "cat"
+description = "A cat that slaps your bar when you type or to the beat."
+tags = ["fun", "animation"]
+
+[[widget]]
+id = "cat"
+entry = "bongocat.luau"
+
+  [[widget.setting]]
+  key = "input_devices"
+  type = "string_list"
+  label_key = "settings.input_devices.label"
+  description_key = "settings.input_devices.description"
+  default = []
+
+  [[widget.setting]]
+  key = "executable_path"
+  type = "file"
+  label_key = "settings.executable_path.label"
+  default = "evtest"
+
+  [[widget.setting]]
+  key = "audio_spectrum"
+  type = "bool"
+  label_key = "settings.audio_spectrum.label"
+  default = false
+
+  [[widget.setting]]
+  key = "tappy_mode"
+  type = "bool"
+  label_key = "settings.tappy_mode.label"
+  default = false
+  visible_when = { key = "audio_spectrum", values = ["true"] }
+
+  [[widget.setting]]
+  key = "rave_mode"
+  type = "bool"
+  label_key = "settings.rave_mode.label"
+  default = false
+  visible_when = { key = "audio_spectrum", values = ["true"] }
+
+  [[widget.setting]]
+  key = "use_mpris_filter"
+  type = "bool"
+  label_key = "settings.use_mpris_filter.label"
+  default = false
+  visible_when = { key = "audio_spectrum", values = ["true"] }

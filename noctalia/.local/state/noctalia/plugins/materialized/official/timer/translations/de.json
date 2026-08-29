@@ -1,0 +1,28 @@
+{
+  "settings": {
+    "color": {
+      "description": "Akzentfarbe für die Zeit und den Fortschrittsbalken",
+      "label": "Farbe"
+    },
+    "duration": {
+      "description": "Countdown-Länge in Sekunden",
+      "label": "Dauer (Sekunden)"
+    },
+    "show_idle": {
+      "description": "Zeige das Widget an oder blende es aus, wenn der Timer bei Null stoppt",
+      "label": "Zähler bei Inaktivität auf horizontaler Leiste anzeigen"
+    },
+    "show_progress": {
+      "label": "Fortschrittsbalken anzeigen"
+    }
+  },
+  "ui": {
+    "duration_label": "Timer-Dauer",
+    "duration_placeholder": "z. B. 400 → 4:00",
+    "notify_body": "Die Zeit ist um!",
+    "notify_title": "Timer",
+    "pause": "Pause",
+    "reset": "Zurücksetzen",
+    "start": "Start"
+  }
+}

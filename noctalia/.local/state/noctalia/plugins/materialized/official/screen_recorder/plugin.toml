@@ -1,0 +1,203 @@
+# GPU Screen Recorder — records the screen with gpu-screen-recorder and manages a
+# replay buffer. The recording logic runs in a headless [[service]] for the whole
+# session; the bar [[widget]] and control-center [[shortcut]] are thin clients that
+# mirror the recorder's "status" and drive it through the "command" channel — so a
+# recording can be started even with no widget placed.
+#
+# Click mapping (widget): left = toggle recording, right = replay toggle/save,
+# middle = save replay. The shortcut mirrors left/right.
+#
+# Settings are plugin-level ([[setting]] at the root): one set shared by every
+# entry, edited from Settings → Plugins, seeded into noctalia.getConfig everywhere.
+
+id = "noctalia/screen_recorder"
+name = "Screen Recorder"
+version = "1.2.2"
+plugin_api = 3
+author = "noctalia"
+license = "MIT"
+dependencies = ["gpu-screen-recorder"]
+tags = ["recording", "video"]
+icon = "video"
+description = "Record the screen with gpu-screen-recorder."
+
+[[setting]]
+key = "video_source"
+type = "select"
+label_key = "settings.video_source.label"
+default = "portal"
+description_key = "settings.video_source.description"
+options = [
+  { value = "focused", label_key = "settings.video_source.options.focused" },
+  { value = "portal", label_key = "settings.video_source.options.portal" },
+]
+
+[[setting]]
+key = "directory"
+type = "folder"
+label_key = "settings.directory.label"
+default = "~/Videos/Recordings"
+description_key = "settings.directory.description"
+
+[[setting]]
+key = "filename_pattern"
+type = "string"
+label_key = "settings.filename_pattern.label"
+default = "recording_%Y%m%d_%H%M%S"
+description_key = "settings.filename_pattern.description"
+
+[[setting]]
+key = "frame_rate"
+type = "int"
+label_key = "settings.frame_rate.label"
+default = 60
+min = 1
+max = 240
+
+[[setting]]
+key = "video_codec"
+type = "select"
+label_key = "settings.video_codec.label"
+default = "h264"
+options = [
+  { value = "h264", label_key = "settings.video_codec.options.h264" },
+  { value = "hevc", label_key = "settings.video_codec.options.hevc" },
+  { value = "av1", label_key = "settings.video_codec.options.av1" },
+  { value = "vp8", label_key = "settings.video_codec.options.vp8" },
+  { value = "vp9", label_key = "settings.video_codec.options.vp9" },
+]
+
+[[setting]]
+key = "video_qp"
+type = "int"
+label_key = "settings.video_qp.label"
+description_key = "settings.video_qp.description"
+default = 25
+min = 0
+max = 51
+
+[[setting]]
+key = "resolution"
+type = "string"
+label_key = "settings.resolution.label"
+default = "original"
+description_key = "settings.resolution.description"
+
+[[setting]]
+key = "audio_source"
+type = "select"
+label_key = "settings.audio_source.label"
+default = "default_output"
+options = [
+  { value = "default_output", label_key = "settings.audio_source.options.default_output" },
+  { value = "default_input", label_key = "settings.audio_source.options.default_input" },
+  { value = "both", label_key = "settings.audio_source.options.both" },
+  { value = "none", label_key = "settings.audio_source.options.none" },
+]
+
+[[setting]]
+key = "audio_codec"
+type = "select"
+label_key = "settings.audio_codec.label"
+default = "opus"
+options = [
+  { value = "opus", label_key = "settings.audio_codec.options.opus" },
+  { value = "aac", label_key = "settings.audio_codec.options.aac" },
+  { value = "flac", label_key = "settings.audio_codec.options.flac" },
+]
+
+[[setting]]
+key = "audio_bitrate"
+type = "int"
+label_key = "settings.audio_bitrate.label"
+description_key = "settings.audio_bitrate.description"
+default = 0
+min = 0
+max = 512
+visible_when = { key = "audio_source", values = ["default_output", "default_input", "both"] }
+
+[[setting]]
+key = "show_cursor"
+type = "bool"
+label_key = "settings.show_cursor.label"
+default = true
+
+[[setting]]
+key = "color_range"
+type = "select"
+label_key = "settings.color_range.label"
+default = "limited"
+options = [
+  { value = "limited", label_key = "settings.color_range.options.limited" },
+  { value = "full", label_key = "settings.color_range.options.full" },
+]
+
+[[setting]]
+key = "copy_to_clipboard"
+type = "bool"
+label_key = "settings.copy_to_clipboard.label"
+default = false
+
+[[setting]]
+key = "hide_inactive"
+type = "bool"
+label_key = "settings.hide_inactive.label"
+default = false
+
+[[setting]]
+key = "replay_enabled"
+type = "bool"
+label_key = "settings.replay_enabled.label"
+default = false
+
+[[setting]]
+key = "replay_duration"
+type = "int"
+label_key = "settings.replay_duration.label"
+default = 30
+min = 5
+max = 3600
+visible_when = { key = "replay_enabled", values = ["true"] }
+
+[[setting]]
+key = "replay_filename_pattern"
+type = "string"
+label_key = "settings.replay_filename_pattern.label"
+default = "replay_%Y%m%d_%H%M%S"
+description_key = "settings.replay_filename_pattern.description"
+visible_when = { key = "replay_enabled", values = ["true"] }
+
+[[setting]]
+key = "replay_storage"
+type = "select"
+label_key = "settings.replay_storage.label"
+default = "ram"
+options = [
+  { value = "ram", label_key = "settings.replay_storage.options.ram" },
+  { value = "disk", label_key = "settings.replay_storage.options.disk" },
+]
+visible_when = { key = "replay_enabled", values = ["true"] }
+
+[[setting]]
+key = "restore_portal"
+type = "bool"
+label_key = "settings.restore_portal.label"
+default = false
+advanced = true
+
+# Headless background service: owns the recording / replay logic, runs for the
+# whole session, and bridges the "command" / "status" state channels.
+[[service]]
+id = "service"
+entry = "recorder_service.luau"
+
+# Bar tile. Thin presentation: mirrors "status", drives the recorder via "command".
+[[widget]]
+id = "recorder"
+entry = "recorder.luau"
+
+# Control-center quick tile. Mirrors the recorder's state and drives it through
+# the plugin's shared state channel (no shell-out, no IPC PATH dependency).
+[[shortcut]]
+id = "toggle"
+entry = "shortcut.luau"

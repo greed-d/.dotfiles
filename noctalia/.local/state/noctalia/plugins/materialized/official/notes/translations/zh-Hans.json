@@ -1,0 +1,35 @@
+{
+  "bad_extension": "文件扩展名无效 – 已改用 md",
+  "confirm_delete": "删除？",
+  "counts": "{words} 词 · {chars} 字符",
+  "editing": "正在编辑…",
+  "editor_placeholder": "写下你的笔记…",
+  "empty": "暂无笔记 – 按 + 创建",
+  "launcher": {
+    "append_title": "添加到速记板",
+    "appended": "已添加到速记板",
+    "clip_title": "从剪贴板创建新笔记",
+    "home_subtitle": "浏览所有笔记",
+    "home_title": "打开笔记",
+    "new_title": "新建笔记",
+    "open_subtitle": "打开笔记"
+  },
+  "rename_exists": "已存在同名笔记",
+  "save_failed": "保存笔记失败",
+  "saved": "已保存",
+  "scratchpad": "速记板",
+  "settings": {
+    "extension": {
+      "description": "笔记文件的扩展名（不包含点号）；仅显示具有此扩展名的文件",
+      "label": "文件扩展名"
+    },
+    "glyph": {
+      "label": "状态栏图标"
+    },
+    "notes_dir": {
+      "description": "笔记文件存储位置",
+      "label": "笔记目录"
+    }
+  },
+  "title": "笔记"
+}

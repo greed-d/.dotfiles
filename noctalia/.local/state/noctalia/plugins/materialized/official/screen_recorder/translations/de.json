@@ -1,0 +1,120 @@
+{
+  "notify": {
+    "launch-failed": "gpu-screen-recorder konnte nicht gestartet werden",
+    "no-monitor": "Fokussierter Monitor konnte nicht erkannt werden.",
+    "portal-not-running": "xdg-desktop-portal läuft nicht",
+    "recording-failed": "Aufnahme fehlgeschlagen",
+    "recording-saved": "Aufnahme gespeichert",
+    "recording-stopped-early": "gpu-screen-recorder wurde beendet, ohne zu speichern. Überprüfe das Noctalia-Protokoll für Details.",
+    "replay-active": "Replay-Puffer aktiv",
+    "replay-failed": "Replay fehlgeschlagen",
+    "replay-saved": "Replay gespeichert",
+    "replay-stopped": "Replay-Puffer gestoppt"
+  },
+  "settings": {
+    "audio_bitrate": {
+      "description": "0 = automatisch (128 für Opus/FLAC, 160 für AAC); für kleinere Dateien verringern",
+      "label": "Audio-Bitrate (kbps)"
+    },
+    "audio_codec": {
+      "label": "Audio-Codec",
+      "options": {
+        "aac": "AAC",
+        "flac": "FLAC",
+        "opus": "Opus"
+      }
+    },
+    "audio_source": {
+      "label": "Audioquelle",
+      "options": {
+        "both": "Ausgabe + Mikrofon",
+        "default_input": "Mikrofon",
+        "default_output": "Systemausgabe",
+        "none": "Kein Ton"
+      }
+    },
+    "color_range": {
+      "label": "Farbbereich",
+      "options": {
+        "full": "Voll",
+        "limited": "Begrenzt"
+      }
+    },
+    "copy_to_clipboard": {
+      "label": "Pfad in die Zwischenablage kopieren"
+    },
+    "directory": {
+      "description": "Standardmäßig ~/Videos/Recordings, wenn leer",
+      "label": "Ausgabeverzeichnis"
+    },
+    "filename_pattern": {
+      "description": "Datumsformatmuster ohne Erweiterung; %s für Unix-Zeitstempel verwenden",
+      "label": "Dateinamenmuster"
+    },
+    "frame_rate": {
+      "label": "Bildrate"
+    },
+    "hide_inactive": {
+      "label": "Widget bei Inaktivität ausblenden"
+    },
+    "quality": {
+      "label": "Qualität",
+      "options": {
+        "high": "Hoch",
+        "medium": "Mittel",
+        "ultra": "Ultra",
+        "very_high": "Sehr hoch"
+      }
+    },
+    "replay_duration": {
+      "label": "Replay-Sekunden"
+    },
+    "replay_enabled": {
+      "label": "Replay-Puffer aktivieren"
+    },
+    "replay_filename_pattern": {
+      "description": "Datumsformatmuster für gespeicherte Replays ohne Erweiterung; %s für Unix-Zeitstempel verwenden",
+      "label": "Replay-Dateinamenmuster"
+    },
+    "replay_storage": {
+      "label": "Replay-Speicher",
+      "options": {
+        "disk": "Festplatte",
+        "ram": "RAM"
+      }
+    },
+    "resolution": {
+      "description": "\"original\" oder BREITExHÖHE, z. B. 1920x1080",
+      "label": "Auflösung"
+    },
+    "restore_portal": {
+      "label": "Portal-Sitzung wiederherstellen"
+    },
+    "show_cursor": {
+      "label": "Cursor anzeigen"
+    },
+    "video_codec": {
+      "label": "Video-Codec",
+      "options": {
+        "av1": "AV1",
+        "h264": "H.264",
+        "hevc": "HEVC",
+        "vp8": "VP8",
+        "vp9": "VP9"
+      }
+    },
+    "video_source": {
+      "description": "GPU-Bildschirmrekorder-Aufnahmemodus; „Fokussiert“ zeichnet den fokussierten Monitor von Noctalia auf",
+      "label": "Videoquelle",
+      "options": {
+        "focused": "Fokussiert",
+        "portal": "Portal"
+      }
+    }
+  },
+  "shortcut": {
+    "record-screen": "Bildschirm aufnehmen",
+    "recording": "Aufnahme",
+    "replay-buffer": "Replay-Puffer"
+  }
+}

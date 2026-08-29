@@ -1,0 +1,35 @@
+{
+  "bad_extension": "Ungültige Dateierweiterungseinstellung – md wird verwendet",
+  "confirm_delete": "Löschen?",
+  "counts": "{words} Wörter · {chars} Zeichen",
+  "editing": "Wird bearbeitet…",
+  "editor_placeholder": "Schreibe deine Notiz…",
+  "empty": "Noch keine Notizen – erstelle eine mit +",
+  "launcher": {
+    "append_title": "Zum Scratchpad hinzufügen",
+    "appended": "Zum Scratchpad hinzugefügt",
+    "clip_title": "Neue Notiz aus der Zwischenablage",
+    "home_subtitle": "Alle Notizen durchsuchen",
+    "home_title": "Notizen öffnen",
+    "new_title": "Neue Notiz",
+    "open_subtitle": "Notiz öffnen"
+  },
+  "rename_exists": "Eine Notiz mit diesem Namen existiert bereits",
+  "save_failed": "Notiz konnte nicht gespeichert werden",
+  "saved": "Gespeichert",
+  "scratchpad": "Scratchpad",
+  "settings": {
+    "extension": {
+      "description": "Erweiterung für Notizdateien (ohne Punkt); nur Dateien mit dieser Erweiterung werden aufgelistet",
+      "label": "Dateierweiterung"
+    },
+    "glyph": {
+      "label": "Leistensymbol"
+    },
+    "notes_dir": {
+      "description": "Wo Notizdateien gespeichert werden",
+      "label": "Notizenverzeichnis"
+    }
+  },
+  "title": "Notizen"
+}

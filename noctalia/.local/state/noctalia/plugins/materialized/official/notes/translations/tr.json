@@ -1,0 +1,35 @@
+{
+  "bad_extension": "Geçersiz dosya uzantısı — md kullanılıyor",
+  "confirm_delete": "Silinsin mi?",
+  "counts": "{words} kelime · {chars} karakter",
+  "editing": "Düzenleniyor…",
+  "editor_placeholder": "Notunuzu yazın…",
+  "empty": "Henüz not yok — + ile bir tane oluşturun",
+  "launcher": {
+    "append_title": "Karalama defterine ekle",
+    "appended": "Karalama defterine ekledi",
+    "clip_title": "Panodan yeni not",
+    "home_subtitle": "Tüm notlara bak",
+    "home_title": "Notları aç",
+    "new_title": "Yeni not",
+    "open_subtitle": "Notu aç"
+  },
+  "rename_exists": "Aynı isimle bir not zaten var",
+  "save_failed": "Not kaydedilemedi",
+  "saved": "Kaydedildi",
+  "scratchpad": "Karalama Defteri",
+  "settings": {
+    "extension": {
+      "description": "Not dosyaları için uzantı (nokta olmadan). Sadece bu uzantılı dosyalar listelenir.",
+      "label": "Dosya uzantısı"
+    },
+    "glyph": {
+      "label": "Bar glifiç"
+    },
+    "notes_dir": {
+      "description": "Notların kaydedildiği yer.",
+      "label": "Notlare dizini"
+    }
+  },
+  "title": "Notlar"
+}

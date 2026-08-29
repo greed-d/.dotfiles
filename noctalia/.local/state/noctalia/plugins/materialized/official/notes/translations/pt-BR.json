@@ -1,0 +1,35 @@
+{
+  "bad_extension": "Configuração de extensão de arquivo inválida – usando md",
+  "confirm_delete": "Excluir?",
+  "counts": "{words} palavras · {chars} caracteres",
+  "editing": "Editando…",
+  "editor_placeholder": "Escreva sua nota…",
+  "empty": "Nenhuma nota ainda – crie uma com +",
+  "launcher": {
+    "append_title": "Adicionar ao scratchpad",
+    "appended": "Adicionado ao scratchpad",
+    "clip_title": "Nova Nota da Área de Transferência",
+    "home_subtitle": "Navegar por Todas as Notas",
+    "home_title": "Abrir Notas",
+    "new_title": "Nova Nota",
+    "open_subtitle": "Abrir Nota"
+  },
+  "rename_exists": "Já existe uma nota com esse nome",
+  "save_failed": "Falha ao salvar a nota",
+  "saved": "Salva",
+  "scratchpad": "Scratchpad",
+  "settings": {
+    "extension": {
+      "description": "Extensão para arquivos de nota (sem o ponto); apenas arquivos com esta extensão são listados",
+      "label": "Extensão de Arquivo"
+    },
+    "glyph": {
+      "label": "Símbolo da Barra"
+    },
+    "notes_dir": {
+      "description": "Onde os arquivos de nota são armazenados",
+      "label": "Diretório de Notas"
+    }
+  },
+  "title": "Notas"
+}

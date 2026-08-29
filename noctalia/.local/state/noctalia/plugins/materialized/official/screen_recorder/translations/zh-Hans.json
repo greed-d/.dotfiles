@@ -1,0 +1,120 @@
+{
+  "notify": {
+    "launch-failed": "无法启动 gpu-screen-recorder",
+    "no-monitor": "无法检测当前焦点显示器",
+    "portal-not-running": "xdg-desktop-portal 未运行",
+    "recording-failed": "录制失败",
+    "recording-saved": "录制已保存",
+    "recording-stopped-early": "gpu-screen-recorder 已退出且未保存录制。详情查看 Noctalia 日志。",
+    "replay-active": "回放缓存已启用",
+    "replay-failed": "回放失败",
+    "replay-saved": "回放已保存",
+    "replay-stopped": "回放缓存已停止"
+  },
+  "settings": {
+    "audio_bitrate": {
+      "description": "0 = 自动（Opus/FLAC 为 128，AAC 为 160）；降低此值可减小文件大小",
+      "label": "音频比特率（kbps）"
+    },
+    "audio_codec": {
+      "label": "音频编码器",
+      "options": {
+        "aac": "AAC",
+        "flac": "FLAC",
+        "opus": "Opus"
+      }
+    },
+    "audio_source": {
+      "label": "音频来源",
+      "options": {
+        "both": "输出 + 麦克风",
+        "default_input": "麦克风",
+        "default_output": "系统输出",
+        "none": "无音频"
+      }
+    },
+    "color_range": {
+      "label": "色彩范围",
+      "options": {
+        "full": "完整",
+        "limited": "有限"
+      }
+    },
+    "copy_to_clipboard": {
+      "label": "复制路径到剪贴板"
+    },
+    "directory": {
+      "description": "留空时使用 ~/Videos/Recordings",
+      "label": "输出目录"
+    },
+    "filename_pattern": {
+      "description": "不包含扩展名的日期格式模板；使用 %s 表示 Unix 时间戳",
+      "label": "文件名格式"
+    },
+    "frame_rate": {
+      "label": "帧率"
+    },
+    "hide_inactive": {
+      "label": "空闲时隐藏小组件"
+    },
+    "quality": {
+      "label": "质量",
+      "options": {
+        "high": "高",
+        "medium": "中",
+        "ultra": "极高",
+        "very_high": "很高"
+      }
+    },
+    "replay_duration": {
+      "label": "回放时长（秒）"
+    },
+    "replay_enabled": {
+      "label": "启用回放缓存"
+    },
+    "replay_filename_pattern": {
+      "description": "保存回放使用的日期格式模板（不包含扩展名）；使用 %s 表示 Unix 时间戳",
+      "label": "回放文件名格式"
+    },
+    "replay_storage": {
+      "label": "回放存储",
+      "options": {
+        "disk": "磁盘",
+        "ram": "内存"
+      }
+    },
+    "resolution": {
+      "description": "\"original\" 或 WIDTHxHEIGHT，例如 1920x1080",
+      "label": "分辨率"
+    },
+    "restore_portal": {
+      "label": "恢复 Portal 会话"
+    },
+    "show_cursor": {
+      "label": "显示光标"
+    },
+    "video_codec": {
+      "label": "视频编码器",
+      "options": {
+        "av1": "AV1",
+        "h264": "H.264",
+        "hevc": "HEVC",
+        "vp8": "VP8",
+        "vp9": "VP9"
+      }
+    },
+    "video_source": {
+      "description": "GPU Screen Recorder 捕获模式；“焦点”录制 Noctalia 当前焦点显示器",
+      "label": "视频来源",
+      "options": {
+        "focused": "焦点",
+        "portal": "Portal"
+      }
+    }
+  },
+  "shortcut": {
+    "record-screen": "录制屏幕",
+    "recording": "正在录制",
+    "replay-buffer": "回放缓存"
+  }
+}
