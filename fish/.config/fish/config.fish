@@ -140,7 +140,7 @@ set PATH "$PATH":"$HOME/.local/colorscripts/"
 # set PATH "$PATH":"$HOME/.sdkman/candidates/gradle/current/bin/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
-set PATH "$PATH":"$HOME/.local/share/bob/nvim-bin"
+set PATH "$PATH":"$HOME/.local/share/bob/nvim"
 set -gx BROWSER helium-browser
 # set -gx GRIMBLAST_HIDE_CURSOR 0
 fish_add_path -g -p $HOME/flutter/bin
