@@ -164,7 +164,7 @@
 
 "Mod+Alt+L" = "spawn:noctalia msg session lock"
 
-"Mod+slash" = "spawn:vicinae vicinae://launch/core/search-emojis"
+"Mod+slash" = "spawn:noctalia msg panel-toggle launcher /emo "
 
 
 # Screenshots ----------------------------------------------------------------
