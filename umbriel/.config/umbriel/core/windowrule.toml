@@ -58,6 +58,14 @@ blur = true
 opacity = 0.9
 default_maximize = true
 
+
+# qbittorrent
+[[window_rule]]
+match.app_id = "org.qbittorrent.qBittorrent"
+opacity = 0.95
+default_floating = true
+default_size = [1680, 900]
+
 # Helium
 [[window_rule]]
 match.app_id = "(^helium$|^zen-*|vivaldi-stable)"
@@ -70,7 +78,6 @@ match.app_id = "(^[Oo]bsidian$|md.obsidian.Obsidian)"
 opacity = 0.9
 default_workspace = 7
 default_floating = true
-default_maximize = true
 default_size = [1520, 995]
 
 # Spotify
