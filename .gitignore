@@ -1,10 +1,23 @@
+# Neovim
 .config/nvim/plugin
+nvim/.config/nvim/plugin/packer_compiled.lua
+
+# Vesktop
+vesktop/.config/vesktop/
+!vesktop/.config/vesktop/settings/
 !vesktop/.config/vesktop/settings/*
+!vesktop/.config/vesktop/themes/
 !vesktop/.config/vesktop/themes/*
+
+# Noctalia
+noctalia/.local/state/noctalia/*
 !noctalia/.local/state/noctalia/settings.toml
 
+# Fish
 fish/.config/fish/fish_variables
 
-nvim/.config/nvim/plugin/packer_compiled.lua
+# Qtile
 .config/qtile/mic_toggle.sh
-./tmux/.config/tmux/plugins/
+
+# tmux
+tmux/.config/tmux/plugins/
