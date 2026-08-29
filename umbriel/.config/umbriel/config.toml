@@ -1,0 +1,54 @@
+# Umbriel default config
+# Copy this file to ~/.config/umbriel/config.toml to customize it.
+# Changes apply on save. See docs/user/ for the full reference.
+#
+# [include] merges extra files into this one. Included files are parsed first,
+# in list order (later files override earlier ones), then everything in this
+# file overrides all of them. That is why Noctalia's dynamic theming can render
+# its palette into a separate noctalia.toml and still let you override the
+# generated colors here.
+
+[include]
+files = [
+  "core/general.toml",
+  "core/monitor.toml",
+  "core/windowrule.toml",
+  "core/layerrule.toml",
+  "core/keybinds.toml",
+  "core/env.toml",
+  "core/execs.toml",
+  "core/animation.toml",
+  "core/appearence.toml",
+  "core/input.toml",
+  "noctalia.toml",
+]
+
+
+# Blur all windows
+# [[window_rule]]
+# blur = true
+# blur_optimized = true
+#
+# # Window and layer rules (see docs/user/rules.md) ---------------------------
+# [[window_rule]]
+# match.app_id = "^vesktop$"
+# default_maximize_to_edges = true
+# default_workspace = 9
+#
+# [[window_rule]]
+# match.app_id = "^helium$"
+# default_maximize_to_edges = true
+# default_workspace = 1
+#
+# [[window_rule]]
+# match.app_id = "^dev.noctalia.Noctalia$"
+# default_floating = true
+# default_size = [1020, 900]
+#
+# [[window_rule]]
+# match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+# default_floating = true
+# default_size = [800, 600]
+
+
+# Open a specific app maximized to the usable-area edges (no gaps or borders)

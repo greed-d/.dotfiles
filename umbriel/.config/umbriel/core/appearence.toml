@@ -1,0 +1,40 @@
+# Appearance -----------------------------------------------------------------
+[appearance]
+prefer_no_csd = true
+border_width = 1       # 0-100
+outer_border_width = 0 # 0-100
+corner_radius = 10     # 0-100
+drag_opacity = 0.75
+# border_focused = "#7AA3FFFF"
+# border_unfocused = "#292933FF"
+# scratchpad_border_focused = "#E5C07BFF"
+# scratchpad_border_unfocused = "#5C4A2AFF"
+# outer_border_color = "#1A1A1FFF"
+# insert_hint_color = "#7FC8FF80"
+# backdrop_color = "#000000FF"
+
+[appearance.blur]
+enabled = true
+optimized = true
+passes = 3       # 0-8
+radius = 6       # 0-100
+noise = 0.02     # 0.0-1.0
+brightness = 0.9 # 0.0-2.0
+contrast = 0.9   # 0.0-2.0
+saturation = 1.1 # 0.0-2.0
+
+[appearance.shadow]
+enabled = true
+softness = 10       # 0-200, 0 = hard edge
+offset_x = 2        # -200 to 200
+offset_y = 2
+color = "#0000007F"
+
+[colors]
+background = "#141419F0"
+text_primary = "#E8E8EAFF"
+text_muted = "#8A8A92FF"
+accent_primary = "#7AA3FFFF"
+accent_secondary = "#F5C96BFF"
+warning = "#F5C96BFF"
+error = "#FF6B6BFF"

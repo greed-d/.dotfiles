@@ -1,0 +1,209 @@
+# Keybinds (see docs/user/keybinds.md) --------------------------------------
+[keybinds]
+
+# Window Management ---------------------------------------------------------
+
+"Mod+W" = "window-close"
+"Mod+S" = "window-toggle-floating"
+"Mod+Ctrl+S" = "window-focus-switch-floating"
+"Mod+A" = "window-toggle-pinned"
+"Mod+F" = "window-toggle-fullscreen"
+"Mod+Backslash" = "window-toggle-maximize"
+"Mod+Shift+Backslash" = "window-toggle-maximize-to-edges"
+
+"Mod+C" = "column-center"
+# "Mod+Shift+C" = "window-center"
+
+"Mod+Bracketleft" = "window-consume-left"
+"Mod+Bracketright" = "window-expel-right"
+
+# "Mod+Minus" = "window-modify-width:-0.1"
+
+
+# Window Focus / Movement ---------------------------------------------------
+
+"Mod+H" = "window-focus-left"
+"Mod+L" = "window-focus-right"
+"Mod+K" = "window-focus-up"
+"Mod+J" = "window-focus-down"
+
+"Mod+Shift+H" = "column-move-left"
+"Mod+Shift+L" = "column-move-right"
+
+# Monitor focus
+"Mod+Ctrl+H" = "output-focus-left"
+"Mod+Ctrl+J" = "output-focus-down"
+"Mod+Ctrl+K" = "output-focus-up"
+"Mod+Ctrl+L" = "output-focus-right"
+
+# Alternative monitor focus bindings
+"Mod+Shift+Left" = "output-focus-left"
+"Mod+Shift+Down" = "output-focus-down"
+"Mod+Shift+Up" = "output-focus-up"
+"Mod+Shift+Right" = "output-focus-right"
+
+# Move columns between monitors
+"Mod+Shift+Ctrl+Left" = "column-move-to-output-left"
+"Mod+Shift+Ctrl+Down" = "column-move-to-output-down"
+"Mod+Shift+Ctrl+Up" = "column-move-to-output-up"
+"Mod+Shift+Ctrl+Right" = "column-move-to-output-right"
+
+# Alternative monitor movement bindings
+"Mod+Shift+Ctrl+H" = "column-move-to-output-left"
+"Mod+Shift+Ctrl+J" = "column-move-to-output-down"
+"Mod+Shift+Ctrl+K" = "column-move-to-output-up"
+"Mod+Shift+Ctrl+L" = "column-move-to-output-right"
+
+# Select first or last window
+"Mod+N" = "column-focus-last"
+"Mod+P" = "column-focus-first"
+
+
+# Workspace Navigation ------------------------------------------------------
+
+"Mod+I" = "workspace-previous"
+"Mod+U" = "workspace-next"
+
+"Mod+Shift+I" = "window-move-to-workspace-previous"
+"Mod+Shift+U" = "window-move-to-workspace-next"
+
+# "Mod+I" = "workspace-move-up"
+# "Mod+U" = "workspace-move-down"
+
+"Mod+Ctrl+I" = "column-move-to-workspace-previous"
+"Mod+Ctrl+U" = "column-move-to-workspace-next"
+
+
+# Workspace Switching -------------------------------------------------------
+
+"Mod+1" = "workspace-switch:1"
+"Mod+2" = "workspace-switch:2"
+"Mod+3" = "workspace-switch:3"
+"Mod+4" = "workspace-switch:4"
+"Mod+5" = "workspace-switch:5"
+"Mod+6" = "workspace-switch:6"
+"Mod+7" = "workspace-switch:7"
+"Mod+8" = "workspace-switch:8"
+"Mod+9" = "workspace-switch:9"
+"Mod+0" = "workspace-switch:10"
+
+"Mod+Shift+1" = "window-move-to-workspace:1"
+"Mod+Shift+2" = "window-move-to-workspace:2"
+"Mod+Shift+3" = "window-move-to-workspace:3"
+"Mod+Shift+4" = "window-move-to-workspace:4"
+"Mod+Shift+5" = "window-move-to-workspace:5"
+"Mod+Shift+6" = "window-move-to-workspace:6"
+"Mod+Shift+7" = "window-move-to-workspace:7"
+"Mod+Shift+8" = "window-move-to-workspace:8"
+"Mod+Shift+9" = "window-move-to-workspace:9"
+"Mod+Shift+0" = "window-move-to-workspace:10"
+
+
+# Scratchpad ----------------------------------------------------------------
+
+"Mod+Shift+grave" = "window-move-to-scratchpad"
+"Mod+grave" = "scratchpad-toggle"
+"Mod+Ctrl+grave" = "window-restore-from-scratchpad"
+"Mod+Tab" = "scratchpad-focus-next"
+
+# Add `:DP-1` to any scratchpad action to target that output from anywhere.
+# "Mod+0" = "scratchpad-toggle:DP-1"
+# "Mod+Shift+0" = "window-move-to-scratchpad:DP-1"
+# "Mod+Ctrl+0" = "window-restore-from-scratchpad:DP-1"
+# "Mod+Alt+0" = "scratchpad-focus-next:DP-1"
+
+
+# Layout / Overview ---------------------------------------------------------
+
+"Mod+O" = "overview-toggle"
+
+# "Mod+Space" is taken above; pick a free chord for layout switching.
+# "Mod+Space" = "workspace-set-layout:toggle"
+
+# "Mod+Shift+K" = "keyboard-layout-next"
+
+
+# Column Management ---------------------------------------------------------
+
+# The following binds move the focused window in and out of a column.
+# If the window is alone, they will consume it into the nearby column to the side.
+# If the window is already in a column, they will expel it out.
+
+# Consume one window from the right to the bottom of the focused column.
+# Expel the bottom window from the focused column to the right.
+"Mod+Period" = "window-expel-right"
+
+"Mod+R" = "window-cycle-width"
+"Mod+Alt+K" = "window-cycle-width"
+"Mod+Alt+J" = "window-cycle-width-back"
+
+"Mod+Minus" = "window-modify-width:-0.1"
+"Mod+Equal" = "window-modify-width:0.1"
+
+
+# Applications --------------------------------------------------------------
+
+"Mod+Return" = "spawn:kitty"
+"Mod+B" = "spawn:helium-browser"
+"Mod+E" = "spawn:nautilus"
+"Mod+D" = "spawn:vesktop"
+"Mod+M" = "spawn:spotify-launcher"
+
+# "Mod+A" = "spawn:$HOME/.local/scripts/toggle-sticky"
+
+
+# Noctalia / Utilities ------------------------------------------------------
+
+"Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Comma" = "spawn:noctalia msg settings-toggle"
+"Mod+V" = "spawn:noctalia msg panel-toggle clipboard"
+"Alt+Space" = "spawn:noctalia msg panel-toggle wallpaper"
+
+"Mod+Shift+S" = "spawn:noctalia msg screenshot-region"
+"Mod+Alt+S" = "spawn:noctalia msg screenshot-fullscreen"
+
+"Mod+Alt+L" = "spawn:noctalia msg session lock"
+
+"Mod+slash" = "spawn:vicinae vicinae://launch/core/search-emojis"
+
+
+# Screenshots ----------------------------------------------------------------
+
+"Print" = "spawn:umbriel msg screenshot-screen write-to-disk=true"
+
+
+# Power ---------------------------------------------------------------------
+
+"Mod+Shift+Q" = "spawn:systemctl poweroff"
+"Mod+Shift+R" = "spawn:systemctl reboot"
+"Mod+Ctrl+Q" = "session-quit:skip-confirmation"
+
+
+# Media and Volume -----------------------------------------------------------
+
+"XF86AudioRaiseVolume" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+"XF86AudioLowerVolume" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+"XF86AudioMute" = "spawn:wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+"Mod+Up" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+ -l 1.5"
+"Mod+Down" = "spawn:wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- -l 1.5"
+
+"XF86Launch6" = "spawn:wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+"Mod+Shift+M" = "spawn:wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+"XF86AudioPlay" = "spawn:playerctl play-pause"
+"XF86AudioNext" = "spawn:playerctl next"
+"XF86AudioPrev" = "spawn:playerctl prev"
+
+
+# Brightness ----------------------------------------------------------------
+
+# Controls intended to remain usable while the session is locked use the table form.
+"XF86MonBrightnessDown" = { action = "spawn:noctalia msg brightness-down 10", allow_when_locked = true }
+
+
+# DPMS ----------------------------------------------------------------------
+
+# "Mod+Shift+O" = "dpms-off"
+# "Mod+Ctrl+O" = "dpms-off:DP-1"
+

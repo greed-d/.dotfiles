@@ -1,0 +1,137 @@
+[animation]
+enabled = true
+duration_ms = 150
+curve = "easeout"
+
+[animation.beziers]
+expressiveFastSpatial = [0.42, 1.67, 0.21, 0.90]
+expressiveSlowSpatial = [0.39, 1.29, 0.35, 0.98]
+expressiveDefaultSpatial = [0.38, 1.21, 0.22, 1.00]
+emphasizedDecel = [0.05, 0.7, 0.1, 1.0]
+emphasizedAccel = [0.3, 0.0, 0.8, 0.15]
+standardDecel = [0.0, 0.0, 0.0, 1.0]
+menu_decel = [0.1, 1.0, 0.0, 1.0]
+menu_accel = [0.52, 0.03, 0.72, 0.08]
+stall = [1.0, -0.1, 0.7, 0.85]
+
+
+[animation.windows_in]
+enabled = true
+duration_ms = 300
+curve = "emphasizedDecel"
+style = "popin"
+
+
+[animation.windows_out]
+enabled = true
+duration_ms = 200
+curve = "emphasizedDecel"
+style = "slide"
+
+
+[animation.windows_move]
+enabled = true
+duration_ms = 300
+curve = "emphasizedDecel"
+
+
+[animation.border]
+enabled = true
+duration_ms = 1000
+curve = "emphasizedDecel"
+
+
+[animation.layers]
+enabled = true
+duration_ms = 270
+curve = "emphasizedDecel"
+
+
+[animation.workspaces]
+enabled = true
+duration_ms = 700
+curve = "menu_decel"
+
+
+[animation.overview]
+enabled = true
+duration_ms = 350
+curve = "easeout"
+
+
+[animation.scratchpad]
+enabled = false
+duration_ms = 250
+curve = "easeout"
+dim = 0.5          # 0.0-1.0
+blur = false       # requires appearance.blur.enabled
+scale = 0.0        # 0 preserves geometry; 0.1-1.0 sizes and centers on entry
+maximize = false   # maximize to edges on entry
+fullscreen = false # fullscreen on entry
+
+
+[animation.dim_unfocused]
+enabled = true
+duration_ms = 250
+curve = "easeout"
+dim = 0.3         # 0.0-1.0
+
+
+# [animation.layers]
+# enabled = true
+# duration_ms = 270
+# curve = "stall"
+
+# [animation.windows_in]
+# enabled = true
+# duration_ms = 150
+# curve = "easeout"
+# style = "zoom"    # "popin", "zoom", "slide", "fade", or "none"
+# scale = 0.85      # 0.1-1.0, used by "popin"
+#
+# [animation.windows_out]
+# enabled = true
+# duration_ms = 150
+# curve = "easeout"
+# style = "slide"   # "fade" or "slide"
+#
+# [animation.windows_move]
+# enabled = true
+# duration_ms = 250
+# curve = "snappy"
+#
+# [animation.workspaces]
+# enabled = true
+# duration_ms = 250
+# curve = "easeout"
+#
+# [animation.overview]
+# enabled = true
+# duration_ms = 250
+# curve = "easeout"
+#
+# [animation.scratchpad]
+# enabled = false
+# duration_ms = 250
+# curve = "easeout"
+# dim = 0.5          # 0.0-1.0
+# blur = false       # requires appearance.blur.enabled
+# scale = 0.0        # 0 preserves geometry; 0.1-1.0 sizes and centers on entry
+# maximize = false   # maximize to edges on entry
+# fullscreen = false # fullscreen on entry
+#
+# [animation.border]
+# enabled = true
+# duration_ms = 250
+# curve = "easeout"
+#
+# [animation.dim_unfocused]
+# enabled = true
+# duration_ms = 250
+# curve = "easeout"
+# dim = 0.3         # 0.0-1.0
+#
+# [animation.layers]
+# enabled = false
+# duration_ms = 250
+# curve = "easeout"

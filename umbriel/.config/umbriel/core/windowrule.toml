@@ -1,0 +1,178 @@
+# ---------- WORKSPACE RULE -----------
+[layout]
+scrolling.direction = "horizontal"
+
+[[workspace]]
+index = 7
+layout.mode = "dwindle"
+
+[[workspace]]
+index = 8
+layout.mode = "master"
+
+
+# Window and Layer Rules (see docs/user/rules.md) ---------------------------
+
+
+# ---------- GLOBAL WINDOW RULES ----------
+
+# Blur all windows
+[[window_rule]]
+blur = true
+blur_optimized = true
+
+# Dim unfocused windows
+[[window_rule]]
+match.is_focused = false
+opacity = 0.75
+
+
+# ---------- FLOATING WINDOWS ----------
+
+######### General settings #########:
+
+# Float utility windows
+[[window_rule]]
+match.app_id = "^(Emulator|zenity|xdg-desktop-portal|qalculate-gtk|org\\.pulseaudio\\.pavucontrol|one.alynx.showmethekey|dev.lemmy.swash)$"
+default_floating = true
+
+# Float common dialogs by title
+[[window_rule]]
+match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files|Bitwarden|DAMX)"
+default_floating = true
+
+# ---------- FLOATING WINDOWS ----------
+
+[[window_rule]]
+match.title = "^(file_progress|confirm|dialog|download|notification |error|splash|nwg-look|confirmreset|Delete profile)$|^File Operation Progress$|^Confirm to replace files$|^KDE Connect URL handler$|^(Open File|Select a File|Choose wallpaper|Open Folder|Save As|Library|File Upload).*$|Choose Where to Download|^(.*)-Google$|^(.*)System Update$|(.*) - Google (.*) - (.*)"
+match.app_id = "^(xdm-app|org\\.qbittorrent\\.qBittorrent|org\\.pulseaudio\\.pavucontrol|net\\.davidotek\\.pupgui2|com\\.github\\.th_c\\.youtube_music|DivAcerManagerMax)$"
+default_floating = true
+
+
+# ---------- APPLICATION RULES ----------
+
+# Nautilus
+[[window_rule]]
+match.app_id = "(^org\\.gnome\\.Nautilus$|thunar|dolphin)"
+blur = true
+opacity = 0.9
+default_maximize = true
+
+# Helium
+[[window_rule]]
+match.app_id = "(^helium$|^zen-*|vivaldi-stable)"
+default_maximize_to_edges = true
+default_workspace = 1
+
+# Obsidian
+[[window_rule]]
+match.app_id = "(^[Oo]bsidian$|md.obsidian.Obsidian)"
+opacity = 0.9
+default_workspace = 7
+default_floating = true
+default_maximize = true
+default_size = [1520, 995]
+
+# Spotify
+[[window_rule]]
+match.app_id = "^[Ss]potify$"
+opacity = 0.9
+default_workspace = 8
+default_floating = true
+default_size = [1520, 995]
+
+# Vesktop
+[[window_rule]]
+match.app_id = "^vesktop$"
+default_maximize_to_edges = true
+default_workspace = 9
+opacity = 0.9
+
+# Telegram
+[[window_rule]]
+match.app_id = "^org.telegram.desktop$"
+default_workspace = 10
+default_maximize = true
+opacity = 0.9
+
+[[window_rule]]
+match.app_id = "mpv"
+default_fullscreen = true
+
+# Noctalia
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_size = [1620, 1000]
+
+# Noctalia Share Picker
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_size = [800, 600]
+
+
+# ---------- OPEN MAXIMIZED -------------
+
+[[window_rule]]
+match.app_id = "^(com\\.github\\.th_c\\.youtube_music|Postman|Element|steam|Emacs|neovide)$"
+default_maximize = true
+
+# ---------- FLOATING DOWNLOAD MANAGERS ----------
+
+# Motrix
+[[window_rule]]
+match.app_id = "^Motrix$"
+default_floating = true
+
+# Motrix Next
+[[window_rule]]
+match.app_id = "^motrix-next$"
+match.title = "^Motrix Next$"
+default_floating = true
+
+# AB Download Manager
+[[window_rule]]
+match.app_id = "^com-abdownloadmanager-desktop-AppKt$"
+match.title = "^AB Download Manager$"
+default_floating = true
+default_size = [1550, 950]
+
+# AB Download Manager Settings
+[[window_rule]]
+match.app_id = "^com-abdownloadmanager-desktop-AppKt$"
+match.title = "^Settings$"
+default_floating = true
+
+# default-floating-position x=180 y=45
+# max-width 1515
+# max-height 955
+# min-width 700
+
+# ---------- TERMINAL BLUR ----------
+
+[[window_rule]]
+match.app_id = "(kitty|ghostty|alacritty)"
+blur = true
+opacity = 0.9
+
+# ---------- EXAMPLE / DISABLED RULES ----------
+
+# [[window_rule]]
+# match.is_focused = true
+# opacity = 1.0
+
+# [[window_rule]]
+# match.app_id = "firefox"
+# match.title = "^Library$"
+# default_floating = true
+# default_focused = false
+# focus_on_activate = true
+# vrr = "always"                # override the output VRR policy while focused
+# hdr = "fullscreen"            # override the output HDR policy while focused
+
+# [[window_rule]]
+# match.title = "^notificationtoasts_.+_desktop"
+# default_position = { x = 0, y = 0, anchor = "bottom_right" }
+# default_focused = false
+# default_pinned = true
