@@ -129,7 +129,6 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
 background_opacity = 0.39999999105930328
 border_width = 1.0
 cross_axis_padding = 0
-enabled = true
 icon_size = 36
 item_spacing = 4
 launcher_position = "start"
@@ -938,8 +937,18 @@ media = false
 panel_open_near_click = true
 panel_placement = "attached"
 
+[plugin_settings."thepunkoff/pomodoro"]
+work-duration = 40
+
 [plugins]
-enabled = [ "noctalia/notes", "noctalia/timer", "alexander/screen-toolkit", "thepunkoff/pomodoro", "noctalia/bongocat" ]
+enabled = [
+    "noctalia/notes",
+    "noctalia/timer",
+    "alexander/screen-toolkit",
+    "thepunkoff/pomodoro",
+    "noctalia/bongocat",
+    "noctalia/screen_recorder"
+]
 
     [[plugins.source]]
     kind = "git"
@@ -1131,9 +1140,10 @@ show_condition = false
 
 [widget.widget]
 type = "thepunkoff/pomodoro:widget"
+widget-glyph-main = "hourglass-filled"
+widget-glyph-work = "hourglass-low"
 
 [widget.widget_2]
-enabled = false
 type = "alexander/screen-toolkit:widget"
 
 [widget.workspaces]
