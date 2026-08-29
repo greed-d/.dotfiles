@@ -84,6 +84,9 @@ order = [ "normal" ]
 [battery.device."/org/freedesktop/UPower/devices/headset_dev_80_99_E7_8E_80_47"]
 warning_threshold = 20
 
+[control_center.calendar]
+show_events_card = false
+
 [desktop_widgets]
 schema_version = 2
 widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002" ]
@@ -983,7 +986,7 @@ source = "builtin"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "sway" ]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "sway", "umbriel" ]
     community_ids = [ "vscode", "discord", "opencode", "papirus-icons" ]
 
 [wallpaper]
