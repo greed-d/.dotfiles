@@ -8,7 +8,7 @@ environment {
     DISPLAY ":1"
     GTK_THEME "Catppuccin-Mauve-Dark"
     XDG_MENU_PREFIX "plasma-"
-    BROWSER "helium-browser-bin"
+    BROWSER "helium-browser"
 }
 // Miscellaneous Settings
 prefer-no-csd
@@ -17,14 +17,14 @@ hotkey-overlay {
     skip-at-startup
 }
 // One day I hope my laptop shows this event
-switch-events {
-    lid-close {
-        spawn "notify-send" "The laptop lid is closed!"
-      }
-    lid-open {
-        spawn "notify-send" "The laptop lid is open!"
-    }
-}
+// switch-events {
+//     lid-close {
+//         spawn notify-send "The laptop lid is closed!"
+//     }
+//     lid-open {
+//         spawn notify-send "The laptop lid is open!"
+//     }
+// }
 cursor {
     xcursor-theme "Bibata-Modern-Classic"
     xcursor-size 20

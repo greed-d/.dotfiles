@@ -26,9 +26,9 @@ binds {
     Mod+Alt+S {
         screenshot-screen
     }
-    // Mod+Shift+S {
-    //     screenshot
-    // }
+    Mod+Shift+S {
+        screenshot
+    }
     // Mod+Shift+S allow-when-locked=true {
     //      spawn "flameshot" "gui"
     // }
@@ -59,8 +59,6 @@ binds {
     // Alt+Space {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
     // }
-
-
     // Mod+Comma {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
     // }
@@ -84,7 +82,7 @@ binds {
         spawn "app2unit" "--" "kitty"
     }
     Mod+B {
-        spawn "app2unit" "--" "helium-browser-bin"
+        spawn "app2unit" "--" "helium-browser"
     }
     Mod+E {
         spawn "app2unit" "--" "nautilus"

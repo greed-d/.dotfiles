@@ -12,47 +12,46 @@ workspace "0"
 [[ Layer Rule ]]
 */
 // Set the overview wallpaper on the backdrop.
-
-blur {
-  on
-  passes 3        // more passes = stronger blur (default: 3)
-  offset 6.0      // sample distance per pass (default: 3.0)
-  noise 0.07      // grain overlay (default: 0.02)
-  saturation 1.9  // color saturation boost (default: 1.5)
-}
-
 recent-windows {
     // off
     debounce-ms 750
     open-delay-ms 100
-
     highlight {
         active-color "#999999ff"
         urgent-color "#ff9999ff"
         padding 30
         corner-radius 0
     }
-
     previews {
         max-height 480
         max-scale 0.5
     }
-
     binds {
-        Alt+Tab         { next-window; }
-        Alt+Shift+Tab   { previous-window; }
-        Alt+grave       { next-window     filter="app-id"; }
-        Alt+Shift+grave { previous-window filter="app-id"; }
-
-        Mod+Tab         { next-window; }
-        Mod+Shift+Tab   { previous-window; }
-        Mod+grave       { next-window     filter="app-id"; }
-        Mod+Shift+grave { previous-window filter="app-id"; }
+        Alt+Tab {
+            next-window
+        }
+        Alt+Shift+Tab {
+            previous-window
+        }
+        Alt+grave {
+            next-window filter="app-id"
+        }
+        Alt+Shift+grave {
+            previous-window filter="app-id"
+        }
+        Mod+Tab {
+            next-window
+        }
+        Mod+Shift+Tab {
+            previous-window
+        }
+        Mod+grave {
+            next-window filter="app-id"
+        }
+        Mod+Shift+grave {
+            previous-window filter="app-id"
+        }
     }
-}
-layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
 }
 // layer-rule {
 //   match namespace="^noctalia-background-.*$"
@@ -62,41 +61,6 @@ layer-rule {
 //     xray false
 //   }
 // }
-layer-rule {
-    match namespace="^launcher$"
-    match namespace="^vicinae$"
-    opacity 0.7
-    background-effect {
-      blur true
-      xray false
-    }
-}
-layer-rule {
-    //  eww
-    match namespace="gtk-layer-shell"
-    match at-startup=true
-    shadow {
-        on
-        softness 10
-        spread 1
-        offset x=0 y=1
-        draw-behind-window true
-        color "#00000030"
-    }
-}
-layer-rule {
-    //  eww
-    match namespace="rofi"
-    match at-startup=true
-    shadow {
-        on
-        softness 10
-        spread 1
-        offset x=0 y=1
-        draw-behind-window true
-        color "#00000030"
-    }
-}
 /*
 ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗    ██████╗ ██╗   ██╗██╗     ███████╗███████╗
 ██║    ██║██║████╗  ██║██╔══██╗██╔═══██╗██║    ██║    ██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
@@ -141,17 +105,16 @@ window-rule {
     match app-id="zen$" title="^Picture-in-Picture$"
     open-floating true
 }
-
 window-rule {
-  match app-id="Motrix"
-  match app-id="motrix-next" title="Motrix Next"
-  match app-id="com-abdownloadmanager-desktop-AppKt"
-  match app-id="com-abdownloadmanager-desktop-AppKt" title="Settings"
-  open-floating true
-  default-floating-position x=180 y=45
-  // max-width 1515
-  max-height 955
-  min-width 700
+    match app-id="Motrix"
+    match app-id="motrix-next" title="Motrix Next"
+    match app-id="com-abdownloadmanager-desktop-AppKt"
+    match app-id="com-abdownloadmanager-desktop-AppKt" title="Settings"
+    open-floating true
+ // default-floating-position x=180 y=45
+    // max-width 1515
+    // max-height 955
+ // min-width 700
 }
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -202,13 +165,11 @@ window-rule {
     clip-to-geometry true
 }
 debug {
-  // Allows notification actions and window activation from Noctalia.
+    // Allows notification actions and window activation from Noctalia.
     honor-xdg-activation-with-invalid-serial
-
     // Hopefully NVIDIA FIX?
     wait-for-frame-completion-before-queueing
 }
-
 /*
 [[ App Rules ]]
 */
@@ -219,9 +180,9 @@ window-rule {
     match app-id="footclient"
     match app-id="neovide"
     background-effect {
-      blur true
+        blur true
     }
- opacity 0.90
+    opacity 0.9
 }
 window-rule {
     match app-id="zen$"
@@ -247,11 +208,10 @@ window-rule {
     match app-id="spotify"
     open-on-workspace "🎵 SONG"
     background-effect {
-      blur true
+        blur true
     }
- opacity 0.90
+    opacity 0.9
 }
-
 window-rule {
     match app-id="sioyek"
     match app-id="md.Obsidian"
@@ -260,18 +220,16 @@ window-rule {
 window-rule {
     match app-id="^vesktop$"
     open-on-workspace "💬 CHAT"
-
     background-effect {
-      blur true
+        blur true
     }
- opacity 0.90
+    opacity 0.9
 }
 window-rule {
     match app-id="^org.telegram.desktop$"
     open-on-workspace "0"
-
     background-effect {
-      blur true
+        blur true
     }
- opacity 0.90
+    opacity 0.9
 }

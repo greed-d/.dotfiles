@@ -1,31 +1,54 @@
 binds {
     /* Audio Stuff */
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
-    XF86AudioPrev { spawn-sh "noctalia msg media previous"; }
-    XF86AudioNext { spawn-sh "noctalia msg media next"; }
-    XF86AudioMute allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
-
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn-sh "noctalia msg volume-up"
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn-sh "noctalia msg volume-down"
+    }
+    XF86AudioPrev {
+        spawn-sh "noctalia msg media previous"
+    }
+    XF86AudioNext {
+        spawn-sh "noctalia msg media next"
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn-sh "noctalia msg volume-mute"
+    }
     /* Brightness Stuff */
-    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
-    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
-
+    XF86MonBrightnessUp {
+        spawn-sh "noctalia msg brightness-up"
+    }
+    XF86MonBrightnessDown {
+        spawn-sh "noctalia msg brightness-down"
+    }
     /* Alternative Audio Stuff */
-    Mod+Up allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
-    Mod+Down allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
-    Mod+Shift+M { spawn-sh "noctalia msg mic-mute"; }
-
+    Mod+Up allow-when-locked=true {
+        spawn-sh "noctalia msg volume-up"
+    }
+    Mod+Down allow-when-locked=true {
+        spawn-sh "noctalia msg volume-down"
+    }
+    Mod+Shift+M {
+        spawn-sh "noctalia msg mic-mute"
+    }
     /* Session Stuff */
-    Mod+Alt+L { spawn-sh "noctalia msg session lock"; }
-
+    Mod+Alt+L {
+        spawn-sh "noctalia msg session lock"
+    }
     /* Wallpaper Stuff */
-    Alt+Space { spawn-sh "noctalia msg panel-toggle wallpaper"; }
-
+    Alt+Space {
+        spawn-sh "noctalia msg panel-toggle wallpaper"
+    }
     /* Control Center Stuff */
-    Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
-
+    Mod+Comma {
+        spawn-sh "noctalia msg settings-toggle"
+    }
     /* Launcher Stuff */
-    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
-    Mod+V { spawn-sh "noctalia msg panel-toggle clipboard"; }
-
+    Mod+Space {
+        spawn-sh "noctalia msg panel-toggle launcher"
+    }
+    Mod+V {
+        spawn-sh "noctalia msg panel-toggle clipboard"
+    }
 }

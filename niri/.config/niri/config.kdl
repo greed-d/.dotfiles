@@ -3,24 +3,29 @@ include "configs/monitor.kdl"
 include "configs/layout.kdl"
 include "configs/animations.kdl"
 include "configs/rules.kdl"
+include "configs/layerrules.kdl"
+include "configs/blur.kdl"
 include "configs/keybinds.kdl"
 include "configs/execs.kdl"
 include "configs/environment.kdl"
 /*
-    [[ NOCTALIA INCLUDE ]]
+[[ NOCTALIA INCLUDE ]]
 */
-// include "noctalia/keybinds.kdl"
-// include "noctalia/alttab.kdl"
-// include "noctalia/colors.kdl"
-// include "noctalia/layout.kdl"
-// include "noctalia/configs.kdl"
-
+include "noctalia/keybinds.kdl"
+include "noctalia/alttab.kdl"
+include "noctalia/colors.kdl"
+include "noctalia/layout.kdl"
+include "noctalia/configs.kdl"
 /*
-    [[ DMS INCLUDE ]]
+[[ DMS INCLUDE ]]
 */
-include "dms/layout.kdl"
-include "dms/windowrules.kdl"
-include "dms/binds.kdl"
-include "dms/alttab.kdl"
-include "dms/colors.kdl"
-include "dms/wpblur.kdl"
+// include "dms/layout.kdl"
+// include "dms/windowrules.kdl"
+// include "dms/binds.kdl"
+// include "dms/alttab.kdl"
+// include "dms/colors.kdl"
+// include "dms/wpblur.kdl"
+include noctalia.kdl
+
+
+include "noctalia.kdl"
