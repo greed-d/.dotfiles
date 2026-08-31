@@ -27,6 +27,8 @@ term = xterm-ghostty
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
 gtk-single-instance = true
+font-thicken = true
+font-thicken-strength = 90
 
 window-padding-x = 7
 window-padding-y = 7
@@ -45,11 +47,11 @@ font-style = Regular
 font-style-bold = Bold
 # font-family = JetBrainsMono Nerd Font
 # font-family = InputMono Nerd Font
-font-size = 10
+font-size = 9
 font-feature = -calt
 cursor-text = #000000
 
 window-decoration = false
 adjust-cell-height = 4
 
-theme = "Catppuccin Mocha"
+theme = noctalia
