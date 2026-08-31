@@ -81,6 +81,7 @@ alias lvim "env NVIM_APPNAME=lazyvim nvim"
 alias ivim "env NVIM_APPNAME=ivim nvim"
 alias i "paru -S --noconfirm"
 alias v "nvim"
+alias nv "neovide"
 alias tvim "env NVIM_APPNAME=testvim nvim"
 alias kvim "env NVIM_APPNAME=nvim-bak nvim"
 alias .. "cd .."
@@ -139,7 +140,7 @@ set PATH "$PATH":"$HOME/.local/colorscripts/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
 set PATH "$PATH":"$HOME/.local/share/bob/nvim-bin"
-set -gx BROWSER floorp
+set -gx BROWSER helium-browser
 # set -gx GRIMBLAST_HIDE_CURSOR 0
 fish_add_path -g -p $HOME/flutter/bin
 #set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
@@ -197,3 +198,8 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/deekshit.bhattarai/.lmstudio/bin
+# End of LM Studio CLI section
+

@@ -91,6 +91,7 @@ SETUVAR pure_symbol_reverse_prompt:\u276e
 SETUVAR pure_symbol_ssh_prefix:
 SETUVAR pure_symbol_title_bar_separator:\x2d
 SETUVAR pure_symbol_virtualenv_prefix:
+SETUVAR pure_system_time_format:\x2b\x25T
 SETUVAR pure_threshold_command_duration:5
 SETUVAR pure_truncate_prompt_current_directory_keeps:\x2d1
 SETUVAR pure_truncate_window_title_current_directory_keeps:\x2d1
