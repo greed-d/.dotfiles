@@ -233,9 +233,6 @@
         "KeepCurrentChannel": {
             "enabled": false
         },
-        "LastFMRichPresence": {
-            "enabled": false
-        },
         "LoadingQuotes": {
             "enabled": false
         },
@@ -255,9 +252,6 @@
             "enabled": false
         },
         "MessageLogger": {
-            "enabled": false
-        },
-        "MessageTags": {
             "enabled": false
         },
         "MoreCommands": {
@@ -580,6 +574,12 @@
         },
         "ImageFilename": {
             "enabled": false
+        },
+        "CustomCommands": {
+            "enabled": false
+        },
+        "MusicRichPresence": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -592,7 +592,12 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1762618733799
+        "settingsSyncVersion": 1787205337262
     },
-    "eagerPatches": false
+    "eagerPatches": false,
+    "windowsMaterial": "none",
+    "uiElements": {
+        "chatBarButtons": {},
+        "messagePopoverButtons": {}
+    }
 }

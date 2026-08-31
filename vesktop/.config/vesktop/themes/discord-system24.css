@@ -1,0 +1,366 @@
+/**
+* @name Noctalia System24
+* @description A fork of 'System24' for Noctalia Shell
+* @author Ezequielgk
+* @version 2.0.1
+*/
+
+@import url('https://refact0r.github.io/system24/build/system24.css');
+
+/* --- BASE VARIABLES --- */
+body {
+  --font: '';
+  --code-font: '';
+  font-weight: 400;
+  letter-spacing: normal;
+  font-size: 14px;
+  --gap: 12px;
+  
+  --divider-thickness: 1px;
+  --border-thickness: 1px;
+
+  --animations: on;
+  --list-item-transition: 0.1s ease;
+
+  --top-bar-height: var(--gap);
+  --top-bar-title-position: off;
+
+  --small-user-panel: on;
+  --unrounding: on;
+
+  /* Noctalia Logo */
+  --custom-dms-icon: custom;
+  --dms-icon-svg-url: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB3aWR0aD0iMjU2IgogICBoZWlnaHQ9IjI1NiIKICAgdmlld0JveD0iMCAwIDY3LjczMzMzNCA2Ny43MzMzMzQiCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZzEiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnMKICAgICBpZD0iZGVmczEiIC8+CiAgPGcKICAgICBpZD0iZzEiCiAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMS4xMDEwODY5LDAsMCwxLjEwMTA4NjksLTMuNDIzODM0NywtMy40MjM0ODkzKSI+CiAgICA8ZwogICAgICAgaWQ9Imc1NSIKICAgICAgIHN0eWxlPSJmaWxsOiMwMDAwMDA7ZmlsbC1vcGFjaXR5OjEiCiAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCg0LjIwNTU5MDUsMCwwLDQuMjA1NTkwNSwtMTQuNzg4ODk4LC0xODAuNDMzNjIpIj4KICAgICAgPHBhdGgKICAgICAgICAgaWQ9InBhdGg1NSIKICAgICAgICAgc3R5bGU9ImZpbGw6IzAwMDAwMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MTtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6OS4xO3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtwYWludC1vcmRlcjpmaWxsIG1hcmtlcnMgc3Ryb2tlIgogICAgICAgICBkPSJtIDExLjY0NjQ4NCw0My42NDI1NzggYSA3LjMxNDEzNTYsNy4zMTQxMzU2IDAgMCAwIC03LjMxMjQ5OTYsNy4zMTI1IDcuMzE0MTM1Niw3LjMxNDEzNTYgMCAwIDAgNy4zMTI0OTk2LDcuMzE0NDUzIDcuMzE0MTM1Niw3LjMxNDEzNTYgMCAwIDAgNy4xNTgyMDQsLTUuODk4NDM3IDYuMjIwMzMwMiw2LjIyMDMzMDIgMCAwIDEgLTMuNDE2MDE2LDMuNDY0ODQ0IGMgMC4wMDE1LDAuMjc3NDA2IDAuMDAzOSwwLjUzMjU1IDAuMDAzOSwwLjcyNjU2MiAtMC43Mzk0NDUsMCAtMS4zNzU4MzUsLTAuMTAxODg2IC0xLjkyMTg3NSwtMC4yNzE0ODQgYSA2LjIyMDMzMDIsNi4yMjAzMzAyIDAgMCAxIC0wLjQ0MTQwNiwwLjAzNTE2IDYuMjIwMzMwMiw2LjIyMDMzMDIgMCAwIDEgLTYuMjIwNzAzMiwtNi4yMjA3MDMgNi4yMjAzMzAyLDYuMjIwMzMwMiAwIDAgMSA2LjIyMDcwMzIsLTYuMjIwNzAzIDYuMjIwMzMwMiw2LjIyMDMzMDIgMCAwIDEgMC41NzYxNzIsMC4wMjczNCA3LjMxNDEzNTYsNy4zMTQxMzU2IDAgMCAwIC0xLjk1ODk4NSwtMC4yNjk1MzEgeiIgLz4KICAgIDwvZz4KICAgIDxwYXRoCiAgICAgICBpZD0icGF0aDU2IgogICAgICAgc3R5bGU9ImZpbGw6IzAwMDAwMDtmaWxsLW9wYWNpdHk6MTtzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MS4zNDYwODtzdHJva2UtbWl0ZXJsaW1pdDo5LjE7cGFpbnQtb3JkZXI6ZmlsbCBtYXJrZXJzIHN0cm9rZSIKICAgICAgIGQ9Im0gNDIuNjY0NDQsMzEuMjkxNDc0IGMgLTEuODAyODgyLDIuMDIzMTA1IC00Ljk1MDEzOSwyLjQ5MjY2MSAtOC41MjU0LDIuNTAyOCAtMi43MTgxNiwtMC4wMDc3IC01LjQ1MDQ3NiwtMC4xMjgyMjcgLTcuMjY5NTYsLTEuMzg5NTUxIC0xLjgxNjU0MiwwLjMyNDE4MiAtMi41NzkxNTcsMi4zNDQwMzMgLTIuNDE1ODY2LDQuNzAyNzc3IDEuMTY0NjQ3LDE2LjgyMjk2NyAxMS44MTY3MiwxNS43MzQ2NDUgMTEuOTEyMTk4LDE1LjcwNzE0NSAtNy43OTMzNjYsLTMuODAyNDQ3IC02LjUxNjQ5OCwtMTAuMDAwNDggLTYuNzcyNjIyLC0xMS45NzUyOTMgMC4zMjA5MjgsMy4zNDIzMyAzLjg5NTkyNiwxMi44NTY3NjQgMTcuMjM1NDk0LDEyLjg1Njc2NCAwLC00LjAwOTY1NSAwLjAxOTkyLC0xNC4zMTEwMzUgLTEuMjc5MDgsLTE3LjQ4NzAyNCAtMC40MDkxMjQsLTEuMjM3MzEyIC0xLjUyNTI2LC00LjU0Njk2MyAtMi44ODUxNjQsLTQuOTE3NjE4IHoiIC8+CiAgICA8cGF0aAogICAgICAgaWQ9InBhdGg1NyIKICAgICAgIHN0eWxlPSJmaWxsOiMwMDAwMDA7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjMuNzY1NjU7c3Ryb2tlLW1pdGVybGltaXQ6OS4xO3BhaW50LW9yZGVyOmZpbGwgbWFya2VycyBzdHJva2UiCiAgICAgICBkPSJtIDIwLjk5MjAxMywxNi4wODcwMDQgYyAwLjYwODk0NCwxLjg2NTU0NSAxLjgzNTMzNCwzLjcwNDMxNCAzLjQ4MDA4Niw0LjQwMTc0NSAtMC40NTg3ODEsMS4zODI4MDQgLTAuNDYwODMxLDMuMDI0OTQ5IC0wLjQ2MDgzMSw0Ljc4MzEyNiAwLDQuOTI3ODk1IDQuNTMzNjk4LDguOTE5NDEzIDEwLjEzMDM1OSw4LjkzODU1OSA1LjU5NjY2NCwtMC4wMTkxMiAxMC4xMzAzNjcsLTQuMDEwNjY3IDEwLjEzMDM2NywtOC45Mzg1NTkgMCwtMS43NTgxNzcgLTAuMDAyMSwtMy40MDAzMjIgLTAuNDYwODMzLC00Ljc4MzEyNiAxLjY0NDc1MywtMC42OTc0MzEgMi44NzExNDIsLTIuNTM2MiAzLjQ4MDA4NCwtNC40MDE3NDUgLTEuOTg3Nzc2LC0wLjAzMDUgLTUuMTUwOTA4LDAuNzAwNzU3IC03Ljg1MDA0NywwLjc4NjU5NSAtMS4zNTE1MzksLTAuMzUxODQ1IC0zLjA4NjEzNywtMC41NDU4NjggLTUuMjk5NTcxLC0wLjU0ODIzMyAtMi4yMTM0MzEsMC4wMDI0IC0zLjk0ODAyNywwLjE5NjM2NyAtNS4yOTk1NjgsMC41NDgyMzMgLTIuNjk5MTM1LC0wLjA4NTg0IC01Ljg2MjI2NiwtMC44MTcxODcgLTcuODUwMDQ2LC0wLjc4NjU5NSB6IG0gNi43Nzc0MTksNC42NDgwNTMgYyAwLjU1NTQ3LC0wLjAxMzgzIDEuMjk5Nzc5LDAuMDYyMDQgMi4zMDQxNjEsMC4yNDYzMTkgMC42NzIxOTgsMC4xMjMzMDIgMS41MjM1MzYsMC40NTI0MDIgMi4wMzQwMTksMC43NTQ4MTMgMC45NTA4MDcsMC41NjMyNjQgMS4wNzM1OTUsMS4yMDc2OTcgMi4wMzQwMTUsMS4yMDc2OTcgMC45NjA0MiwwIDEuMDgzMjA3LC0wLjY0NDQzMyAyLjAzNDAxOCwtMS4yMDc2OTcgMC41MTA0ODMsLTAuMzAyNDE4IDEuMzYxODIyLC0wLjYzMTUxMSAyLjAzNDAyMSwtMC43NTQ4MTMgNC41OTE0NTksLTAuODQyMzI4IDMuODIxNzMyLDAuNTIzOTYyIDMuODIxNzMyLDIuODM2NTA1IDAsMi4zODcxMzIgLTEuOTM1MTU1LDQuMzIyMjkgLTQuMzIyMjkxLDQuMzIyMjkgLTAuNzYyOTUsLTAuMDAzNyAtMS41MTEzMzIsLTAuMjA5MzQgLTIuMTY5MDkxLC0wLjU5NTkwNSAtMC4wMTU0NiwwLjAzMzc1IC0wLjAyODg3LDAuMDY0ODQgLTAuMDQ3NjgsMC4wOTUzNSBsIC0wLjk2OTMzOCwxLjU3MzE4OSBjIC0wLjEwNTIzOSwwLjE3MTIyMiAtMC4yNDM3OTcsMC4yNTc0NjcgLTAuMzgxMzc4LDAuMjU0MjUxIC0wLjEzNzU4LDAuMDAzMSAtMC4yNzYxMzksLTAuMDgzMDMgLTAuMzgxMzc4LC0wLjI1NDI1MSBsIC0wLjk2OTMzOCwtMS41NzMxODkgYyAtMC4wMTg3MSwtMC4wMzA1IC0wLjAzMjEyLC0wLjA2MTU5IC0wLjA0NzY4LC0wLjA5NTM1IC0wLjY1Nzc2MywwLjM4NjU4NSAtMS40MDYxNDIsMC41OTIxODggLTIuMTY5MDkxLDAuNTk1OTA1IC0yLjM4NzEzNywwIC00LjMyMjI5LC0xLjkzNTE1OCAtNC4zMjIyOSwtNC4zMjIyOSAwLC0xLjgwNjY3MyAtMC40NjYyNzEsLTMuMDMzMTczIDEuNTE3NTY5LC0zLjA4MjgxNCB6IiAvPgogICAgPHBhdGgKICAgICAgIGlkPSJwYXRoNTgiCiAgICAgICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjIyMDUyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjkuMTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MTtwYWludC1vcmRlcjpmaWxsIG1hcmtlcnMgc3Ryb2tlIgogICAgICAgZD0iTSAzMi4zMDQyLDI1LjMwMDU5NiBBIDEuOTkxNDQzOCwxLjk5MTQ0MzggMCAwIDEgMzAuNTc5NTU5LDI2LjI5NjMyIDEuOTkxNDQzOCwxLjk5MTQ0MzggMCAwIDEgMjguODU0OTE4LDI1LjMwMDU5NiIgLz4KICAgIDxwYXRoCiAgICAgICBpZD0icGF0aDU5IgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS4yMjA1MjtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo5LjE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1vcGFjaXR5OjE7cGFpbnQtb3JkZXI6ZmlsbCBtYXJrZXJzIHN0cm9rZSIKICAgICAgIGQ9Ik0gMzkuNDI4MzM0LDI1LjMwMDU5NiBBIDEuOTkxNDQzOCwxLjk5MTQ0MzggMCAwIDEgMzcuNzAzNjk2LDI2LjI5NjMyIDEuOTkxNDQzOCwxLjk5MTQ0MzggMCAwIDEgMzUuOTc5MDUzLDI1LjMwMDU5NiIgLz4KICA8L2c+Cjwvc3ZnPg=='); /* icon svg url. MUST BE A SVG. */
+  --dms-icon-svg-size: 90%;
+}
+
+/* --- ROOT COLORS & BORDERS --- */
+:root {
+  --colors: on;
+
+  --radius-xs: 0px !important;
+  --radius-sm: 0px !important;
+  --radius-md: 0px !important;
+  --radius-lg: 0px !important;
+  --radius-xl: 0px !important;
+  --radius-xxl: 0px !important;
+  --radius-round: 0px !important;
+
+  --text-0: #1e1e2e;
+  --text-1: #cdd6f4;
+  --text-2: color-mix(in srgb, #cdd6f4 90%, transparent);
+  --text-3: color-mix(in srgb, #cdd6f4 75%, transparent);
+  --text-4: color-mix(in srgb, #cdd6f4 60%, transparent);
+  --text-5: color-mix(in srgb, #cdd6f4 45%, transparent);
+
+  --bg-1: #1e1e2e;
+  --bg-2: #313244;
+  --bg-3: #313244;
+  --bg-4: #1e1e2e;
+
+  --hover: #313244;
+  --active: #313244;
+  --message-hover: #313244;
+
+  --accent-1: #cba6f7;
+  --accent-2: var(--accent-1);
+  --accent-3: #fab387;
+  --accent-4: #313244;
+  --accent-5: #94e2d5;
+  --accent-6: var(--accent-1);
+
+  --border-light: color-mix(in srgb, var(--accent-1) 10%, transparent);
+  --border: color-mix(in srgb, var(--accent-1) 18%, transparent);
+  --border-active: color-mix(in srgb, var(--accent-1) 60%, transparent);
+
+  --accent-muted: color-mix(in srgb, var(--accent-1) 15%, transparent);
+  --list-inactive: var(--accent-muted);
+  --icon-muted: var(--accent-muted);
+  --panel-highlight: var(--accent-1);
+  --list-active: var(--accent-1);
+  --pill-active: var(--accent-1);
+
+  --online: #cba6f7;
+  --idle: #94e2d5;
+  --dnd: #f38ba8;
+  --streaming: #fab387;
+  --offline: #646883;
+}
+
+/* --- GLOBAL RESET --- */
+*, *::before, *::after {
+  border-radius: 0px !important;
+}
+
+/* --- SELECTIONS & HIGHLIGHTS --- */
+.modeSelected-3DmyhH .content-1gYQeQ,
+.selected-1-Z6gm {
+  background: color-mix(in srgb, var(--accent-1) 16%, transparent) !important;
+}
+
+.modeSelected-3DmyhH:not(.focused-3qFvc8) .content-1gYQeQ {
+  background: var(--accent-muted) !important;
+}
+
+.activityItem-1Z9CTr,
+.friendSelected-3cwmD7 {
+  background: color-mix(in srgb, var(--accent-1) 18%, transparent) !important;
+}
+
+/* --- GENERAL UI ELEMENTS --- */
+.title-31SJ6t {
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+.tutorialContainer-1pL9QS svg {
+  color: var(--icon-muted) !important;
+}
+
+.tutorialContainer-1pL9QS.selected-1Drb7Z svg {
+  color: var(--accent-1) !important;
+}
+
+[class*="divider"]:not([class*="isUnread"]) {
+  border-color: var(--bg-2) !important;
+}
+
+[class*="bannerButton"], 
+[class*="bannerColor"] {
+  color: var(--text-1) !important;
+}
+
+[class*="guildsnav"] [class*="wrapper"][data-list-item-id='guildsnav___home']:hover > [class*="childWrapper"]::before,
+[class*="guildsnav"] [class*="wrapper"][data-list-item-id='guildsnav___home'][class*="selected"] > [class*="childWrapper"]::before {
+  transform: rotate(-360deg) scale(1) !important;
+}
+
+/* --- TEXT & TYPOGRAPHY --- */
+[class*="timestamp"],
+[class*="timestampInline"],
+[class*="timestamp"] time,
+[class*="cooldownText"] {
+  color: var(--text-4) !important;
+}
+
+[class*="postTitleText"],
+[class*="postTitleText"] [class*="highlight"],
+[class*="messageContent"] [class*="highlight"] {
+  color: var(--text-2) !important;
+}
+
+[class*="messageContent"],
+[data-slate-node="element"],
+[data-slate-node="text"],
+[data-slate-string="true"] {
+  color: var(--text-3) !important;
+}
+
+.channelMention:hover {
+  color: var(--text-1) !important;
+}
+
+/* --- INTERACTIVE CONTROLS --- */
+[class*="checkboxIndicator"] {
+  background-color: transparent !important;
+  border-color: var(--text-4) !important;
+  transition: border-color 0.2s ease;
+}
+
+[class*="checkboxOption"]:hover [class*="checkboxIndicator"] {
+  background-color: color-mix(in srgb, var(--accent-1) 20%, transparent) !important;
+  border-color: var(--accent-1) !important;
+}
+
+[class*="checkboxOption"][data-selected="true"] [class*="checkboxIndicator"],
+[class*="checkboxOption"][data-selected] [class*="checkboxIndicator"] {
+  background-color: transparent !important;
+  border-color: var(--accent-1) !important;
+}
+
+[class*="checkboxOption"][data-selected="true"] [class*="checkStroke"],
+[class*="checkboxOption"][data-selected="true"] [class*="dot"] {
+  color: var(--accent-3) !important;
+}
+
+[class*="outerRadioBase"] {
+  fill: var(--bg-1) !important;
+  stroke: var(--border) !important;
+  stroke-width: 1px;
+  transition: stroke 0.2s ease;
+}
+
+[class*="outerRadioBase"]:hover {
+  stroke: var(--accent-1) !important;
+}
+
+[class*="outerRadioFill"],
+[class*="innerDotRadio"] {
+  fill: var(--bg-1) !important;
+  stroke: var(--border) !important;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+[class*="innerDotRadio"] {
+  fill: var(--accent-3) !important;
+}
+
+[class*="radioSelection"][data-selected="true"] [class*="outerRadioFill"],
+[class*="radioSelection"][data-selected="true"] [class*="innerDotRadio"],
+[class*="radioSelection"][aria-checked="true"] [class*="outerRadioFill"],
+[class*="radioSelection"][aria-checked="true"] [class*="innerDotRadio"],
+[class*="parentSelected"] [class*="outerRadioFill"],
+[class*="parentSelected"] [class*="innerDotRadio"] {
+  opacity: 1 !important;
+}
+
+[class*="pollContainer_"] [class*="selected__"] [class*="radioForeground_"] {
+  fill: var(--accent-3) !important;
+}
+
+[class*="pollContainer_"] [class*="selected__"],
+[class*="pollContainer_"] [class*="votedStyles_"] [class*="answerInner_"] {
+  border: 2px solid var(--active) !important;
+}
+
+[class*="votedStyles_"] [class*="votePercentageBar_"] {
+  background-color: var(--active-2) !important;
+  opacity: 0.5;
+}
+
+[class*="pollContainer_"] [class*="answerSelectionIcon_"] circle {
+  fill: var(--accent-3) !important;
+}
+
+[class*="pollContainer_"] [class*="votedStyles_"] [class*="answerSelectionIcon_"] path {
+  fill: var(--bg-1) !important;
+}
+
+[class*="pollContainer_"] [class*="answer__"]:not([class*="votedStyles_"]) [class*="answerSelectionIcon_"] path {
+  fill: var(--accent-1) !important;
+}
+
+[class*="pollContainer_"] [class*="votesData_"] {
+  color: var(--text-2) !important;
+}
+
+/* --- ICONS, BADGES & NOTIFICATIONS --- */
+[class*="eyebrow"][class*="badge"][class*="expressive"] {
+  color: var(--accent-1) !important;
+  background-color: color-mix(in srgb, var(--accent-1) 15%, transparent) !important;
+}
+
+[class*="inviteButton_"] svg path,
+[class*="actionIcon_"] path[d^="M14.5 8a3 3 0"] {
+  fill: var(--accent-1) !important;
+  color: var(--accent-1) !important;
+}
+
+[class*="inviteButton_"]:hover svg path {
+  fill: var(--accent-3) !important;
+  color: var(--accent-3) !important;
+}
+
+[class*="unreadTop"],
+[class*="unreadBottom"],
+[class*="unreadMentionsIndicator"] {
+  background-color: transparent !important;
+}
+
+[class*="unreadBar"],
+[class*="unreadMentionsBar"] {
+  background-color: var(--accent-1) !important;
+  border: 1px solid var(--border);
+}
+
+[class*="unreadBar"][class*="mention"],
+[class*="unreadMentionsBar"][class*="mention"] {
+  background-color: var(--accent-1) !important;
+}
+
+[class*="unreadBar"][class*="unread"],
+[class*="unreadMentionsBar"][class*="unread"] {
+  background-color: var(--bg-1) !important;
+  border-color: var(--accent-1) !important;
+}
+
+[class*="unreadBar"] [class*="text"],
+[class*="unreadMentionsBar"] [class*="text"] {
+  color: var(--text-1) !important;
+  font-weight: 700;
+}
+
+/* --- CHANNELS LIST --- */
+[class*="link_"] * {
+  color: #cdd6f4 !important;
+  opacity: 0.65 !important;
+}
+
+[class*="modeUnread_"] [class*="link_"] *,
+[class*="modeUnreadImportant_"] [class*="link_"] * {
+  color: #cdd6f4 !important;
+  opacity: 1 !important;
+}
+
+[class*="modeUnread_"] [class*="name_"],
+[class*="modeUnreadImportant_"] [class*="name_"] {
+  font-weight: 700 !important;
+}
+
+[class*="modeSelected_"] [class*="link_"] * {
+  color: #cdd6f4 !important;
+  opacity: 1 !important;
+}
+
+[class*="modeMuted_"] [class*="link_"] * {
+  color: #cdd6f4 !important;
+  opacity: 0.30 !important;
+}
+
+/* --- DIRECT MESSAGES --- */
+[class*="privateChannels_"] [class*="channel_"] * {
+  color: #cdd6f4 !important;
+  opacity: 0.95 !important;
+}
+
+[class*="privateChannels_"] [class*="selected_"] *,
+[class*="privateChannels_"] [class*="channel_"]:hover * {
+  color: #cdd6f4 !important;
+  opacity: 1 !important;
+}
+
+[class*="privateChannels_"] [class*="numberBadge_"] {
+  background-color: var(--accent-1) !important;
+  opacity: 1 !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0px !important;
+  min-width: 16px !important;
+  height: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+[class*="privateChannels_"] [class*="numberBadge_"] * {
+  color: var(--bg-1) !important;
+  opacity: 1 !important;
+  font-weight: 900 !important;
+  font-size: 11px !important;
+}
+
+/* --- SERVER SIDEBAR --- */
+[class*="guilds_"] [class*="wrapper_"] {
+  opacity: 0.80 !important;
+  transition: opacity 0.2s ease;
+}
+
+[class*="guilds_"] [class*="wrapper_"]:hover,
+[class*="guilds_"] [class*="selected_"] [class*="wrapper_"] {
+  opacity: 1 !important;
+}
+
+[class*="guilds_"] [class*="item_"] {
+  background-color: var(--accent-1) !important;
+  width: 4px !important;
+  border-radius: 0px !important;
+}
