@@ -8,7 +8,7 @@
 */
 // HACK: Check `niri msg outputs` to see all about monitors
 output "HDMI-A-1" {
-    mode "1366x768"
+    mode "1366x768@59.790"
     scale 1
 }
 output "DP-2" {

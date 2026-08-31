@@ -58,23 +58,23 @@
 //
 //     }
 // }
-animations {
-    on
-    slowdown 0.5
-    window-open {
-        duration-ms 200
-        curve "linear"
-        custom-shader "\n\n    vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {\n      vec3 coords_tex = niri_geo_to_tex * coords_geo;\n      vec4 color = texture2D(niri_tex, coords_tex.st);\n      vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;\n      coords = coords / length(size_geo.xy);\n      float p = niri_clamped_progress;\n      if (p * p <= dot(coords, coords))\n      color = vec4(0.0);\n\n      return color;\n    }\n\n    vec4 open_color(vec3 coords_geo, vec3 size_geo) {\n      return expanding_circle(coords_geo, size_geo);\n    }\n    "
-    }
-    window-close {
-        duration-ms 175
-        curve "linear"
-        custom-shader "\n    vec4 shrinking_circle(vec3 coords_geo, vec3 size_geo) {\n      vec3 coords_tex = niri_geo_to_tex * coords_geo;\n      vec4 color = texture2D(niri_tex, coords_tex.st);\n      // Calculate coordinates relative to center, scaled appropriately\n      vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;\n      // Normalize coordinates based on diagonal length for a circular shape\n      coords = coords / length(size_geo.xy);\n\n      // Invert the progress for closing effect: 1 -> 0\n      float p_close = 1.0 - niri_clamped_progress;\n\n      // If pixel's squared distance from center is >= shrinking radius squared, make transparent\n      // (Keeps pixels *inside* the shrinking radius p_close)\n      if (p_close * p_close <= dot(coords, coords))\n      color = vec4(0.0);\n\n      // Optional: You could also fade the alpha slightly faster at the end if desired\n      // color.a *= p_close; // Fades out completely as radius reaches 0\n\n      return color;\n    }\n\n    vec4 close_color(vec3 coords_geo, vec3 size_geo) {\n      return shrinking_circle(coords_geo, size_geo);\n    }"
-    }
-    window-resize {
-
-    }
-}
+// animations {
+//     on
+//     slowdown 0.5
+//     window-open {
+//         duration-ms 200
+//         curve "linear"
+//         custom-shader "\n\n    vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {\n      vec3 coords_tex = niri_geo_to_tex * coords_geo;\n      vec4 color = texture2D(niri_tex, coords_tex.st);\n      vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;\n      coords = coords / length(size_geo.xy);\n      float p = niri_clamped_progress;\n      if (p * p <= dot(coords, coords))\n      color = vec4(0.0);\n\n      return color;\n    }\n\n    vec4 open_color(vec3 coords_geo, vec3 size_geo) {\n      return expanding_circle(coords_geo, size_geo);\n    }\n    "
+//     }
+//     window-close {
+//         duration-ms 175
+//         curve "linear"
+//         custom-shader "\n    vec4 shrinking_circle(vec3 coords_geo, vec3 size_geo) {\n      vec3 coords_tex = niri_geo_to_tex * coords_geo;\n      vec4 color = texture2D(niri_tex, coords_tex.st);\n      // Calculate coordinates relative to center, scaled appropriately\n      vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;\n      // Normalize coordinates based on diagonal length for a circular shape\n      coords = coords / length(size_geo.xy);\n\n      // Invert the progress for closing effect: 1 -> 0\n      float p_close = 1.0 - niri_clamped_progress;\n\n      // If pixel's squared distance from center is >= shrinking radius squared, make transparent\n      // (Keeps pixels *inside* the shrinking radius p_close)\n      if (p_close * p_close <= dot(coords, coords))\n      color = vec4(0.0);\n\n      // Optional: You could also fade the alpha slightly faster at the end if desired\n      // color.a *= p_close; // Fades out completely as radius reaches 0\n\n      return color;\n    }\n\n    vec4 close_color(vec3 coords_geo, vec3 size_geo) {\n      return shrinking_circle(coords_geo, size_geo);\n    }"
+//     }
+//     window-resize {
+//
+//     }
+// }
 
 // animations {
 //     on
@@ -108,3 +108,54 @@ animations {
 //
 //     }
 // }
+
+
+animations {
+    //off
+
+    slowdown 1.0
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=400 epsilon=0.0001
+    }
+
+    window-open {
+        spring damping-ratio=0.95 stiffness=500 epsilon=0.0001
+    }
+
+    window-close {
+        spring damping-ratio=1.0 stiffness=600 epsilon=0.0001
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=500 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=500 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=500 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.75 stiffness=600 epsilon=0.001
+    }
+
+    exit-confirmation-open-close {
+        spring damping-ratio=0.75 stiffness=500 epsilon=0.001
+    }
+
+    screenshot-ui-open {
+        spring damping-ratio=1.0 stiffness=600 epsilon=0.0001
+    }
+
+    overview-open-close {
+        spring damping-ratio=1.0 stiffness=400 epsilon=0.0001
+    }
+
+    recent-windows-close {
+        spring damping-ratio=1.0 stiffness=600 epsilon=0.001
+    }
+}

@@ -26,12 +26,12 @@ binds {
     Mod+Alt+S {
         screenshot-screen
     }
-    Mod+Shift+S {
-        screenshot
-    }
+    // Mod+Shift+S {
+    //     screenshot
+    // }
     // Power stuff
     Mod+Shift+Q {
-        spawn "bash" "-c" "shutdown now"
+        spawn  "systemctl" "poweroff"
     }
     Mod+Ctrl+Q {
         quit skip-confirmation=true
@@ -47,41 +47,35 @@ binds {
     Mod+Space {
         spawn "vicinae" "toggle"
     }
-    Alt+Space {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "toggle"
-    }
-    Mod+Comma {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"
-    }
     // Utility shortcuts
     Mod+V {
-        spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"
+        spawn "vicinae" "vicinae://launch/clipboard/history"
     }
 
     // Mod+V {
     //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"
     // }
     Mod+slash {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"
+        spawn "vicinae" "vicinae://launch/core/search-emojis"
     }
-    Mod+C {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
-    }
-    Mod+T {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
-    }
+    // Mod+C {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "calculator"
+    // }
+    // Mod+T {
+    //     spawn "qs" "-c" "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"
+    // }
 
     // Mod+Alt+L {
     //     spawn "hyprlock"
     // }
-    Mod+Alt+L {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"
-    }
+    // Mod+Alt+L {
+    //     spawn "sh" "-c" "$HOME/.local/share/quickshell-lockscreen/lock.sh"
+    // }
     Mod+Return {
         spawn "app2unit" "--" "kitty"
     }
     Mod+B {
-        spawn "app2unit" "--" "zen-browser"
+        spawn "app2unit" "--" "helium-browser"
     }
     Mod+E {
         spawn "app2unit" "--" "dolphin"
@@ -101,9 +95,6 @@ binds {
     // Mod+slash {
     //     spawn "vicinae" "vicinae://extensions/vicinae/vicinae/search-emojis"
     // }
-    Mod+Shift+M {
-        spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteInput"
-    }
     // Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu --anchor center --lines 15 --width 80 | cliphist decode | wl-copy"; }
     // Special Keys
     // Audio controls
@@ -388,10 +379,10 @@ binds {
         fullscreen-window
     }
     Mod+Minus {
-        set-column-width "-10%"
+        set-column-width "-1%"
     }
     Mod+Equal {
-        set-column-width "+10%"
+        set-column-width "+1%"
     }
     // Finer height adjustments when in column with other windows.
     Mod+Shift+Minus {

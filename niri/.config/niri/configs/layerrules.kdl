@@ -1,0 +1,34 @@
+layer-rule {
+    match namespace="^launcher$"
+    match namespace="^vicinae$"
+    opacity 0.85
+    background-effect {
+        blur true
+    }
+}
+layer-rule {
+    //  eww
+    match namespace="gtk-layer-shell"
+    match at-startup=true
+    shadow {
+        on
+        softness 10
+        spread 1
+        offset x=0 y=1
+        draw-behind-window true
+        color "#00000030"
+    }
+}
+layer-rule {
+    //  eww
+    match namespace="rofi"
+    match at-startup=true
+    shadow {
+        on
+        softness 10
+        spread 1
+        offset x=0 y=1
+        draw-behind-window true
+        color "#00000030"
+    }
+}

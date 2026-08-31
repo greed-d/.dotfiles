@@ -22,93 +22,6 @@ workspace "0"
 [[ Layer Rule ]]
 */
 // Set the overview wallpaper on the backdrop.
-blur {
-    on
-    passes 3
-    offset 2
-    noise 0.01
-    saturation 1.5
-}
-recent-windows {
-    // off
-    debounce-ms 750
-    open-delay-ms 100
-    highlight {
-        active-color "#999999ff"
-        urgent-color "#ff9999ff"
-        padding 30
-        corner-radius 0
-    }
-    previews {
-        max-height 480
-        max-scale 0.5
-    }
-    binds {
-        Alt+Tab {
-            next-window
-        }
-        Alt+Shift+Tab {
-            previous-window
-        }
-        Alt+grave {
-            next-window filter="app-id"
-        }
-        Alt+Shift+grave {
-            previous-window filter="app-id"
-        }
-        Mod+Tab {
-            next-window
-        }
-        Mod+Shift+Tab {
-            previous-window
-        }
-        Mod+grave {
-            next-window filter="app-id"
-        }
-        Mod+Shift+grave {
-            previous-window filter="app-id"
-        }
-    }
-}
-layer-rule {
-    match namespace="^noctalia-overview*"
-    place-within-backdrop true
-}
-layer-rule {
-    match namespace="^launcher$"
-    match namespace="^vicinae$"
-    match namespace="^noctalia-background-.*$"
-    opacity 0.85
-    background-effect {
-        blur true
-    }
-}
-layer-rule {
-    //  eww
-    match namespace="gtk-layer-shell"
-    match at-startup=true
-    shadow {
-        on
-        softness 10
-        spread 1
-        offset x=0 y=1
-        draw-behind-window true
-        color "#00000030"
-    }
-}
-layer-rule {
-    //  eww
-    match namespace="rofi"
-    match at-startup=true
-    shadow {
-        on
-        softness 10
-        spread 1
-        offset x=0 y=1
-        draw-behind-window true
-        color "#00000030"
-    }
-}
 /*
 ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗    ██████╗ ██╗   ██╗██╗     ███████╗███████╗
 ██║    ██║██║████╗  ██║██╔══██╗██╔═══██╗██║    ██║    ██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
@@ -151,7 +64,14 @@ window-rule {
 }
 window-rule {
     match app-id="zen$" title="^Picture-in-Picture$"
+    match app-id="zen-twilight$" title="^Picture-in-Picture$"
+    match title="^Picture in picture$"
+    default-window-height {
+        fixed 500
+    }
     open-floating true
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
 }
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -172,12 +92,14 @@ window-rule {
 window-rule {
     match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
     match app-id="com.viber.Viber" title="ViberPC"
+    match app-id="viber" title="ViberPC"
     default-floating-position x=10 y=10 relative-to="top-right"
     open-focused false
 }
 window-rule {
     match app-id="org.telegram.desktop$"
     match app-id="zen$"
+    match app-id="zen-twilight$"
     match app-id="vesktop$"
     match app-id="thunar$"
     match app-id="dolphin$"
@@ -189,6 +111,8 @@ window-rule {
     match app-id="steam"
     match app-id="vivaldi-stable"
     match app-id="Emacs"
+    match app-id="helium"
+    match app-id="neovide"
     open-maximized true
 }
 window-rule {
@@ -210,6 +134,8 @@ window-rule {
     draw-border-with-background false
     match app-id="kitty$"
     match app-id="com.mitchellh.ghostty$"
+    match app-id="^foot*"
+    match app-id="neovide"
     background-effect {
         blur true
     }
@@ -217,6 +143,7 @@ window-rule {
 }
 window-rule {
     match app-id="zen$"
+    match app-id="zen-twilight$"
     open-on-workspace "🌍 WWW"
 }
 window-rule {
@@ -237,8 +164,7 @@ window-rule {
 }
 window-rule {
     match app-id="com.github.th_ch.youtube_music$"
-    match app-id="Spotify"
-    match app-id="spotify"
+    match app-id="[Ss]potify"
     open-on-workspace "🎵 SONG"
     background-effect {
         blur true

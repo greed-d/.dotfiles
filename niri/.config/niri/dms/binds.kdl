@@ -1,0 +1,21 @@
+binds {
+    Alt+Space { spawn-sh "dms ipc wallpaperCarousel toggle"; }
+    Mod+Alt+L { spawn-sh "dms ipc call lock lock"; }
+    Mod+Alt+Shift+S hotkey-overlay-title="Capture Screen" { spawn "sh" "-c" "dms ipc call quickCapture screenshot full float"; }
+    Mod+Comma hotkey-overlay-title="Default Launcher: Toggle" { spawn "dms" "ipc" "call" "settings" "toggle"; }
+    Mod+Space hotkey-overlay-title="Default Launcher: Toggle" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Period hotkey-overlay-title="Default Launcher: Toggle" { spawn "dms" "ipc" "call" "spotlight" "toggleQuery" ":e "; }
+    Mod+Down allow-when-locked=true { spawn-sh "dms ipc call audio decrement 5"; }
+    Mod+Shift+M { spawn-sh "dms ipc call audio micmute"; }
+    Mod+Shift+S hotkey-overlay-title="Annotate Regino" { spawn "sh" "-c" "dms ipc call quickCapture screenshot region edit "; }
+    Mod+Up allow-when-locked=true { spawn-sh "dms ipc call audio increment 5"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "dms ipc call audio decrement 5"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "dms ipc call audio mute"; }
+    XF86AudioNext { spawn-sh "dms ipc call mpris next"; }
+    XF86AudioPrev { spawn-sh "dms ipc call mpris previous"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "dms ipc call audio increment 5"; }
+    XF86MonBrightnessDown { spawn-sh "dms ipc call brightness decrement 10 ''"; }
+    XF86MonBrightnessUp { spawn-sh "dms ipc call brightness increment 10 ''"; }
+    Mod+Shift+Q hotkey-overlay-title="Shutdown Device" { spawn "bash" "-c" "shutdown now"; }
+    XF86Search hotkey-overlay-title="Default Launcher: Toggle" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+}

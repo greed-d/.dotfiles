@@ -1,0 +1,7 @@
+blur {
+    on
+    passes 2
+    offset 4
+    noise 0.01
+    saturation 1.0
+}
