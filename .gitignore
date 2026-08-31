@@ -1,10 +1,15 @@
 .config/nvim/plugin
-vesktop/.config/vesktop/sessionData
-vesktop/.config/vesktop/Crashpad
-vesktop/.config/vesktop/SingletonCookie
-vesktop/.config/vesktop/SingletonLock
-vesktop/.config/vesktop/SingletonSocket
-vesktop/.config/vesktop/state.json
+# 1. Allow Git to track the parent directory path
+!vesktop/
+!vesktop/.config/
+!vesktop/.config/vesktop/
+
+# 2. Ignore all files and subfolders inside vesktop/.config/vesktop/ by default
+vesktop/.config/vesktop/*
+
+# 3. Explicitly re-include ONLY the settings and themes directories
+!vesktop/.config/vesktop/settings/
+!vesktop/.config/vesktop/themes/
 
 fish/.config/fish/fish_variables
 
