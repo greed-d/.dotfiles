@@ -10,8 +10,10 @@
 
 [include]
 files = [
+  # ╔══════════════════════════╗
+  # ║      Core settings       ║
+  # ╚══════════════════════════╝
   "core/general.toml",
-  "core/monitor.toml",
   "core/windowrule.toml",
   "core/layerrule.toml",
   "core/keybinds.toml",
@@ -20,12 +22,18 @@ files = [
   "core/animation.toml",
   "core/appearence.toml",
   "core/input.toml",
+  # "core/monitor.toml",
 
-  ###############
-  ########### Machine Specific Binds ###########
-  ###############
+  # ╔═════════════════════════════╗
+  # ║  Machine Specific Settings  ║
+  # ╚═════════════════════════════╝
   "machine/monitor.toml",
   "machine/general.toml",
+
+  # ╔══════════════════════════════╗
+  # ║  Noctalia Specific Settings  ║
+  # ╚══════════════════════════════╝,
+  "noctalia.toml",
 ]
 
 

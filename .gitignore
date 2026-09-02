@@ -9,7 +9,12 @@ vesktop/.config/vesktop/
 !vesktop/.config/vesktop/themes/
 !vesktop/.config/vesktop/themes/*
 umbriel/.config/umbriel/machine/*
+!umbriel/.config/umbriel/machine/monitor.toml
 !umbriel/.config/umbriel/machine/general.toml
+
+noctalia/.local/state/noctalia/*
+!noctalia/.local/state/noctalia/settings.toml
+
 
 # Noctalia
 noctalia/.local/state/noctalia/*

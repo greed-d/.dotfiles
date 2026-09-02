@@ -1,6 +1,7 @@
-[[window_rule]]
-match.is_focused = false
-opacity = 1
+## NOTE: currently doesn't work, all window rule need to be in the same file
+# [[window_rule]]
+# match.is_focused = false
+# opacity = 1
 
 
 [animation.dim_unfocused]

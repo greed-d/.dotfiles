@@ -68,7 +68,7 @@ default_size = [1680, 900]
 
 # Helium
 [[window_rule]]
-match.app_id = "(^helium$|^zen-*|vivaldi-stable)"
+match.app_id = "(^helium$|zen-twilight|vivaldi-stable)"
 default_maximize_to_edges = true
 default_workspace = 1
 

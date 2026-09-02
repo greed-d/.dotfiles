@@ -2,13 +2,13 @@
 autostart = []
 mod_key = "Super"               # Mod in keybinds; defaults to Super (Alt when nested)
 xwayland = true                 # requires restart to change
-show_cheatsheet = false          # show keybinds overlay on startup
+show_cheatsheet = false         # show keybinds overlay on startup
 focus_on_activate = false       # activation requests mark urgent without stealing focus
 honor_restored_maximize = false # let apps restore their saved maximized state
 
 
 [workspaces]
-back_and_forth = true
+back_and_forth = false
 
 # Overview -------------------------------------------------------------------
 

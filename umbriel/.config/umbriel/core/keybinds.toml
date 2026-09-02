@@ -14,8 +14,8 @@
 "Mod+C" = "column-center"
 # "Mod+Shift+C" = "window-center"
 
-"Mod+Bracketleft" = "window-consume-or-expel-left"
-"Mod+Bracketright" = "window-cosume-or-expel-right"
+"Mod+BracketLeft" = "window-consume-or-expel-left"
+"Mod+Bracketright" = "window-consume-or-expel-right"
 
 # "Mod+Minus" = "window-modify-width:-0.1"
 
@@ -131,7 +131,6 @@
 
 # Consume one window from the right to the bottom of the focused column.
 # Expel the bottom window from the focused column to the right.
-"Mod+Period" = "window-expel-right"
 
 "Mod+R" = "window-cycle-width"
 "Mod+Alt+K" = "window-cycle-width"
