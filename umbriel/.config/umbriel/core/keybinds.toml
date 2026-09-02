@@ -14,8 +14,8 @@
 "Mod+C" = "column-center"
 # "Mod+Shift+C" = "window-center"
 
-"Mod+Bracketleft" = "window-consume-left"
-"Mod+Bracketright" = "window-expel-right"
+"Mod+Bracketleft" = "window-consume-or-expel-left"
+"Mod+Bracketright" = "window-cosume-or-expel-right"
 
 # "Mod+Minus" = "window-modify-width:-0.1"
 
@@ -206,4 +206,3 @@
 
 # "Mod+Shift+O" = "dpms-off"
 # "Mod+Ctrl+O" = "dpms-off:DP-1"
-

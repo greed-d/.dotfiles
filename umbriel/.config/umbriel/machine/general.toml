@@ -1,0 +1,10 @@
+[[window_rule]]
+match.is_focused = false
+opacity = 1
+
+
+[animation.dim_unfocused]
+enabled = true
+duration_ms = 250
+curve = "easeout"
+dim = 0.0         # 0.0-1.0

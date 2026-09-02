@@ -1,0 +1,27 @@
+# Outputs (see docs/user/outputs.md) ----------------------------------------
+# [output."eDP-1"]
+# mode = "1920x1080@165.000"
+# position = [0, 0]
+# scale = 1
+# vrr = "disabled"           # "disabled" (default), "always", or "fullscreen"
+# hdr = "auto"               # "off", "on", metadata-driven "auto", or any-app "fullscreen"
+# sdr_white = 203            # SDR reference white in cd/m2 while HDR is active
+# enabled = true             # false powers the monitor off and removes it from the desktop
+# Dynamic workspaces are the default; use a count or name list for static workspaces.
+# workspaces = 10
+
+[output."HDMI-A-1"]
+mode = "1366x768@59.790"
+position = [0, 0]
+scale = 1
+hdr = "fullscreen"
+vrr = "disabled"
+workspaces = 5
+
+[output."DP-2"]
+mode = "1440x900@59.901"
+position = [1366, 0]
+scale = 1
+vrr = "disabled"
+hdr = "off"
+workspaces = 5

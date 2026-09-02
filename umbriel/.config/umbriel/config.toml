@@ -20,7 +20,12 @@ files = [
   "core/animation.toml",
   "core/appearence.toml",
   "core/input.toml",
-  "noctalia.toml",
+
+  ###############
+  ########### Machine Specific Binds ###########
+  ###############
+  "machine/monitor.toml",
+  "machine/general.toml",
 ]
 
 

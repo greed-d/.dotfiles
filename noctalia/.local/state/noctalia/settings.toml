@@ -17,6 +17,7 @@ order = [ "normal" ]
         "group:g3",
         "line",
         "privacy",
+        "widget_3",
         "line",
         "battery",
         "volume",
@@ -36,9 +37,9 @@ order = [ "normal" ]
     radius = 0
     radius_bottom_left = 0
     radius_bottom_right = 0
-    scale = 0.90000000596046448
+    scale = 0.7500000037252903
     start = [ "session", "control-center", "taskbar", "line", "group:g4", "line", "group:g1" ]
-    thickness = 38
+    thickness = 30
     widget_spacing = 8
 
         [[bar.normal.capsule_group]]
@@ -152,6 +153,9 @@ tint_intensity = 0.099999997764825821
 enabled = true
 schema_version = 2
 widget_order = [
+    "lockscreen-login-box@HDMI-1",
+    "lockscreen-login-box@DP-2",
+    "lockscreen-login-box@HDMI-A-1",
     "lockscreen-widget-0000000000000006",
     "lockscreen-widget-000000000000001b",
     "lockscreen-widget-000000000000000a",
@@ -196,6 +200,87 @@ widget_order = [
     cell_size = 8
     major_interval = 4
     visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 720.0
+    cy = 718.0
+    output = "DP-2"
+    placement_height = 900.0
+    placement_width = 1440.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 683.0
+    cy = 586.0
+    output = "HDMI-1"
+    placement_height = 768.0
+    placement_width = 1366.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 683.0
+    cy = 586.0
+    output = "HDMI-A-1"
+    placement_height = 768.0
+    placement_width = 1366.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 70.0
@@ -999,16 +1084,22 @@ wallpaper_scheme = "m3-tonal-spot"
     community_ids = [ "vscode", "discord", "opencode", "papirus-icons" ]
 
 [wallpaper]
-directory = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha"
+directory = "/home/deekshit.bhattarai/Pictures/walls-catppuccin-mocha"
 
     [wallpaper.default]
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/waterfall.png"
+    path = "/home/deekshit.bhattarai/Pictures/walls-catppuccin-mocha/tree-stump.jpg"
 
     [wallpaper.last]
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/waterfall.png"
+    path = "/home/deekshit.bhattarai/Pictures/walls-catppuccin-mocha/tree-stump.jpg"
 
     [wallpaper.monitors.DP-1]
     path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
+
+    [wallpaper.monitors.DP-2]
+    path = "/home/deekshit.bhattarai/Pictures/walls-catppuccin-mocha/tree-stump.jpg"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/deekshit.bhattarai/Pictures/walls-catppuccin-mocha/tree-stump.jpg"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/waterfall.png"
@@ -1049,6 +1140,12 @@ directory = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha"
     path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/waterfall.png"
     theme_mode = "dark"
 
+    [[wallpaper.favorite]]
+    builtin_palette = "Catppuccin"
+    palette_source = "builtin"
+    path = "/home/deekshit.bhattarai/Pictures/walls-catppuccin-mocha/wallhaven_y8g69d.jpg"
+    theme_mode = "dark"
+
 [widget.battery]
 display_mode = "graphic"
 hide_when_plugged = true
@@ -1057,7 +1154,7 @@ hide_when_plugged = true
 show_label = false
 
 [widget.cat]
-input_devices = [ "/dev/input/by-id/usb-USB_usb_keyboard-event-kbd" ]
+input_devices = [ "/dev/input/event3", "/dev/input/by-id/usb-413c_Dell_KB216_Wired_Keyboard-event-kbd" ]
 scale = 1.6500000000000001
 type = "noctalia/bongocat:cat"
 
@@ -1122,6 +1219,7 @@ capsule_radius = 4
 focused_color = "tertiary"
 group_by_workspace = true
 hide_empty_workspaces = true
+icon_scale = 0.85000000000000009
 inactive_opacity = 0.80000000000000004
 minimal = true
 scale = 1.5
@@ -1144,6 +1242,9 @@ widget-glyph-main = "hourglass-filled"
 widget-glyph-work = "hourglass-low"
 
 [widget.widget_2]
+type = "alexander/screen-toolkit:widget"
+
+[widget.widget_3]
 type = "alexander/screen-toolkit:widget"
 
 [widget.workspaces]
