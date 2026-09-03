@@ -156,7 +156,7 @@
 "Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
 "Mod+Comma" = "spawn:noctalia msg settings-toggle"
 "Mod+V" = "spawn:noctalia msg panel-toggle clipboard"
-"Alt+Space" = "spawn:noctalia msg panel-toggle wallpaper"
+"Alt+Shift+Space" = "spawn:noctalia msg panel-toggle wallpaper"
 
 "Mod+Shift+S" = "spawn:noctalia msg screenshot-region"
 "Mod+Alt+S" = "spawn:noctalia msg screenshot-fullscreen"
