@@ -13,6 +13,14 @@ vesktop/.config/vesktop/*
 
 fish/.config/fish/fish_variables
 
+noctalia/.local/state/noctalia/*
+!noctalia/.local/state/noctalia/settings.toml
+
+
+# Noctalia
+noctalia/.local/state/noctalia/*
+!noctalia/.local/state/noctalia/settings.toml
+
 nvim/.config/nvim/plugin/packer_compiled.lua
 .config/qtile/mic_toggle.sh
 ./tmux/.config/tmux/plugins/
