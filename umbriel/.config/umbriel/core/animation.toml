@@ -74,7 +74,7 @@ fullscreen = false # fullscreen on entry
 enabled = true
 duration_ms = 250
 curve = "easeout"
-dim = 0.3         # 0.0-1.0
+dim = 0.09         # 0.0-1.0
 
 
 # [animation.layers]
