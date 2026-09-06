@@ -10,12 +10,13 @@
 "Mod+F" = "window-toggle-fullscreen"
 "Mod+Backslash" = "window-toggle-maximize"
 "Mod+Shift+Backslash" = "window-toggle-maximize-to-edges"
+"Mod+Shift+Space" = "workspace-set-layout:toggle"
 
 "Mod+C" = "column-center"
 # "Mod+Shift+C" = "window-center"
 
-"Mod+Bracketleft" = "window-consume-left"
-"Mod+Bracketright" = "window-expel-right"
+"Mod+Bracketleft" = "window-consume-or-expel-left"
+"Mod+Bracketright" = "window-consume-or-expel-right"
 
 # "Mod+Minus" = "window-modify-width:-0.1"
 
@@ -57,6 +58,12 @@
 # Select first or last window
 "Mod+N" = "column-focus-last"
 "Mod+P" = "column-focus-first"
+
+# Mouse Stuff
+"Mod+WheelUp" = "workspace-previous"
+"Mod+WheelDown" = "workspace-next"
+"Mod+Shift+WheelUp" = "window-focus-left"
+"Mod+Shift+WheelDown" = "window-focus-right"
 
 
 # Workspace Navigation ------------------------------------------------------
@@ -131,7 +138,7 @@
 
 # Consume one window from the right to the bottom of the focused column.
 # Expel the bottom window from the focused column to the right.
-"Mod+Period" = "window-expel-right"
+# "Mod+Period" = "window-expel-right"
 
 "Mod+R" = "window-cycle-width"
 "Mod+Alt+K" = "window-cycle-width"
