@@ -3,7 +3,7 @@
 prefer_no_csd = true
 border_width = 1       # 0-100
 outer_border_width = 0 # 0-100
-corner_radius = 10     # 0-100
+corner_radius = 15     # 0-100
 drag_opacity = 0.75
 # border_focused = "#7AA3FFFF"
 # border_unfocused = "#292933FF"
@@ -28,7 +28,6 @@ enabled = true
 softness = 10       # 0-200, 0 = hard edge
 offset_x = 2        # -200 to 200
 offset_y = 2
-color = "#0000007F"
 
 [colors]
 background = "#141419F0"
@@ -38,3 +37,4 @@ accent_primary = "#7AA3FFFF"
 accent_secondary = "#F5C96BFF"
 warning = "#F5C96BFF"
 error = "#FF6B6BFF"
+shadow = "#0000007F"
