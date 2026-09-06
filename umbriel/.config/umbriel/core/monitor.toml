@@ -4,7 +4,7 @@ mode = "1920x1080@165.000"
 position = [0, 0]
 scale = 1
 vrr = "disabled"           # "disabled" (default), "always", or "fullscreen"
-hdr = "auto"               # "off", "on", metadata-driven "auto", or any-app "fullscreen"
+hdr = "off"               # "off", "on", metadata-driven "auto", or any-app "fullscreen"
 sdr_white = 203            # SDR reference white in cd/m2 while HDR is active
 enabled = true             # false powers the monitor off and removes it from the desktop
 # Dynamic workspaces are the default; use a count or name list for static workspaces.
