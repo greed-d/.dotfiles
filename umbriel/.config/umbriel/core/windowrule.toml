@@ -24,8 +24,15 @@ blur_optimized = true
 # Dim unfocused windows
 [[window_rule]]
 match.is_focused = false
-opacity = 0.75
+opacity = 0.85
 
+[[window_rule]]
+match.title="(Picture in picture|Picture-in-picture)"
+match.is_focused = false
+default_position = { x = 10, y = 10, anchor = "bottom_right" }
+default_floating = true
+blur = false
+opacity = 1
 
 # ---------- FLOATING WINDOWS ----------
 
@@ -33,12 +40,12 @@ opacity = 0.75
 
 # Float utility windows
 [[window_rule]]
-match.app_id = "^(Emulator|zenity|xdg-desktop-portal|qalculate-gtk|org\\.pulseaudio\\.pavucontrol|one.alynx.showmethekey|dev.lemmy.swash)$"
+match.app_id = "^(Emulator|zenity|xdg-desktop-portal-gtk|qalculate-gtk|org\\.pulseaudio\\.pavucontrol|one.alynx.showmethekey|dev.lemmy.swash)$"
 default_floating = true
 
 # Float common dialogs by title
 [[window_rule]]
-match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files|Bitwarden|DAMX)"
+match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files|Bitwarden|DAMX|New Download|Add Download|All Files|Choose Files)"
 default_floating = true
 
 # ---------- FLOATING WINDOWS ----------
@@ -91,7 +98,8 @@ default_size = [1520, 995]
 # Vesktop
 [[window_rule]]
 match.app_id = "^vesktop$"
-default_maximize_to_edges = true
+# default_maximize_to_edges = true
+default_maximize = true
 default_workspace = 9
 opacity = 0.9
 
