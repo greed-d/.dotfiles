@@ -1,5 +1,6 @@
 add_newline = false
 
+
 format = """
 [╭](bold overlay1)\
 $python\
@@ -9,6 +10,7 @@ $git_status\
 $kubernetes \
 $cmd_duration \
 \n$character"""
+
 
 palette = 'catppuccin_mocha'
 [palettes.catppuccin_mocha]
@@ -58,6 +60,12 @@ format = """
 [╰─$symbol](fg:overlay1) """
 success_symbol = '[](fg:bold green)'
 error_symbol = '[](fg:bold red)'
+
+
+[fill]
+symbol = '-'
+style = 'fg:245'
+
 
 [directory]
 # style = "fg:color_fg0 bg:color_bg0"
