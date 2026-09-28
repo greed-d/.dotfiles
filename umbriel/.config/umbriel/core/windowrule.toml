@@ -1,6 +1,4 @@
 # ---------- WORKSPACE RULE -----------
-[layout]
-scrolling.direction = "horizontal"
 
 [[workspace]]
 index = 7
@@ -64,7 +62,7 @@ default_maximize = true
 match.app_id = "org.qbittorrent.qBittorrent"
 opacity = 0.95
 default_floating = true
-default_size = [1680, 900]
+default_floating_size_px = { width = 1680, height = 900 }
 
 # Helium
 [[window_rule]]
@@ -78,7 +76,7 @@ match.app_id = "(^[Oo]bsidian$|md.obsidian.Obsidian)"
 opacity = 0.9
 default_workspace = 7
 default_floating = true
-default_size = [1520, 995]
+default_floating_size_px = { width = 1520, height = 995 }
 
 # Spotify
 [[window_rule]]
@@ -86,7 +84,7 @@ match.app_id = "^[Ss]potify$"
 opacity = 0.9
 default_workspace = 8
 default_floating = true
-default_size = [1520, 995]
+default_floating_size_px = { width = 1520, height = 995 }
 
 # Vesktop
 [[window_rule]]
@@ -110,13 +108,13 @@ default_fullscreen = true
 [[window_rule]]
 match.app_id = "^dev.noctalia.Noctalia$"
 default_floating = true
-default_size = [1620, 1000]
+default_floating_size_px = { width = 1620, height = 1000 }
 
 # Noctalia Share Picker
 [[window_rule]]
 match.app_id = "^dev.noctalia.UmbrielSharePicker$"
 default_floating = true
-default_size = [800, 600]
+default_floating_size_px = { width = 800, height = 600 }
 
 
 # ---------- OPEN MAXIMIZED -------------
@@ -143,7 +141,7 @@ default_floating = true
 match.app_id = "^com-abdownloadmanager-desktop-AppKt$"
 match.title = "^AB Download Manager$"
 default_floating = true
-default_size = [1550, 950]
+default_floating_size_px = { width = 1550, height = 950 }
 
 # AB Download Manager Settings
 [[window_rule]]
@@ -159,7 +157,7 @@ default_floating = true
 # ---------- TERMINAL BLUR ----------
 
 [[window_rule]]
-match.app_id = "(kitty|ghostty|alacritty)"
+match.app_id = "(kitty|ghostty|alacritty|Emacs)"
 blur = true
 opacity = 0.9
 

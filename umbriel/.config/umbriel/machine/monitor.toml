@@ -19,7 +19,7 @@ vrr = "disabled"
 workspaces = ["1", "3", "6", "7", "10"]
 
 [output."DP-2"]
-mode = "1440x900@59.901"
+mode = "1920x1080@60.000"
 position = [1366, 0]
 scale = 1
 vrr = "disabled"

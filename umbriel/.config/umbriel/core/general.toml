@@ -43,15 +43,13 @@ action = "spawn:notify-send 'Bottom right'"
 # Layout ---------------------------------------------------------------------
 
 [layout]
-mode = "scrolling"                  # "scrolling" or "dwindle"
-gap = 8                             # 0-500
-width_presets = [0.333, 0.5, 0.667] # shared by scrolling and dwindle
+mode = "scrolling"
+gap = 1
+extent_presets = [0.333, 0.5, 0.667]
 
 [layout.scrolling]
-# Vertical workspaces stack horizontal lanes from top to bottom.
-# direction = "horizontal"
-default_width_fraction = 0.5  # remove to let clients choose their initial width
-center_underfull_strip = true # center the strip whenever it is narrower than the viewport
+default_extent_fraction = 0.5
+center_underfull_strip = true
 
 # Workspace layout overrides (see docs/user/outputs.md#workspace-rules)
 # [[workspace]]

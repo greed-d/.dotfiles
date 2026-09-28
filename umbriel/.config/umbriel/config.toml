@@ -33,8 +33,7 @@ files = [
   # ╔══════════════════════════════╗
   # ║  Noctalia Specific Settings  ║
   # ╚══════════════════════════════╝,
-  "noctalia.toml",
-]
+  ]
 
 
 # Blur all windows
@@ -65,3 +64,6 @@ files = [
 
 
 # Open a specific app maximized to the usable-area edges (no gaps or borders)
+
+[include.optional]
+files = ["noctalia.toml"]
