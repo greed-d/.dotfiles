@@ -1,4 +1,4 @@
-config_version = 13
+config_version = 14
 
 [backdrop]
 enabled = true
@@ -84,6 +84,8 @@ order = [ "normal" ]
 
 [battery.device."/org/freedesktop/UPower/devices/headset_dev_80_99_E7_8E_80_47"]
 warning_threshold = 20
+
+[calendar]
 
 [control_center.calendar]
 show_events_card = false
@@ -204,11 +206,11 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
     box_height = 196.0
     box_width = 810.0
-    cx = 720.0
-    cy = 718.0
+    cx = 960.0
+    cy = 861.60003662109375
     output = "DP-2"
-    placement_height = 900.0
-    placement_width = 1440.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
