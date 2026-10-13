@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "revision": "2a4457d83f96",
+  "revision": "21456686a8f2",
   "options": [
     {
       "path": "animation",
@@ -376,6 +376,15 @@
       "default": true
     },
     {
+      "path": "animation.workspaces.style",
+      "type": "enum",
+      "values": [
+        "slide",
+        "reveal"
+      ],
+      "default": "slide"
+    },
+    {
       "path": "appearance",
       "type": "table"
     },
@@ -504,6 +513,104 @@
       "default": 10
     },
     {
+      "path": "appearance.tab_bar",
+      "type": "table"
+    },
+    {
+      "path": "appearance.tab_bar.corner_radius",
+      "type": "int",
+      "min": -1,
+      "max": 100,
+      "default": -1
+    },
+    {
+      "path": "appearance.tab_bar.font",
+      "type": "string",
+      "default": "sans 10"
+    },
+    {
+      "path": "appearance.tab_bar.height",
+      "type": "int",
+      "min": 2,
+      "max": 400,
+      "default": 24
+    },
+    {
+      "path": "appearance.tab_bar.hide_when_single",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "appearance.tab_bar.max_tabs",
+      "type": "int",
+      "min": 0,
+      "max": 64,
+      "default": 0
+    },
+    {
+      "path": "appearance.tab_bar.overflow",
+      "type": "enum",
+      "values": [
+        "scroll",
+        "shrink"
+      ],
+      "default": "scroll"
+    },
+    {
+      "path": "appearance.tab_bar.padding",
+      "type": "int",
+      "min": 0,
+      "max": 64,
+      "default": 8
+    },
+    {
+      "path": "appearance.tab_bar.position",
+      "type": "enum",
+      "values": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "default": "top"
+    },
+    {
+      "path": "appearance.tab_bar.style",
+      "type": "enum",
+      "values": [
+        "titles",
+        "indicator"
+      ],
+      "default": "titles"
+    },
+    {
+      "path": "appearance.tab_bar.tab_gap",
+      "type": "int",
+      "min": 0,
+      "max": 64,
+      "default": 2
+    },
+    {
+      "path": "appearance.tab_bar.title_align",
+      "type": "enum",
+      "values": [
+        "left",
+        "center",
+        "right"
+      ],
+      "default": "center"
+    },
+    {
+      "path": "appearance.tab_bar.title_format",
+      "type": "string",
+      "default": "{title}"
+    },
+    {
+      "path": "appearance.tab_bar.visible",
+      "type": "bool",
+      "default": true
+    },
+    {
       "path": "colors",
       "type": "table"
     },
@@ -579,6 +686,50 @@
       "path": "colors.shadow",
       "type": "color",
       "default": "#0000007f"
+    },
+    {
+      "path": "colors.tab_bar",
+      "type": "table"
+    },
+    {
+      "path": "colors.tab_bar.active",
+      "type": "color",
+      "default": "#7aa3ffff"
+    },
+    {
+      "path": "colors.tab_bar.active_text",
+      "type": "color",
+      "default": "#141419ff"
+    },
+    {
+      "path": "colors.tab_bar.active_unfocused",
+      "type": "color",
+      "default": "#292933ff"
+    },
+    {
+      "path": "colors.tab_bar.active_unfocused_text",
+      "type": "color",
+      "default": "#e8e8eaff"
+    },
+    {
+      "path": "colors.tab_bar.background",
+      "type": "color",
+      "default": "#1a1a1fff"
+    },
+    {
+      "path": "colors.tab_bar.text",
+      "type": "color",
+      "default": "#8a8a92ff"
+    },
+    {
+      "path": "colors.tab_bar.urgent",
+      "type": "color",
+      "default": "#ff6b6bff"
+    },
+    {
+      "path": "colors.tab_bar.urgent_text",
+      "type": "color",
+      "default": "#141419ff"
     },
     {
       "path": "colors.text_muted",
@@ -1012,6 +1163,10 @@
       "type": "bool"
     },
     {
+      "path": "input.device[].model",
+      "type": "string"
+    },
+    {
       "path": "input.device[].name",
       "type": "string"
     },
@@ -1073,6 +1228,36 @@
       "type": "string"
     },
     {
+      "path": "input.drag_edge_scroll",
+      "type": "table"
+    },
+    {
+      "path": "input.drag_edge_scroll.delay_ms",
+      "type": "int",
+      "min": 0,
+      "max": 10000,
+      "default": 100
+    },
+    {
+      "path": "input.drag_edge_scroll.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "input.drag_edge_scroll.max_speed",
+      "type": "float",
+      "min": 1.0,
+      "max": 100000.0,
+      "default": 1500.0
+    },
+    {
+      "path": "input.drag_edge_scroll.trigger_zone",
+      "type": "int",
+      "min": 1,
+      "max": 1000,
+      "default": 30
+    },
+    {
       "path": "input.focus",
       "type": "table"
     },
@@ -1093,6 +1278,11 @@
     },
     {
       "path": "input.keyboard.layout",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "input.keyboard.model",
       "type": "string",
       "default": ""
     },
@@ -1388,8 +1578,22 @@
       "type": "table"
     },
     {
+      "path": "layer_rule[].match.at_startup",
+      "type": "bool"
+    },
+    {
+      "path": "layer_rule[].match.layer",
+      "type": "enum",
+      "values": [
+        "background",
+        "bottom",
+        "top",
+        "overlay"
+      ]
+    },
+    {
       "path": "layer_rule[].match.namespace",
-      "type": "string",
+      "type": "string_or_string_array",
       "format": "regex"
     },
     {
@@ -1399,6 +1603,11 @@
     {
       "path": "layout.dwindle",
       "type": "table"
+    },
+    {
+      "path": "layout.dwindle.new_toward_cursor",
+      "type": "bool",
+      "default": false
     },
     {
       "path": "layout.dwindle.preserve_split",
@@ -1533,6 +1742,43 @@
       "default": 0
     },
     {
+      "path": "layout.tabs",
+      "type": "table"
+    },
+    {
+      "path": "layout.tabs.default_display",
+      "type": "enum",
+      "values": [
+        "normal",
+        "tabbed"
+      ],
+      "default": "normal"
+    },
+    {
+      "path": "layout.tabs.middle_click_closes",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "layout.tabs.new_tab_position",
+      "type": "enum",
+      "values": [
+        "end",
+        "after_active"
+      ],
+      "default": "end"
+    },
+    {
+      "path": "layout.tabs.scroll_switches_tabs",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "layout.tabs.wrap_focus",
+      "type": "bool",
+      "default": true
+    },
+    {
       "path": "output",
       "type": "map"
     },
@@ -1561,6 +1807,11 @@
       "path": "output.<name>.enabled",
       "type": "bool",
       "default": true
+    },
+    {
+      "path": "output.<name>.focus_at_startup",
+      "type": "bool",
+      "default": false
     },
     {
       "path": "output.<name>.hdr",
@@ -1753,12 +2004,12 @@
     },
     {
       "path": "security_context_rule[].match.app_id",
-      "type": "string",
+      "type": "string_or_string_array",
       "format": "regex"
     },
     {
       "path": "security_context_rule[].match.sandbox_engine",
-      "type": "string",
+      "type": "string_or_string_array",
       "format": "regex"
     },
     {
@@ -1807,10 +2058,22 @@
       "max": 100
     },
     {
+      "path": "window_rule[].confine_pointer",
+      "type": "bool"
+    },
+    {
       "path": "window_rule[].corner_radius",
       "type": "int",
       "min": 0,
       "max": 100
+    },
+    {
+      "path": "window_rule[].default_column_display",
+      "type": "enum",
+      "values": [
+        "normal",
+        "tabbed"
+      ]
     },
     {
       "path": "window_rule[].default_floating",
@@ -1956,7 +2219,7 @@
     },
     {
       "path": "window_rule[].match.app_id",
-      "type": "string",
+      "type": "string_or_string_array",
       "format": "regex"
     },
     {
@@ -1986,6 +2249,10 @@
       "type": "bool"
     },
     {
+      "path": "window_rule[].match.is_only_window",
+      "type": "bool"
+    },
+    {
       "path": "window_rule[].match.is_pinned",
       "type": "bool"
     },
@@ -1995,12 +2262,12 @@
     },
     {
       "path": "window_rule[].match.title",
-      "type": "string",
+      "type": "string_or_string_array",
       "format": "regex"
     },
     {
       "path": "window_rule[].match.xdg_tag",
-      "type": "string",
+      "type": "string_or_string_array",
       "format": "regex"
     },
     {
@@ -2054,6 +2321,10 @@
     {
       "path": "workspace[].layout.dwindle",
       "type": "table"
+    },
+    {
+      "path": "workspace[].layout.dwindle.new_toward_cursor",
+      "type": "bool"
     },
     {
       "path": "workspace[].layout.dwindle.preserve_split",
@@ -2167,6 +2438,38 @@
       "type": "int",
       "min": -65535,
       "max": 65535
+    },
+    {
+      "path": "workspace[].layout.tabs",
+      "type": "table"
+    },
+    {
+      "path": "workspace[].layout.tabs.default_display",
+      "type": "enum",
+      "values": [
+        "normal",
+        "tabbed"
+      ]
+    },
+    {
+      "path": "workspace[].layout.tabs.middle_click_closes",
+      "type": "bool"
+    },
+    {
+      "path": "workspace[].layout.tabs.new_tab_position",
+      "type": "enum",
+      "values": [
+        "end",
+        "after_active"
+      ]
+    },
+    {
+      "path": "workspace[].layout.tabs.scroll_switches_tabs",
+      "type": "bool"
+    },
+    {
+      "path": "workspace[].layout.tabs.wrap_focus",
+      "type": "bool"
     },
     {
       "path": "workspace[].name",
