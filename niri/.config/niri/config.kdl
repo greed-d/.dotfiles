@@ -1,23 +1,37 @@
-include "configs/input.kdl"
-include "configs/monitor.kdl"
-include "configs/layout.kdl"
-include "configs/animations.kdl"
-include "configs/rules.kdl"
-include "configs/layerrules.kdl"
-include "configs/blur.kdl"
-include "configs/keybinds.kdl"
-include "configs/execs.kdl"
-include "configs/environment.kdl"
 /*
-[[ NOCTALIA INCLUDE ]]
+███╗   ██╗██╗██████╗ ██╗
+████╗  ██║██║██╔══██╗██║
+██╔██╗ ██║██║██████╔╝██║
+██║╚██╗██║██║██╔══██╗██║
+██║ ╚████║██║██║  ██║██║
+╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝╚═╝
+Entry point — each topic lives in its own file under config/.
 */
-include "noctalia/keybinds.kdl"
-include "noctalia/alttab.kdl"
-include "noctalia/colors.kdl"
-include "noctalia/layout.kdl"
-include "noctalia/configs.kdl"
 /*
-[[ DMS INCLUDE ]]
+[[ CORE ]]
+*/
+include "config/general.kdl"
+include "config/input.kdl"
+include "config/monitor.kdl"
+/*
+[[ APPEARANCE ]]
+*/
+include "config/layout.kdl"
+include "config/theme.kdl"
+include "config/animations.kdl"
+include "config/blur.kdl"
+/*
+[[ RULES ]]
+*/
+include "config/window-rules.kdl"
+include "config/layer-rules.kdl"
+/*
+[[ BINDS & STARTUP ]]
+*/
+include "config/keybinds.kdl"
+include "config/startup.kdl"
+/*
+[[ NOCTALIA (DMS alternative) — disabled ]]
 */
 // include "dms/layout.kdl"
 // include "dms/windowrules.kdl"
@@ -25,7 +39,5 @@ include "noctalia/configs.kdl"
 // include "dms/alttab.kdl"
 // include "dms/colors.kdl"
 // include "dms/wpblur.kdl"
-include noctalia.kdl
-
 
 include "noctalia.kdl"

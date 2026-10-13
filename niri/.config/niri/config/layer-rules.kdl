@@ -1,3 +1,7 @@
+/*
+[[ LAYER RULES ]]
+*/
+// Launcher transparency + blur
 layer-rule {
     match namespace="^launcher$"
     match namespace="^vicinae$"
@@ -7,8 +11,8 @@ layer-rule {
         xray false
     }
 }
+// Shadows for gtk-layer-shell widgets (eww etc.)
 layer-rule {
-    //  eww
     match namespace="gtk-layer-shell"
     match at-startup=true
     shadow {
@@ -21,7 +25,6 @@ layer-rule {
     }
 }
 layer-rule {
-    //  eww
     match namespace="rofi"
     match at-startup=true
     shadow {
@@ -33,7 +36,21 @@ layer-rule {
         color "#00000030"
     }
 }
+// Noctalia shell backdrops
 layer-rule {
     match namespace="^noctalia-overview*"
     place-within-backdrop true
 }
+layer-rule {
+    match namespace="^noctalia-backdrop"
+    place-within-backdrop true
+}
+// Blur the Noctalia wallpaper background
+// layer-rule {
+//   match namespace="^noctalia-background-.*$"
+//   // opacity 0.8
+//   background-effect {
+//     blur true
+//     xray false
+//   }
+// }

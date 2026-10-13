@@ -1,15 +1,19 @@
+/*
+[[ THEME ]]
+All colors live here: swap this file to restyle the shell.
+*/
 layout {
     background-color "transparent"
 
     focus-ring {
         active-color   "#cba6f7"
-        inactive-color "#6c7086"
+        inactive-color "#1e1e2e"
         urgent-color   "#f38ba8"
     }
 
     border {
         active-color   "#cba6f7"
-        inactive-color "#6c7086"
+        inactive-color "#1e1e2e"
         urgent-color   "#f38ba8"
     }
 
@@ -19,7 +23,7 @@ layout {
 
     tab-indicator {
         active-color   "#cba6f7"
-        inactive-color "#6c7086"
+        inactive-color "#6d10da"
         urgent-color   "#f38ba8"
     }
 
@@ -30,7 +34,9 @@ layout {
 
 recent-windows {
     highlight {
-        active-color   "#55307f"
-        urgent-color   "#f38ba8"
+        active-color "#cba6f7"
+        urgent-color "#f38ba8"
+        padding 30
+        corner-radius 12
     }
 }

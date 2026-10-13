@@ -27,6 +27,25 @@
 - **File Browser** : Dolphin
 - **Music Stream** : Spotify with spicetify
 
+## 🗂️ Config structure
+Everything is split by topic and included from `config.kdl` :
+```
+config.kdl            # entry point (includes everything below)
+config/
+  general.kdl         # workspaces, misc, cursor, debug, environment
+  input.kdl           # keyboard, touchpad, mouse, gestures
+  monitor.kdl         # outputs
+  layout.kdl          # layout geometry (gaps, presets, borders...)
+  theme.kdl           # all colors (swap this to restyle)
+  animations.kdl      # animations + custom shaders
+  blur.kdl            # blur settings
+  window-rules.kdl    # window rules (floating, blur, workspaces...)
+  layer-rules.kdl     # layer-shell rules (launcher, shadows, backdrops)
+  keybinds.kdl        # all binds + Alt-Tab switcher
+  startup.kdl         # spawn-at-startup
+dms/                  # DMS shell alternative (disabled, see config.kdl)
+```
+
 ## ⚙️ Installation
 > [!WARNING]
 > This is not a installation guide just a wireframe of what you'd want to install, please keep that in mind :

@@ -1,3 +1,7 @@
-// Optional: Clipboard history
+/*
+[[ AUTOSTART ]]
+*/
+// Clipboard history
 spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+// Foot terminal server (footclient connects to this)
 spawn-at-startup "foot" "--server"

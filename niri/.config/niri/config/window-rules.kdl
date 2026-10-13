@@ -1,73 +1,23 @@
-workspace "🌍 WWW"
-workspace "🖳TERM"
-workspace "🗒️ JOT"
-workspace "4"
-workspace "5"
-workspace "📂 FILE"
-workspace "📓 NOTE"
-workspace "🎵 SONG"
-workspace "💬 CHAT"
-workspace "0"
-/*
-[[ Layer Rule ]]
-*/
-// Set the overview wallpaper on the backdrop.
-recent-windows {
-    // off
-    debounce-ms 750
-    open-delay-ms 100
-    highlight {
-        active-color "#999999ff"
-        urgent-color "#ff9999ff"
-        padding 30
-        corner-radius 0
-    }
-    previews {
-        max-height 480
-        max-scale 0.5
-    }
-    binds {
-        Alt+Tab {
-            next-window
-        }
-        Alt+Shift+Tab {
-            previous-window
-        }
-        Alt+grave {
-            next-window filter="app-id"
-        }
-        Alt+Shift+grave {
-            previous-window filter="app-id"
-        }
-        Mod+Tab {
-            next-window
-        }
-        Mod+Shift+Tab {
-            previous-window
-        }
-        Mod+grave {
-            next-window filter="app-id"
-        }
-        Mod+Shift+grave {
-            previous-window filter="app-id"
-        }
-    }
-}
-// layer-rule {
-//   match namespace="^noctalia-background-.*$"
-//   // opacity 0.8
-//   background-effect {
-//     blur true
-//     xray false
-//   }
-// }
 /*
 ██╗    ██╗██╗███╗   ██╗██████╗  ██████╗ ██╗    ██╗    ██████╗ ██╗   ██╗██╗     ███████╗███████╗
 ██║    ██║██║████╗  ██║██╔══██╗██╔═══██╗██║    ██║    ██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
 ██║ █╗ ██║██║██╔██╗ ██║██║  ██║██║   ██║██║ █╗ ██║    ██████╔╝██║   ██║██║     █████╗  ███████╗
 ██║███╗██║██║██║╚██╗██║██║  ██║██║   ██║██║███╗██║    ██╔══██╗██║   ██║██║     ██╔══╝  ╚════██║
 ╚███╔███╔╝██║██║ ╚████║██████╔╝╚██████╔╝╚███╔███╔╝    ██║  ██║╚██████╔╝███████╗███████╗███████║
-╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝  ╚══╝╚══╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝
+ ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═════╝  ╚═════╝  ╚══╝╚══╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚══════╝
+*/
+/*
+[[ GLOBAL ]]
+*/
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+    tiled-state true
+    draw-border-with-background false
+}
+
+/*
+[[ FLOATING WINDOWS ]]
 */
 window-rule {
     match title="^(file_progress)$"
@@ -116,6 +66,27 @@ window-rule {
     // max-height 955
  // min-width 700
 }
+window-rule {
+    match app-id="com.github.th_ch.youtube_music"
+    default-floating-position x=95 y=30
+}
+// Needed for steam, read wiki for more
+window-rule {
+    match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
+    match app-id="com.viber.Viber" title="ViberPC"
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+// Floating Noctalia settings window.
+window-rule {
+    match app-id="dev.noctalia.Noctalia.Settings"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
+/*
+[[ WORKAROUNDS ]]
+*/
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
@@ -127,16 +98,10 @@ window-rule {
 
     }
 }
-window-rule {
-    match app-id="com.github.th_ch.youtube_music"
-    default-floating-position x=95 y=30
-}
-// Needed for steam, read wiki for more
-window-rule {
-    match app-id="steam" title="^notificationtoasts_\\d+_desktop$"
-    match app-id="com.viber.Viber" title="ViberPC"
-    default-floating-position x=10 y=10 relative-to="bottom-right"
-}
+
+/*
+[[ DEFAULT STATES ]]
+*/
 window-rule {
     match app-id="org.telegram.desktop$"
     match app-id="zen$"
@@ -160,18 +125,9 @@ window-rule {
     match app-id="mpv$"
     open-fullscreen true
 }
-window-rule {
-    geometry-corner-radius 8
-    clip-to-geometry true
-}
-debug {
-    // Allows notification actions and window activation from Noctalia.
-    honor-xdg-activation-with-invalid-serial
-    // Hopefully NVIDIA FIX?
-    wait-for-frame-completion-before-queueing
-}
+
 /*
-[[ App Rules ]]
+[[ TRANSPARENCY & BLUR ]]
 */
 window-rule {
     draw-border-with-background false
@@ -184,6 +140,33 @@ window-rule {
     }
     opacity 0.9
 }
+window-rule {
+    match app-id="com.github.th_ch.youtube_music$"
+    match app-id="Spotify"
+    match app-id="spotify"
+    background-effect {
+        blur true
+    }
+    opacity 0.9
+}
+window-rule {
+    match app-id="^vesktop$"
+    background-effect {
+        blur true
+    }
+    opacity 0.9
+}
+window-rule {
+    match app-id="^org.telegram.desktop$"
+    background-effect {
+        blur true
+    }
+    opacity 0.9
+}
+
+/*
+[[ WORKSPACE ASSIGNMENTS ]]
+*/
 window-rule {
     match app-id="zen$"
     match app-id="helium$"
@@ -200,6 +183,8 @@ window-rule {
 window-rule {
     match app-id="^obsidian$"
     match app-id="^md.obsidian.Obsidian$"
+    match app-id="sioyek"
+    match app-id="md.Obsidian"
     open-on-workspace "📓 NOTE"
 }
 window-rule {
@@ -207,29 +192,12 @@ window-rule {
     match app-id="Spotify"
     match app-id="spotify"
     open-on-workspace "🎵 SONG"
-    background-effect {
-        blur true
-    }
-    opacity 0.9
-}
-window-rule {
-    match app-id="sioyek"
-    match app-id="md.Obsidian"
-    open-on-workspace "📓 NOTE"
 }
 window-rule {
     match app-id="^vesktop$"
     open-on-workspace "💬 CHAT"
-    background-effect {
-        blur true
-    }
-    opacity 0.9
 }
 window-rule {
     match app-id="^org.telegram.desktop$"
     open-on-workspace "0"
-    background-effect {
-        blur true
-    }
-    opacity 0.9
 }

@@ -1,0 +1,71 @@
+/*
+██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗███████╗██████╗  █████╗ ██╗
+██║    ██║██╔═══██╗██╔══██╗██║ ██╔╝██╔════╝██╔══██╗██╔══██╗██║
+██║ █╗ ██║██║   ██║██████╔╝█████╔╝ █████╗  ██████╔╝███████║██║
+██║███╗██║██║   ██║██╔══██╗██╔═██╗ ██╔══╝  ██╔══██╗██╔══██║██║
+╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗███████╗██║  ██║██║  ██║███████╗
+╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+*/
+/*
+[[ WORKSPACES ]]
+Referenced by window rules (open-on-workspace) and keybinds.
+*/
+workspace "1"
+workspace "2"
+workspace "3"
+workspace "4"
+workspace "5"
+workspace "6"
+workspace "7"
+workspace "8"
+workspace "9"
+workspace "0"
+/*
+[[ MISC ]]
+*/
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+hotkey-overlay {
+    skip-at-startup
+}
+// One day I hope my laptop shows this event
+// switch-events {
+//     lid-close {
+//         spawn notify-send "The laptop lid is closed!"
+//     }
+//     lid-open {
+//         spawn notify-send "The laptop lid is open!"
+//     }
+// }
+/*
+[[ CURSOR ]]
+*/
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 20
+    hide-when-typing
+}
+/*
+[[ DEBUG ]]
+*/
+debug {
+    // Allows notification actions and window activation from Noctalia.
+    honor-xdg-activation-with-invalid-serial
+    // Hopefully NVIDIA FIX?
+    wait-for-frame-completion-before-queueing
+}
+/*
+[[ ENVIRONMENT ]]
+*/
+environment {
+    QT_QPA_PLATFORM "wayland"
+    // QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    EDITOR "nvim"
+    MOZ_ENABLE_WAYLAND "1"
+    DISPLAY ":1"
+    GTK_THEME "Catppuccin-Mauve-Dark"
+    XDG_MENU_PREFIX "plasma-"
+    BROWSER "helium-browser"
+}
