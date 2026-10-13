@@ -8,47 +8,48 @@
 # its palette into a separate noctalia.toml and still let you override the
 # generated colors here.
 
+# Includes -------------------------------------------------------------------
+
 [include]
 files = [
-  "core/general.toml",
-  "core/monitor.toml",
-  "core/windowrule.toml",
-  "core/layerrule.toml",
-  "core/keybinds.toml",
-  "core/env.toml",
-  "core/execs.toml",
-  "core/animation.toml",
-  "core/appearence.toml",
-  "core/input.toml",
-  "noctalia.toml",
-]
+  "core/general.toml",    # general, workspaces, overview, hot corners, layout
+  "core/monitor.toml",    # outputs
+  "core/input.toml",      # keyboard, mouse, touchpad, tablet, cursor
+  "core/keybinds.toml",   # key and mouse bindings
+  "core/env.toml",        # environment variables
+  "core/execs.toml",      # startup commands (placeholder)
+  "core/appearance.toml", # borders, corners, blur, shadows
+  "core/animation.toml",  # animation timing and easing
+  "core/windowrule.toml", # window rules
+  "core/layerrule.toml",  # layer rules (shell surfaces)
+  ]
+
+# Rendered by Noctalia's dynamic theming; missing files are ignored.
+[include.optional]
+files = ["noctalia.toml"]
 
 
-# Blur all windows
-# [[window_rule]]
-# blur = true
-# blur_optimized = true
-#
-# # Window and layer rules (see docs/user/rules.md) ---------------------------
-# [[window_rule]]
-# match.app_id = "^vesktop$"
-# default_maximize_to_edges = true
-# default_workspace = 9
-#
-# [[window_rule]]
-# match.app_id = "^helium$"
-# default_maximize_to_edges = true
-# default_workspace = 1
-#
-# [[window_rule]]
-# match.app_id = "^dev.noctalia.Noctalia$"
-# default_floating = true
-# default_size = [1020, 900]
-#
-# [[window_rule]]
-# match.app_id = "^dev.noctalia.UmbrielSharePicker$"
-# default_floating = true
-# default_size = [800, 600]
+# Colors ---------------------------------------------------------------------
+# Overrides the palette Noctalia renders into noctalia.toml.
 
+[colors]
+background = "#141419F0"
+text_primary = "#E8E8EAFF"
+text_muted = "#8A8A92FF"
+accent_primary = "#7AA3FFFF"
+accent_secondary = "#F5C96BFF"
+warning = "#F5C96BFF"
+error = "#FF6B6BFF"
+shadow = "#0000007F"
 
-# Open a specific app maximized to the usable-area edges (no gaps or borders)
+# Optional palette overrides -------------------------------------------------
+
+# [colors.border] # focused, unfocused, outer
+# focused = "#7AA3FFFF"
+# unfocused = "#292933FF"
+# outer = "#1A1A1FFF"
+#
+# [colors.overview] # background_tint, workspace_background, badge
+#
+# insert_hint = "#7FC8FF80" # colors.insert_hint
+# backdrop = "#000000FF"    # colors.backdrop

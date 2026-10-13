@@ -1,0 +1,2194 @@
+{
+  "version": "0.1.0",
+  "revision": "2a4457d83f96",
+  "options": [
+    {
+      "path": "animation",
+      "type": "table"
+    },
+    {
+      "path": "animation.beziers",
+      "type": "map"
+    },
+    {
+      "path": "animation.beziers.<name>",
+      "type": "float_array",
+      "format": "bezier"
+    },
+    {
+      "path": "animation.border",
+      "type": "table"
+    },
+    {
+      "path": "animation.border.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.border.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "path": "animation.border.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.border.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "animation.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.dim_unfocused",
+      "type": "table"
+    },
+    {
+      "path": "animation.dim_unfocused.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.dim_unfocused.dim",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "default": 0.0
+    },
+    {
+      "path": "animation.dim_unfocused.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000,
+      "default": 250
+    },
+    {
+      "path": "animation.dim_unfocused.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.dim_unfocused.enabled",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "animation.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000,
+      "default": 250
+    },
+    {
+      "path": "animation.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "animation.layers",
+      "type": "table"
+    },
+    {
+      "path": "animation.layers.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.layers.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000,
+      "default": 250
+    },
+    {
+      "path": "animation.layers.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.layers.enabled",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "animation.overview",
+      "type": "table"
+    },
+    {
+      "path": "animation.overview.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.overview.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "path": "animation.overview.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.overview.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "animation.overview.workspace_curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.scratchpad",
+      "type": "table"
+    },
+    {
+      "path": "animation.scratchpad.blur",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "animation.scratchpad.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.scratchpad.dim",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "default": 0.8
+    },
+    {
+      "path": "animation.scratchpad.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "path": "animation.scratchpad.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.scratchpad.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "animation.scratchpad.fullscreen",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "animation.scratchpad.maximize",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "animation.scratchpad.scale",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "default": 0.0
+    },
+    {
+      "path": "animation.springs",
+      "type": "map"
+    },
+    {
+      "path": "animation.springs.<name>",
+      "type": "table"
+    },
+    {
+      "path": "animation.springs.<name>.damping",
+      "type": "float",
+      "min": 0.01,
+      "max": 5.0
+    },
+    {
+      "path": "animation.springs.<name>.stiffness",
+      "type": "float",
+      "min": 1.0,
+      "max": 10000.0
+    },
+    {
+      "path": "animation.windows_drag",
+      "type": "table"
+    },
+    {
+      "path": "animation.windows_drag.physics",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "animation.windows_in",
+      "type": "table"
+    },
+    {
+      "path": "animation.windows_in.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.windows_in.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "path": "animation.windows_in.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.windows_in.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "animation.windows_in.scale",
+      "type": "float",
+      "min": 0.1,
+      "max": 1.0,
+      "default": 0.5
+    },
+    {
+      "path": "animation.windows_in.style",
+      "type": "enum",
+      "values": [
+        "popin",
+        "zoom",
+        "slide",
+        "fade",
+        "none"
+      ],
+      "default": "popin"
+    },
+    {
+      "path": "animation.windows_move",
+      "type": "table"
+    },
+    {
+      "path": "animation.windows_move.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.windows_move.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "path": "animation.windows_move.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.windows_move.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "animation.windows_out",
+      "type": "table"
+    },
+    {
+      "path": "animation.windows_out.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.windows_out.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "path": "animation.windows_out.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.windows_out.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "animation.windows_out.scale",
+      "type": "float",
+      "min": 0.1,
+      "max": 1.0,
+      "default": 0.8
+    },
+    {
+      "path": "animation.windows_out.style",
+      "type": "enum",
+      "values": [
+        "fade",
+        "slide",
+        "popin",
+        "zoom"
+      ],
+      "default": "popin"
+    },
+    {
+      "path": "animation.workspaces",
+      "type": "table"
+    },
+    {
+      "path": "animation.workspaces.curve",
+      "type": "string",
+      "format": "curve"
+    },
+    {
+      "path": "animation.workspaces.duration_ms",
+      "type": "int",
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "path": "animation.workspaces.effect",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "animation.workspaces.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "appearance",
+      "type": "table"
+    },
+    {
+      "path": "appearance.blur",
+      "type": "table"
+    },
+    {
+      "path": "appearance.blur.brightness",
+      "type": "float",
+      "min": 0.0,
+      "max": 2.0,
+      "default": 0.9
+    },
+    {
+      "path": "appearance.blur.contrast",
+      "type": "float",
+      "min": 0.0,
+      "max": 2.0,
+      "default": 0.9
+    },
+    {
+      "path": "appearance.blur.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "appearance.blur.noise",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "default": 0.02
+    },
+    {
+      "path": "appearance.blur.optimized",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "appearance.blur.passes",
+      "type": "int",
+      "min": 0,
+      "max": 8,
+      "default": 3
+    },
+    {
+      "path": "appearance.blur.radius",
+      "type": "int",
+      "min": 0,
+      "max": 100,
+      "default": 5
+    },
+    {
+      "path": "appearance.blur.saturation",
+      "type": "float",
+      "min": 0.0,
+      "max": 2.0,
+      "default": 1.1
+    },
+    {
+      "path": "appearance.border_width",
+      "type": "int",
+      "min": 0,
+      "max": 100,
+      "default": 2
+    },
+    {
+      "path": "appearance.corner_radius",
+      "type": "int",
+      "min": 0,
+      "max": 100,
+      "default": 10
+    },
+    {
+      "path": "appearance.drag_opacity",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0,
+      "default": 0.75
+    },
+    {
+      "path": "appearance.opaque_fullscreen",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "appearance.outer_border_width",
+      "type": "int",
+      "min": 0,
+      "max": 100,
+      "default": 0
+    },
+    {
+      "path": "appearance.prefer_no_csd",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "appearance.shadow",
+      "type": "table"
+    },
+    {
+      "path": "appearance.shadow.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "appearance.shadow.offset_x",
+      "type": "int",
+      "min": -200,
+      "max": 200,
+      "default": 2
+    },
+    {
+      "path": "appearance.shadow.offset_y",
+      "type": "int",
+      "min": -200,
+      "max": 200,
+      "default": 2
+    },
+    {
+      "path": "appearance.shadow.softness",
+      "type": "int",
+      "min": 0,
+      "max": 200,
+      "default": 10
+    },
+    {
+      "path": "colors",
+      "type": "table"
+    },
+    {
+      "path": "colors.accent_primary",
+      "type": "color",
+      "default": "#7aa3ffff"
+    },
+    {
+      "path": "colors.accent_secondary",
+      "type": "color",
+      "default": "#f5c96bff"
+    },
+    {
+      "path": "colors.backdrop",
+      "type": "color",
+      "default": "#000000ff"
+    },
+    {
+      "path": "colors.background",
+      "type": "color",
+      "default": "#141419ff"
+    },
+    {
+      "path": "colors.border",
+      "type": "table"
+    },
+    {
+      "path": "colors.border.focused",
+      "type": "color",
+      "default": "#7aa3ffff"
+    },
+    {
+      "path": "colors.border.outer",
+      "type": "color",
+      "default": "#1a1a1fff"
+    },
+    {
+      "path": "colors.border.unfocused",
+      "type": "color",
+      "default": "#292933ff"
+    },
+    {
+      "path": "colors.error",
+      "type": "color",
+      "default": "#ff6b6bff"
+    },
+    {
+      "path": "colors.insert_hint",
+      "type": "color",
+      "default": "#7fc8ff80"
+    },
+    {
+      "path": "colors.overview",
+      "type": "table"
+    },
+    {
+      "path": "colors.overview.background_tint",
+      "type": "color",
+      "default": "#10101430"
+    },
+    {
+      "path": "colors.overview.badge",
+      "type": "color",
+      "default": "#7aa3ffff"
+    },
+    {
+      "path": "colors.overview.workspace_background",
+      "type": "color",
+      "default": "#00000044"
+    },
+    {
+      "path": "colors.shadow",
+      "type": "color",
+      "default": "#0000007f"
+    },
+    {
+      "path": "colors.text_muted",
+      "type": "color",
+      "default": "#8a8a92ff"
+    },
+    {
+      "path": "colors.text_primary",
+      "type": "color",
+      "default": "#e8e8eaff"
+    },
+    {
+      "path": "colors.warning",
+      "type": "color",
+      "default": "#f5c96bff"
+    },
+    {
+      "path": "drm",
+      "type": "table"
+    },
+    {
+      "path": "drm.ignored_devices",
+      "type": "string_array",
+      "format": "path"
+    },
+    {
+      "path": "drm.ignored_pci_addresses",
+      "type": "string_array",
+      "format": "pci_address"
+    },
+    {
+      "path": "effects",
+      "type": "table"
+    },
+    {
+      "path": "effects.border",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "effects.cursor",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "effects.in_capture",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "effects.max_fps",
+      "type": "int",
+      "min": 0,
+      "max": 240,
+      "default": 0
+    },
+    {
+      "path": "effects.pool",
+      "type": "map"
+    },
+    {
+      "path": "effects.pool.<name>",
+      "type": "table"
+    },
+    {
+      "path": "effects.pool.<name>.choose",
+      "type": "string_array",
+      "format": "effect"
+    },
+    {
+      "path": "effects.pool.<name>.kind",
+      "type": "enum",
+      "values": [
+        "border",
+        "window",
+        "screen",
+        "cursor"
+      ]
+    },
+    {
+      "path": "effects.pool.<name>.selection",
+      "type": "enum",
+      "values": [
+        "unused_first",
+        "round_robin",
+        "random"
+      ],
+      "default": "unused_first"
+    },
+    {
+      "path": "effects.preset",
+      "type": "map"
+    },
+    {
+      "path": "effects.preset.<name>",
+      "type": "table"
+    },
+    {
+      "path": "effects.preset.<name>.animated",
+      "type": "bool"
+    },
+    {
+      "path": "effects.preset.<name>.kind",
+      "type": "enum",
+      "values": [
+        "animation",
+        "border",
+        "window",
+        "screen",
+        "cursor"
+      ]
+    },
+    {
+      "path": "effects.preset.<name>.light",
+      "type": "table"
+    },
+    {
+      "path": "effects.preset.<name>.light.intensity",
+      "type": "float",
+      "min": 0.0,
+      "max": 4.0
+    },
+    {
+      "path": "effects.preset.<name>.light.spread",
+      "type": "int",
+      "min": 1,
+      "max": 256
+    },
+    {
+      "path": "effects.preset.<name>.light.threshold",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "path": "effects.preset.<name>.overlay",
+      "type": "string",
+      "format": "effect"
+    },
+    {
+      "path": "effects.preset.<name>.padding",
+      "type": "int",
+      "min": 0,
+      "max": 1024
+    },
+    {
+      "path": "effects.preset.<name>.palette",
+      "type": "bool"
+    },
+    {
+      "path": "effects.preset.<name>.radius",
+      "type": "int",
+      "min": 0,
+      "max": 4096
+    },
+    {
+      "path": "effects.preset.<name>.shader",
+      "type": "string",
+      "format": "path"
+    },
+    {
+      "path": "effects.preset.<name>.speed",
+      "type": "float",
+      "min": 0.0,
+      "max": 10.0
+    },
+    {
+      "path": "effects.screen",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "effects.window",
+      "type": "string",
+      "format": "effect",
+      "default": ""
+    },
+    {
+      "path": "environment",
+      "type": "table"
+    },
+    {
+      "path": "environment.<name>",
+      "type": "string"
+    },
+    {
+      "path": "events",
+      "type": "table"
+    },
+    {
+      "path": "events.lid_close",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "events.lid_open",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "general",
+      "type": "table"
+    },
+    {
+      "path": "general.autostart",
+      "type": "string_array",
+      "default": []
+    },
+    {
+      "path": "general.focus_on_activate",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "general.honor_restored_maximize",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "general.mod_key",
+      "type": "enum",
+      "values": [
+        "Super",
+        "Alt",
+        "Ctrl",
+        "Shift"
+      ]
+    },
+    {
+      "path": "general.show_cheatsheet",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "general.xwayland",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "general.xwayland_native_resolution",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "hot_corners",
+      "type": "table"
+    },
+    {
+      "path": "hot_corners.bottom_left",
+      "type": "table"
+    },
+    {
+      "path": "hot_corners.bottom_left.action",
+      "type": "string",
+      "format": "action"
+    },
+    {
+      "path": "hot_corners.bottom_left.delay_ms",
+      "type": "int",
+      "min": 0,
+      "max": 10000,
+      "default": 500
+    },
+    {
+      "path": "hot_corners.bottom_left.enabled",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "hot_corners.bottom_right",
+      "type": "table"
+    },
+    {
+      "path": "hot_corners.bottom_right.action",
+      "type": "string",
+      "format": "action"
+    },
+    {
+      "path": "hot_corners.bottom_right.delay_ms",
+      "type": "int",
+      "min": 0,
+      "max": 10000,
+      "default": 500
+    },
+    {
+      "path": "hot_corners.bottom_right.enabled",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "hot_corners.top_left",
+      "type": "table"
+    },
+    {
+      "path": "hot_corners.top_left.action",
+      "type": "string",
+      "format": "action"
+    },
+    {
+      "path": "hot_corners.top_left.delay_ms",
+      "type": "int",
+      "min": 0,
+      "max": 10000,
+      "default": 500
+    },
+    {
+      "path": "hot_corners.top_left.enabled",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "hot_corners.top_right",
+      "type": "table"
+    },
+    {
+      "path": "hot_corners.top_right.action",
+      "type": "string",
+      "format": "action"
+    },
+    {
+      "path": "hot_corners.top_right.delay_ms",
+      "type": "int",
+      "min": 0,
+      "max": 10000,
+      "default": 500
+    },
+    {
+      "path": "hot_corners.top_right.enabled",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "include",
+      "type": "table"
+    },
+    {
+      "path": "include.files",
+      "type": "string_array",
+      "format": "path"
+    },
+    {
+      "path": "include.optional",
+      "type": "table"
+    },
+    {
+      "path": "include.optional.files",
+      "type": "string_array",
+      "format": "path"
+    },
+    {
+      "path": "input",
+      "type": "table"
+    },
+    {
+      "path": "input.client_window_drag",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "input.cursor",
+      "type": "table"
+    },
+    {
+      "path": "input.cursor.follows_focus",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "input.cursor.hardware_cursor",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "input.cursor.hide_timeout_ms",
+      "type": "int",
+      "min": 0,
+      "max": 3600000,
+      "default": 0
+    },
+    {
+      "path": "input.cursor.hide_when_typing",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "input.cursor.size",
+      "type": "int",
+      "min": 1,
+      "max": 512,
+      "default": 24
+    },
+    {
+      "path": "input.cursor.theme",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "input.device",
+      "type": "array_of_tables"
+    },
+    {
+      "path": "input.device[].accel_profile",
+      "type": "string",
+      "values": [
+        "flat",
+        "adaptive"
+      ],
+      "format": "accel_profile"
+    },
+    {
+      "path": "input.device[].click_method",
+      "type": "enum",
+      "values": [
+        "button_areas",
+        "clickfinger"
+      ]
+    },
+    {
+      "path": "input.device[].disable_while_typing",
+      "type": "bool"
+    },
+    {
+      "path": "input.device[].layout",
+      "type": "string"
+    },
+    {
+      "path": "input.device[].left_handed",
+      "type": "bool"
+    },
+    {
+      "path": "input.device[].name",
+      "type": "string"
+    },
+    {
+      "path": "input.device[].natural_scroll",
+      "type": "bool"
+    },
+    {
+      "path": "input.device[].options",
+      "type": "string"
+    },
+    {
+      "path": "input.device[].repeat_delay",
+      "type": "int",
+      "min": 0,
+      "max": 10000
+    },
+    {
+      "path": "input.device[].repeat_rate",
+      "type": "int",
+      "min": 0,
+      "max": 1000
+    },
+    {
+      "path": "input.device[].scroll_button",
+      "type": "enum",
+      "values": [
+        "MouseLeft",
+        "MouseRight",
+        "MouseMiddle",
+        "MouseBack",
+        "MouseForward"
+      ]
+    },
+    {
+      "path": "input.device[].scroll_button_lock",
+      "type": "bool"
+    },
+    {
+      "path": "input.device[].sensitivity",
+      "type": "float",
+      "min": -1.0,
+      "max": 1.0
+    },
+    {
+      "path": "input.device[].tap",
+      "type": "bool"
+    },
+    {
+      "path": "input.device[].tap_button_map",
+      "type": "enum",
+      "values": [
+        "left_right_middle",
+        "left_middle_right"
+      ]
+    },
+    {
+      "path": "input.device[].variant",
+      "type": "string"
+    },
+    {
+      "path": "input.focus",
+      "type": "table"
+    },
+    {
+      "path": "input.focus.follows_mouse",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "input.focus.follows_mouse_max_scroll",
+      "type": "float",
+      "min": 0.0,
+      "max": 100.0
+    },
+    {
+      "path": "input.keyboard",
+      "type": "table"
+    },
+    {
+      "path": "input.keyboard.layout",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "input.keyboard.numlock_toggle",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "input.keyboard.options",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "input.keyboard.repeat_delay",
+      "type": "int",
+      "min": 0,
+      "max": 10000,
+      "default": 600
+    },
+    {
+      "path": "input.keyboard.repeat_rate",
+      "type": "int",
+      "min": 0,
+      "max": 1000,
+      "default": 25
+    },
+    {
+      "path": "input.keyboard.track_layout",
+      "type": "enum",
+      "values": [
+        "global",
+        "window"
+      ],
+      "default": "global"
+    },
+    {
+      "path": "input.keyboard.variant",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "input.middle_click_paste",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "input.mouse",
+      "type": "table"
+    },
+    {
+      "path": "input.mouse.accel_profile",
+      "type": "string",
+      "values": [
+        "flat",
+        "adaptive"
+      ],
+      "format": "accel_profile"
+    },
+    {
+      "path": "input.mouse.left_handed",
+      "type": "bool"
+    },
+    {
+      "path": "input.mouse.natural_scroll",
+      "type": "bool"
+    },
+    {
+      "path": "input.mouse.scroll_button",
+      "type": "enum",
+      "values": [
+        "MouseLeft",
+        "MouseRight",
+        "MouseMiddle",
+        "MouseBack",
+        "MouseForward"
+      ]
+    },
+    {
+      "path": "input.mouse.scroll_button_lock",
+      "type": "bool"
+    },
+    {
+      "path": "input.mouse.scroll_wheel_step",
+      "type": "int",
+      "min": 1,
+      "max": 1000,
+      "default": 60
+    },
+    {
+      "path": "input.mouse.sensitivity",
+      "type": "float",
+      "min": -1.0,
+      "max": 1.0,
+      "default": 0.0
+    },
+    {
+      "path": "input.tablet",
+      "type": "table"
+    },
+    {
+      "path": "input.tablet.calibration_matrix",
+      "type": "float_array"
+    },
+    {
+      "path": "input.tablet.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "input.tablet.left_handed",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "input.tablet.map_to_focused_output",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "input.tablet.map_to_focused_window",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "input.tablet.map_to_output",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "input.touch",
+      "type": "table"
+    },
+    {
+      "path": "input.touch.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "input.touch.map_to_output",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "input.touchpad",
+      "type": "table"
+    },
+    {
+      "path": "input.touchpad.accel_profile",
+      "type": "string",
+      "values": [
+        "flat",
+        "adaptive"
+      ],
+      "format": "accel_profile"
+    },
+    {
+      "path": "input.touchpad.click_method",
+      "type": "enum",
+      "values": [
+        "button_areas",
+        "clickfinger"
+      ]
+    },
+    {
+      "path": "input.touchpad.disable_on_external_mouse",
+      "type": "bool"
+    },
+    {
+      "path": "input.touchpad.disable_while_typing",
+      "type": "bool"
+    },
+    {
+      "path": "input.touchpad.left_handed",
+      "type": "bool"
+    },
+    {
+      "path": "input.touchpad.natural_scroll",
+      "type": "bool"
+    },
+    {
+      "path": "input.touchpad.scroll_factor",
+      "type": "float_or_table",
+      "min": 0.1,
+      "max": 10.0
+    },
+    {
+      "path": "input.touchpad.scroll_factor.horizontal",
+      "type": "float",
+      "min": 0.1,
+      "max": 10.0
+    },
+    {
+      "path": "input.touchpad.scroll_factor.vertical",
+      "type": "float",
+      "min": 0.1,
+      "max": 10.0
+    },
+    {
+      "path": "input.touchpad.sensitivity",
+      "type": "float",
+      "min": -1.0,
+      "max": 1.0
+    },
+    {
+      "path": "input.touchpad.tap",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "input.touchpad.tap_button_map",
+      "type": "enum",
+      "values": [
+        "left_right_middle",
+        "left_middle_right"
+      ]
+    },
+    {
+      "path": "input.window_drag_toggle",
+      "type": "enum",
+      "values": [
+        "none",
+        "floating",
+        "pinned"
+      ],
+      "default": "none"
+    },
+    {
+      "path": "keybinds",
+      "type": "map"
+    },
+    {
+      "path": "keybinds.<name>",
+      "type": "string_or_table",
+      "format": "action"
+    },
+    {
+      "path": "keybinds.<name>.action",
+      "type": "string",
+      "format": "action"
+    },
+    {
+      "path": "keybinds.<name>.allow_when_inhibited",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "keybinds.<name>.allow_when_locked",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "keybinds.<name>.cooldown_ms",
+      "type": "int",
+      "min": 0,
+      "max": 3600000,
+      "default": 0
+    },
+    {
+      "path": "keybinds.<name>.repeat",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "keybinds.<name>.submap",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "layer_rule",
+      "type": "array_of_tables"
+    },
+    {
+      "path": "layer_rule[].blur",
+      "type": "bool"
+    },
+    {
+      "path": "layer_rule[].blur_ignore_alpha",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "path": "layer_rule[].blur_optimized",
+      "type": "bool"
+    },
+    {
+      "path": "layer_rule[].blur_popups",
+      "type": "bool"
+    },
+    {
+      "path": "layer_rule[].match",
+      "type": "table"
+    },
+    {
+      "path": "layer_rule[].match.namespace",
+      "type": "string",
+      "format": "regex"
+    },
+    {
+      "path": "layout",
+      "type": "table"
+    },
+    {
+      "path": "layout.dwindle",
+      "type": "table"
+    },
+    {
+      "path": "layout.dwindle.preserve_split",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "layout.extent_presets",
+      "type": "float_array",
+      "min": 0.1,
+      "max": 1.0,
+      "default": [
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666
+      ]
+    },
+    {
+      "path": "layout.gap",
+      "type": "int",
+      "min": 0,
+      "max": 500,
+      "default": 8
+    },
+    {
+      "path": "layout.master",
+      "type": "table"
+    },
+    {
+      "path": "layout.master.default_width_fraction",
+      "type": "float",
+      "min": 0.1,
+      "max": 0.9,
+      "default": 0.55
+    },
+    {
+      "path": "layout.master.new_becomes_master",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "layout.master.new_on_top",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "layout.master.position",
+      "type": "enum",
+      "values": [
+        "left",
+        "right",
+        "center"
+      ],
+      "default": "left"
+    },
+    {
+      "path": "layout.mode",
+      "type": "enum",
+      "values": [
+        "scrolling",
+        "dwindle",
+        "master"
+      ],
+      "default": "scrolling"
+    },
+    {
+      "path": "layout.new_exits_fullscreen",
+      "type": "enum_or_array",
+      "values": [
+        "tiled",
+        "floating",
+        "pinned",
+        "all"
+      ],
+      "default": []
+    },
+    {
+      "path": "layout.scrolling",
+      "type": "table"
+    },
+    {
+      "path": "layout.scrolling.center_focused",
+      "type": "enum",
+      "values": [
+        "never",
+        "always",
+        "on_overflow"
+      ],
+      "default": "never"
+    },
+    {
+      "path": "layout.scrolling.center_underfull_strip",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "layout.scrolling.default_extent_fraction",
+      "type": "float",
+      "min": 0.1,
+      "max": 1.0
+    },
+    {
+      "path": "layout.struts",
+      "type": "table"
+    },
+    {
+      "path": "layout.struts.bottom",
+      "type": "int",
+      "min": -65535,
+      "max": 65535,
+      "default": 0
+    },
+    {
+      "path": "layout.struts.left",
+      "type": "int",
+      "min": -65535,
+      "max": 65535,
+      "default": 0
+    },
+    {
+      "path": "layout.struts.right",
+      "type": "int",
+      "min": -65535,
+      "max": 65535,
+      "default": 0
+    },
+    {
+      "path": "layout.struts.top",
+      "type": "int",
+      "min": -65535,
+      "max": 65535,
+      "default": 0
+    },
+    {
+      "path": "output",
+      "type": "map"
+    },
+    {
+      "path": "output.<name>",
+      "type": "table"
+    },
+    {
+      "path": "output.<name>.bit_depth",
+      "type": "int",
+      "min": 8,
+      "max": 10,
+      "default": 8
+    },
+    {
+      "path": "output.<name>.cyclic_workspaces",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "output.<name>.direct_scanout",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "output.<name>.enabled",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "output.<name>.hdr",
+      "type": "enum",
+      "values": [
+        "off",
+        "on",
+        "auto",
+        "fullscreen"
+      ],
+      "default": "off"
+    },
+    {
+      "path": "output.<name>.layout",
+      "type": "table"
+    },
+    {
+      "path": "output.<name>.layout.scrolling",
+      "type": "table"
+    },
+    {
+      "path": "output.<name>.layout.scrolling.default_extent_fraction",
+      "type": "float",
+      "min": 0.1,
+      "max": 1.0
+    },
+    {
+      "path": "output.<name>.min_workspaces",
+      "type": "int",
+      "min": 1,
+      "max": 64,
+      "default": 1
+    },
+    {
+      "path": "output.<name>.mode",
+      "type": "string",
+      "format": "output_mode"
+    },
+    {
+      "path": "output.<name>.position",
+      "type": "int_array",
+      "min": -100000,
+      "max": 100000
+    },
+    {
+      "path": "output.<name>.scale",
+      "type": "float",
+      "min": 0.25,
+      "max": 4.0
+    },
+    {
+      "path": "output.<name>.screen_effect",
+      "type": "string",
+      "format": "effect"
+    },
+    {
+      "path": "output.<name>.sdr_white",
+      "type": "float",
+      "min": 80.0,
+      "max": 1000.0,
+      "default": 203.0
+    },
+    {
+      "path": "output.<name>.tearing",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "output.<name>.transform",
+      "type": "enum",
+      "values": [
+        "normal",
+        "90",
+        "180",
+        "270",
+        "flipped",
+        "flipped-90",
+        "flipped-180",
+        "flipped-270"
+      ]
+    },
+    {
+      "path": "output.<name>.vrr",
+      "type": "enum",
+      "values": [
+        "disabled",
+        "always",
+        "fullscreen"
+      ],
+      "default": "disabled"
+    },
+    {
+      "path": "output.<name>.workspace_axis",
+      "type": "enum",
+      "values": [
+        "vertical",
+        "horizontal"
+      ],
+      "default": "vertical"
+    },
+    {
+      "path": "output.<name>.workspaces",
+      "type": "int_or_string_array",
+      "values": [
+        "dynamic"
+      ],
+      "min": 1,
+      "max": 64,
+      "default": "dynamic"
+    },
+    {
+      "path": "overview",
+      "type": "table"
+    },
+    {
+      "path": "overview.background_blur",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "overview.scroll_factor_horizontal",
+      "type": "float",
+      "min": 0.1,
+      "max": 10.0,
+      "default": 1.0
+    },
+    {
+      "path": "overview.scroll_factor_vertical",
+      "type": "float",
+      "min": 0.1,
+      "max": 10.0,
+      "default": 1.0
+    },
+    {
+      "path": "overview.shortcut_keys",
+      "type": "string",
+      "default": "1234567890"
+    },
+    {
+      "path": "overview.shortcuts",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "overview.workspace_wallpaper",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "path": "overview.zoom",
+      "type": "float",
+      "min": 0.1,
+      "max": 0.75,
+      "default": 0.5
+    },
+    {
+      "path": "scratchpad",
+      "type": "array_of_tables"
+    },
+    {
+      "path": "scratchpad[].name",
+      "type": "string"
+    },
+    {
+      "path": "scratchpad[].spawn_when_empty",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "path": "screencast",
+      "type": "table"
+    },
+    {
+      "path": "screencast.disable_dynamic_confirmation",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "security_context_rule",
+      "type": "array_of_tables"
+    },
+    {
+      "path": "security_context_rule[].allow_globals",
+      "type": "string_array",
+      "default": []
+    },
+    {
+      "path": "security_context_rule[].match",
+      "type": "table"
+    },
+    {
+      "path": "security_context_rule[].match.app_id",
+      "type": "string",
+      "format": "regex"
+    },
+    {
+      "path": "security_context_rule[].match.sandbox_engine",
+      "type": "string",
+      "format": "regex"
+    },
+    {
+      "path": "window_rule",
+      "type": "array_of_tables"
+    },
+    {
+      "path": "window_rule[].blur",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].blur_ignore_alpha",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "path": "window_rule[].blur_optimized",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].blur_popups",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].border_color_focused",
+      "type": "color"
+    },
+    {
+      "path": "window_rule[].border_color_outer",
+      "type": "color"
+    },
+    {
+      "path": "window_rule[].border_color_unfocused",
+      "type": "color"
+    },
+    {
+      "path": "window_rule[].border_effect",
+      "type": "string",
+      "format": "effect"
+    },
+    {
+      "path": "window_rule[].border_width",
+      "type": "int",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "path": "window_rule[].corner_radius",
+      "type": "int",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "path": "window_rule[].default_floating",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].default_floating_size",
+      "type": "table"
+    },
+    {
+      "path": "window_rule[].default_floating_size.height",
+      "type": "float",
+      "min": 0.1,
+      "max": 1.0
+    },
+    {
+      "path": "window_rule[].default_floating_size.width",
+      "type": "float",
+      "min": 0.1,
+      "max": 1.0
+    },
+    {
+      "path": "window_rule[].default_floating_size_px",
+      "type": "table"
+    },
+    {
+      "path": "window_rule[].default_floating_size_px.height",
+      "type": "int",
+      "min": 1,
+      "max": 100000
+    },
+    {
+      "path": "window_rule[].default_floating_size_px.width",
+      "type": "int",
+      "min": 1,
+      "max": 100000
+    },
+    {
+      "path": "window_rule[].default_focused",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].default_fullscreen",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].default_maximize",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].default_maximize_to_edges",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].default_output",
+      "type": "string"
+    },
+    {
+      "path": "window_rule[].default_pinned",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].default_position",
+      "type": "table"
+    },
+    {
+      "path": "window_rule[].default_position.anchor",
+      "type": "enum",
+      "values": [
+        "top_left",
+        "top_right",
+        "bottom_left",
+        "bottom_right",
+        "top",
+        "bottom",
+        "left",
+        "right",
+        "center"
+      ],
+      "default": "center"
+    },
+    {
+      "path": "window_rule[].default_position.x",
+      "type": "int",
+      "min": -100000,
+      "max": 100000
+    },
+    {
+      "path": "window_rule[].default_position.y",
+      "type": "int",
+      "min": -100000,
+      "max": 100000
+    },
+    {
+      "path": "window_rule[].default_scratchpad",
+      "type": "string"
+    },
+    {
+      "path": "window_rule[].default_scrolling_column",
+      "type": "string"
+    },
+    {
+      "path": "window_rule[].default_scrolling_column_order",
+      "type": "int",
+      "min": -2147483648,
+      "max": 2147483647
+    },
+    {
+      "path": "window_rule[].default_scrolling_extent",
+      "type": "float",
+      "min": 0.1,
+      "max": 1.0
+    },
+    {
+      "path": "window_rule[].default_scrolling_extent_px",
+      "type": "int",
+      "min": 1,
+      "max": 100000
+    },
+    {
+      "path": "window_rule[].default_workspace",
+      "type": "int_or_string",
+      "min": 1,
+      "max": 64
+    },
+    {
+      "path": "window_rule[].focus_on_activate",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].hdr",
+      "type": "enum",
+      "values": [
+        "off",
+        "on",
+        "auto",
+        "fullscreen"
+      ]
+    },
+    {
+      "path": "window_rule[].match",
+      "type": "table"
+    },
+    {
+      "path": "window_rule[].match.app_id",
+      "type": "string",
+      "format": "regex"
+    },
+    {
+      "path": "window_rule[].match.at_startup",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].match.content_type",
+      "type": "enum",
+      "values": [
+        "none",
+        "photo",
+        "video",
+        "game"
+      ]
+    },
+    {
+      "path": "window_rule[].match.is_alone",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].match.is_floating",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].match.is_focused",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].match.is_pinned",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].match.is_scratchpad",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].match.title",
+      "type": "string",
+      "format": "regex"
+    },
+    {
+      "path": "window_rule[].match.xdg_tag",
+      "type": "string",
+      "format": "regex"
+    },
+    {
+      "path": "window_rule[].opacity",
+      "type": "float",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "path": "window_rule[].outer_border_width",
+      "type": "int",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "path": "window_rule[].shadow",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].tearing",
+      "type": "bool"
+    },
+    {
+      "path": "window_rule[].vrr",
+      "type": "enum",
+      "values": [
+        "disabled",
+        "always",
+        "fullscreen"
+      ]
+    },
+    {
+      "path": "window_rule[].window_effect",
+      "type": "string",
+      "format": "effect"
+    },
+    {
+      "path": "workspace",
+      "type": "array_of_tables"
+    },
+    {
+      "path": "workspace[].index",
+      "type": "int",
+      "min": 1,
+      "max": 64
+    },
+    {
+      "path": "workspace[].layout",
+      "type": "table"
+    },
+    {
+      "path": "workspace[].layout.dwindle",
+      "type": "table"
+    },
+    {
+      "path": "workspace[].layout.dwindle.preserve_split",
+      "type": "bool"
+    },
+    {
+      "path": "workspace[].layout.extent_presets",
+      "type": "float_array",
+      "min": 0.1,
+      "max": 1.0
+    },
+    {
+      "path": "workspace[].layout.gap",
+      "type": "int",
+      "min": 0,
+      "max": 500
+    },
+    {
+      "path": "workspace[].layout.master",
+      "type": "table"
+    },
+    {
+      "path": "workspace[].layout.master.default_width_fraction",
+      "type": "float",
+      "min": 0.1,
+      "max": 0.9
+    },
+    {
+      "path": "workspace[].layout.master.new_becomes_master",
+      "type": "bool"
+    },
+    {
+      "path": "workspace[].layout.master.new_on_top",
+      "type": "bool"
+    },
+    {
+      "path": "workspace[].layout.master.position",
+      "type": "enum",
+      "values": [
+        "left",
+        "right",
+        "center"
+      ]
+    },
+    {
+      "path": "workspace[].layout.mode",
+      "type": "enum",
+      "values": [
+        "scrolling",
+        "dwindle",
+        "master"
+      ]
+    },
+    {
+      "path": "workspace[].layout.new_exits_fullscreen",
+      "type": "enum_or_array",
+      "values": [
+        "tiled",
+        "floating",
+        "pinned",
+        "all"
+      ]
+    },
+    {
+      "path": "workspace[].layout.scrolling",
+      "type": "table"
+    },
+    {
+      "path": "workspace[].layout.scrolling.center_focused",
+      "type": "enum",
+      "values": [
+        "never",
+        "always",
+        "on_overflow"
+      ]
+    },
+    {
+      "path": "workspace[].layout.scrolling.center_underfull_strip",
+      "type": "bool"
+    },
+    {
+      "path": "workspace[].layout.scrolling.default_extent_fraction",
+      "type": "float",
+      "min": 0.1,
+      "max": 1.0
+    },
+    {
+      "path": "workspace[].layout.struts",
+      "type": "table"
+    },
+    {
+      "path": "workspace[].layout.struts.bottom",
+      "type": "int",
+      "min": -65535,
+      "max": 65535
+    },
+    {
+      "path": "workspace[].layout.struts.left",
+      "type": "int",
+      "min": -65535,
+      "max": 65535
+    },
+    {
+      "path": "workspace[].layout.struts.right",
+      "type": "int",
+      "min": -65535,
+      "max": 65535
+    },
+    {
+      "path": "workspace[].layout.struts.top",
+      "type": "int",
+      "min": -65535,
+      "max": 65535
+    },
+    {
+      "path": "workspace[].name",
+      "type": "string"
+    },
+    {
+      "path": "workspace[].output",
+      "type": "string"
+    },
+    {
+      "path": "workspaces",
+      "type": "table"
+    },
+    {
+      "path": "workspaces.back_and_forth",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "path": "workspaces.empty_above",
+      "type": "bool",
+      "default": false
+    }
+  ]
+}

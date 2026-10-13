@@ -1,11 +1,16 @@
+# General — startup, workspaces, overview, hot corners, and window layout ----
+
+# Core behavior --------------------------------------------------------------
+
 [general]
-autostart = []
+autostart = ["qs -p ~/.config/astralis/shell.qml", "foot --server"]
 mod_key = "Super"               # Mod in keybinds; defaults to Super (Alt when nested)
 xwayland = true                 # requires restart to change
-show_cheatsheet = false          # show keybinds overlay on startup
+show_cheatsheet = false         # show keybinds overlay on startup
 focus_on_activate = false       # activation requests mark urgent without stealing focus
 honor_restored_maximize = false # let apps restore their saved maximized state
 
+# Workspaces -----------------------------------------------------------------
 
 [workspaces]
 back_and_forth = true
@@ -14,9 +19,8 @@ back_and_forth = true
 
 [overview]
 zoom = 0.4 # 0.1-0.75
-# background_blur = true        # blur the wallpaper while the overview is open
-# background_tint = "#10101430"
-# workspace_background = "#00000044" # set alpha to FF for an opaque background
+# background_blur = true # blur the wallpaper while the overview is open
+# Overview colors (tint, workspace background, badge) live under [colors.overview].
 
 # Hot corners ---------------------------------------------------------------
 
@@ -43,17 +47,26 @@ action = "spawn:notify-send 'Bottom right'"
 # Layout ---------------------------------------------------------------------
 
 [layout]
-mode = "scrolling"                  # "scrolling" or "dwindle"
-gap = 8                             # 0-500
-width_presets = [0.333, 0.5, 0.667] # shared by scrolling and dwindle
+mode = "scrolling"                  # "scrolling", "dwindle", or "master"
+gap = 1                             # 0-500
+extent_presets = [0.333, 0.5, 0.667] # shared by scrolling and dwindle
 
 [layout.scrolling]
 # Vertical workspaces stack horizontal lanes from top to bottom.
-# direction = "horizontal"
-default_width_fraction = 0.5  # remove to let clients choose their initial width
+default_extent_fraction = 0.5  # remove to let clients choose their initial width
 center_underfull_strip = true # center the strip whenever it is narrower than the viewport
 
-# Workspace layout overrides (see docs/user/outputs.md#workspace-rules)
+# Per-workspace layout overrides (see docs/user/outputs.md#workspace-rules) ---
+
+[[workspace]]
+index = 7
+layout.mode = "dwindle"
+
+[[workspace]]
+index = 8
+layout.mode = "master"
+
+# More overrides can match by name and tweak gaps and sub-layouts:
 # [[workspace]]
 # name = "chat"
 # layout.mode = "dwindle"
