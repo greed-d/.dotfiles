@@ -5,12 +5,16 @@
     "portal-not-running": "xdg-desktop-portal n'est pas en cours d'exécution",
     "recording-failed": "Échec de l'enregistrement",
     "recording-saved": "Enregistrement sauvegardé",
+    "recording-stopped-early": "gpu-screen-recorder s'est terminé sans sauvegarder. Veuillez inspecter les fichiers de journalisation pour plus de détails.",
     "replay-active": "Tampon de relecture actif",
     "replay-failed": "Échec de la relecture",
     "replay-saved": "Relecture sauvegardée",
     "replay-stopped": "Tampon de relecture arrêté"
   },
   "settings": {
+    "audio_bitrate": {
+      "label": "Débit audio (kbps)"
+    },
     "audio_codec": {
       "label": "Codec audio",
       "options": {

@@ -8,6 +8,7 @@
     "measure_result": "Measured: {width} × {height} px (copied)",
     "missing_dep": "Missing dependency: {dep}",
     "no_annotator": "No annotation tool found (install swappy or satty)",
+    "no_file": "Screenshot wasn't saved to a file. Enable file saving in Settings → Screenshot.",
     "no_qr": "No QR code detected.",
     "no_recorder": "No screen recorder found. Install wl-screenrec or wf-recorder.",
     "no_text": "No text detected.",

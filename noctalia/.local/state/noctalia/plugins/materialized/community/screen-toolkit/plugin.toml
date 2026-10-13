@@ -8,7 +8,7 @@
 
 id = "alexander/screen-toolkit"
 name = "Screen Toolkit"
-version = "1.4.0"
+version = "1.5.3"
 plugin_api = 13
 author = "alexander"
 license = "MIT"
@@ -16,38 +16,39 @@ icon = "crosshair"
 description = "Screen tools: color picker, OCR, QR, palette, lens, annotate, measure, and recording."
 tags = ["recording", "utility", "bar", "panel", "shortcut", "service", "hyprland", "niri", "sway"]
 dependencies = [
+  # Pixel pipelines over shell captures, plus the window-picker click waiter.
   "slurp",
-  "grim",
   "hyprpicker",
   "tesseract",
   "imagemagick",
   "zbar",
   "curl",
-  "ffmpeg",
-  "ffprobe",
   "jq",
   "translate-shell",
-  "bc",
-  "stat",
-  "pkill",
-  "xdg-open",
-  "hyprctl",
-  "niri",
-  "swappy",
-  "satty",
-  "gimp",
+  # Recording backends and their helpers.
+  "ffmpeg",
+  "ffprobe",
   "gpu-screen-recorder",
   "wl-screenrec",
   "wf-recorder",
+  "bc",
+  "stat",
+  "pkill",
+  "pactl",
   "mpv",
+  # Compositor-specific flows (window geometry, hover highlight).
+  "hyprctl",
+  "niri",
+  # Desktop integration.
+  "xdg-open",
 ]
 
 # ── Panel entries (host-injected placement/size settings appear here, first in the settings editor) ──
 
 # Main toolkit panel: tool grid + per-tool result views + recording controls.
 # Open with: noctalia msg panel-toggle alexander/screen-toolkit:panel
-# Compact layout (default). Full mode was removed; the bar widget / shortcut
-# open either the standard or legacy entry based on the "panel-mode" setting.
+# Standard layout (default). The bar widget / shortcut open either the
+# standard or legacy entry based on the "panel-mode" setting.
 [[panel]]
 id = "panel"
 entry = "panel.luau"
@@ -79,13 +80,6 @@ placement = "floating"
 position = "center"
 
 # ── Plugin-level settings (shared by every entry, edited in Settings → Plugins) ──
-
-[[setting]]
-key = "screenshot-path"
-type = "folder"
-label_key = "settings.screenshot_path.label"
-description_key = "settings.screenshot_path.description"
-default = "~/Pictures/Screenshots"
 
 [[setting]]
 key = "video-path"

@@ -1,7 +1,7 @@
 # Notes
 
 Quick notes in a full-height side panel, stored as plain text files in a
-directory you control — yours to sync, edit externally, and grep.
+directory you control - yours to sync, edit externally, and grep.
 
 ## Plugin
 
@@ -27,8 +27,11 @@ directory you control — yours to sync, edit externally, and grep.
 4. The pin button on a row keeps that note at the top of the list and ranks it
    higher in launcher results. Deleting asks for an inline confirmation.
 
-A pinned **Scratchpad** note always sits at the top of the list — the place to
+A pinned **Scratchpad** note always sits at the top of the list - the place to
 dump text instantly without naming anything.
+
+The panel close button respects `shell.show_close_buttons`; if the setting is
+missing, the button stays visible. Requires plugin API 26.
 
 The `/nt` launcher command writes down a thought without opening the panel:
 type it, press Enter, done.

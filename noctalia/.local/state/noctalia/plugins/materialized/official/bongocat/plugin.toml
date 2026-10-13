@@ -1,4 +1,4 @@
-# Bongo Cat — a cat that sits in your bar and slaps when you type or to the beat.
+# Bongo Cat - a cat that sits in your bar and slaps when you type or to the beat.
 #
 # Input reactivity needs `evtest` installed and your user in the `input` group;
 # set input devices in the widget settings. Prefer stable /dev/input/by-id/ or

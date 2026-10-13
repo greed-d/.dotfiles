@@ -1,11 +1,11 @@
 --!nonstrict
--- Bongo Cat — a cat that sits in your bar and slaps when you type or to the beat.
+-- Bongo Cat - a cat that sits in your bar and slaps when you type or to the beat.
 --
 -- Configure input devices in the widget settings (input_devices = [
 -- "/dev/input/by-id/...", "/dev/input/by-path/*-event-*"]). Prefer stable
 -- by-id/by-path entries over /dev/input/eventN because event numbers can change.
 -- When set and `evtest` is installed, the widget reads matching devices with
--- noctalia.runStream — one long-lived shell stream whose lines are delivered
+-- noctalia.runStream - one long-lived shell stream whose lines are delivered
 -- straight to the script (no IPC, no per-keystroke process spawn). The stream is
 -- killed automatically when the widget reloads or is removed.
 --
@@ -236,7 +236,7 @@ local function startInputReader()
   end
 
   if not noctalia.commandExists(executable) then
-    noctalia.notifyError("Bongo Cat", "the evtest path is invalid (" .. executable .. ") — cannot read input devices")
+    noctalia.notifyError("Bongo Cat", "the evtest path is invalid (" .. executable .. ") - cannot read input devices")
     return
   end
 

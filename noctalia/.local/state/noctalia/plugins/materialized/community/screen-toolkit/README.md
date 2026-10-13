@@ -21,10 +21,11 @@ not the original implementation.
 ## Requirements
 
 Install the tools used by the features you want on `PATH`. Missing tools are
-reported when that feature is started.
+reported when that feature is started. Screenshots, region selection, and
+annotation run through the shell's own screenshot stack (no extra binaries);
+only pixel processing and recording need external tools.
 
-- **`slurp`** — region selection
-- **`grim`** — screen capture
+- **`slurp`** — region crosshair for region recording; invisible click waiter for Annotate Window
 - **`hyprpicker`** — pixel color picking
 - **`tesseract`** — OCR engine (plus your language packs, e.g. `tesseract-data-eng`)
 - **`imagemagick`** — image processing
@@ -35,7 +36,8 @@ reported when that feature is started.
 - **`stat`** — recording file size
 - **`pkill`** — stopping active recording backends
 - **`xdg-open`** — opening URLs, OCR search results, and shared-link targets
-- **`mpv`** — open recording preview in legacy mode subpanel 
+- **`mpv`** — open recording preview in legacy mode subpanel
+- **`pactl`** — resolve the default audio source for single-source wf-recorder / wl-screenrec recording
 
 Recording requires at least one backend:
 
@@ -45,15 +47,16 @@ Recording requires at least one backend:
 
 Optional:
 
-- **`swappy`** / **`satty`** — annotation editor (Markup tool)
-- **`gimp`** — fallback annotation editor when swappy/satty are missing
 - **`translate-shell`** (`trans`) — OCR translation
-- **hyprctl** — annotate the focused window (Hyprland)
-- **`niri`** — annotate the focused window (Niri)
+- **`hyprctl`** — window geometry and hover highlight for Annotate Window (Hyprland; the highlight needs a Lua-dispatch build)
+- **`niri`** — Annotate Window on Niri captures the focused window
 
-Compositor support: region tools, measure, annotate and recording work on any
-Wayland compositor with `wlroots` protocols. `Annotate Window` requires Hyprland
-(`hyprctl`) or Niri (`niri msg`).
+Screenshots and annotation use the shell's own screenshot stack
+(`screenshot-region`, `screenshot-fullscreen`, `annotate`), so captures land
+in the shell's screenshot directory with its filename pattern. `Annotate
+Window` hovers to aim — everything dims except the window under the cursor —
+then the click captures that window. On Niri it captures the focused window
+directly.
 
 ## Usage
 
@@ -114,24 +117,25 @@ The tools panel contains the capture actions. When a capture tool finishes, a
 **result panel** opens with the output and its actions; close it to return to
 the tools panel.
 
-Region tools (Color, OCR, QR, Palette, Lens, Measure, GIF/MP4 record, Markup)
-draw a `slurp` crosshair — drag to select a region, then release. Recording
-starts immediately and the bar widget shows the pulsing dot; click the dot, the
-widget, the shortcut, or the panel's **Stop** button to end it. Unless "Skip
-Save Confirmation" is on, the panel then offers **Save MP4**, **Save GIF**,
-**Copy**, and **Discard**.
+Region tools (OCR, QR, Palette, Lens, Measure, Markup) use the shell's
+interactive region overlay — drag to select a region, then release. Region
+recording draws a `slurp` crosshair instead, to get a geometry for the
+external recorder. Recording starts immediately and the bar widget shows the
+pulsing dot; click the dot, the widget, the shortcut, or the panel's **Stop**
+button to end it. Unless "Skip Save Confirmation" is on, the panel then
+offers **Save MP4**, **Save GIF**, **Copy**, and **Discard**.
 
-The `hide-cursor` setting excludes the cursor from **recordings and screenshots**
-(default: hidden). Grim excludes the cursor by default; when the setting is
-disabled, the plugin passes grim's `-c` flag to include it. gpu-screen-recorder
-and wl-screenrec receive their corresponding cursor options. wf-recorder does
-not expose a portable cursor flag, so its behavior depends on the compositor.
+The `hide-cursor` setting excludes the cursor from **recordings** (default:
+hidden). Screenshots follow the shell's own screenshot cursor setting.
+gpu-screen-recorder and wl-screenrec receive their corresponding cursor
+options. wf-recorder does not expose a portable cursor flag, so its behavior
+depends on the compositor.
 
-- **Markup** captures the region and opens it in `swappy` (or `satty`). Saving
-  happens in that editor; satty saves to your screenshot path automatically.
-  **Markup Window** shows a crosshair — click the window you want to annotate
-  and it captures that window (Hyprland). On Niri it captures the focused
-  window directly.
+- **Markup** captures the region and opens it in the shell's annotation
+  editor; Copy and Save deliver the annotated PNG per the shell's screenshot
+  policy. **Markup FS** captures the focused monitor. **Markup Window** dims
+  the screen except the hovered window — click captures that window
+  (Hyprland; Niri captures the focused window instead).
 - **Measure** reports the region's pixel size and copies it to the clipboard.
 - **OCR** extracts text and copies it to the clipboard. The result includes the
   capture preview and an editable multiline text area, so you can correct, trim,
@@ -145,8 +149,10 @@ not expose a portable cursor flag, so its behavior depends on the compositor.
 
 Results are delivered to the clipboard with a notification — the panel itself
 only holds the tools. Results persist across restarts in the plugin's data
-directory; the capture previews live in `/tmp` and are only kept for the
-session.
+directory. Captures land in the shell's screenshot directory and persist —
+except for the text-only tools (OCR, QR, Palette, Measure, Lens), which work
+off a temp copy and delete the screenshot right away, so they leave no file
+behind. Window crops and recording thumbnails live in `/tmp`.
 
 ## Settings
 
@@ -154,7 +160,6 @@ All settings live in Settings → Plugins (gear on the plugin's row).
 
 | Setting | Type | Default | Description |
 | --- | --- | --- | --- |
-| `screenshot-path` | `folder` | `~/Pictures/Screenshots` | Where satty saves annotations. |
 | `video-path` | `folder` | `~/Videos` | Where recordings are saved. |
 | `filename-format` | `string` | `%Y-%m-%d_%H-%M-%S` | Filename template; the extension is added automatically. |
 | `selected-ocr-lang` | `string` | `eng` | Tesseract language code; combine with `+` (e.g. `eng+fra`). |
@@ -164,7 +169,7 @@ All settings live in Settings → Plugins (gear on the plugin's row).
 | `share-skip-popover` | `bool` | `false` | Compatibility setting retained from v4. The v5 result panel copies share links directly. |
 | `record-audio-out` | `bool` | `false` | Record the desktop's audio output. |
 | `record-audio-in` | `bool` | `false` | Record the default microphone. |
-| `hide-cursor` | `bool` | `true` | Exclude the cursor from recordings and screenshots. On Hyprland, screenshots briefly move the pointer off-screen during capture. |
+| `hide-cursor` | `bool` | `true` | Exclude the cursor from recordings. Screenshots follow the shell's screenshot cursor setting. |
 | `record-codec` | `select` | `h264` | Codec for `gpu-screen-recorder` fullscreen capture: `h264`, `hevc`, or `av1`. `h264` is the safest NVIDIA NVENC default; `av1` needs a recent GPU. |
 | `record-fps` | `int` | `60` | Frame rate for `gpu-screen-recorder` fullscreen capture (15–240). |
 | `record-skip-confirmation` | `bool` | `false` | Save automatically when a recording ends, skipping the save dialog. |
@@ -223,7 +228,7 @@ Summary of every service command:
 | Command | Payload | Action |
 | --- | --- | --- |
 | `toggle` | — | Open/close the tools panel (matches `panel-mode`) |
-| `colorPicker` | — | Pick a color from the screen (region crosshair) |
+| `colorPicker` | — | Pick a color from the screen (hyprpicker magnifier) |
 | `ocr` | — | Extract text from a region |
 | `qr` | — | Decode a QR / barcode from a region |
 | `palette` | — | Extract hex colors from a region |
@@ -231,7 +236,7 @@ Summary of every service command:
 | `measure` | — | Report a region's pixel size |
 | `annotate` | — | Open a region in the annotation editor |
 | `annotateFullscreen` | — | Annotate the full screen |
-| `annotateWindow` | — | Annotate the focused window (Hyprland / Niri) |
+| `annotateWindow` | — | Hover-aim and capture a window (Hyprland) / focused window (Niri) |
 | `record` | — | Record a region as GIF |
 | `recordMp4` | — | Record a region as MP4 |
 | `recordFullscreen` | — | Record the full screen as GIF |
@@ -245,7 +250,7 @@ Summary of every service command:
 | `share` | file path | Upload a file and copy the link |
 | `clearResult` | — | Clear the current result panel state |
 | `clearHistory` | — | Clear the color history |
-| `setCursorHidden` | `"true"` / `"false"` | Include/exclude the cursor in captures |
+| `setCursorHidden` | \"true\" / \"false\" | Exclude/include the cursor in recordings |
 
 ## Notes
 
@@ -259,17 +264,19 @@ Summary of every service command:
 - This is a port of the legacy v4
   [screen-toolkit](https://github.com/noctalia-dev/legacy-v4-plugins/tree/main/screen-toolkit)
   plugin. Tools that relied on freeform v4 QML overlays are adapted: region
-  selection uses `slurp`, annotation hands off to `swappy`/`satty`, and measure
-  reports region dimensions instead of drawing a line overlay. **Pin** (floating
-  screen overlays) and **Webcam Mirror** could not be ported — the v5 plugin UI
-  has no canvas or always-on-top surfaces — so they are not included.
+  selection and annotation go through the shell's screenshot stack, window
+  aiming dims everything except the hovered window (`hyprctl dim_around` on
+  Hyprland), and measure reports region dimensions instead of drawing a line
+  overlay. **Pin** (floating screen overlays) and **Webcam Mirror** could not
+  be ported — the v5 plugin UI has no canvas or always-on-top surfaces — so
+  they are not included.
 - Recording auto-detects its backend: **fullscreen** uses `gpu-screen-recorder`
   when installed (NVENC hardware encoding — the best option on NVIDIA GPUs,
   where wl-screenrec's VAAPI path is unreliable), falling back to
   `wl-screenrec` then `wf-recorder`. **Region** capture uses `wl-screenrec` then
   `wf-recorder`, because `gpu-screen-recorder` cannot record an arbitrary
   sub-region. Microphone audio is only supported by `wl-screenrec`; with
-  `wf-recorder` only system audio is available, and gpu-screen-recorder's audio
+  `wf-recorder` only a single audio source (system *or* microphone) is available, and gpu-screen-recorder's audio
   follows its own source selection.
 - Region coordinates are captured in physical pixels; `recordFullscreen`
   multiplies the focused output's logical geometry by its scale.

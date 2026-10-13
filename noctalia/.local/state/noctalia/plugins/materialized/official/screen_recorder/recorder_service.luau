@@ -1,5 +1,5 @@
 --!nonstrict
--- GPU Screen Recorder — headless service.
+-- GPU Screen Recorder - headless service.
 -- Owns all recording / replay-buffer logic and runs for the whole session, so a
 -- recording can be started from the control-center shortcut with no bar widget
 -- placed. The widget and shortcut are thin clients: they read the published
@@ -19,10 +19,15 @@ local REPLAY_STATES = { "replaying", "replay_pending" }
 local outputPath = ""
 local isAvailable = false
 local tickCount = 0
-local pendingTick = 0
+-- tickCount when the current start began; the pending verdict waits a full
+-- check interval from here, so a process check already in flight at start
+-- (or the next periodic one, up to 2s away) cannot decide on its own.
+local pendingSince = 0
 local checkedAvailability = false
 local processCheckPending = false
 local stateGeneration = 0
+local regionGeometry = nil
+local pickInProcess = false
 local updateDisplay
 local lastStatusKey
 
@@ -38,6 +43,28 @@ end
 
 local function scaledVideoQp(codec, qp)
     return qp * (if codec == "vp8" then 2 elseif codec == "av1" or codec == "vp9" then 4 else 1)
+end
+
+local function buildVideoBitrateFlags(codec)
+    local mode = cfg("video_bitrate_mode")
+    if mode == "qp" then
+        local qp = scaledVideoQp(codec, cfg("video_qp"))
+        return `-bm qp -ffmpeg-video-opts qp={qp}`
+    end
+
+    if mode == "vbr" then
+        return `-bm vbr -q {cfg("video_quality")}`
+    end
+
+    if mode == "cbr" then
+        local bitrate = tonumber(cfg("video_bitrate"))
+        if not bitrate or bitrate <= 0 or bitrate ~= math.floor(bitrate) then
+            log(`invalid video bitrate: {cfg("video_bitrate")}`)
+            return nil
+        end
+        return `-bm cbr -q {bitrate}`
+    end
+    return ""
 end
 
 -- Where gpu-screen-recorder's own stdout/stderr is captured so its failure reason
@@ -71,6 +98,15 @@ local function logGsrTail(reason)
     end
 end
 
+-- Portal target selection cancelled by user shouldn't be a failure.
+-- Exits silently to idle with no error popup and writes a "cancelled by the user" line to logFile.
+local function portalCaptureCancelled()
+    local contents = noctalia.readFile(logFile)
+    if contents == nil or contents == "" then return false end
+    return contents:find("canceled by the user", 1, true) ~= nil
+     or contents:find("cancelled by the user", 1, true) ~= nil
+end
+
 -- Publish the recorder's status so the widget and shortcut can mirror it.
 local function publishStatus()
     local key = `{state}/{if isAvailable then "1" else "0"}`
@@ -83,6 +119,9 @@ local function setState(nextState)
     if state == nextState then return end
     state = nextState
     stateGeneration += 1
+    if nextState == "idle" then
+        regionGeometry = nil
+    end
 end
 
 local function detectProcessStateAsync(callback)
@@ -153,7 +192,7 @@ local function shellQuote(value)
 end
 
 -- notifyIfMissing: when the recorder ended on its own (not a user stop) and no
--- output file exists, gpu-screen-recorder died early — surface its captured output.
+-- output file exists, gpu-screen-recorder died early - surface its captured output.
 local function notifyRecordingSavedIfPresent(notifyIfMissing)
     local savedPath = outputPath
     if savedPath == "" then return end
@@ -161,6 +200,10 @@ local function notifyRecordingSavedIfPresent(notifyIfMissing)
     noctalia.runAsync(`sleep 0.5; test -s {shellQuote(savedPath)}`, function(result)
         if result.exitCode ~= 0 then
             if notifyIfMissing then
+                if portalCaptureCancelled() then
+                    log("target selection cancelled by user, no output file, return to idle")
+                    return
+                end
                 logGsrTail("recording stopped early with no output file")
                 noctalia.notifyError(noctalia.tr("notify.recording-failed"), noctalia.tr("notify.recording-stopped-early"))
             end
@@ -189,6 +232,21 @@ local function buildAudioFlags()
     if source == "both" then
         return `-ac {codec} {bitrateFlag} -a "default_output|default_input"`
     end
+
+    if source == "custom" then
+        local sources = cfg("custom_audio_sources")
+        if sources == "" then return "" end
+
+        local flags = {}
+        for src in sources:gmatch("([^,]+)") do
+            src = noctalia.string.trim(src)
+            table.insert(flags, `-a {shellQuote(src)}`)
+        end
+
+        if #flags == 0 then return "" end
+        return `-ac {codec} {bitrateFlag} {table.concat(flags, " ")}`
+    end
+
     return `-ac {codec} {bitrateFlag} -a {source}`
 end
 
@@ -197,10 +255,28 @@ local function buildResolutionFlag()
     return if res ~= "original" then `-s {res}` else ""
 end
 
+local function buildSaveScriptFlag()
+    local script = cfg("post_save_script")
+    if script == "" then return "" end
+
+    script = noctalia.expandPath(script)
+    if not noctalia.fileExists(script) then
+        log(`post-save script not found: {script}`)
+        return ""
+    end
+
+    return `-sc {shellQuote(script)}`
+end
+
+-- "cpu" forces the software encoder (h264-only), anything else keeps hardware encoding.
+local function buildEncoderFlag()
+    return if cfg("video_encoder") == "cpu" then "-encoder cpu" else ""
+end
+
 -- Capture modes a caller may request. An IPC override outside this set is
 -- discarded so an arbitrary payload can never reach the gpu-screen-recorder
 -- command line.
-local VIDEO_SOURCES = { focused = true, portal = true }
+local VIDEO_SOURCES = { focused = true, portal = true, region = true }
 
 local function selectedVideoSource(sourceOverride)
     if sourceOverride ~= nil and VIDEO_SOURCES[sourceOverride] then
@@ -225,6 +301,42 @@ local function resolveVideoSource(errorTitle, focusedOutputName, sourceOverride)
     end
 
     return monitor
+end
+
+-- Region Picker --------------------------------------------------------------------
+
+local function pickRegionAsync(errorTitle, callback)
+    if not noctalia.commandExists("slurp") then
+      log("region capture: slurp not found")
+      noctalia.notifyError(errorTitle, noctalia.tr("notify.region-picker-missing"))
+      callback(nil)
+      return
+    end
+
+    local cmd = [[slurp -f "%wx%h+%x+%y"]]
+    log(`region capture: picking area ({cmd})`)
+    local ok = noctalia.runAsync(cmd, function(result)
+      local geo = noctalia.string.trim(result.stdout or "")
+      if result.exitCode ~= 0 or not geo:match("^%d+x%d+%+%-?%d+%+%-?%d+$") then
+        log("region capture: picker cancelled or return no geometry")
+        callback(nil)
+        return
+      end
+      log(`region capture: picked {geo}`)
+      callback(geo)
+    end)
+    if not ok then callback(nil) end
+end
+
+-- Pick a region then run `proceed` with regionGeometry set, guards reentry
+local function pickRegionThen(errorTitle, proceed)
+    pickInProcess = true
+    pickRegionAsync(errorTitle, function(geo)
+        pickInProcess = false
+        if state ~= "idle" or geo == nil then return end
+        regionGeometry = geo
+        proceed()
+    end)
 end
 
 local function buildGsrPrefix()
@@ -262,16 +374,27 @@ local function buildRecordCommand(focusedOutputName, sourceOverride)
     local filename = `{noctalia.formatTime(pattern)}.mp4`
     outputPath = `{dir}{filename}`
 
+    local fm = cfg("frame_rate_mode")
     local fps = cfg("frame_rate")
     local codec = cfg("video_codec")
-    local qp = scaledVideoQp(codec, cfg("video_qp"))
+    if cfg("video_encoder") == "cpu" and codec ~= "h264" then
+        log(`cpu encoder forces h264 (configured {codec})`)
+        codec = "h264"
+    end
+
+    local bitrateFlags = buildVideoBitrateFlags(codec)
+    if bitrateFlags == nil then return nil end
+
     local cursor = if cfg("show_cursor") then "yes" else "no"
     local cr = cfg("color_range")
     local restore = if cfg("restore_portal") then "-restore-portal-session yes" else ""
     local audioFlags = buildAudioFlags()
     local resFlag = buildResolutionFlag()
+    local encoderFlag = buildEncoderFlag()
+    local scriptFlag = buildSaveScriptFlag()
 
-    local flags = `-w {source} -f {fps} -k {codec} {audioFlags} -bm qp -ffmpeg-video-opts qp={qp} -cursor {cursor} -cr {cr} {resFlag} {restore} -v no -o "{outputPath}"`
+    local regionFlag = if source == "region" and regionGeometry ~= nil then `-region {regionGeometry}` else ""
+    local flags = `-w {source} {regionFlag} -fm {fm} -f {fps} -k {codec} {encoderFlag} {audioFlags} {bitrateFlags} -cursor {cursor} -cr {cr} {resFlag} {scriptFlag} {restore} -v no -o "{outputPath}"`
 
     log(`starting recording: mode={selectedVideoSource(sourceOverride)} target={source} output={outputPath} flags=[{flags}]`)
 
@@ -289,16 +412,27 @@ local function buildReplayCommand(focusedOutputName, sourceOverride)
 
     local duration = cfg("replay_duration")
     local storage = cfg("replay_storage")
+    local fm = cfg("frame_rate_mode")
     local fps = cfg("frame_rate")
     local codec = cfg("video_codec")
-    local qp = scaledVideoQp(codec, cfg("video_qp"))
+    if cfg("video_encoder") == "cpu" and codec ~= "h264" then
+        log(`cpu encoder forces h264 (configured {codec})`)
+        codec = "h264"
+    end
+
+    local bitrateFlags = buildVideoBitrateFlags(codec)
+    if bitrateFlags == nil then return nil end
+
     local cursor = if cfg("show_cursor") then "yes" else "no"
     local cr = cfg("color_range")
     local restore = if cfg("restore_portal") then "-restore-portal-session yes" else ""
     local audioFlags = buildAudioFlags()
     local resFlag = buildResolutionFlag()
+    local encoderFlag = buildEncoderFlag()
+    local scriptFlag = buildSaveScriptFlag()
 
-    local flags = `-w {source} -c mp4 -f {fps} -k {codec} {audioFlags} -bm qp -ffmpeg-video-opts qp={qp} -cursor {cursor} -cr {cr} {resFlag} -r {duration} -replay-storage {storage} {restore} -v no -o "{dir}"`
+    local regionFlag = if source == "region" and regionGeometry ~= nil then `-region {regionGeometry}` else ""
+    local flags = `-w {source} {regionFlag} -c mp4 -fm {fm} -f {fps} -k {codec} {encoderFlag} {audioFlags} {bitrateFlags} -cursor {cursor} -cr {cr} {resFlag} -r {duration} -replay-storage {storage} {scriptFlag} {restore} -v no -o "{dir}"`
 
     log(`starting replay buffer: mode={selectedVideoSource(sourceOverride)} target={source} dir={dir} flags=[{flags}]`)
 
@@ -333,10 +467,18 @@ end
 -- ── Recording controls ───────────────────────────────────────────────────
 
 local function startRecording(focusedOutputName, sourceOverride)
-    if not isAvailable or state ~= "idle" then return end
+    if not isAvailable or state ~= "idle" or pickInProcess then return end
+
+    -- Region re-enters here with geometry set after the pick.
+    if selectedVideoSource(sourceOverride) == "region" and regionGeometry == nil then
+        pickRegionThen(noctalia.tr("notify.recording-failed"), function()
+            startRecording(focusedOutputName, sourceOverride)
+        end)
+        return
+    end
 
     setState("pending")
-    pendingTick = 0
+    pendingSince = tickCount
     updateDisplay()
 
     checkPortalsIfNeededAsync(sourceOverride, function(portalAvailable)
@@ -387,11 +529,18 @@ end
 -- ── Replay controls ──────────────────────────────────────────────────────
 
 local function startReplay(focusedOutputName, sourceOverride)
-    if not isAvailable or state ~= "idle" then return end
+    if not isAvailable or state ~= "idle" or pickInProcess then return end
     if not cfg("replay_enabled") then return end
 
+    if selectedVideoSource(sourceOverride) == "region" and regionGeometry == nil then
+        pickRegionThen(noctalia.tr("notify.replay-failed"), function()
+            startReplay(focusedOutputName, sourceOverride)
+        end)
+        return
+    end
+
     setState("replay_pending")
-    pendingTick = 0
+    pendingSince = tickCount
     updateDisplay()
 
     checkPortalsIfNeededAsync(sourceOverride, function(portalAvailable)
@@ -472,11 +621,13 @@ end
 
 local function checkProcessState(processState)
     if state == "pending" then
-        pendingTick += CHECK_TICKS
-        if pendingTick >= PENDING_TICKS then
+        if tickCount - pendingSince >= PENDING_TICKS then
             if processState == "recording" then
                 log("recording active")
                 setState("recording")
+            elseif portalCaptureCancelled() then
+                log("target selection cancelled by user")
+                setState("idle")
             else
                 log("recording never started (process not detected)")
                 logGsrTail("recording failed to start")
@@ -485,12 +636,14 @@ local function checkProcessState(processState)
             end
         end
     elseif state == "replay_pending" then
-        pendingTick += CHECK_TICKS
-        if pendingTick >= PENDING_TICKS then
+        if tickCount - pendingSince >= PENDING_TICKS then
             if processState == "replaying" then
                 log("replay buffer active")
                 setState("replaying")
                 noctalia.notify(noctalia.tr("notify.replay-active"))
+            elseif portalCaptureCancelled() then
+                log("target selection cancelled by user")
+                setState("idle")
             else
                 log("replay buffer never started (process not detected)")
                 logGsrTail("replay buffer failed to start")
@@ -563,8 +716,8 @@ end
 function onIpc(event, payload)
     -- Widget/shortcut drive this through the state channel with a table payload;
     -- the CLI passes the trailing IPC argument as a string. A string payload, or a
-    -- table `source` field, is an optional capture-mode override (focused | portal)
-    -- applied to this start; resolveVideoSource validates it.
+    -- table `source` field, is an optional capture-mode override (focused | portal |
+    -- region) applied to this start; resolveVideoSource validates it.
     local focusedOutputName = nil
     local sourceOverride = nil
     if type(payload) == "table" then

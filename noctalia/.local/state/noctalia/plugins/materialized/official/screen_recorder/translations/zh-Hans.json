@@ -54,6 +54,23 @@
     "frame_rate": {
       "label": "帧率"
     },
+    "glyph_idle": {
+      "label": "图标：空闲"
+    },
+    "glyph_pending": {
+      "description": "录制或回放缓冲区启动时显示。",
+      "label": "图标：正在启动"
+    },
+    "glyph_recording": {
+      "label": "图标：正在录制"
+    },
+    "glyph_replaying": {
+      "label": "图标：回放缓冲区"
+    },
+    "glyph_unavailable": {
+      "description": "未安装 gpu-screen-recorder 时显示。",
+      "label": "图标：不可用"
+    },
     "hide_inactive": {
       "label": "空闲时隐藏小组件"
     },
@@ -102,6 +119,10 @@
         "vp8": "VP8",
         "vp9": "VP9"
       }
+    },
+    "video_qp": {
+      "description": "较低数值会获得更高质量和更大的文件",
+      "label": "视频质量（QP）"
     },
     "video_source": {
       "description": "GPU Screen Recorder 捕获模式；“焦点”录制 Noctalia 当前焦点显示器",

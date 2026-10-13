@@ -54,6 +54,23 @@
     "frame_rate": {
       "label": "Taxa de Quadros"
     },
+    "glyph_idle": {
+      "label": "Símbolo: Inativo"
+    },
+    "glyph_pending": {
+      "description": "Exibido enquanto uma gravação ou buffer de replay está iniciando.",
+      "label": "Símbolo: Iniciando"
+    },
+    "glyph_recording": {
+      "label": "Símbolo: Gravando"
+    },
+    "glyph_replaying": {
+      "label": "Símbolo: Buffer de Replay"
+    },
+    "glyph_unavailable": {
+      "description": "Exibido quando o gpu-screen-recorder não está instalado.",
+      "label": "Símbolo: Indisponível"
+    },
     "hide_inactive": {
       "label": "Ocultar Widget Quando Inativo"
     },
@@ -102,6 +119,10 @@
         "vp8": "VP8",
         "vp9": "VP9"
       }
+    },
+    "video_qp": {
+      "description": "Valores mais baixos produzem maior qualidade e arquivos maiores.",
+      "label": "Qualidade do Vídeo (QP)"
     },
     "video_source": {
       "description": "Modo de captura do GPU Screen Recorder; \"Focado\" grava o monitor em foco do Noctalia",

@@ -8,8 +8,21 @@
       "description": "Uzunluğu saniyeler ile say.",
       "label": "Süre (seconds)"
     },
+    "show_idle": {
+      "description": "Zamanlayıcı sıfıra ulaştığında bileşeni göster veya gizle",
+      "label": "Boştayken yatay çubukta sayacı göster"
+    },
     "show_progress": {
       "label": "İlerleme barını göster"
     }
+  },
+  "ui": {
+    "duration_label": "Zamanlayıcı Süresi",
+    "duration_placeholder": "ör. 400 → 4:00",
+    "notify_body": "Zaman doldu!",
+    "notify_title": "Zamanlayıcı",
+    "pause": "Durdur",
+    "reset": "Sıfırla",
+    "start": "Başlat"
   }
 }

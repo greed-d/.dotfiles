@@ -1,7 +1,7 @@
-# GPU Screen Recorder — records the screen with gpu-screen-recorder and manages a
+# GPU Screen Recorder - records the screen with gpu-screen-recorder and manages a
 # replay buffer. The recording logic runs in a headless [[service]] for the whole
 # session; the bar [[widget]] and control-center [[shortcut]] are thin clients that
-# mirror the recorder's "status" and drive it through the "command" channel — so a
+# mirror the recorder's "status" and drive it through the "command" channel - so a
 # recording can be started even with no widget placed.
 #
 # Click mapping (widget): left = toggle recording, right = replay toggle/save,
@@ -12,11 +12,11 @@
 
 id = "noctalia/screen_recorder"
 name = "Screen Recorder"
-version = "1.2.2"
+version = "1.4.0"
 plugin_api = 3
 author = "noctalia"
 license = "MIT"
-dependencies = ["gpu-screen-recorder"]
+dependencies = ["gpu-screen-recorder", "slurp"]
 tags = ["recording", "video"]
 icon = "video"
 description = "Record the screen with gpu-screen-recorder."
@@ -30,6 +30,7 @@ description_key = "settings.video_source.description"
 options = [
   { value = "focused", label_key = "settings.video_source.options.focused" },
   { value = "portal", label_key = "settings.video_source.options.portal" },
+  { value = "region", label_key = "settings.video_source.options.region"},
 ]
 
 [[setting]]
@@ -55,6 +56,16 @@ min = 1
 max = 240
 
 [[setting]]
+key = "frame_rate_mode"
+type = "select"
+label_key = "settings.frame_rate_mode.label"
+default = "vfr"
+options = [
+  { value = "vfr", label_key = "settings.frame_rate_mode.options.vfr" },
+  { value = "cfr", label_key = "settings.frame_rate_mode.options.cfr" },
+]
+
+[[setting]]
 key = "video_codec"
 type = "select"
 label_key = "settings.video_codec.label"
@@ -68,6 +79,28 @@ options = [
 ]
 
 [[setting]]
+key = "video_encoder"
+type = "select"
+label_key = "settings.video_encoder.label"
+description_key = "settings.video_encoder.description"
+default = "gpu"
+options = [
+    { value = "gpu", label_key = "settings.video_encoder.options.gpu"},
+    { value = "cpu", label_key = "settings.video_encoder.options.cpu"},
+]
+
+[[setting]]
+key = "video_bitrate_mode"
+type = "select"
+label_key = "settings.video_bitrate_mode.label"
+default = "qp"
+options = [
+  { value = "qp", label_key = "settings.video_bitrate_mode.options.qp" },
+  { value = "vbr", label_key = "settings.video_bitrate_mode.options.vbr" },
+  { value = "cbr", label_key = "settings.video_bitrate_mode.options.cbr" },
+]
+
+[[setting]]
 key = "video_qp"
 type = "int"
 label_key = "settings.video_qp.label"
@@ -75,6 +108,28 @@ description_key = "settings.video_qp.description"
 default = 25
 min = 0
 max = 51
+visible_when = { key = "video_bitrate_mode", values = ["qp"] }
+
+[[setting]]
+key = "video_quality"
+type = "select"
+label_key = "settings.video_quality.label"
+default = "very_high"
+options = [
+  { value = "medium", label_key = "settings.video_quality.options.medium" },
+  { value = "high", label_key = "settings.video_quality.options.high" },
+  { value = "very_high", label_key = "settings.video_quality.options.very_high" },
+  { value = "ultra", label_key = "settings.video_quality.options.ultra" },
+]
+visible_when = { key = "video_bitrate_mode", values = ["vbr"] }
+
+[[setting]]
+key = "video_bitrate"
+type = "string"
+label_key = "settings.video_bitrate.label"
+description_key = "settings.video_bitrate.description"
+default = "20000"
+visible_when = { key = "video_bitrate_mode", values = ["cbr"] }
 
 [[setting]]
 key = "resolution"
@@ -92,8 +147,17 @@ options = [
   { value = "default_output", label_key = "settings.audio_source.options.default_output" },
   { value = "default_input", label_key = "settings.audio_source.options.default_input" },
   { value = "both", label_key = "settings.audio_source.options.both" },
+  { value = "custom", label_key = "settings.audio_source.options.custom" },
   { value = "none", label_key = "settings.audio_source.options.none" },
 ]
+
+[[setting]]
+key = "custom_audio_sources"
+type = "string"
+label_key = "settings.custom_audio_sources.label"
+description_key = "settings.custom_audio_sources.description"
+default = ""
+visible_when = { key = "audio_source", values = ["custom"] }
 
 [[setting]]
 key = "audio_codec"
@@ -114,7 +178,7 @@ description_key = "settings.audio_bitrate.description"
 default = 0
 min = 0
 max = 512
-visible_when = { key = "audio_source", values = ["default_output", "default_input", "both"] }
+visible_when = { key = "audio_source", values = ["default_output", "default_input", "both", "custom"] }
 
 [[setting]]
 key = "show_cursor"
@@ -139,10 +203,53 @@ label_key = "settings.copy_to_clipboard.label"
 default = false
 
 [[setting]]
+key = "post_save_script"
+type = "file"
+label_key = "settings.post_save_script.label"
+description_key = "settings.post_save_script.description"
+default = ""
+
+[[setting]]
 key = "hide_inactive"
 type = "bool"
 label_key = "settings.hide_inactive.label"
 default = false
+
+# Bar glyph per state. Defaults are the values the widget previously hardcoded,
+# so this changes nothing until someone sets one. Tabler carries filled variants
+# of most outline icons, so "video-filled" is the usual pick for `recording` if
+# you want the active state to read as solid rather than outline.
+[[setting]]
+key = "glyph_unavailable"
+type = "glyph"
+label_key = "settings.glyph_unavailable.label"
+description_key = "settings.glyph_unavailable.description"
+default = "video-off"
+
+[[setting]]
+key = "glyph_idle"
+type = "glyph"
+label_key = "settings.glyph_idle.label"
+default = "video"
+
+[[setting]]
+key = "glyph_pending"
+type = "glyph"
+label_key = "settings.glyph_pending.label"
+description_key = "settings.glyph_pending.description"
+default = "video"
+
+[[setting]]
+key = "glyph_recording"
+type = "glyph"
+label_key = "settings.glyph_recording.label"
+default = "video"
+
+[[setting]]
+key = "glyph_replaying"
+type = "glyph"
+label_key = "settings.glyph_replaying.label"
+default = "repeat"
 
 [[setting]]
 key = "replay_enabled"
