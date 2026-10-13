@@ -47,6 +47,7 @@ SETUVAR pure_color_mute:brblack
 SETUVAR pure_color_nixdevshell_prefix:pure_color_info
 SETUVAR pure_color_nixdevshell_symbol:pure_color_mute
 SETUVAR pure_color_normal:normal
+SETUVAR pure_color_prefix_private_prompt:pure_color_danger
 SETUVAR pure_color_prefix_root_prompt:pure_color_danger
 SETUVAR pure_color_primary:blue
 SETUVAR pure_color_prompt_on_error:pure_color_danger
@@ -72,6 +73,7 @@ SETUVAR pure_shorten_window_title_current_directory_length:0
 SETUVAR pure_show_exit_status:false
 SETUVAR pure_show_jobs:false
 SETUVAR pure_show_numbered_git_indicator:false
+SETUVAR pure_show_prefix_private_prompt:false
 SETUVAR pure_show_prefix_root_prompt:false
 SETUVAR pure_show_subsecond_command_duration:false
 SETUVAR pure_show_system_time:false
@@ -85,6 +87,7 @@ SETUVAR pure_symbol_git_unpulled_commits:\u21e3
 SETUVAR pure_symbol_git_unpushed_commits:\u21e1
 SETUVAR pure_symbol_k8s_prefix:\u2638
 SETUVAR pure_symbol_nixdevshell_prefix:\u2744\ufe0f
+SETUVAR pure_symbol_prefix_private_prompt:\x21
 SETUVAR pure_symbol_prefix_root_prompt:\x23
 SETUVAR pure_symbol_prompt:\u276f
 SETUVAR pure_symbol_reverse_prompt:\u276e
