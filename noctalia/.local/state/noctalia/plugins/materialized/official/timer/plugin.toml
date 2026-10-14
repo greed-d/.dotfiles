@@ -3,6 +3,7 @@
 # single timer through noctalia.state. Demonstrates:
 #
 # service -> headless countdown logic + state, with command handling (START/PAUSE/RESET)
+# IPC -> noctalia msg plugin noctalia/timer:timer all start <minutes>|pause|cancel
 # bar     -> declarative UI with per-placement settings; opens the panel
 # panel   -> interactive controls (typed duration input) driving the service
 # desktop -> keyboard-free +/- duration adjusters + a progress bar, pinned to the desktop
@@ -12,14 +13,33 @@
 
 id = "noctalia/timer"
 name = "Timer"
-version = "1.2.1"
-plugin_api = 3
+version = "1.5.0"
+plugin_api = 20
 author = "noctalia"
 license = "MIT"
 dependencies = []
 tags = ["countdown", "utility"]
 icon = "clock"
 description = "A countdown timer with bar widget, panel, and desktop widget."
+
+# Alarm sound at countdown 0, beeps until dismissed, overriding alarm_duration
+[[setting]]
+key = "alarm"
+type = "bool"
+label_key = "settings.alarm.label"
+description_key = "settings.alarm.description"
+default = false
+
+# Alarm length in seconds, 0 silences it. Hidden while alarm is on
+[[setting]]
+key = "alarm_duration"
+type = "int"
+label_key = "settings.alarm_duration.label"
+description_key = "settings.alarm_duration.description"
+default = 10
+min = 0
+max = 60
+visible_when = { key = "alarm", values = ["false"] }
 
 [[widget]]
 id = "bar"

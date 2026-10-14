@@ -20,6 +20,7 @@ local ocrEditText = type(ocrResult) == "table" and ocrResult.text or ""
 local translateResult = noctalia.state.get("translateResult")
 local qrResult = noctalia.state.get("qrResult")
 local paletteColors = noctalia.state.get("paletteColors") or {}
+local paletteCapture = noctalia.state.get("paletteCapture")
 local ocrTab = "original"
 local selectedTranslateLang = "ar"
 local translateLanguages = {
@@ -49,10 +50,6 @@ end
 
 local function send(action, payload)
   noctalia.state.set("command", { action = action, payload = payload })
-end
-
-local function shellQuote(value)
-  return "'" .. tostring(value):gsub("'", [['"'"']]) .. "'"
 end
 
 local function copyText(text)
@@ -152,6 +149,7 @@ local function refresh()
   translateResult = noctalia.state.get("translateResult")
   qrResult = noctalia.state.get("qrResult")
   paletteColors = noctalia.state.get("paletteColors") or {}
+  paletteCapture = noctalia.state.get("paletteCapture")
 end
 
 -- ── Header ─────────────────────────────────────────────────────────────────
@@ -437,9 +435,9 @@ local function renderOcr()
     ui.button({ glyph = "copy", variant = "ghost", controlSize = "sm", tooltip = tr("panel.copy_text"), onClick = function() copyText(ocrTab == "translation" and translateResult or ocrEditText) end }),
   }
   if url then
-    table.insert(controls, ui.button({ glyph = "external-link", variant = "ghost", controlSize = "sm", tooltip = tr("panel.open_url"), onClick = function() noctalia.runAsync("xdg-open " .. shellQuote(url)) end }))
+    table.insert(controls, ui.button({ glyph = "external-link", variant = "ghost", controlSize = "sm", tooltip = tr("panel.open_url"), onClick = function() noctalia.runAsync({ "xdg-open", url }) end }))
   elseif email then
-    table.insert(controls, ui.button({ glyph = "mail", variant = "ghost", controlSize = "sm", tooltip = tr("panel.compose_mail"), onClick = function() noctalia.runAsync("xdg-open " .. shellQuote("mailto:" .. email)) end }))
+    table.insert(controls, ui.button({ glyph = "mail", variant = "ghost", controlSize = "sm", tooltip = tr("panel.compose_mail"), onClick = function() noctalia.runAsync({ "xdg-open", "mailto:" .. email }) end }))
   end
   table.insert(controls, ui.button({ glyph = "search", variant = "ghost", controlSize = "sm", tooltip = tr("panel.search_text"), onClick = function() send("ocrSearch", { text = ocrEditText }) end }))
   table.insert(controls, ui.button({ glyph = "share", variant = "ghost", controlSize = "sm", tooltip = tr("panel.share"), onClick = function() send("share", ocrResult.capturePath) end }))
@@ -473,7 +471,7 @@ local function renderQr()
   }
   if isUrl then
     table.insert(buttons, actionButton("external-link", tr("panel.open_url"), function()
-      noctalia.runAsync("xdg-open " .. shellQuote(text))
+      noctalia.runAsync({ "xdg-open", text })
     end))
   end
   table.insert(buttons, actionButton("share", tr("panel.share"), function() send("share", qrResult.capturePath) end))
@@ -518,7 +516,9 @@ local function renderPalette()
         for i, hex in ipairs(paletteColors) do buf[#buf + 1] = `--palette-{i}: {hex};` end
         copyText(table.concat(buf, "\n"))
       end),
-      actionButton("share", tr("panel.share"), function() send("share", "/tmp/screen-toolkit-palette.png") end),
+      actionButton("share", tr("panel.share"), function()
+        if paletteCapture and paletteCapture ~= "" then send("share", paletteCapture) end
+      end),
     }),
     ui.row({ gap = 6 }, tiles),
   })
@@ -584,3 +584,4 @@ noctalia.state.watch("translateResult", function(v)
 end)
 noctalia.state.watch("qrResult", function(v) qrResult = v; if panelOpen then render() end end)
 noctalia.state.watch("paletteColors", function(v) paletteColors = v or {}; if panelOpen then render() end end)
+noctalia.state.watch("paletteCapture", function(v) paletteCapture = v; if panelOpen then render() end end)

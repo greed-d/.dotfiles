@@ -1,4 +1,4 @@
-config_version = 13
+config_version = 15
 
 [backdrop]
 enabled = true
@@ -37,7 +37,8 @@ order = [ "normal" ]
     radius_bottom_left = 0
     radius_bottom_right = 0
     scale = 0.90000000596046448
-    start = [ "session", "control-center", "taskbar", "line", "group:g4", "line", "group:g1" ]
+    shadow = false
+    start = [ "session", "workspaces", "control-center", "taskbar", "line", "group:g4", "line", "group:g1" ]
     thickness = 38
     widget_spacing = 8
 
@@ -126,7 +127,6 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
 background_opacity = 0.39999999105930328
 border_width = 1.0
 cross_axis_padding = 0
-enabled = true
 icon_size = 36
 item_spacing = 4
 launcher_position = "start"
@@ -953,6 +953,7 @@ app_icon_color = "primary"
 avatar_path = "/home/mischa/nixos-dotfiles/assets/images/NixOS.png"
 font_family = "Google Sans"
 polkit_agent = true
+popup_shadows = false
 
     [shell.launcher]
     categories = false
@@ -966,6 +967,7 @@ polkit_agent = true
     open_near_click_session = true
     open_near_click_wallpaper = true
     polkit_position = "auto"
+    shadow = false
     transparency_mode = "glass"
     wallpaper_placement = "centered"
 
@@ -1106,16 +1108,16 @@ stat = "swap_pct"
 visualization = "none"
 
 [widget.taskbar]
-capsule_radius = 4
+capsule_radius = 14
 focused_color = "tertiary"
 group_by_workspace = true
 hide_empty_workspaces = true
 inactive_opacity = 0.80000000000000004
-minimal = true
 scale = 1.5
 show_active_indicator = false
+show_all_outputs = true
 show_window_title = false
-workspace_label_placement = "inside"
+workspace_label_placement = "centered"
 
 [widget.temp]
 visualization = "none"
@@ -1134,6 +1136,9 @@ enabled = false
 type = "alexander/screen-toolkit:widget"
 
 [widget.workspaces]
-active_pill_size = 1.1499999999999999
+active_pill_size = 3.25
 capsule_radius = 3
+enabled = false
+hide_when_empty = true
 inactive_pill_size = 1.1499999999999999
+labels_only_when_occupied = true

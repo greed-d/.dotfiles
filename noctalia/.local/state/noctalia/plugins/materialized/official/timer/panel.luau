@@ -1,5 +1,5 @@
 --!nonstrict
--- Timer panel — the [[panel]] entry for duration input and controls.
+-- Timer panel - the [[panel]] entry for duration input and controls.
 --
 -- The panel provides an interactive surface to set the countdown
 -- duration via numeric input (e.g. 300 → 3:00, 10300 → 1:03:00),

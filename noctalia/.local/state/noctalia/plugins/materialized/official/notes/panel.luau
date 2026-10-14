@@ -21,6 +21,9 @@ local idleTicks = 0
 local pendingDelete = nil -- filename awaiting the second (confirm) click
 local sortByDate = false
 local pins = {} -- filename -> true; persisted in a sidecar next to the notes
+local hoveredKey = nil
+local cornerRadiusScale = 1.0
+local closeButton = true
 
 local render
 
@@ -194,21 +197,39 @@ end
 
 local function listRow(file)
   local pinned = pins[file] == true
-  -- Both row states keep the same leading text button so the row height (set
-  -- by the text-button tier) never changes when the confirm controls swap in.
-  local title = {
-    text = displayName(file),
-    variant = "ghost",
-    contentAlign = "start",
-    flexGrow = 1,
-    onClick = function()
-      openNote(file)
-    end,
+  local isHovered = hoveredKey == file
+  -- Label elides natively with maxLines=1; the row wrapper supplies the click target.
+  local titleChildren = {
+    ui.label({
+      text = displayName(file),
+      maxLines = 1,
+      flexGrow = 1,
+      color = isHovered and "surface" or "on_surface",
+    }),
   }
   if pinned then
-    title.glyph = "pinned"
+    table.insert(titleChildren, 1, ui.glyph({
+      name = "pinned",
+      size = 14,
+      color = isHovered and "surface" or "on_surface",
+    }))
   end
-  local children = { ui.button(title) }
+  local children = {
+    ui.row({
+      key = file,
+      flexGrow = 1,
+      gap = 6,
+      align = "center",
+      padding = 8,
+      paddingH = 12,
+      fill = isHovered and "tertiary" or "surface",
+      radius = 6 * cornerRadiusScale,
+      onHover = "onRowHover",
+      onClick = function()
+        openNote(file)
+      end,
+    }, titleChildren),
+  }
   if pendingDelete == file then
     for _, node in ipairs(deleteControls(file)) do
       table.insert(children, node)
@@ -236,16 +257,34 @@ local function listRow(file)
 end
 
 local function listView()
+  local scratchFile = scratchName()
+  local isHovered = hoveredKey == scratchFile
   local rows = {
     -- The scratchpad is always present (created on first write) and not deletable from here.
     ui.row({ key = "scratchpad", gap = 6, align = "center" }, {
-      ui.button({
-        glyph = "pinned",
-        text = tr("scratchpad"),
-        variant = "ghost",
-        contentAlign = "start",
+      ui.row({
+        key = scratchFile,
         flexGrow = 1,
+        gap = 6,
+        align = "center",
+        padding = 8,
+        paddingH = 12,
+        fill = isHovered and "tertiary" or "surface",
+        radius = 6 * cornerRadiusScale,
+        onHover = "onRowHover",
         onClick = "onOpenScratchpad",
+      }, {
+        ui.glyph({
+            name = "pinned",
+            size = 14,
+            color = isHovered and "surface" or "on_surface",
+          }),
+        ui.label({
+            text = tr("scratchpad"),
+            maxLines = 1,
+            flexGrow = 1,
+            color = isHovered and "surface" or "on_surface",
+          }),
       }),
     }),
   }
@@ -327,7 +366,9 @@ render = function()
     }))
   end
   table.insert(header, ui.button({ key = "header-new", glyph = "plus", variant = "primary", onClick = "onNewNote" }))
-  table.insert(header, ui.button({ key = "header-close", glyph = "close", variant = "ghost", onClick = "onClosePanel" }))
+  if closeButton then
+    table.insert(header, ui.button({ key = "header-close", glyph = "close", variant = "ghost", onClick = "onClosePanel" }))
+  end
   panel.render(ui.column({ flexGrow = 1, gap = 12, align = "stretch" }, {
     ui.row({ align = "center", gap = 8 }, header),
     isEditor and editorView() or listView(),
@@ -336,6 +377,8 @@ end
 
 function onOpen(_context)
   notesDir = noctalia.expandPath(noctalia.getConfig("notes_dir"))
+  cornerRadiusScale = noctalia.getSetting("shell.corner_radius_scale")
+  closeButton = noctalia.getSetting("shell.show_close_buttons") ~= false
   local extension = noctalia.string.trim(noctalia.getConfig("extension")):gsub("^%.", "")
   if extension == "" then
     noctalia.notifyError(tr("title"), tr("bad_extension"))
@@ -478,6 +521,11 @@ end
 
 function onClosePanel()
   panel.close()
+end
+
+function onRowHover(state, key)
+  hoveredKey = (state == "true") and key or nil
+  render()
 end
 
 -- The launcher entry bumps "notes_bump" after writing note files (quick-capture

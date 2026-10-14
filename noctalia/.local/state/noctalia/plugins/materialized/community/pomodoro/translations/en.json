@@ -27,6 +27,10 @@
       "description": "Ignore Noctalia Shell's global sound settings. Use this to make the alarm sound play even when sounds are disabled in Noctalia config/GUI. Uses pw-play to play the sound directly through PipeWire, make sure to have it installed.",
       "label": "Bypass Noctalia Sound Globals"
     },
+    "enable-work-timer-sound": {
+      "description": "Play tick/tock sounds each second while a work session is running. Break timers stay silent.",
+      "label": "Enable Work Timer Sound"
+    },
     "long-break-duration": {
       "description": "Duration of long breaks in minutes",
       "label": "Long Break Duration"

@@ -1,32 +1,30 @@
 #!/usr/bin/env bash
-# Args: $1=gx $2=gy $3=gw $4=gh $5=lang $6=upscale_flag $7=psm $8=output_path
+# Args: $1=image_file $2=lang
+#
+# Runs tesseract over an image captured through the shell's screenshot stack
+# (see shell-capture.sh). Capture is the shell's job now; this script only
+# preprocesses and OCRs the given file.
 #
 # Exit codes:
 #   1 — missing dependency (dep name written to stdout)
-#   2 — bad/missing args
-#   3 — capture failed
+#   2 — bad/missing args (file not found)
 #   4 — image processing failed
 # Exit 0 with empty stdout = no text found (service handles this case)
 
-GX="$1"; GY="$2"; GW="$3"; GH="$4"
-RAW_LANG="${5:-eng}"
-UPSCALE="$6"
-USER_PSM="${7:-3}"
-FILE="${8:-/tmp/screen-toolkit-ocr.png}"
+FILE="${1:-}"
+RAW_LANG="${2:-eng}"
 TMP_BASE="/tmp/screen-toolkit-ocr-work-$$"
 TMP="${TMP_BASE}.pnm"
 TMP_NOISE="${TMP_BASE}-nr.pnm"
-GRIM_CURSOR_ARGS=()
-[ "${SCREEN_TOOLKIT_CAPTURE_CURSOR:-0}" = "1" ] && GRIM_CURSOR_ARGS+=(-c)
 
 cleanup() { rm -f "$TMP" "$TMP_NOISE"; }
 trap cleanup EXIT
 
-for dep in grim magick tesseract; do
+for dep in magick tesseract; do
     command -v "$dep" >/dev/null 2>&1 || { echo "$dep"; exit 1; }
 done
 
-[ -z "$GX" ] || [ -z "$GY" ] || [ -z "$GW" ] || [ -z "$GH" ] && exit 2
+[ -n "$FILE" ] && [ -f "$FILE" ] || exit 2
 
 LANG=$(echo "$RAW_LANG" | tr '+' '\n' \
     | grep -v '^osd$' \
@@ -46,16 +44,34 @@ done
 LANG="${VALID_LANGS#+}"
 [ -z "$LANG" ] && LANG="eng"
 
-sleep 0.15
+read -r GW GH < <(magick identify -format '%w %h\n' "$FILE" 2>/dev/null) \
+    || { GW=0; GH=0; }
 
-# Capture the requested region. Without this the script would keep re-reading
-# whatever stale image happens to be left at $FILE (stale OCR results).
-grim "${GRIM_CURSOR_ARGS[@]}" -g "${GX},${GY} ${GW}x${GH}" "$FILE" 2>/dev/null \
-    || { echo "ERROR: grim capture failed" >&2; exit 3; }
-
-if [ -z "$UPSCALE" ] && [ "$GW" -lt 200 ] 2>/dev/null; then
-    SCALE=$(awk "BEGIN{printf \"%.0f\", 300 / $GW}")
-    UPSCALE="-scale ${SCALE}00%"
+# Upscale tiny captures and pick a page-segmentation mode from the geometry
+# (ported from the service's ocrParams: ratio > 8 reads as a single line).
+_heu=$(awk -v w="$GW" -v h="$GH" 'BEGIN {
+    area = w * h
+    up = ""
+    if (h < 30) up = "-resize 400%"
+    else if (area < 50000 || w < 200) up = "-resize 200%"
+    ratio = w / (h > 0 ? h : 1)
+    if (ratio > 8) psm = 7
+    else if (area < 60000) psm = 6
+    else if (h < 40) psm = 7
+    else psm = 3
+    extra = ""
+    if (up == "" && w < 200 && w > 0) {
+        s = int(300 / w + 0.5)
+        extra = "-scale " s "00%"
+    }
+    printf "%s\n%d\n%s\n", up, psm, extra
+}')
+UPSCALE=$(printf '%s' "$_heu" | sed -n '1p')
+USER_PSM=$(printf '%s' "$_heu" | sed -n '2p')
+EXTRA_SCALE=$(printf '%s' "$_heu" | sed -n '3p')
+[ -z "$USER_PSM" ] && USER_PSM=3
+if [ -n "$EXTRA_SCALE" ]; then
+    UPSCALE="$EXTRA_SCALE"
 fi
 
 magick "$FILE" $UPSCALE \

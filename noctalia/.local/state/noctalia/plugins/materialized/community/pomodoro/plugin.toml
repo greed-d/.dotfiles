@@ -1,13 +1,13 @@
 id           = "thepunkoff/pomodoro"
 name         = "Pomodoro Timer"
-version      = "1.2.1"
-plugin_api   = 20
+version      = "1.3.0"
+plugin_api   = 22
 author       = "thepunkoff"
 license = "MIT"
 icon = "brain"
 description = "Simple pomodoro timer."
 tags = ["bar", "panel", "service", "productivity", "time"]
-dependencies = ["pw-play"]
+dependencies = ["ffplay"]
 
 [[setting]]
 key     = "work-duration"
@@ -53,6 +53,13 @@ description_key = "settings.auto-start-work.description"
 default = false
 
 [[setting]]
+key     = "enable-work-timer-sound"
+type    = "bool"
+label_key = "settings.enable-work-timer-sound.label"
+description_key = "settings.enable-work-timer-sound.description"
+default = false
+
+[[setting]]
 key     = "use-bundled-alarm-sound"
 type    = "bool"
 label_key = "settings.use-bundled-alarm-sound.label"
@@ -69,7 +76,7 @@ default = false
 
 [[widget]]
 id = "widget"
-entry = "widget.luau"
+entry = "src/widget.luau"
 
     [[widget.setting]]
     key     = "widget-glyph-main"
@@ -94,7 +101,7 @@ entry = "widget.luau"
 
 [[panel]]
 id = "panel"
-entry = "panel.luau"
+entry = "src/panel.luau"
 placement = "attached"
 open_near_click = true
 width = 350
@@ -102,4 +109,4 @@ height = 250
 
 [[service]]
 id = "pomodoro"
-entry = "pomodoro.luau"
+entry = "src/pomodoro.luau"
