@@ -957,16 +957,16 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha"
 
     [wallpaper.default]
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/puffy-stars.jpg"
+    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/fantasy-city.jpg"
 
     [wallpaper.last]
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/puffy-stars.jpg"
+    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/fantasy-city.jpg"
 
     [wallpaper.monitors.DP-1]
     path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/puffy-stars.jpg"
+    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/fantasy-city.jpg"
 
     [[wallpaper.favorite]]
     builtin_palette = "Ayu"
@@ -1098,17 +1098,16 @@ stat = "swap_pct"
 visualization = "none"
 
 [widget.taskbar]
+anchor = true
 capsule_radius = 15
 focused_color = "tertiary"
 font_scale = 1.25
 group_by_workspace = true
 hide_empty_workspaces = true
 inactive_opacity = 0.80000000000000004
-minimal = true
 scale = 1.3500000000000001
 show_active_indicator = false
 show_window_title = false
-workspace_label_placement = "inside"
 
 [widget.temp]
 visualization = "none"
