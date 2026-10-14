@@ -163,7 +163,7 @@
 
 "Print" = "spawn:umbriel msg screenshot-screen write-to-disk=true"
 "Mod+Shift+S" = "spawn:grim -g \"$(slurp)\" - | wl-copy"
-"Mod+Alt+S" = "spawn:noctalia msg screenshot-fullscreen"
+"Mod+Alt+S" = "spawn:grim - | wl-copy && notify-send 'Screenshot' 'Screenshot taken'"
 # "Mod+Shift+S" = "spawn:noctalia msg screenshot-region"
 
 # Media & volume -------------------------------------------------------------
