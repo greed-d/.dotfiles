@@ -3,12 +3,12 @@
 # Core behavior --------------------------------------------------------------
 
 [general]
-autostart = ["qs -p ~/.config/astralis/shell.qml", "foot --server"]
-mod_key = "Super"               # Mod in keybinds; defaults to Super (Alt when nested)
-xwayland = true                 # requires restart to change
-show_cheatsheet = false         # show keybinds overlay on startup
-focus_on_activate = false       # activation requests mark urgent without stealing focus
-honor_restored_maximize = false # let apps restore their saved maximized state
+autostart = ["noctalia", "foot --server"]
+mod_key = "Super"                         # Mod in keybinds; defaults to Super (Alt when nested)
+xwayland = true                           # requires restart to change
+show_cheatsheet = false                   # show keybinds overlay on startup
+focus_on_activate = false                 # activation requests mark urgent without stealing focus
+honor_restored_maximize = false           # let apps restore their saved maximized state
 
 # Workspaces -----------------------------------------------------------------
 
@@ -47,13 +47,13 @@ action = "spawn:notify-send 'Bottom right'"
 # Layout ---------------------------------------------------------------------
 
 [layout]
-mode = "scrolling"                  # "scrolling", "dwindle", or "master"
-gap = 1                             # 0-500
+mode = "scrolling"                   # "scrolling", "dwindle", or "master"
+gap = 10                             # 0-500
 extent_presets = [0.333, 0.5, 0.667] # shared by scrolling and dwindle
 
 [layout.scrolling]
 # Vertical workspaces stack horizontal lanes from top to bottom.
-default_extent_fraction = 0.5  # remove to let clients choose their initial width
+default_extent_fraction = 0.5 # remove to let clients choose their initial width
 center_underfull_strip = true # center the strip whenever it is narrower than the viewport
 
 # Per-workspace layout overrides (see docs/user/outputs.md#workspace-rules) ---

@@ -7,20 +7,16 @@
 [animation]
 enabled = true
 duration_ms = 150
-curve = "easeout"
+curve = "smooth"
 
 # Beziers — custom easing curves referenced by name in "curve" ---------------
+# Smooth, no-overshoot curves: fast start, silky settle, zero bounce.
 
 [animation.beziers]
-expressiveFastSpatial = [0.42, 1.67, 0.21, 0.90]
-expressiveSlowSpatial = [0.39, 1.29, 0.35, 0.98]
-expressiveDefaultSpatial = [0.38, 1.21, 0.22, 1.00]
-emphasizedDecel = [0.05, 0.7, 0.1, 1.0]
-emphasizedAccel = [0.3, 0.0, 0.8, 0.15]
-standardDecel = [0.0, 0.0, 0.0, 1.0]
-menu_decel = [0.1, 1.0, 0.0, 1.0]
-menu_accel = [0.52, 0.03, 0.72, 0.08]
-stall = [1.0, -0.1, 0.7, 0.85]
+smooth = [0.16, 1.0, 0.30, 1.0] # expo-out — silky UI transitions
+fluid  = [0.22, 1.0, 0.36, 1.0] # quint-out — larger spatial movement
+decel  = [0.05, 0.7, 0.1, 1.0]  # gentle decelerate, no bounce
+enter  = [0.16, 0.84, 0.28, 1.0] # soft settle for windows opening
 
 # Windows — open, close, and move --------------------------------------------
 # windows_in.style:  "popin", "zoom", "slide", "fade", or "none"
@@ -28,55 +24,56 @@ stall = [1.0, -0.1, 0.7, 0.85]
 
 [animation.windows_in]
 enabled = true
-duration_ms = 300
-curve = "emphasizedDecel"
+duration_ms = 400
+curve = "enter"
 style = "popin"
 
 [animation.windows_out]
 enabled = true
-duration_ms = 200
-curve = "emphasizedDecel"
-style = "slide"
+duration_ms = 300
+curve = "smooth"
+style = "zoom"
+scale = 0.6 # shrink to 60% while fading out — visible but subtle zoom-out
 
 [animation.windows_move]
 enabled = true
-duration_ms = 300
-curve = "emphasizedDecel"
+duration_ms = 350
+curve = "fluid"
 
 # Workspaces — switching between workspaces ----------------------------------
 
 [animation.workspaces]
 enabled = true
-duration_ms = 700
-curve = "menu_decel"
+duration_ms = 600
+curve = "fluid"
 
 # Overview -------------------------------------------------------------------
 
 [animation.overview]
 enabled = true
-duration_ms = 350
-curve = "easeout"
+duration_ms = 400
+curve = "smooth"
 
 # Layers — shell popups, panels, and OSDs ------------------------------------
 
 [animation.layers]
 enabled = true
-duration_ms = 270
-curve = "emphasizedDecel"
+duration_ms = 300
+curve = "decel"
 
 # Borders — color transitions on focus change --------------------------------
 
 [animation.border]
 enabled = true
 duration_ms = 1000
-curve = "emphasizedDecel"
+curve = "decel"
 
 # Scratchpad — entering and leaving the scratchpad ---------------------------
 
 [animation.scratchpad]
 enabled = false
 duration_ms = 250
-curve = "easeout"
+curve = "smooth"
 dim = 0.5          # 0.0-1.0
 blur = false       # requires appearance.blur.enabled
 scale = 0.0        # 0 preserves geometry; 0.1-1.0 sizes and centers on entry
@@ -88,5 +85,5 @@ fullscreen = false # fullscreen on entry
 [animation.dim_unfocused]
 enabled = true
 duration_ms = 250
-curve = "easeout"
+curve = "smooth"
 dim = 0.09 # 0.0-1.0

@@ -139,7 +139,7 @@
 # Applications ---------------------------------------------------------------
 
 "Mod+Return" = "spawn:footclient"
-"Mod+B" = "spawn:helium-browser"
+"Mod+B" = "spawn:zen-browser"
 "Mod+E" = "spawn:nautilus"
 "Mod+D" = "spawn:vesktop"
 "Mod+M" = "spawn:spotify-launcher"

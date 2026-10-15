@@ -14,15 +14,6 @@ blur_optimized = false
 match.is_focused = false
 opacity = 0.85
 
-# Picture-in-picture stays sharp and floats in the bottom-right corner
-[[window_rule]]
-match.title="^(Picture in picture|Picture-in-picture|Picture-in-Picture)"
-match.is_focused = false
-default_position = { x = 10, y = 10, anchor = "bottom_right" }
-default_floating = true
-blur = false
-opacity = 1
-
 # Floating windows -----------------------------------------------------------
 
 # Float utility windows
@@ -32,7 +23,7 @@ default_floating = true
 
 # Float common dialogs by title
 [[window_rule]]
-match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files|Bitwarden|DAMX|New Download|Add Download|All Files|Choose Files)"
+match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files|Bitwarden|DAMX|New Download|Add Download|All Files|Choose Files|Blip)"
 default_floating = true
 
 # Float dialogs, progress windows, and popups by title or app
@@ -63,6 +54,19 @@ default_floating_size_px = { width = 1680, height = 900 }
 match.app_id = "(^helium$|^zen-*|vivaldi-stable|librewolf)"
 default_maximize_to_edges = true
 default_workspace = 1
+
+# Zen/Firefox Picture-in-Picture: pinned to the bottom-right corner.
+# Must come after the browser rule above: the PiP window shares the browser's
+# app_id, and later rules win on the fields they both set.
+[[window_rule]]
+match.title = "^(Picture in picture|Picture-in-picture|Picture-in-Picture)"
+default_floating = true
+default_pinned = true
+default_maximize_to_edges = false
+default_position = { x = 10, y = 10, anchor = "bottom_right" }
+default_focused = false
+blur = false
+opacity = 1
 
 # Obsidian
 [[window_rule]]
