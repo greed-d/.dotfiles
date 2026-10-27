@@ -8,7 +8,7 @@ environment {
     DISPLAY ":1"
     GTK_THEME "Catppuccin-Mauve-Dark"
     XDG_MENU_PREFIX "plasma-"
-    BROWSER "helium-browser"
+    BROWSER "zen-browser"
 }
 // Miscellaneous Settings
 prefer-no-csd
