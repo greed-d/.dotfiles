@@ -4,7 +4,7 @@
 # mirror the recorder's "status" and drive it through the "command" channel — so a
 # recording can be started even with no widget placed.
 #
-# Click mapping (widget): left = toggle recording, right = replay toggle/save,
+# Click mapping (widget): left = stop capture/start recording, right = replay toggle/save,
 # middle = save replay. The shortcut mirrors left/right.
 #
 # Settings are plugin-level ([[setting]] at the root): one set shared by every
@@ -12,8 +12,8 @@
 
 id = "noctalia/screen_recorder"
 name = "Screen Recorder"
-version = "1.2.2"
-plugin_api = 3
+version = "1.4.2"
+plugin_api = 17
 author = "noctalia"
 license = "MIT"
 dependencies = ["gpu-screen-recorder"]
@@ -195,6 +195,11 @@ entry = "recorder_service.luau"
 [[widget]]
 id = "recorder"
 entry = "recorder.luau"
+
+# "none" lets middle clicks reach onMiddleClick (save replay), the host's
+# middle = "settings-open-widget" default would swallow it. User bindings win.
+[widget.actions]
+middle = "none"
 
 # Control-center quick tile. Mirrors the recorder's state and drives it through
 # the plugin's shared state channel (no shell-out, no IPC PATH dependency).

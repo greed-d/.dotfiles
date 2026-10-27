@@ -9,6 +9,7 @@
 local PANEL_ID = "noctalia/notes:panel"
 local SCRATCHPAD_BASE = "scratchpad"
 local MAX_MATCHES = 8
+local dirs = require("./dirs.luau")
 
 local lastText = ""
 
@@ -17,7 +18,7 @@ local function tr(key)
 end
 
 local function settings()
-  local dir = noctalia.expandPath(noctalia.getConfig("notes_dir"))
+  local dir = dirs.resolveNotesDir()
   local extension = noctalia.string.trim(noctalia.getConfig("extension")):gsub("^%.", "")
   if extension == "" then
     extension = "md"
