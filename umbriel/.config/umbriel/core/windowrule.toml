@@ -23,7 +23,7 @@ default_floating = true
 
 # Float common dialogs by title
 [[window_rule]]
-match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files|Bitwarden|DAMX|New Download|Add Download|All Files|Choose Files|Blip)"
+match.title = "^(Open File|Select|Choose a wallpaper|Open Folder|Save As|Library|Choose Where to Download|File Operation Progress|Rename|Copy Files|Move Files|Search Files|Bitwarden|DAMX|New Download|Add Download|All Files|Choose Files|Blip|File Operation Progress)"
 default_floating = true
 
 # Float dialogs, progress windows, and popups by title or app

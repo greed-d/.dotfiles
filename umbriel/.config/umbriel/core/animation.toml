@@ -76,14 +76,16 @@ duration_ms = 250
 curve = "smooth"
 dim = 0.5          # 0.0-1.0
 blur = false       # requires appearance.blur.enabled
-scale = 0.0        # 0 preserves geometry; 0.1-1.0 sizes and centers on entry
-maximize = false   # maximize to edges on entry
-fullscreen = false # fullscreen on entry
 
 # Dim unfocused windows ------------------------------------------------------
+# Disabled: this animation dims ALL unfocused windows — including the PiP —
+# on top of their surface opacity, which makes the PiP look transparent while
+# unfocused even though its window rule pins opacity = 1. Global unfocused
+# dimming is still handled by the window rule `match.is_focused = false,
+# opacity = 0.85` in core/windowrule.toml; the PiP rule overrides that to 1.
 
 [animation.dim_unfocused]
-enabled = true
+enabled = false
 duration_ms = 250
 curve = "smooth"
 dim = 0.09 # 0.0-1.0

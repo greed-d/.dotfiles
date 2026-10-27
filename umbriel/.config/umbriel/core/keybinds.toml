@@ -147,15 +147,15 @@
 
 # Shell & utilities (Noctalia, vicinae) --------------------------------------
 
-"Mod+Space" = "spawn: vicinae toggle"
-"Mod+V" = "spawn:vicinae deeplink vicinae://launch/clipboard/history"
+# "Mod+Space" = "spawn: vicinae toggle"
+# "Mod+V" = "spawn:vicinae deeplink vicinae://launch/clipboard/history"
 "Mod+slash" = "spawn:vicinae deeplink vicinae://launch/core/search-emojis"
 "Alt+Space" = "spawn:qs -p ~/.config/astralis/shell.qml ipc call wallpaper toggle"
 
 "Mod+Comma" = "spawn:noctalia msg settings-toggle"
 "Mod+Alt+L" = "spawn:noctalia msg session lock"
-# "Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
-# "Mod+V" = "spawn:noctalia msg panel-toggle clipboard"
+"Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+V" = "spawn:noctalia msg panel-toggle clipboard"
 # "Alt+Space" = "spawn:noctalia msg panel-toggle wallpaper"
 # "Mod+slash" = "spawn:noctalia msg panel-toggle launcher /emo "
 
@@ -188,6 +188,7 @@
 
 # Controls intended to remain usable while the session is locked use the table form.
 "XF86MonBrightnessDown" = { action = "spawn:noctalia msg brightness-down 10", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn:noctalia msg brightness-up 10", allow_when_locked = true }
 
 # Power / session ------------------------------------------------------------
 
