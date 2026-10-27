@@ -6,13 +6,14 @@
 -- drives the recorder by writing to the "command" channel.
 --
 -- Click mapping:
---   Left click   - start/stop recording
+--   Left click   - stop an active capture, or start recording
 --   Right click  - toggle replay buffer, or save replay (when one is running)
 --   Middle click - save replay buffer
 
 local state = "idle" -- idle | pending | recording | replay_pending | replaying
 local available = false
 local RECORDING_STATES = { "recording", "pending" }
+local REPLAY_STATES = { "replaying", "replay_pending" }
 local PENDING_STATES = { "pending", "replay_pending" }
 
 local function send(action)
@@ -71,6 +72,8 @@ function onClick()
     if not available then return end
     if table.find(RECORDING_STATES, state) then
         send("stop")
+    elseif table.find(REPLAY_STATES, state) then
+        send("replay-stop")
     elseif state == "idle" then
         send("start")
     end

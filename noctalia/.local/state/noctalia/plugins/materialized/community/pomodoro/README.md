@@ -9,9 +9,7 @@ A Pomodoro timer plugin for Noctalia for productivity. Initially ported from the
 - **Bar Widget**: Shows status and remaining time on the bar widget when the panel is closed.
 - **Notifications**: Toast notification + alarm sound when work/break finishes.
 - **Ticking Sound**: Optional tick/tock sounds each second while a work session is running.
-
-## TODO
-- IPC
+- **IPC**: Control the timer from scripts, keybinds and other automation.
 
 ## Plugin
 
@@ -79,6 +77,29 @@ bypass-noctalia-sound-globals = true
 To open the panel with a command:
 ```sh
 noctalia msg panel-toggle thepunkoff/pomodoro:panel
+```
+
+### IPC
+All timer commands are available through the `pomodoro` service:
+
+```sh
+noctalia msg plugin thepunkoff/pomodoro:pomodoro all <event>
+```
+
+| Event | Description |
+| --- | --- |
+| `toggle` | Start the timer if paused, pause it if running (same as the panel's start/pause button). |
+| `start` | Start the timer. Does nothing if it is already running. |
+| `pause` | Pause the timer. Does nothing if it is already paused. |
+| `skip` | Stop the timer and skip to the next stage. |
+| `reset` | Stop the timer and reset the current stage. |
+| `reset-all` | Stop the timer and reset to the first work session. |
+
+For example, in niri:
+```kdl
+binds {
+    Mod+P { spawn "noctalia" "msg" "plugin" "thepunkoff/pomodoro:pomodoro" "all" "toggle"; }
+}
 ```
 
 ## Settings

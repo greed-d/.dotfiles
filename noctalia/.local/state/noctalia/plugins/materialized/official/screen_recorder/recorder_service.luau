@@ -191,6 +191,21 @@ local function shellQuote(value)
     return "'" .. value:gsub("'", [["'"']]) .. "'"
 end
 
+-- Match the executable at the start of argv, including absolute native, Nix and
+-- Flatpak paths. Anchoring also keeps the signal command from matching its shell.
+local function signalRecorder(signal, replayOnly, forceAfterDelay)
+    local pattern = "^([^ ]*/)?(gpu-screen-recorder|com[.]dec05eba[.]gpu_screen_recorder)"
+        .. (if replayOnly then " (.* )?-r " else "( |$)")
+
+    local cmd = `pids=$(pgrep -f -- {shellQuote(pattern)}) || exit 0\nkill -s {signal} $pids 2>/dev/null || true`
+    if forceAfterDelay then
+        -- Snapshot before stopping: a capture started during the grace period
+        -- must not be killed by a later command-line match.
+        cmd ..= "\nsleep 3\nkill -s KILL $pids 2>/dev/null || true"
+    end
+    noctalia.runAsync(cmd)
+end
+
 -- notifyIfMissing: when the recorder ended on its own (not a user stop) and no
 -- output file exists, gpu-screen-recorder died early - surface its captured output.
 local function notifyRecordingSavedIfPresent(notifyIfMissing)
@@ -515,9 +530,7 @@ local function stopRecording()
     if not table.find(RECORDING_STATES, state) then return end
 
     log("stopping recording (user request)")
-    noctalia.runAsync("pkill -SIGINT -f '^(/nix/store/.*-)?gpu-screen-recorder' 2>/dev/null || pkill -SIGINT -f '^com.dec05eba.gpu_screen_recorder' 2>/dev/null || true")
-    -- Force kill fallback
-    noctalia.runAsync("(sleep 3 && pkill -9 -f '^(/nix/store/.*-)?gpu-screen-recorder' 2>/dev/null || true) &")
+    signalRecorder("INT", false, true)
 
     if state == "recording" then
         notifyRecordingSavedIfPresent()
@@ -577,8 +590,7 @@ local function stopReplay()
     if not table.find(REPLAY_STATES, state) then return end
 
     log("stopping replay buffer (user request)")
-    noctalia.runAsync("pkill -SIGINT -f 'gpu-screen-recorder.*-r ' 2>/dev/null || true")
-    noctalia.runAsync("(sleep 3 && pkill -9 -f 'gpu-screen-recorder.*-r ' 2>/dev/null || true) &")
+    signalRecorder("INT", true, true)
 
     setState("idle")
     noctalia.notify(noctalia.tr("notify.replay-stopped"))
@@ -587,7 +599,7 @@ end
 local function saveReplay()
     if state ~= "replaying" then return end
     log("saving replay buffer (SIGUSR1)")
-    noctalia.runAsync("pkill -SIGUSR1 -f 'gpu-screen-recorder.*-r ' 2>/dev/null || true")
+    signalRecorder("USR1", true, false)
 
     local pattern = cfg("replay_filename_pattern")
     if pattern ~= nil and pattern ~= "" then
@@ -739,6 +751,8 @@ function onIpc(event, payload)
     elseif event == "toggle" then
         if table.find(RECORDING_STATES, state) then
             stopRecording()
+        elseif table.find(REPLAY_STATES, state) then
+            stopReplay()
         elseif state == "idle" then
             startRecording(focusedOutputName, sourceOverride)
         end
@@ -756,6 +770,16 @@ function onIpc(event, payload)
         saveReplay()
     else
         noctalia.log(`screen_recorder: unknown command '{event}'`)
+    end
+end
+
+-- runAsync launches detached processes, so they need explicit teardown when the
+-- service is disabled/reloaded or Noctalia exits. Keep the grace-period fallback
+-- in the detached shell so it can finish after the runtime has gone away.
+function onExit()
+    if state ~= "idle" then
+        log("stopping capture (service exit)")
+        signalRecorder("INT", false, true)
     end
 end
 

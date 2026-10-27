@@ -1,6 +1,6 @@
 id           = "thepunkoff/pomodoro"
 name         = "Pomodoro Timer"
-version      = "1.3.0"
+version      = "1.4.0"
 plugin_api   = 22
 author       = "thepunkoff"
 license = "MIT"

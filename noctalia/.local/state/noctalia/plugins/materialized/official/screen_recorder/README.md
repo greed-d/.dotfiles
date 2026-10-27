@@ -33,7 +33,7 @@ Widget controls:
 
 | Action | Behavior |
 | --- | --- |
-| Left click | Start or stop recording. |
+| Left click | Stop an active or pending recording/replay buffer, or start recording when idle. |
 | Right click | Start the replay buffer, stop a pending replay buffer, or save an active replay. |
 | Middle click | Save an active replay buffer. |
 
@@ -41,10 +41,12 @@ Shortcut controls:
 
 | Action | Behavior |
 | --- | --- |
-| Left click | Toggle recording. |
+| Left click | Stop an active or pending recording/replay buffer, or start recording when idle. |
 | Right click | Toggle the replay buffer. |
 
 Replay controls are available only when `replay_enabled` is true.
+
+Disabling or reloading the plugin, or exiting Noctalia, stops an active capture.
 
 When `video_source` is `region`, starting a capture or replay first opens a
 `slurp` picker: drawing an area records it and cancelling returns to idle.

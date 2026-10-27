@@ -8,6 +8,8 @@
 local AUTOSAVE_IDLE_TICKS = 2 -- 1s panel ticks with no edits before a flush
 local SCRATCHPAD_BASE = "scratchpad"
 
+local dirs = require("./dirs.luau")
+
 local notesDir = ""
 local suffix = ".md" -- "." .. the configured extension, resolved in onOpen
 local files = {}
@@ -376,7 +378,7 @@ render = function()
 end
 
 function onOpen(_context)
-  notesDir = noctalia.expandPath(noctalia.getConfig("notes_dir"))
+  notesDir = dirs.resolveNotesDir()
   cornerRadiusScale = noctalia.getSetting("shell.corner_radius_scale")
   closeButton = noctalia.getSetting("shell.show_close_buttons") ~= false
   local extension = noctalia.string.trim(noctalia.getConfig("extension")):gsub("^%.", "")

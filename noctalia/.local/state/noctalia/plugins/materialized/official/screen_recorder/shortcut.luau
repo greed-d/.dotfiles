@@ -1,13 +1,13 @@
 --!nonstrict
 -- GPU Screen Recorder - control-center quick tile.
 --
--- This tile holds no recording logic of its own. It mirrors the recorder widget
+-- This tile holds no recording logic of its own. It mirrors the recorder service
 -- through the plugin's shared state:
 --   reads  noctalia.state "status"  -> { state = ..., available = ... }
 --   writes noctalia.state "command" -> "toggle" / "replay-toggle"
 --
--- The recorder widget must be placed on a bar - it owns the recording process
--- and reacts to the command channel.
+-- The headless service owns the recording process and reacts to the command
+-- channel, including when no recorder widget is placed on a bar.
 
 local recording = false
 local replaying = false
