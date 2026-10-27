@@ -7,44 +7,22 @@ enabled = true
 order = [ "normal" ]
 
     [bar.normal]
-    background_opacity = 0.59999998658895493
-    capsule_thickness = 0.75999998673796654
-    center = [ "taskbar", "date", "weather" ]
+    background_opacity = 0.61999998614192009
+    capsule_thickness = 0.84999998807907107
+    center = [ "taskbar" ]
     concave_edge_corners = false
-    end = [
-        "media",
-        "line",
-        "group:g3",
-        "battery",
-        "volume",
-        "network",
-        "bluetooth",
-        "brightness",
-        "line",
-        "cat",
-        "clock",
-        "group:g2",
-        "bar"
-    ]
-    font_weight = 700
-    margin_ends = 0
+    contact_shadow = true
+    end = [ "media", "battery", "group:g3", "group:g2", "clock", "bar" ]
+    margin_ends = 200
+    padding = 17
     panel_overlap = 0
     position = "top"
-    radius = 0
-    shadow = false
-    start = [
-        "notifications",
-        "session",
-        "control-center",
-        "line",
-        "active_window",
-        "group:g4",
-        "widget_2",
-        "widget",
-        "line",
-        "btn",
-        "group:g1"
-    ]
+    radius = 25
+    radius_bottom_left = 20
+    radius_bottom_right = 20
+    radius_top_left = 0
+    radius_top_right = 0
+    start = [ "notifications", "active_window", "widget", "group:g1" ]
     thickness = 40
     widget_spacing = 8
 
@@ -55,42 +33,31 @@ order = [ "normal" ]
         enabled = true
         fill = "surface_variant"
         id = "g1"
-        members = [ "tray", "notes_2", "clipboard", "wallpaper", "caffeine", "bar_2" ]
+        members = [ "tray", "notes_2", "wallpaper", "widget_2", "caffeine" ]
         opacity = 0.0
-        padding = 6.0
+        padding = 0.0
 
         [[bar.normal.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
+        accordion = true
+        accordion_direction = "start"
         border_width = 1.0
-        enabled = false
+        enabled = true
         fill = "surface_variant"
         id = "g2"
-        members = [ "headphonesymbol", "headphone_battery" ]
+        members = [ "network", "volume", "brightness" ]
         opacity = 0.0
-        padding = 6.0
+        padding = 0.0
 
         [[bar.normal.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
+        accordion = true
+        accordion_direction = "start"
         border_width = 1.0
         enabled = true
         fill = "surface_variant"
         id = "g3"
-        members = [ "ram", "sysmon" ]
-        opacity = 0.89999997615814209
-        padding = 6.0
-
-        [[bar.normal.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        border_width = 1.0
-        enabled = true
-        fill = "surface_variant"
-        id = "g4"
-        members = [ "cpu", "temp" ]
-        opacity = 1.0
-        padding = 6.0
+        members = [ "ram", "cpu", "temp", "sysmon" ]
+        opacity = 0.0
+        padding = 0.0
 
 [battery.device."/org/freedesktop/UPower/devices/headset_dev_80_99_E7_8E_80_47"]
 warning_threshold = 20
@@ -179,6 +146,7 @@ widget_order = [
 
         [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
         background = false
+        font_family = "SF Pro Rounded"
 
 [dock]
 background_opacity = 0.39999999105930328
@@ -919,17 +887,14 @@ polkit_agent = true
 
     [shell.launcher]
     categories = false
+    show_app_actions = true
 
     [shell.panel]
-    clipboard_position = "auto"
-    launcher_placement = "attached"
-    launcher_position = "auto"
     open_near_click_clipboard = true
     open_near_click_control_center = true
     open_near_click_session = true
     open_near_click_wallpaper = true
     polkit_position = "auto"
-    shadow = false
     transparency_mode = "glass"
     wallpaper_placement = "centered"
 
@@ -957,16 +922,16 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha"
 
     [wallpaper.default]
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/fantasy-city.jpg"
+    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/crane.png"
 
     [wallpaper.last]
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/fantasy-city.jpg"
+    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/crane.png"
 
     [wallpaper.monitors.DP-1]
     path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/fantasy-city.jpg"
+    path = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha/crane.png"
 
     [[wallpaper.favorite]]
     builtin_palette = "Ayu"
@@ -1005,13 +970,18 @@ directory = "/home/greed/Pictures/Wallpaper/walls-catppuccin-mocha"
     theme_mode = "dark"
 
 [widget.active_window]
+capsule = true
+capsule_fill = "outline"
+capsule_radius = 19
+max_length = 195
 title_scroll = "on_hover"
 
 [widget.bar]
-enabled = false
+capsule = false
 type = "noctalia/umbriel-companion:bar"
 
 [widget.bar_2]
+enabled = false
 type = "prponkshe/mango-displays:bar"
 
 [widget.battery]
@@ -1022,10 +992,10 @@ hide_when_plugged = true
 enabled = false
 
 [widget.brightness]
-enabled = false
 show_label = false
 
 [widget.btn]
+enabled = false
 type = "ezequiel/mango_layouts:btn"
 
 [widget.cat]
@@ -1039,6 +1009,7 @@ enabled = false
 
 [widget.clock]
 capsule = true
+capsule_fill = "outline"
 format = "{:%H:%M:%S}"
 
 [widget.control-center]
@@ -1066,9 +1037,13 @@ interactive = false
 type = "custom_button"
 
 [widget.line]
+enabled = false
 glyph = "minus-vertical"
 interactive = false
 type = "custom_button"
+
+[widget.media]
+capsule = false
 
 [widget.network]
 show_label = false
@@ -1077,8 +1052,10 @@ show_label = false
 type = "noctalia/notes:notes"
 
 [widget.notes_2]
-enabled = false
 type = "noctalia/notes:notes"
+
+[widget.notifications]
+capsule = false
 
 [widget.privacy]
 active_color = "tertiary"
@@ -1099,13 +1076,15 @@ visualization = "none"
 
 [widget.taskbar]
 anchor = true
-capsule_radius = 15
+capsule = false
+capsule_border_width = 0.0
+capsule_radius = 18
 focused_color = "tertiary"
-font_scale = 1.25
+font_scale = 1.27
 group_by_workspace = true
 hide_empty_workspaces = true
-inactive_opacity = 0.80000000000000004
-scale = 1.3500000000000001
+icon_scale = 1.5
+inactive_opacity = 0.5
 show_active_indicator = false
 show_window_title = false
 
@@ -1113,7 +1092,9 @@ show_window_title = false
 visualization = "none"
 
 [widget.tray]
+capsule = false
 drawer = true
+drawer_columns = 5
 
 [widget.weather]
 enabled = false
