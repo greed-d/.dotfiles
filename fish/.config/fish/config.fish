@@ -135,13 +135,14 @@ set PATH "$PATH":"$HOME/.local/scripts/"
 set PATH "$PATH":"$HOME/.local/share/nvim/mason/bin"
 set PATH "$PATH":"$HOME/ghostty/zig-out/bin/"
 set PATH "$PATH":"$HOME/.local/bin/"
+set PATH "$PATH":"$HOME/go/bin/"
 set PATH "$PATH":"$HOME/.config/emacs/bin/"
 set PATH "$PATH":"$HOME/.local/colorscripts/"
 # set PATH "$PATH":"$HOME/.sdkman/candidates/gradle/current/bin/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
 set PATH "$PATH":"$HOME/.local/share/bob/nvim"
-set -gx BROWSER helium-browser
+set -gx BROWSER zen-browser
 # set -gx GRIMBLAST_HIDE_CURSOR 0
 fish_add_path -g -p $HOME/flutter/bin
 #set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
