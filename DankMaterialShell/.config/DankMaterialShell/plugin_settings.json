@@ -5,7 +5,10 @@
   },
   "bongoCat": {
     "enabled": true,
-    "catColorMode": "primary"
+    "catColorMode": "classic",
+    "catSizePercent": 88,
+    "catYOffset": 2,
+    "enableBlinking": true
   },
   "quickCapture": {
     "enabled": true
@@ -15,10 +18,10 @@
   },
   "emojiLauncher": {
     "enabled": true,
-    "recentEmojis": "🤣,🫜,🤔,😢,😓,😡"
+    "recentEmojis": "👀,🤣,🤷,😭,🫜,🤔,😢,😓,😡"
   },
   "dankPomodoroTimer": {
-    "enabled": true,
+    "enabled": false,
     "autoSetDND": true,
     "workDuration": "40",
     "autoStartBreaks": false,
