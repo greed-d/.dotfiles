@@ -11,6 +11,8 @@ local panelOpen = false
 local recordState = noctalia.state.get("recordState") or "idle"
 local recordFormat = noctalia.state.get("recordFormat") or "mp4"
 local recordInfo = noctalia.state.get("recordInfo")
+local recordThumb = noctalia.state.get("recordThumb")
+local rawRecordPath = noctalia.state.get("rawRecordPath")
 local saveContainerIndex = 0
 local activeTool = noctalia.state.get("activeTool")
 local colorResult = noctalia.state.get("colorResult")
@@ -21,24 +23,32 @@ local translateResult = noctalia.state.get("translateResult")
 local qrResult = noctalia.state.get("qrResult")
 local paletteColors = noctalia.state.get("paletteColors") or {}
 local paletteCapture = noctalia.state.get("paletteCapture")
-local ocrTab = "original"
+local shareResult = noctalia.state.get("shareResult")
+local shareQrPath = noctalia.state.get("shareQrPath") or ""
+local shareHistory = noctalia.state.get("shareHistory") or {}
 local selectedTranslateLang = "ar"
+local selectedOcrPsm = nil
+local selectedOcrLang = noctalia.getConfig("selected-ocr-lang") or "eng"
 local translateLanguages = {
-  { code = "en", name = "English" },
-  { code = "ar", name = "العربية" },
-  { code = "fr", name = "Français" },
-  { code = "de", name = "Deutsch" },
-  { code = "es", name = "Español" },
-  { code = "zh", name = "中文" },
-  { code = "ja", name = "日本語" },
-  { code = "ru", name = "Русский" },
-  { code = "pt", name = "Português" },
-  { code = "it", name = "Italiano" },
-  { code = "tr", name = "Türkçe" },
-  { code = "fa", name = "فارسی" },
-  { code = "he", name = "עברית" },
-  { code = "ur", name = "اردو" },
+  { code = "en", tess = "eng", name = "English" },
+  { code = "ar", tess = "ara", name = "العربية" },
+  { code = "fr", tess = "fra", name = "Français" },
+  { code = "de", tess = "deu", name = "Deutsch" },
+  { code = "es", tess = "spa", name = "Español" },
+  { code = "zh", tess = "chi_sim", name = "中文" },
+  { code = "ja", tess = "jpn", name = "日本語" },
+  { code = "ru", tess = "rus", name = "Русский" },
+  { code = "pt", tess = "por", name = "Português" },
+  { code = "it", tess = "ita", name = "Italiano" },
+  { code = "tr", tess = "tur", name = "Türkçe" },
+  { code = "fa", tess = "fas", name = "فارسی" },
+  { code = "he", tess = "heb", name = "עברית" },
+  { code = "ur", tess = "urd", name = "اردو" },
 }
+local tessByCode = {}
+for _, l in ipairs(translateLanguages) do tessByCode[l.code] = l.tess end
+local codeByTess = {}
+for _, l in ipairs(translateLanguages) do codeByTess[l.tess] = l.code end
 local render -- forward for tab callbacks inside renderOcr
 
 -- ── Helpers ────────────────────────────────────────────────────────────────
@@ -141,6 +151,8 @@ local function refresh()
   recordState = noctalia.state.get("recordState") or "idle"
   recordFormat = noctalia.state.get("recordFormat") or "mp4"
   recordInfo = noctalia.state.get("recordInfo")
+  recordThumb = noctalia.state.get("recordThumb")
+  rawRecordPath = noctalia.state.get("rawRecordPath")
   activeTool = noctalia.state.get("activeTool")
   colorResult = noctalia.state.get("colorResult")
   colorHistory = noctalia.state.get("colorHistory") or {}
@@ -150,6 +162,9 @@ local function refresh()
   qrResult = noctalia.state.get("qrResult")
   paletteColors = noctalia.state.get("paletteColors") or {}
   paletteCapture = noctalia.state.get("paletteCapture")
+  shareResult = noctalia.state.get("shareResult")
+  shareQrPath = noctalia.state.get("shareQrPath") or ""
+  shareHistory = noctalia.state.get("shareHistory") or {}
 end
 
 -- ── Header ─────────────────────────────────────────────────────────────────
@@ -166,6 +181,8 @@ local function header()
     title, glyph = tr("tools.qr"), "qrcode"
   elseif activeTool == "palette" then
     title, glyph = tr("tools.palette"), "color-swatch"
+  elseif activeTool == "share" then
+    title, glyph = tr("panel.share_title"), "share"
   end
   return ui.row({ align = "center", gap = 10 }, {
     ui.column({ width = 36, height = 36, radius = 10, fill = "primary/0.15", align = "center", justify = "center" }, {
@@ -216,7 +233,7 @@ local function fmtRatio(w, h)
 end
 
 local function infoTile(label, value)
-  return ui.column({ flexGrow = 1, gap = 2, align = "center", paddingH = 6, paddingV = 8, radius = 10, fill = "surface_variant/0.25" }, {
+  return ui.column({ flexGrow = 1, gap = 2, align = "center", paddingH = 6, paddingV = 8, radius = 10, fill = "surface_container/0.25" }, {
     ui.label({ text = label, fontSize = 10, color = "on_surface_variant" }),
     ui.label({ text = value or "—", fontSize = 13, fontWeight = "bold" }),
   })
@@ -226,6 +243,11 @@ local function recordSaveCard()
   local isGif = recordFormat == "gif"
   local info = recordInfo or {}
   local actions = {}
+  local rawPath = (rawRecordPath and rawRecordPath ~= "") and rawRecordPath or nil
+  local function preview()
+    if not rawPath then return end
+    noctalia.runAsync({ "xdg-open", rawPath })
+  end
   if isGif then
     table.insert(actions, ui.label({
       text = tr("tools.record_gif"),
@@ -241,9 +263,13 @@ local function recordSaveCard()
       width = 96,
       onChange = function(value)
         saveContainerIndex = tonumber(value) or 0
+        render()
       end,
     }))
   end
+  table.insert(actions, actionButton("player-play", tr("panel.preview"), function()
+    preview()
+  end))
   table.insert(actions, actionButton("download", tr("panel.save"), function()
     if isGif then
       send("recordSave")
@@ -254,28 +280,44 @@ local function recordSaveCard()
   table.insert(actions, actionButton("trash", tr("panel.discard"), function()
     send("recordDiscard")
   end, "ghost"))
-  return ui.column({ flexGrow = 1, gap = 10 }, {
-    ui.image({ path = RECORD_THUMB_PATH, height = 220, fit = "contain", radius = 12, borderWidth = 1, border = "outline" }),
+  local thumbPath = (recordThumb and recordThumb ~= "") and recordThumb or RECORD_THUMB_PATH
+  local hasThumb = (noctalia.fileExists == nil) or noctalia.fileExists(thumbPath)
+  local thumbEl = hasThumb
+    and ui.image({ path = thumbPath, height = 280, fit = "contain", radius = 12, borderWidth = 1, border = "outline_variant" })
+    or ui.column({ height = 120, align = "center", justify = "center", gap = 6, radius = 12, fill = "surface_container/0.25" }, {
+      ui.glyph({ name = "video", size = 28, color = "on_surface_variant" }),
+      ui.label({ text = tr("panel.no_preview"), fontSize = 11, color = "on_surface_variant" }),
+    })
+  if rawPath then thumbEl = ui.column({ onClick = preview, tooltip = tr("panel.click_to_play") }, { thumbEl }) end
+  local estimateRow = nil
+  if isGif then
+    local cap = noctalia.getConfig("gif-max-seconds") or 30
+    estimateRow = ui.label({ text = tr("panel.gif_estimate", { secs = tostring(cap) }), fontSize = 11, color = "on_surface_variant" })
+  end
+  local cardChildren = {
+    thumbEl,
     ui.row({ gap = 8 }, {
       infoTile(tr("panel.record_size"), fmtBytes(info.size or 0)),
       infoTile(tr("panel.record_duration"), fmtDuration(info.duration or 0)),
       infoTile(tr("panel.record_ratio"), fmtRatio(info.width, info.height)),
     }),
-    ui.row({ gap = 6, align = "center" }, actions),
-  })
+  }
+  if estimateRow then table.insert(cardChildren, estimateRow) end
+  table.insert(cardChildren, ui.row({ gap = 6, align = "center" }, actions))
+  return ui.column({ gap = 10 }, cardChildren)
 end
 
 -- ── Result views ───────────────────────────────────────────────────────────
 
 local function emptyState(glyph, text)
-  return ui.column({ flexGrow = 1, gap = 10, align = "center", justify = "center" }, {
-    ui.glyph({ name = glyph, size = 30, color = "outline" }),
+  return ui.column({ gap = 10, minHeight = 120, align = "center", justify = "center" }, {
+    ui.glyph({ name = glyph, size = 30, color = "outline_variant" }),
     ui.label({ text = text, fontSize = 12, color = "on_surface_variant" }),
   })
 end
 
 local function colorFormatRow(name, value)
-  return ui.row({ gap = 8, align = "center", paddingH = 10, paddingV = 8, radius = 10, fill = "surface_variant/0.25" }, {
+  return ui.row({ gap = 8, align = "center", paddingH = 10, paddingV = 8, radius = 10, fill = "surface_container/0.25" }, {
     ui.label({ text = name, width = 40, fontSize = 12, fontWeight = "bold", color = "on_surface_variant" }),
     ui.label({ text = value, flexGrow = 1, fontSize = 12 }),
     ui.button({ glyph = "copy", variant = "ghost", onClick = function() copyText(value) end }),
@@ -296,7 +338,7 @@ local function colorHistoryRow()
       align = "center",
       onClick = function() showHistoryColor(hex) end,
     }, {
-      ui.box({ width = 26, height = 26, radius = 8, fill = hex, borderWidth = 1, border = "outline" }),
+      ui.box({ width = 26, height = 26, radius = 8, fill = hex, borderWidth = 1, border = "outline_variant" }),
     }))
   end
   return ui.row({ gap = 8 }, swatches)
@@ -307,9 +349,9 @@ local function renderColor()
     return emptyState("palette", tr("panel.no_color"))
   end
   local c = colorResult
-  return ui.column({ flexGrow = 1, gap = 10 }, {
+  return ui.column({ gap = 10 }, {
     ui.row({ gap = 12, align = "center" }, {
-      ui.box({ key = "swatch", width = 76, height = 50, radius = 12, fill = c.hex, borderWidth = 2, border = "outline" }),
+      ui.box({ key = "swatch", width = 76, height = 50, radius = 12, fill = c.hex, borderWidth = 2, border = "outline_variant" }),
       ui.column({ flexGrow = 1, gap = 2 }, {
         ui.label({ text = c.hex, fontSize = 18, fontWeight = "bold", color = "on_surface" }),
         ui.label({ text = c.rgb, fontSize = 11, color = "on_surface_variant" }),
@@ -363,7 +405,6 @@ local function renderOcr()
   lineCount = lineCount + math.floor(#text / 60)
   local inputHeight = math.max(70, math.min(180, lineCount * 20 + 32))
   local hasTranslation = translateResult and translateResult ~= ""
-  if hasTranslation and ocrTab ~= "original" and ocrTab ~= "translation" then ocrTab = "original" end
   local scrollChildren = {}
   -- Source image card — tinted to differentiate from editable output
   if ocrResult.capturePath and ocrResult.capturePath ~= "" then
@@ -374,7 +415,7 @@ local function renderOcr()
       }),
       ui.label({ text = imgW > 0 and string.format("%dx%d", imgW, imgH) or "", fontSize = 10, color = "on_surface_variant" }),
     }))
-    table.insert(scrollChildren, ui.column({ fill = "surface_variant/0.35", radius = 12, padding = 6, borderWidth = 1, border = "outline" }, {
+    table.insert(scrollChildren, ui.column({ fill = "surface_container/0.35", radius = 12, padding = 6, borderWidth = 1, border = "outline_variant" }, {
       ui.image({
         key = "ocr-image-" .. tostring(ocrResult.cacheBust or ocrResult.capturePath),
         path = ocrResult.capturePath,
@@ -408,7 +449,7 @@ local function renderOcr()
       ui.button({ glyph = "copy", variant = "ghost", controlSize = "sm", tooltip = tr("panel.copy_text"), onClick = function() copyText(displayText) end }),
     }))
     table.insert(scrollChildren, ui.column({
-        fill = "surface_variant/0.25",
+        fill = "surface_container/0.25",
         radius = 10,
         paddingH = 10,
         paddingV = 8,
@@ -422,7 +463,8 @@ local function renderOcr()
         }),
       }))
   end
-  -- Controls — icon-only with tooltips + searchable language picker (replaces raw "ar" input)
+  -- Controls — same language options for translate + OCR retry (codes only),
+  -- one row. OCR sends the mapped Tesseract code, so no more typos → errors.
   local langOptions = {}
   local langCodes = {}
   for _, l in ipairs(translateLanguages) do
@@ -431,21 +473,53 @@ local function renderOcr()
   end
   local selectedIdx = 0
   for i, c in ipairs(langCodes) do if c == selectedTranslateLang then selectedIdx = i - 1; break end end
-  local controls = {
-    ui.button({ glyph = "copy", variant = "ghost", controlSize = "sm", tooltip = tr("panel.copy_text"), onClick = function() copyText(ocrTab == "translation" and translateResult or ocrEditText) end }),
-  }
+  local ocrCode = codeByTess[selectedOcrLang] or selectedOcrLang
+  local ocrLangIdx = 0
+  for i, c in ipairs(langCodes) do if c == ocrCode then ocrLangIdx = i - 1; break end end
+  -- Single tool row: [translate group] + [retry group]. Retry re-runs on
+  -- the same pixels, no recapture.
+  local psmOptions = { tr("panel.auto"), "3", "6", "7", "11" }
+  local psmIdx = 0
+  if selectedOcrPsm == "3" then psmIdx = 1
+  elseif selectedOcrPsm == "6" then psmIdx = 2
+  elseif selectedOcrPsm == "7" then psmIdx = 3
+  elseif selectedOcrPsm == "11" then psmIdx = 4 end
+  local toolRowItems = {}
   if url then
-    table.insert(controls, ui.button({ glyph = "external-link", variant = "ghost", controlSize = "sm", tooltip = tr("panel.open_url"), onClick = function() noctalia.runAsync({ "xdg-open", url }) end }))
+    table.insert(toolRowItems, ui.button({ glyph = "external-link", variant = "ghost", controlSize = "sm", tooltip = tr("panel.open_url"), onClick = function() noctalia.runAsync({ "xdg-open", url }) end }))
   elseif email then
-    table.insert(controls, ui.button({ glyph = "mail", variant = "ghost", controlSize = "sm", tooltip = tr("panel.compose_mail"), onClick = function() noctalia.runAsync({ "xdg-open", "mailto:" .. email }) end }))
+    table.insert(toolRowItems, ui.button({ glyph = "mail", variant = "ghost", controlSize = "sm", tooltip = tr("panel.compose_mail"), onClick = function() noctalia.runAsync({ "xdg-open", "mailto:" .. email }) end }))
   end
-  table.insert(controls, ui.button({ glyph = "search", variant = "ghost", controlSize = "sm", tooltip = tr("panel.search_text"), onClick = function() send("ocrSearch", { text = ocrEditText }) end }))
-  table.insert(controls, ui.button({ glyph = "share", variant = "ghost", controlSize = "sm", tooltip = tr("panel.share"), onClick = function() send("share", ocrResult.capturePath) end }))
-  table.insert(controls, ui.spacer({ flexGrow = 1 }))
-  table.insert(controls, ui.select({
+  table.insert(toolRowItems, ui.label({ text = tr("panel.retry"), fontSize = 11, color = "on_surface_variant" }))
+  table.insert(toolRowItems, ui.select({
+    options = psmOptions,
+    selectedIndex = psmIdx,
+    width = 76,
+    controlSize = "sm",
+    onChange = function(value)
+      local idx = tonumber(value) or 0
+      selectedOcrPsm = if idx == 0 then nil else psmOptions[idx + 1]
+      render()
+    end,
+  }))
+  table.insert(toolRowItems, ui.select({
+    options = langCodes,
+    selectedIndex = ocrLangIdx,
+    width = 64,
+    controlSize = "sm",
+    onChange = function(value)
+      local idx = tonumber(value) or 0
+      selectedOcrLang = langCodes[idx + 1] or selectedOcrLang
+      render()
+    end,
+  }))
+  table.insert(toolRowItems, ui.button({ glyph = "refresh", variant = "default", controlSize = "sm", tooltip = tr("panel.retry"), onClick = function() send("ocrRetry", { psm = selectedOcrPsm, lang = tessByCode[selectedOcrLang] or selectedOcrLang }) end }))
+  table.insert(toolRowItems, ui.spacer({ flexGrow = 1 }))
+  table.insert(toolRowItems, ui.label({ text = tr("panel.translate"), fontSize = 11, color = "on_surface_variant" }))
+  table.insert(toolRowItems, ui.select({
     options = langOptions,
     selectedIndex = selectedIdx,
-    width = 160,
+    width = 200,
     controlSize = "sm",
     onChange = function(value)
       local idx = tonumber(value) or 0
@@ -453,10 +527,10 @@ local function renderOcr()
       render()
     end,
   }))
-  table.insert(controls, ui.button({ glyph = "language", variant = "primary", controlSize = "sm", tooltip = tr("panel.translate"), onClick = function() send("ocrTranslate", { lang = selectedTranslateLang, text = ocrEditText }) end }))
-  return ui.column({ flexGrow = 1, gap = 8 }, {
-    ui.row({ gap = 4, align = "center" }, controls),
-    ui.scroll({ flexGrow = 1, gap = 8 }, scrollChildren),
+  table.insert(toolRowItems, ui.button({ glyph = "language", variant = "primary", controlSize = "sm", tooltip = tr("panel.translate"), onClick = function() send("ocrTranslate", { lang = selectedTranslateLang, text = ocrEditText }) end }))
+  return ui.column({ gap = 8 }, {
+    ui.row({ gap = 6, align = "center" }, toolRowItems),
+    ui.column({ gap = 8 }, scrollChildren),
   })
 end
 
@@ -474,11 +548,10 @@ local function renderQr()
       noctalia.runAsync({ "xdg-open", text })
     end))
   end
-  table.insert(buttons, actionButton("share", tr("panel.share"), function() send("share", qrResult.capturePath) end))
-  return ui.column({ flexGrow = 1, gap = 8 }, {
+  return ui.column({ gap = 8 }, {
     ui.row({ gap = 6 }, buttons),
-    ui.scroll({ flexGrow = 1, gap = 8 }, {
-      ui.image({ path = qrResult.capturePath, height = 110, fit = "contain", radius = 12, borderWidth = 1, border = "outline" }),
+    ui.column({ gap = 8 }, {
+      ui.image({ path = qrResult.capturePath, height = 110, fit = "contain", radius = 12, borderWidth = 1, border = "outline_variant" }),
       ui.label({ text = text, fontSize = 13 }),
     }),
   })
@@ -497,16 +570,16 @@ local function renderPalette()
       align = "center",
       paddingV = 8,
       radius = 12,
-      fill = "surface_variant/0.25",
+      fill = "surface_container/0.25",
       borderWidth = 1,
-      border = "outline",
+      border = "outline_variant",
       onClick = function() copyText(hex) end,
     }, {
-      ui.box({ width = 34, height = 34, radius = 10, fill = hex, borderWidth = 1, border = "outline" }),
+      ui.box({ width = 34, height = 34, radius = 10, fill = hex, borderWidth = 1, border = "outline_variant" }),
       ui.label({ text = hex, fontSize = 9, color = "on_surface_variant" }),
     }))
   end
-  return ui.column({ flexGrow = 1, gap = 8 }, {
+  return ui.column({ gap = 8 }, {
     ui.row({ gap = 6 }, {
       actionButton("copy", tr("panel.copy_hex_list"), function()
         copyText(table.concat(paletteColors, "\n"))
@@ -526,6 +599,66 @@ end
 
 -- ── Render ─────────────────────────────────────────────────────────────────
 
+local function fmtExpiry(entry)
+  if not entry or not entry.expirySecs then return tr("panel.permanent_link") end
+  local left = (entry.time + entry.expirySecs) - os.time()
+  if left <= 0 then return tr("panel.expired") end
+  local h = math.floor(left / 3600)
+  local m = math.floor((left % 3600) / 60)
+  local label = h > 0 and (h .. "h " .. m .. "m") or (m .. "m")
+  return tr("panel.expires_in", { time = label })
+end
+
+local function renderShare()
+  if not shareResult or not shareResult.url then
+    return emptyState("share", tr("panel.no_share_history"))
+  end
+  local url = shareResult.url
+  local top = {
+    ui.label({ text = url, fontSize = 12, color = "primary" }),
+    ui.row({ gap = 6 }, {
+      actionButton("copy", tr("panel.copy_link"), function() copyText(url) end),
+      actionButton("external-link", tr("panel.open_url"), function() noctalia.runAsync({ "xdg-open", url }) end),
+    }),
+    ui.label({ text = fmtExpiry(shareResult), fontSize = 11, color = "on_surface_variant" }),
+  }
+  local hasQr = shareQrPath and shareQrPath ~= "" and (noctalia.fileExists == nil or noctalia.fileExists(shareQrPath))
+  if hasQr then
+    table.insert(top, ui.column({ gap = 4, align = "center" }, {
+      ui.image({ path = shareQrPath, width = 180, height = 180, fit = "contain", radius = 12, borderWidth = 1, border = "outline_variant" }),
+      ui.label({ text = tr("panel.qr_scan"), fontSize = 11, color = "on_surface_variant" }),
+    }))
+  end
+  if #shareHistory > 1 then
+    local rows = {}
+    for i, h in ipairs(shareHistory) do
+      if i > 1 and type(h) == "table" and h.url then
+        local u = h.url
+        table.insert(rows, ui.row({
+          key = "share-hist-" .. i, gap = 8, align = "center",
+          paddingV = 6, paddingH = 10, radius = 10, fill = "surface_container/0.25",
+          onClick = function() copyText(u) end,
+        }, {
+          ui.label({ text = u, flexGrow = 1, fontSize = 11, maxLines = 1 }),
+        }))
+      end
+    end
+    if #rows > 0 then
+      table.insert(top, ui.row({ align = "center", justify = "space_between", gap = 8 }, {
+        ui.label({ text = tr("panel.share_history"), fontSize = 12, fontWeight = "bold", color = "on_surface_variant" }),
+        ui.button({ text = tr("panel.clear_share_history"), controlSize = "sm", variant = "ghost", onClick = function() send("clearShareHistory") end }),
+      }))
+      table.insert(top, ui.column({ gap = 6 }, rows))
+    end
+  else
+    table.insert(top, ui.row({ align = "center", justify = "space_between", gap = 8 }, {
+      ui.label({ text = tr("panel.share_history"), fontSize = 12, fontWeight = "bold", color = "on_surface_variant" }),
+      ui.button({ text = tr("panel.clear_share_history"), controlSize = "sm", variant = "ghost", onClick = function() send("clearShareHistory") end }),
+    }))
+  end
+  return ui.column({ gap = 8 }, top)
+end
+
 local function body()
   if recordState == "ready" then
     return recordSaveCard()
@@ -537,12 +670,14 @@ local function body()
     return renderQr()
   elseif activeTool == "palette" then
     return renderPalette()
+  elseif activeTool == "share" then
+    return renderShare()
   end
   return emptyState("crosshair", tr("panel.empty"))
 end
 
 render = function()
-  panel.render(ui.column({ flexGrow = 1, gap = 10 }, {
+  panel.render(ui.column({ gap = 10 }, {
     header(),
     body(),
   }))
@@ -558,6 +693,9 @@ end
 
 function onClose()
   panelOpen = false
+  -- Closing the card discards the recording as if it never happened.
+  -- The explicit way to keep it is Save/Copy.
+  if recordState == "ready" then send("recordDiscard") end
 end
 
 noctalia.state.watch("recordState", function(v)
@@ -570,6 +708,8 @@ noctalia.state.watch("recordState", function(v)
 end)
 noctalia.state.watch("recordFormat", function(v) recordFormat = v or "mp4"; if panelOpen then render() end end)
 noctalia.state.watch("recordInfo", function(v) recordInfo = v; if panelOpen then render() end end)
+noctalia.state.watch("recordThumb", function(v) recordThumb = v; if panelOpen then render() end end)
+noctalia.state.watch("rawRecordPath", function(v) rawRecordPath = v; if panelOpen then render() end end)
 noctalia.state.watch("activeTool", function(v) activeTool = v; if panelOpen then render() end end)
 noctalia.state.watch("colorResult", function(v) colorResult = v; if panelOpen then render() end end)
 noctalia.state.watch("colorHistory", function(v) colorHistory = v or {}; if panelOpen then render() end end)
@@ -585,3 +725,6 @@ end)
 noctalia.state.watch("qrResult", function(v) qrResult = v; if panelOpen then render() end end)
 noctalia.state.watch("paletteColors", function(v) paletteColors = v or {}; if panelOpen then render() end end)
 noctalia.state.watch("paletteCapture", function(v) paletteCapture = v; if panelOpen then render() end end)
+noctalia.state.watch("shareResult", function(v) shareResult = v; if panelOpen then render() end end)
+noctalia.state.watch("shareQrPath", function(v) shareQrPath = v or ""; if panelOpen then render() end end)
+noctalia.state.watch("shareHistory", function(v) shareHistory = v or {}; if panelOpen then render() end end)

@@ -13,6 +13,7 @@
 
 FILE="${1:-}"
 RAW_LANG="${2:-eng}"
+FORCED_PSM="${3:-}"
 TMP_BASE="/tmp/screen-toolkit-ocr-work-$$"
 TMP="${TMP_BASE}.pnm"
 TMP_NOISE="${TMP_BASE}-nr.pnm"
@@ -90,6 +91,15 @@ magick "$TMP" -median 1 "$TMP_NOISE" 2>/dev/null
 
 run_ocr() { tesseract "$1" stdout -l "$LANG" --psm "$2" --oem 1 2>/dev/null; }
 count_chars() { printf '%s' "$1" | tr -d '[:space:]' | wc -c; }
+
+# Forced PSM retry from the result panel: single pass, no fallbacks,
+# so each PSM button gives a comparable result on the same pixels.
+if [ -n "$FORCED_PSM" ]; then
+    case "$FORCED_PSM" in 3|4|6|7|11) USER_PSM="$FORCED_PSM" ;; *) ;; esac
+    TEXT=$(run_ocr "$TMP" "$USER_PSM")
+    printf '%s' "$TEXT"
+    exit 0
+fi
 
 TEXT=$(run_ocr "$TMP" "$USER_PSM")
 BEST_LEN=$(count_chars "$TEXT")

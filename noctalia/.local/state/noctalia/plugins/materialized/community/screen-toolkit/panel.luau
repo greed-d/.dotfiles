@@ -58,15 +58,17 @@ local function runTool(action)
 end
 
 local RECORD_THUMB = "/tmp/screen-toolkit-record-thumb.png"
-local lastCapturePath, lastRecordPath = nil, nil
+local lastCapturePath, lastRecordPath, lastThumbPath = nil, nil, nil
 
 local function refreshPreview()
   local annotateResult = noctalia.state.get("annotateResult")
   local recordPath = noctalia.state.get("recordPath")
+  local recordThumb = noctalia.state.get("recordThumb")
   if annotateResult and type(annotateResult) == "table" and annotateResult.capturePath and annotateResult.capturePath ~= "" then
     lastCapturePath = annotateResult.capturePath
   end
   if recordPath and type(recordPath) == "string" and recordPath ~= "" then lastRecordPath = recordPath end
+  if type(recordThumb) == "string" and recordThumb ~= "" then lastThumbPath = recordThumb end
 end
 
 -- ── Tool data ──────────────────────────────────────────────────────────────
@@ -161,7 +163,7 @@ local function openScreenshotPreview()
   refreshPreview()
   local targetPath = lastCapturePath
   if not targetPath or targetPath == "" or (noctalia.fileExists and not noctalia.fileExists(targetPath)) then
-    noctalia.notifyError("No screenshot preview available yet. Take a capture first!")
+    noctalia.notifyError(tr("panel.no_screenshot_preview"))
     return
   end
   noctalia.runAsync({ "noctalia", "msg", "annotate", targetPath })
@@ -171,18 +173,17 @@ local function openRecordingPreview()
   refreshPreview()
   local targetPath = lastRecordPath
   if not targetPath or targetPath == "" or (noctalia.fileExists and not noctalia.fileExists(targetPath)) then
-    noctalia.notifyError("No recording preview available yet. Make a recording first!")
+    noctalia.notifyError(tr("panel.no_recording_preview"))
     return
   end
-  if noctalia.commandExists("mpv") then noctalia.runAsync({ "mpv", "--no-config", "--title=Recording Preview", targetPath })
-  else noctalia.notifyError(tr("messages.missing_dep", { dep = "mpv" })) end
+  noctalia.runAsync({ "xdg-open", targetPath })
 end
 
 local function headerActions(includeClose)
   local actions = {}
   if recording then
     table.insert(actions, ui.button({
-      key = "header-stop-btn", glyph = "circle", variant = "destructive", controlSize = "sm", tooltip = tr("panel.stop"),
+      key = "header-stop-btn", glyph = "circle", variant = "destructive", controlSize = "sm", width = 24, height = 24, glyphSize = 12, tooltip = tr("panel.stop"),
       onClick = function() hoveredStop = false; send("recordStop") end,
     }))
   end
@@ -239,7 +240,7 @@ local function standardToolsRow(tools)
 end
 
 local function standardSection(tools)
-  return ui.column({ gap = 4, paddingV = 4, paddingH = 6, radius = 12, fill = "surface_variant" }, { standardToolsRow(tools) })
+  return ui.column({ gap = 4, paddingV = 4, paddingH = 6, radius = 12, fill = "surface_container" }, { standardToolsRow(tools) })
 end
 
 local function standardGrid()
@@ -287,7 +288,7 @@ local function legacyTile(t)
     key = "tile-" .. t.id, flexGrow = 1, gap = 2, paddingV = 5, paddingH = 0, align = "center", justify = "center", onClick = onClick,
     onHover = function(state) setHoveredTool((state == "true") and t.id or nil); render() end,
   }, {
-    ui.column({ width = 50, height = 50, radius = 15, fill = "on_primary", border = color == "primary" and "primary" or "outline", borderWidth = isFocused and 2 or 0, align = "center", justify = "center" }, {
+    ui.column({ width = 50, height = 50, radius = 15, fill = "on_primary", border = color == "primary" and "primary" or "outline_variant", borderWidth = isFocused and 2 or 0, align = "center", justify = "center" }, {
       ui.glyph({ name = t.glyph, size = 25, color = color }),
     }),
     ui.label({ text = tr(t.label_key), maxWidth = 80, maxLines = 1, textAlign = "center", fontSize = 11, color = color }),
@@ -297,7 +298,7 @@ end
 local function legacyGrid()
   local row1, row2 = {}, {}
   for i, t in ipairs(TOOLS_LEGACY) do table.insert(i <= 4 and row1 or row2, legacyTile(t)) end
-  return ui.column({ gap = 10, paddingV = 15, paddingH = 20, radius = 18, fill = "surface_variant" }, {
+  return ui.column({ gap = 10, paddingV = 15, paddingH = 20, radius = 18, fill = "surface_container" }, {
     ui.row({ flexGrow = 1, gap = 0 }, row1), ui.row({ flexGrow = 1, gap = 0 }, row2),
   })
 end
@@ -329,17 +330,17 @@ local function MarkupSubpanel()
   local isPreviewFocused = (focusedTool == "preview_screenshot")
   local rightPreview = ui.column({
     width = 200, height = 150, align = "center", justify = "center", padding = hasCaptureFile and 4 or 8, radius = 10, fill = "surface",
-    border = isPreviewFocused and "primary" or "outline", borderWidth = isPreviewFocused and 2 or 1, onClick = openScreenshotPreview,
+    border = isPreviewFocused and "primary" or "outline_variant", borderWidth = isPreviewFocused and 2 or 1, onClick = openScreenshotPreview,
   }, hasCaptureFile and {
     ui.image({ path = lastCapturePath, width = 200, height = 130, fit = "contain", radius = 6 }),
-    ui.label({ text = "Click to annotate", fontSize = 10, fontWeight = "bold", color = "primary" }),
+    ui.label({ text = tr("panel.click_to_annotate"), fontSize = 10, fontWeight = "bold", color = "primary" }),
   } or {
     ui.glyph({ name = "pencil", size = 28, color = "on_surface_variant" }),
-    ui.label({ text = "No screenshot yet", fontSize = 11, color = "on_surface_variant" }),
+    ui.label({ text = tr("panel.no_screenshot"), fontSize = 11, color = "on_surface_variant" }),
   })
   return ui.column({ flexGrow = 1, gap = 10 }, {
-    SubpanelHeader("Markup"),
-    ui.column({ gap = 10, paddingV = 15, paddingH = 20, radius = 18, fill = "surface_variant" }, {
+    SubpanelHeader(tr("panel.markup")),
+    ui.column({ gap = 10, paddingV = 15, paddingH = 20, radius = 18, fill = "surface_container" }, {
       ui.row({ flexGrow = 1, gap = 10 }, { ui.column({ width = 100, gap = 6 }, leftButtons), rightPreview }),
     }),
   })
@@ -359,8 +360,8 @@ local function RecordSubpanel()
   local sysAudioFocused = hoveredAudioOut or (focusedTool == "sysAudio")
   local sysAudioBtn = ui.column({
     key = "toggle-sys-audio", width = 28, height = 28, radius = 6,
-    fill = recordAudioOut and (sysAudioFocused and "primary/0.25" or "primary/0.15") or (sysAudioFocused and "surface_variant" or "surface_variant/0.5"),
-    border = (recordAudioOut or sysAudioFocused) and "primary" or "outline", borderWidth = 1, align = "center", justify = "center",
+    fill = recordAudioOut and (sysAudioFocused and "primary/0.25" or "primary/0.15") or (sysAudioFocused and "surface_container" or "surface_container/0.5"),
+    border = (recordAudioOut or sysAudioFocused) and "primary" or "outline_variant", borderWidth = 1, align = "center", justify = "center",
     onClick = function() recordAudioOut = not recordAudioOut; send("setAudioOut", recordAudioOut); render() end,
     onHover = function(state) setHoveredTool((state == "true") and "sysAudio" or nil); render() end,
   }, { ui.glyph({ name = recordAudioOut and "volume-2" or "volume-x", size = 16, color = (recordAudioOut or sysAudioFocused) and "primary" or "on_surface_variant" }) })
@@ -368,8 +369,8 @@ local function RecordSubpanel()
   local micAudioFocused = hoveredAudioIn or (focusedTool == "micAudio")
   local micAudioBtn = ui.column({
     key = "toggle-mic-audio", width = 28, height = 28, radius = 6,
-    fill = recordAudioIn and (micAudioFocused and "primary/0.25" or "primary/0.15") or (micAudioFocused and "surface_variant" or "surface_variant/0.5"),
-    border = (recordAudioIn or micAudioFocused) and "primary" or "outline", borderWidth = 1, align = "center", justify = "center",
+    fill = recordAudioIn and (micAudioFocused and "primary/0.25" or "primary/0.15") or (micAudioFocused and "surface_container" or "surface_container/0.5"),
+    border = (recordAudioIn or micAudioFocused) and "primary" or "outline_variant", borderWidth = 1, align = "center", justify = "center",
     onClick = function() recordAudioIn = not recordAudioIn; send("setAudioIn", recordAudioIn); render() end,
     onHover = function(state) setHoveredTool((state == "true") and "micAudio" or nil); render() end,
   }, { ui.glyph({ name = recordAudioIn and "microphone" or "microphone-off", size = 16, color = (recordAudioIn or micAudioFocused) and "primary" or "on_surface_variant" }) })
@@ -379,29 +380,29 @@ local function RecordSubpanel()
   local controlRow = ui.row({ gap = 6, align = "center", justify = "center" }, controlsList)
   local fileExists = noctalia.fileExists
   local hasRecordFile = lastRecordPath and lastRecordPath ~= "" and (not fileExists or fileExists(lastRecordPath))
-  local hasRecordThumb = hasRecordFile and fileExists and fileExists(RECORD_THUMB)
+  local hasRecordThumb = hasRecordFile and fileExists and fileExists(lastThumbPath or RECORD_THUMB)
   local isPreviewFocused = (focusedTool == "preview_recording")
   local rightPreview
   if hasRecordFile or hasRecordThumb then
-    local thumbElement = hasRecordThumb and ui.image({ path = RECORD_THUMB, width = 240, height = 115, fit = "contain", radius = 6 }) or ui.glyph({ name = "movie", size = 28, color = "primary" })
-    local filename = lastRecordPath and (lastRecordPath:match("([^/]+)$") or lastRecordPath) or "Saved Recording"
+    local thumbElement = hasRecordThumb and ui.image({ path = lastThumbPath or RECORD_THUMB, width = 240, height = 115, fit = "contain", radius = 6 }) or ui.glyph({ name = "movie", size = 28, color = "primary" })
+    local filename = lastRecordPath and (lastRecordPath:match("([^/]+)$") or lastRecordPath) or tr("panel.saved_recording")
     rightPreview = ui.column({
       width = 200, height = 150, align = "center", justify = "center", padding = hasRecordFile and 4 or 8, radius = 10, fill = "surface",
-      border = isPreviewFocused and "primary" or "outline", borderWidth = isPreviewFocused and 2 or 1, onClick = openRecordingPreview,
-    }, { thumbElement, ui.label({ text = filename, maxWidth = 160, maxLines = 1, fontSize = 9, color = "on_surface_variant" }), ui.label({ text = "Click to play in MPV", fontSize = 10, fontWeight = "bold", color = "primary" }) })
+      border = isPreviewFocused and "primary" or "outline_variant", borderWidth = isPreviewFocused and 2 or 1, onClick = openRecordingPreview,
+    }, { thumbElement, ui.label({ text = filename, maxWidth = 160, maxLines = 1, fontSize = 9, color = "on_surface_variant" }), ui.label({ text = tr("panel.click_to_play"), fontSize = 10, fontWeight = "bold", color = "primary" }) })
   else
     rightPreview = ui.column({
       width = 200, height = 130, align = "center", justify = "center", padding = 8, radius = 10, fill = "surface",
-      border = isPreviewFocused and "primary" or "outline", borderWidth = isPreviewFocused and 2 or 1, onClick = openRecordingPreview,
-    }, { ui.glyph({ name = "video", size = 28, color = "on_surface_variant" }), ui.label({ text = "No recording yet", fontSize = 11, color = "on_surface_variant" }) })
+      border = isPreviewFocused and "primary" or "outline_variant", borderWidth = isPreviewFocused and 2 or 1, onClick = openRecordingPreview,
+    }, { ui.glyph({ name = "video", size = 28, color = "on_surface_variant" }), ui.label({ text = tr("panel.no_recording"), fontSize = 11, color = "on_surface_variant" }) })
   end
   local leftColumn = ui.column({ width = 100, gap = 6, align = "center" }, {
     ui.column({ width = 100, gap = 6 }, leftButtons),
     controlRow,
   })
   return ui.column({ flexGrow = 1, gap = 10 }, {
-    SubpanelHeader("Record"),
-    ui.column({ gap = 10, paddingV = 15, paddingH = 20, radius = 18, fill = "surface_variant" }, {
+    SubpanelHeader(tr("panel.record")),
+    ui.column({ gap = 10, paddingV = 15, paddingH = 20, radius = 18, fill = "surface_container" }, {
       ui.row({ flexGrow = 1, gap = 10 }, { leftColumn, rightPreview }),
     }),
   })

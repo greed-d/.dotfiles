@@ -8,8 +8,8 @@
 
 id = "alexander/screen-toolkit"
 name = "Screen Toolkit"
-version = "1.5.3"
-plugin_api = 13
+version = "2.1.0"
+plugin_api = 43
 author = "alexander"
 license = "MIT"
 icon = "crosshair"
@@ -22,6 +22,7 @@ dependencies = [
   "tesseract",
   "imagemagick",
   "zbar",
+  "qrencode",
   "curl",
   "jq",
   "translate-shell",
@@ -31,53 +32,57 @@ dependencies = [
   "gpu-screen-recorder",
   "wl-screenrec",
   "wf-recorder",
-  "bc",
   "stat",
   "pkill",
   "pactl",
-  "mpv",
   # Compositor-specific flows (window geometry, hover highlight).
   "hyprctl",
   "niri",
+  "umbriel",
   # Desktop integration.
   "xdg-open",
 ]
 
 # ── Panel entries (host-injected placement/size settings appear here, first in the settings editor) ──
 
-# Main toolkit panel: tool grid + per-tool result views + recording controls.
-# Open with: noctalia msg panel-toggle alexander/screen-toolkit:panel
-# Standard layout (default). The bar widget / shortcut open either the
-# standard or legacy entry based on the "panel-mode" setting.
+# Main toolkit panel: tool grid (standard or legacy layout via "panel-mode")
+# plus annotate/record subviews + recording controls. Single entry reused
+# by every tool; open with: noctalia msg panel-toggle alexander/screen-toolkit:panel
 [[panel]]
 id = "panel"
 entry = "panel.luau"
 width = 380
-height = 260
-placement = "floating"
-position = "center"
-keyboard_focus = "on_demand"
-capture_keys = ["Tab", "Backtab", "Shift+Tab", "Up", "Down", "Left", "Right", "Return", "Enter", "Space", "Escape"]
-
-# Legacy-mode layout: the original screen-toolkit v4 panel.
-[[panel]]
-id = "panel-legacy"
-entry = "panel.luau"
-width = 380
-height = 260
+height = "content"
+max_height = 3000
 placement = "floating"
 position = "center"
 keyboard_focus = "on_demand"
 capture_keys = ["Tab", "Backtab", "Shift+Tab", "Up", "Down", "Left", "Right", "Return", "Enter", "Space", "Escape"]
 
 # Result panel: opened by the service when a capture tool finishes.
+# Content-sized (API 42): hugs each result, capped at max_height.
 [[panel]]
 id = "result"
 entry = "result.luau"
 width = 560
-height = 520
+height = "content"
+max_height = 3000
 placement = "floating"
 position = "center"
+
+# Window picker: click-to-choose for Annotate Window on compositors
+# without click-to-pick (Umbriel). Opened programmatically by the service;
+# not bound to any keybind.
+[[panel]]
+id = "pick"
+entry = "pick.luau"
+width = 420
+height = "content"
+max_height = 560
+placement = "floating"
+position = "center"
+keyboard_focus = "on_demand"
+capture_keys = ["Tab", "Backtab", "Shift+Tab", "Up", "Down", "Left", "Right", "Return", "Enter", "Space", "Escape"]
 
 # ── Plugin-level settings (shared by every entry, edited in Settings → Plugins) ──
 
@@ -101,13 +106,6 @@ type = "string"
 label_key = "settings.selected_ocr_lang.label"
 description_key = "settings.selected_ocr_lang.description"
 default = "eng"
-
-[[setting]]
-key = "search-engine-url"
-type = "string"
-label_key = "settings.search_engine_url.label"
-description_key = "settings.search_engine_url.description"
-default = ""
 
 [[setting]]
 key = "x02-api-key"
@@ -135,6 +133,13 @@ key = "share-skip-popover"
 type = "bool"
 label_key = "settings.share_skip_popover.label"
 description_key = "settings.share_skip_popover.description"
+default = false
+
+[[setting]]
+key = "annotate-keep-raw"
+type = "bool"
+label_key = "settings.annotate_keep_raw.label"
+description_key = "settings.annotate_keep_raw.description"
 default = false
 
 [[setting]]

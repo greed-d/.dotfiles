@@ -566,9 +566,6 @@
         "BadgeAPI": {
             "enabled": true
         },
-        "ExpressionCloner": {
-            "enabled": false
-        },
         "CopyStickerLinks": {
             "enabled": false
         },
@@ -579,6 +576,9 @@
             "enabled": false
         },
         "MusicRichPresence": {
+            "enabled": false
+        },
+        "ExpressionManager": {
             "enabled": false
         }
     },
@@ -592,12 +592,13 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1786820623811
+        "settingsSyncVersion": 1793457275718
     },
     "eagerPatches": false,
     "windowsMaterial": "none",
     "uiElements": {
         "chatBarButtons": {},
         "messagePopoverButtons": {}
-    }
+    },
+    "nativeTitleBar": false
 }

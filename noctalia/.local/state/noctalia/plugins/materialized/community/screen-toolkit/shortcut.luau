@@ -21,9 +21,7 @@ end)
 function onClick()
   -- The shortcut tile never stops a recording; it just opens the panel so
   -- the stop button (in the panel header, next to the close X) is reachable.
-  local mode = noctalia.getConfig("panel-mode")
-  local id = (mode == "legacy") and "alexander/screen-toolkit:panel-legacy" or "alexander/screen-toolkit:panel"
-  noctalia.togglePanel(id)
+  noctalia.togglePanel("alexander/screen-toolkit:panel")
 end
 
 apply()

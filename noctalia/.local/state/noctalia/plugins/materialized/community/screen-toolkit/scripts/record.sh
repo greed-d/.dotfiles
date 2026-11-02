@@ -7,7 +7,6 @@
 #   convert-mp4  <input> <output> --recode — finalize MP4: re-encode audio to AAC 128k + faststart
 #   convert-gif  <input> <output> [maxsec] — convert MP4 → palette-optimized GIF at 15 fps
 #   convert-mov  <input> <output>           — remux MP4 → MOV (stream copy)
-#   stop         <recorder-bin>           — send SIGINT to the named recorder process
 #
 # Exit codes:
 #   1 — missing / invalid arguments
@@ -34,15 +33,35 @@ _thumb() {
         -of default=noprint_wrappers=1:nokey=1 \
         "$src" 2>/dev/null) || dur=""
     [[ -z "$dur" || "$dur" == "N/A" ]] && dur=1
-    local mid
-    mid=$(echo "$dur / 2" | bc -l 2>/dev/null) || mid="0.5"
-    ffmpeg -y -ss "$mid" -i "$src" -frames:v 1 "$THUMB_OUT" 2>/dev/null
+    local mid="0.5"
+    if command -v bc >/dev/null 2>&1; then
+        mid=$(echo "$dur / 2" | bc -l 2>/dev/null) || mid="0.5"
+    elif command -v awk >/dev/null 2>&1; then
+        mid=$(awk -v d="$dur" 'BEGIN { print (d / 2) }' 2>/dev/null) || mid="0.5"
+    fi
+    [[ -z "$mid" ]] && mid="0.5"
+    # -nostdin: never block on stdin (runAsync children inherit a pipe that
+    # never sends EOF — without this ffmpeg can hang until it is SIGKILLed).
+    # -update 1: ffmpeg 7 requires it for single-image output, otherwise the
+    # file is silently empty (exit 0, zero bytes).
+    if ffmpeg -nostdin -y -ss "$mid" -i "$src" -an -frames:v 1 -update 1 "$THUMB_OUT" 2>/dev/null && [ -s "$THUMB_OUT" ]; then
+        echo "$THUMB_OUT"
+        return 0
+    fi
+    # Fallback for very short clips / sparse keyframes: first frame.
+    if ffmpeg -nostdin -y -i "$src" -an -frames:v 1 -update 1 "$THUMB_OUT" 2>/dev/null && [ -s "$THUMB_OUT" ]; then
+        echo "$THUMB_OUT"
+        return 0
+    fi
+    echo "ERROR: thumb: ffmpeg failed" >&2
+    return 4
 }
 case "$ACTION" in
   thumb)
     SRC="${2:-}"
     [ -n "$SRC" ] || { echo "ERROR: thumb: missing <src>"           >&2; exit 1; }
     [ -f "$SRC" ] || { echo "ERROR: thumb: file not found: $SRC"   >&2; exit 2; }
+    THUMB_OUT="${3:-$THUMB_OUT}"
     _thumb "$SRC"
     ;;
   convert-mp4)
@@ -100,14 +119,8 @@ case "$ACTION" in
     rm -f "$INPUT"
     _thumb "$OUTPUT"
     ;;
-  stop)
-    BIN="${2:-}"
-    [ -n "$BIN" ] || { echo "ERROR: stop: missing <recorder-bin>" >&2; exit 1; }
-    _require pkill
-    pkill -INT "$BIN" 2>/dev/null || true
-    ;;
   *)
-    echo "ERROR: unknown action '${ACTION}'. Expected: thumb | convert-mp4 | convert-gif | convert-mov | stop" >&2
+    echo "ERROR: unknown action '${ACTION}'. Expected: thumb | convert-mp4 | convert-gif | convert-mov" >&2
     exit 1
     ;;
 esac

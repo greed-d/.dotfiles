@@ -1,22 +1,16 @@
 {
   "messages": {
     "capture_failed": "Screen capture failed.",
-    "color_picked": "Color {color} picked.",
     "lens_failed": "Google Lens upload failed.",
-    "measure_copied": "Measurement copied.",
     "measure_failed": "Measurement failed.",
     "measure_result": "Measured: {width} × {height} px (copied)",
     "missing_dep": "Missing dependency: {dep}",
-    "no_annotator": "No annotation tool found (install swappy or satty)",
     "no_file": "Screenshot wasn't saved to a file. Enable file saving in Settings → Screenshot.",
     "no_qr": "No QR code detected.",
     "no_recorder": "No screen recorder found. Install wl-screenrec or wf-recorder.",
     "no_text": "No text detected.",
     "palette_failed": "Palette extraction failed.",
-    "picker_cancelled": "Color picker cancelled.",
     "recording_failed": "Recording failed or cancelled.",
-    "recording_started": "Recording started. Use the red REC indicator or shortcut to stop.",
-    "recording_stopped": "Recording stopped. Preparing save options…",
     "saved_to": "Saved: {path}",
     "share_bad_args": "Share failed: no file specified.",
     "share_file_not_found": "Share failed: file not found.",
@@ -25,7 +19,9 @@
     "share_missing_dep": "Share failed: missing dependency (curl/jq).",
     "share_request_failed": "Upload request failed.",
     "share_unknown_error": "Upload failed with unknown error.",
-    "translate_failed": "Translation failed."
+    "translate_failed": "Translation failed.",
+    "window_snap_fallback": "Window snap isn't supported on this compositor — drag a region instead.",
+    "no_window": "No windows to pick from."
   },
   "ocr": {
     "exit_args": "Invalid capture arguments.",
@@ -37,7 +33,6 @@
   "panel": {
     "clear": "Clear",
     "clear_history": "Clear history",
-    "click_to_copy": "Click to copy",
     "compose_mail": "Compose mail",
     "copied_to_clipboard": "Saved and copied to clipboard",
     "copy_all": "Copy all formats",
@@ -47,45 +42,55 @@
     "copy_text": "Copy text",
     "discard": "Discard",
     "empty": "Pick a tool. Results appear here.",
-    "format_copied": "{label} copied.",
     "history": "History",
-    "history_cleared": "History cleared",
     "no_color": "Pick a color to get started",
     "no_history": "No colors in history yet.",
+    "no_preview": "No preview available",
     "no_result": "No result yet.",
-    "no_text": "No text detected.",
     "ocr_text": "Detected text",
     "open_url": "Open URL",
     "pick_again": "Pick again",
+    "pick_empty": "No windows found",
+    "pick_title": "Choose a window",
+    "preview": "Preview",
     "ready": "Recording finished",
-    "ready_hint": "Preview the recording, then save or discard",
-    "rec": "REC",
     "record_duration": "Time",
     "record_ratio": "Ratio",
     "record_size": "Size",
-    "recording_banner": "Recording…",
-    "recording_hint": "Recording — click the bar widget or this button to stop.",
     "running": "Running…",
     "save": "Save",
-    "saved_to": "Saved: {path}",
-    "search_text": "Search text",
-    "section_annotate": "Annotate",
-    "section_capture": "Capture",
-    "section_record": "Record",
     "share": "Share",
-    "share_failed": "Upload failed",
-    "share_url": "Link copied",
-    "sharing": "Uploading…",
     "stop": "Stop",
-    "subtitle": "Screen utilities",
     "title": "Screen Toolkit",
-    "tools": "Tools",
     "translate": "Translate",
-    "translate_label": "Translate to",
-    "translation": "Translation"
+    "translation": "Translation",
+    "markup": "Markup",
+    "record": "Record",
+    "click_to_annotate": "Click to annotate",
+    "click_to_play": "Click to play",
+    "no_screenshot": "No screenshot yet",
+    "no_recording": "No recording yet",
+    "no_screenshot_preview": "No screenshot preview available yet. Take a capture first!",
+    "no_recording_preview": "No recording preview available yet. Make a recording first!",
+    "saved_recording": "Saved Recording",
+    "retry": "Retry",
+    "auto": "Auto",
+    "share_title": "Shared link",
+    "share_history": "Upload history",
+    "clear_share_history": "Clear history",
+    "no_share_history": "No uploads yet.",
+    "expires_in": "Expires in {time}",
+    "expired": "Expired",
+    "qr_scan": "Scan to open on phone",
+    "gif_estimate": "GIF ~15fps, capped to {secs}s",
+    "permanent_link": "Permanent link"
   },
   "plugin_name": "Screen Toolkit",
   "settings": {
+    "annotate_keep_raw": {
+      "description": "Save the un-annotated capture to the shell's screenshot folder before the annotation editor opens. Off by default: the raw capture stays in a temporary file and only what you copy or save from the editor reaches your outputs.",
+      "label": "Keep Raw Markup Captures"
+    },
     "filename_format": {
       "description": "Template for generated filenames. Extension is added automatically. Tokens: %Y %m %d %H %M %S.",
       "label": "Filename Format"
@@ -106,8 +111,6 @@
       "description": "Layout of the main panel. Standard is the default dense grid; Legacy recreates the Noctalia-v4 layout.",
       "label": "Panel Mode",
       "options": {
-        "compact": "Compact",
-        "full": "Full",
         "legacy": "Legacy",
         "standard": "Standard"
       }
@@ -140,14 +143,6 @@
     "record_skip_confirmation": {
       "description": "Automatically save to disk when recording finishes, without showing the save dialog.",
       "label": "Skip Save Confirmation"
-    },
-    "screenshot_path": {
-      "description": "Where screenshots are saved. Leave empty for ~/Pictures/Screenshots.",
-      "label": "Screenshot Path"
-    },
-    "search_engine_url": {
-      "description": "URL used when searching OCR text. Leave empty to use Google. Examples: https://duckduckgo.com/?q= or https://search.brave.com/search?q=",
-      "label": "Search Engine URL"
     },
     "selected_ocr_lang": {
       "description": "Tesseract language code (e.g. eng, deu, fra). Can be combined with + (e.g. eng+fra).",
@@ -186,7 +181,6 @@
     "annotate_fullscreen": "Markup FS",
     "annotate_window": "Window",
     "colorpicker": "Color",
-    "fullscreen": "Fullscreen",
     "lens": "Lens",
     "measure": "Measure",
     "ocr": "OCR",
@@ -196,24 +190,10 @@
     "record_fullscreen_gif": "GIF FS",
     "record_fullscreen_mp4": "Rec FS",
     "record_gif": "GIF",
-    "record_mp4": "Record",
-    "window": "Window"
-  },
-  "tooltips": {
-    "annotate": "Draw and annotate a region",
-    "annotate_fullscreen": "Annotate the entire screen",
-    "annotate_window": "Annotate the focused window",
-    "colorpicker": "Pick a color from screen",
-    "lens": "Search image with Google Lens",
-    "measure": "Measure region size in pixels",
-    "ocr": "Extract text from screen",
-    "palette": "Extract dominant colors from a region",
-    "qr": "Scan a QR or barcode",
-    "record": "Record a screen region as GIF or MP4",
-    "record_fullscreen": "Record the entire screen"
+    "record_mp4": "Record"
   },
   "widget": {
-    "recording": "Recording — click to stop",
+    "recording": "Recording — open panel to stop",
     "tooltip": "Screen Toolkit"
   }
 }

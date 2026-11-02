@@ -41,7 +41,11 @@ local function render()
   end
   table.insert(children, ui.glyph({ name = "crosshair", size = 14 }))
   barWidget.render(container({ gap = 6, align = "center" }, children))
-  barWidget.setTooltip(recording and noctalia.tr("widget.recording") or noctalia.tr("widget.tooltip"))
+  if recording then
+    barWidget.setTooltip(noctalia.tr("widget.recording") .. " " .. elapsed())
+  else
+    barWidget.setTooltip(noctalia.tr("widget.tooltip"))
+  end
 end
 
 -- Pulse the dot: the bar has no frame ticks, so re-render on a half-second cadence.
@@ -69,9 +73,7 @@ end
 function onClick()
   -- The bar icon never stops a recording; it just opens the panel so the
   -- stop button (in the panel header, next to the close X) is reachable.
-  local mode = noctalia.getConfig("panel-mode")
-  local id = (mode == "legacy") and "alexander/screen-toolkit:panel-legacy" or "alexander/screen-toolkit:panel"
-  noctalia.togglePanel(id)
+  noctalia.togglePanel("alexander/screen-toolkit:panel")
 end
 
 function onRightClick()

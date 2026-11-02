@@ -13,8 +13,8 @@
 
 id = "noctalia/timer"
 name = "Timer"
-version = "1.5.0"
-plugin_api = 20
+version = "1.5.1"
+plugin_api = 43
 author = "noctalia"
 license = "MIT"
 dependencies = []
