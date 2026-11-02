@@ -1,7 +1,6 @@
 /*
 [[ AUTOSTART ]]
 */
-// Clipboard history
-spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+// Polkit authentication is provided by Noctalia's built-in agent.
 // Foot terminal server (footclient connects to this)
 spawn-at-startup "foot" "--server"

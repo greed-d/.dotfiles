@@ -12,8 +12,12 @@
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
-    tiled-state true
     draw-border-with-background false
+}
+
+window-rule {
+    match is-floating=false
+    tiled-state true
 }
 
 /*
@@ -54,6 +58,7 @@ window-rule {
 window-rule {
     match app-id="zen$" title="^Picture-in-Picture$"
     open-floating true
+    default-floating-position x=6 y=6 relative-to="bottom-right"
 }
 window-rule {
     match app-id="Motrix"
@@ -135,6 +140,7 @@ window-rule {
     match app-id="com.mitchellh.ghostty$"
     match app-id="footclient"
     match app-id="neovide"
+    match app-id="rio"
     background-effect {
         blur true
     }
@@ -170,32 +176,33 @@ window-rule {
 window-rule {
     match app-id="zen$"
     match app-id="helium$"
-    open-on-workspace "🌍 WWW"
+    open-on-workspace "1"
 }
 window-rule {
     match app-id="Postman$"
-    open-on-workspace "🖳TERM"
+    open-on-workspace "2"
 }
 window-rule {
     match app-id="^org.kde.dolphin$"
-    open-on-workspace "📂 FILE"
+    match app-id="thunar$"
+    open-on-workspace "6"
 }
 window-rule {
     match app-id="^obsidian$"
     match app-id="^md.obsidian.Obsidian$"
     match app-id="sioyek"
     match app-id="md.Obsidian"
-    open-on-workspace "📓 NOTE"
+    open-on-workspace "7"
 }
 window-rule {
     match app-id="com.github.th_ch.youtube_music$"
     match app-id="Spotify"
     match app-id="spotify"
-    open-on-workspace "🎵 SONG"
+    open-on-workspace "8"
 }
 window-rule {
     match app-id="^vesktop$"
-    open-on-workspace "💬 CHAT"
+    open-on-workspace "9"
 }
 window-rule {
     match app-id="^org.telegram.desktop$"

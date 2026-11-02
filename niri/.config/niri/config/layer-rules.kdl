@@ -11,6 +11,14 @@ layer-rule {
         xray false
     }
 }
+layer-rule {
+  match namespace="dms:plugins:wallpaperCarousel*"
+    opacity 0.99
+    background-effect {
+        blur true
+        xray true
+    }
+}
 // Shadows for gtk-layer-shell widgets (eww etc.)
 layer-rule {
     match namespace="gtk-layer-shell"

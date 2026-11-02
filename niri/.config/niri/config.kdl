@@ -34,10 +34,13 @@ include "config/startup.kdl"
 [[ NOCTALIA (DMS alternative) — disabled ]]
 */
 // include "dms/layout.kdl"
-// include "dms/windowrules.kdl"
-// include "dms/binds.kdl"
+include "dms/windowrules.kdl"
+include "dms/binds.kdl"
 // include "dms/alttab.kdl"
 // include "dms/colors.kdl"
-// include "dms/wpblur.kdl"
+include "dms/wpblur.kdl"
+
+// include "noctalia.kdl"
+include "dms/outputs.kdl"
 
 include "noctalia.kdl"
