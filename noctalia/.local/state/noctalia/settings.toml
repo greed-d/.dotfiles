@@ -1,4 +1,4 @@
-config_version = 15
+config_version = 16
 
 [backdrop]
 enabled = true
@@ -46,7 +46,7 @@ order = [ "normal" ]
         accordion = true
         accordion_direction = "end"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g1"
         members = [ "tray", "notes_2", "clipboard", "wallpaper" ]
         opacity = 0.0
@@ -56,7 +56,7 @@ order = [ "normal" ]
         accordion = false
         accordion_direction = "end"
         enabled = false
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g2"
         members = [ "headphonesymbol", "headphone_battery" ]
         opacity = 0.0
@@ -66,7 +66,7 @@ order = [ "normal" ]
         accordion = false
         accordion_direction = "end"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g3"
         members = [ "ram", "sysmon" ]
         opacity = 0.0
@@ -76,7 +76,7 @@ order = [ "normal" ]
         accordion = false
         accordion_direction = "end"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g4"
         members = [ "cpu", "temp" ]
         opacity = 0.0
@@ -187,7 +187,8 @@ widget_order = [
     "lockscreen-widget-000000000000002a",
     "lockscreen-widget-000000000000002b",
     "lockscreen-widget-000000000000002c",
-    "lockscreen-widget-000000000000002d"
+    "lockscreen-widget-000000000000002d",
+    "lockscreen-widget-000000000000002e"
 ]
 
     [lockscreen_widgets.grid]
@@ -218,6 +219,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = false
+        show_password_reveal = true
         show_session_buttons = false
         show_unlock_hint = true
         show_weather = false
@@ -352,7 +354,7 @@ widget_order = [
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
         background = false
-        color = "outline"
+        color = "outline_variant"
         font_family = "Architects Daughter"
         format = "{:%A, %d %b}"
         shadow = false
@@ -407,7 +409,7 @@ widget_order = [
     type = "label"
 
         [lockscreen_widgets.widget.lockscreen-widget-000000000000000a.settings]
-        background_color = "outline"
+        background_color = "outline_variant"
         background_radius = 0
         shadow = false
         title = ""
@@ -503,7 +505,7 @@ widget_order = [
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000010.settings]
         background = false
-        color = "outline"
+        color = "outline_variant"
         description = "Memories"
         font_family = "Rouge Script"
         opacity = 0.70000000000000007
@@ -651,7 +653,7 @@ widget_order = [
     type = "label"
 
         [lockscreen_widgets.widget.lockscreen-widget-000000000000001b.settings]
-        background_color = "outline"
+        background_color = "outline_variant"
         background_radius = 12
         title = ""
 
@@ -928,6 +930,24 @@ widget_order = [
         stat = "swap_pct"
         stat2 = "cpu_temp"
 
+    [lockscreen_widgets.widget.lockscreen-widget-000000000000002e]
+    box_height = 48.0
+    box_width = 56.0
+    cx = 358.38070678710938
+    cy = 343.84857177734375
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = -0.2617993950843811
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-000000000000002e.settings]
+        background = false
+        color = "on_tertiary"
+        command = "shutdown now"
+        glyph = "power"
+        variant = "default"
+
 [osd.kinds]
 media = false
 
@@ -1117,7 +1137,6 @@ scale = 1.5
 show_active_indicator = false
 show_all_outputs = true
 show_window_title = false
-workspace_label_placement = "centered"
 
 [widget.temp]
 visualization = "none"
