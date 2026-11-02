@@ -794,7 +794,8 @@
         },
         "sectionId": "center",
         "index": 0
-      }
+      },
+      "islandMediaAutoSwitch": true
     },
     {
       "id": "bar1793338614637",

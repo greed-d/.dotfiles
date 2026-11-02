@@ -26,5 +26,9 @@
     "workDuration": "40",
     "autoStartBreaks": false,
     "autoStartPomodoros": false
+  },
+  "emojiPicker": {
+    "enabled": true,
+    "defaultAction": "paste"
   }
 }

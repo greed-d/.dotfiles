@@ -8,25 +8,31 @@
     "dankBatteryAlerts": {
       "repo": "https://github.com/AvengeMedia/dms-plugins",
       "path": "DankBatteryAlerts",
-      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+      "commit": "a55bb40da2f70640600a520ea05eac9c3540f1af"
     },
     "dankDesktopWeather": {
       "repo": "https://github.com/AvengeMedia/dms-plugins",
       "path": "DankDesktopWeather",
-      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+      "commit": "a55bb40da2f70640600a520ea05eac9c3540f1af"
     },
     "dankPomodoroTimer": {
       "repo": "https://github.com/AvengeMedia/dms-plugins",
       "path": "DankPomodoroTimer",
-      "commit": "3ad0e7845b62a9aca56f7959dd086b2a85655079"
+      "commit": "a55bb40da2f70640600a520ea05eac9c3540f1af"
     },
     "emojiLauncher": {
       "repo": "https://github.com/devnullvoid/dms-emoji-launcher",
-      "commit": "8ff394e3ddfcb2fd755ed2e7b4c6f01f3e26e596"
+      "commit": "fc385900e6df292f0a7e5bdda4e3e37169897d7c"
+    },
+    "emojiPicker": {
+      "repo": "https://github.com/hthienloc/dms-plugins",
+      "path": "emojiPicker",
+      "commit": "d8a0878f0858a1e779c32165655066cbe9ee772d"
     },
     "quickCapture": {
-      "repo": "https://github.com/hthienloc/dms-quick-capture",
-      "commit": "d9a1a2141e2727c33c598bd06fdab5031655e965"
+      "repo": "https://github.com/hthienloc/dms-plugins",
+      "path": "quickCapture",
+      "commit": "d8a0878f0858a1e779c32165655066cbe9ee772d"
     },
     "wallpaperCarousel": {
       "repo": "https://github.com/motor-dev/wallpaperCarousel",
