@@ -21,3 +21,4 @@ fish/.config/fish/fish_variables
 
 # tmux
 tmux/.config/tmux/plugins/
+/DankMaterialShell/.config/DankMaterialShell/plugins
