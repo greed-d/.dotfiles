@@ -41,7 +41,7 @@ crust = "#11111b"
 
 
 [palettes.gruvbox]
-color_fg0 = '#ebdbb2'   # text foreground
+color_fg0 = '#ebdbb2'    # text foreground
 color_bg0 = '#3C4841'
 color_bg1 = '#3c3836'
 color_bg3 = '#665c54'
@@ -95,7 +95,7 @@ behind = "⇣${count}(fg:bold teal bg:surface1) "
 diverged = "[⇕⇡${ahead_count} ⇣${behind_count} ](fg:bold teal bg:surface1)"
 up_to_date = "[󰄸 ](fg:bold green bg:surface1)"
 untracked = "[?${count} ](fg:bold maroon bg:surface1)"
-stashed = "[󰏖  ](bold green)"
+stashed = "[󰏖  ](fg:bold green bg:surface1)"
 modified = "[~${count} ](fg:bold yellow bg:surface1)"
 staged = "[+${count} ](green)"
 renamed = "[»${count} ](peach)"
@@ -131,5 +131,3 @@ show_milliseconds = true
 [python]
 symbol = " "
 format = '[(\($virtualenv\) | )]($style)'
-
-
