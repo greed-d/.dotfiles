@@ -21,3 +21,8 @@ window-rule {
     tiled-state true
     draw-border-with-background false
 }
+
+blur {
+    passes 3
+    offset 6.1
+}

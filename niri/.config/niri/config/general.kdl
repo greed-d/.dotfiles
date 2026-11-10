@@ -53,6 +53,8 @@ debug {
     honor-xdg-activation-with-invalid-serial
     // Hopefully NVIDIA FIX?
     wait-for-frame-completion-before-queueing
+    // offload gpu to dGPU (RTX) instead of using iGPU
+    render-drm-device "/dev/dri/renderD129"
 }
 /*
 [[ ENVIRONMENT ]]

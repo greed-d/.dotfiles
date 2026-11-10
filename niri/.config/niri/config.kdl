@@ -44,3 +44,4 @@ include "dms/wpblur.kdl"
 include "dms/outputs.kdl"
 
 include "noctalia.kdl"
+include "dms/cursor.kdl"

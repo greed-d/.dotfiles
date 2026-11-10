@@ -132,6 +132,7 @@ bind \cf tmux-sessionizer
 #--------------------------------------> PATH <--------------------------------------
 
 set PATH "$PATH":"$HOME/.local/scripts/"
+set PATH "$PATH":"$HOME/.opencode/bin"
 set PATH "$PATH":"$HOME/.local/share/nvim/mason/bin"
 set PATH "$PATH":"$HOME/ghostty/zig-out/bin/"
 set PATH "$PATH":"$HOME/.local/bin/"
@@ -141,7 +142,7 @@ set PATH "$PATH":"$HOME/.local/colorscripts/"
 set PATH "$PATH":"/usr/local/bin"
 set PATH "$PATH":"$HOME/.cargo/bin/"
 set PATH "$PATH":"$HOME/.local/share/bob/nvim"
-set -gx BROWSER helium-browser
+set -gx BROWSER helium
 # set -gx GRIMBLAST_HIDE_CURSOR 0
 fish_add_path -g -p $HOME/flutter/bin
 #set --export JAVA_HOME (dirname (dirname (readlink -f (which java)))) #[REAL JAVA]
@@ -149,6 +150,7 @@ fish_add_path -g -p $HOME/flutter/bin
 set --export ANDROID_HOME ~/Android/Sdk/
 # set PATH "$PATH":"$HOME/.fluttercont/flutter/bin"
 set PATH "$PATH":"/opt/android-sdk/platform-tools/"
+set PATH "$PATH":"/opt/zig-0.18/"
 set PATH "$PATH":"$HOME/Android/Sdk/platform-tools/"
 set PATH "$PATH":"$ANDROID_HOME/tools/"
 set -gx ANDROID_SDK_ROOT ~/Android/Sdk/
@@ -158,7 +160,6 @@ set -gx ANDROID_SDK_ROOT ~/Android/Sdk/
 
 # set --export JAVA_HOME /usr/lib/jvm/java-17-openjdk 
 # set --export JAVA_HOME /usr/lib/jvm/java-11-openjdk 
-# set --export CM_LAUNCHER (/usr/bin/rofi)
 
 set -e JAVA_OPTS
 set -gx PATH $JAVA_HOME $PATH

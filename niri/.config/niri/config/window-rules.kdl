@@ -57,6 +57,7 @@ window-rule {
 }
 window-rule {
     match app-id="zen$" title="^Picture-in-Picture$"
+    match title="^Picture in picture$"
     open-floating true
     default-floating-position x=6 y=6 relative-to="bottom-right"
 }

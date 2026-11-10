@@ -360,13 +360,13 @@ binds {
         spawn "app2unit" "--" "footclient"
     }
     Mod+B {
-        spawn "app2unit" "--" "helium-browser"
+        spawn "app2unit" "--" "helium"
     }
     Mod+E {
-        spawn "app2unit" "--" "thunar"
+        spawn "app2unit" "--" "nautilus"
     }
     Mod+D {
-        spawn "app2unit" "--" "vesktop"
+        spawn "app2unit" "--" "/opt/Vesktop/vesktop"
     }
     Mod+M {
         spawn "app2unit" "--" "spotify-launcher"
@@ -392,10 +392,10 @@ binds {
         spawn-sh "noctalia msg media next"
     }
     Mod+Up allow-when-locked=true {
-        spawn-sh "noctalia msg volume-up"
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+ -l 1.5"
     }
     Mod+Down allow-when-locked=true {
-        spawn-sh "noctalia msg volume-down"
+        spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- -l 1.5"
     }
     Mod+Shift+M {
         spawn-sh "noctalia msg mic-mute"

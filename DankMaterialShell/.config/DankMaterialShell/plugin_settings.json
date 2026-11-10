@@ -6,9 +6,13 @@
   "bongoCat": {
     "enabled": true,
     "catColorMode": "classic",
-    "catSizePercent": 88,
+    "catSizePercent": 100,
     "catYOffset": 2,
-    "enableBlinking": true
+    "enableBlinking": true,
+    "catSkin": "classic",
+    "waitingTimeout": 6,
+    "soundEnabled": false,
+    "showMetrics": true
   },
   "quickCapture": {
     "enabled": true

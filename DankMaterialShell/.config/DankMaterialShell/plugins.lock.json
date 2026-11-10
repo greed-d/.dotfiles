@@ -2,8 +2,9 @@
   "lockfileVersion": 1,
   "plugins": {
     "bongoCat": {
-      "repo": "https://github.com/hthienloc/dms-bongo-cat",
-      "commit": "237b1a34b2fb8d90e4f4c8656af758c3d7dab638"
+      "repo": "https://github.com/hthienloc/dms-plugins",
+      "path": "bongoCat",
+      "commit": "7472e6152f8b1c2fadea9e48f597b47660480afb"
     },
     "dankBatteryAlerts": {
       "repo": "https://github.com/AvengeMedia/dms-plugins",
@@ -16,9 +17,9 @@
       "commit": "a55bb40da2f70640600a520ea05eac9c3540f1af"
     },
     "dankPomodoroTimer": {
-      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "repo": "https://github.com/duxlabs-dev/dux-plugins",
       "path": "DankPomodoroTimer",
-      "commit": "a55bb40da2f70640600a520ea05eac9c3540f1af"
+      "commit": "be0b733a4036e0d1e5b3a1f11933569e61719be3"
     },
     "emojiLauncher": {
       "repo": "https://github.com/devnullvoid/dms-emoji-launcher",
@@ -27,16 +28,16 @@
     "emojiPicker": {
       "repo": "https://github.com/hthienloc/dms-plugins",
       "path": "emojiPicker",
-      "commit": "d8a0878f0858a1e779c32165655066cbe9ee772d"
+      "commit": "7472e6152f8b1c2fadea9e48f597b47660480afb"
     },
     "quickCapture": {
       "repo": "https://github.com/hthienloc/dms-plugins",
       "path": "quickCapture",
-      "commit": "d8a0878f0858a1e779c32165655066cbe9ee772d"
+      "commit": "7472e6152f8b1c2fadea9e48f597b47660480afb"
     },
     "wallpaperCarousel": {
       "repo": "https://github.com/motor-dev/wallpaperCarousel",
-      "commit": "c08fbb92c39d4d778bb08e520cfd96e395594440"
+      "commit": "761ecd1b7f347beee9f17909f8334d987c935a1a"
     }
   }
 }
